@@ -1,0 +1,95 @@
+.s-main-window
+  position: relative
+  padding: 279px 0 68px
+  overflow: hidden
+
+.banners-slider-img
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 0
+  .swiper-container
+    height: 100%
+  .swiper-slide
+    height: 100%
+  .banners-slider-img-item
+    height: 100%
+    -webkit-background-size: cover
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+
+.main-window-content
+  display: flex
+  flex-direction: column
+  position: relative
+  z-index: 1
+
+  .container
+    position: relative
+
+.banners-slider
+  margin-left: auto
+  margin-right: 0
+  width: 33.33333%
+  overflow: visible
+  position: static
+  .swiper-container
+    overflow: visible
+  .swiper-slide-active
+    .banner-item
+      opacity: 1
+
+
+.main-window-logo
+  width: 66.66666%
+  padding-right: 30px
+  img
+    width: 100%
+    display: block
+
+.banner-item
+  padding-right: 20px
+  color: #fff
+  +tr4
+  opacity: 0
+  p
+    margin-bottom: 30px
+    font-size: 20px
+    line-height: 1.8
+  .btn
+    height: 42px
+    line-height: 40px
+    padding: 0 50px
+    &:not(:hover)
+      color: #fff
+
+.banner-item-title
+  font-size: 60px
+  font-weight: bold
+  margin-bottom: 30px
+  line-height: 1.167
+
+.banners-button-next,
+.banners-button-prev
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  color: #DEDBDB
+  width: 60px
+  height: 60px
+  border: 1px solid #DEDBDB
+  border-radius: 50%
+  font-size: 32px
+  z-index: 2
+
+.banners-button-next
+  right: 70px
+  bottom: 68px
+
+.banners-button-prev
+  bottom: 68px
+  right: 151px

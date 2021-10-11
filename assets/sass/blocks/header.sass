@@ -1,0 +1,374 @@
+.header
+  position: relative
+  padding: 40px 0 20px
+  &.header-absolute
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 5
+
+.header-row
+  display: flex
+  align-items: center
+
+.header-catalog
+  flex-grow: 1
+  width: 100%
+  position: relative
+
+  &.active
+    .header-catalog-block
+      max-width: 560px
+
+    .search-input
+      background-color: #F7F7F7
+
+.header-catalog-block
+  display: flex
+  align-items: center
+  background-color: #fff
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border-radius: 20px
+  max-width: 408px
+  position: relative
+  z-index: 6
+  transition: max-width .4s ease
+
+.header-catalog-btn
+  display: flex
+  align-items: center
+  height: 40px
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border-radius: 20px
+  background-color: #FF5D20
+  color: #fff
+  border: none
+  outline: none !important
+  padding: 0 16px
+  +tr
+  font-size: 16px
+  font-weight: 600
+  position: relative
+  z-index: 1
+
+  &:hover
+    background-color: #ff7b4a
+
+  &.active
+    span
+      &:after
+        opacity: 0
+        transform: scale(0)
+
+      &:before
+        opacity: 1
+        transform: scale(1)
+
+  span
+    font-size: 18px
+    margin-right: 11px
+    line-height: 1
+    width: 18px
+    height: 18px
+    position: relative
+
+    &:after,
+    &:before
+      font-family: icon
+      font-weight: normal
+      display: block
+      +tr
+      opacity: 0
+      transform: scale(0)
+      position: absolute
+      top: 0
+      left: 0
+
+    &:after
+      content: '\e902'
+      opacity: 1
+      transform: scale(1)
+
+    &:before
+      content: '\e904'
+
+.header-search
+  position: relative
+  flex-grow: 1
+
+  span
+    position: absolute
+    font-size: 20px
+    top: 9px
+    right: 18px
+    color: #9F9F9E
+    +tr
+
+  .icon-close
+    transform: scale(0)
+    opacity: 0
+    visibility: hidden
+
+.search-input
+  width: calc(100% + 32px)
+  margin-left: -32px
+  border: none
+  outline: none
+  height: 40px
+  padding: 0 50px 0 52px
+  -webkit-border-radius: 0 20px 20px 0
+  -moz-border-radius: 0 20px 20px 0
+  border-radius: 0 20px 20px 0
+  color: #404040
+  font-weight: 500
+  +tr4
+
+.header-logo
+  margin: 0 30px
+  display: flex
+
+.logo
+  img
+    display: block
+    width: 231px
+
+.header-account
+  flex-grow: 1
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: flex-end
+
+.header-location
+  margin-right: 25px
+  color: #7A7A7A
+
+  a
+    text-decoration: none !important
+    color: inherit !important
+
+.header-account-btns
+  display: flex
+  align-items: center
+
+.header-account-btn
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-shrink: 0
+  font-size: 24px
+  color: #000
+  text-decoration: none !important
+  +tr
+  margin-right: 20px
+
+  &:last-child
+    margin-right: 0
+
+  &:hover
+    color: $accent
+
+.catalog-dropdown
+  background-color: #fff
+  z-index: 5
+  width: 660px
+  position: absolute
+  top: -18px
+  left: -50px
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
+  padding: 101px 50px 46px
+  height: calc(100 * var(--vh) - 40px)
+  min-height: 400px
+  display: flex
+  flex-direction: column
+  opacity: 0
+  transform: scale(.9)
+  transform-origin: top left
+  visibility: hidden
+  +tr4
+
+  &.opened
+    opacity: 1
+    visibility: visible
+    transform: scale(1)
+
+.catalog-dropdown-content
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  padding-right: 10px
+  height: 100%
+  overflow-y: auto
+  +scrollbar
+
+.catalog-dropdown-tabs-nav
+  display: flex
+  align-items: center
+  margin-bottom: 50px
+
+  span
+    font-size: 24px
+    font-weight: bold
+    color: #7A7A7A
+    +tr
+    margin-right: 65px
+    cursor: pointer
+
+    &:last-child
+      margin-right: 0
+
+    &:hover,
+    &.active
+      color: #000
+
+.catalog-dropdown-products
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0 0 64px
+
+    li
+      margin-bottom: 15px
+
+      a
+        +tr
+        color: #000
+        font-size: 16px
+        font-weight: bold
+
+        &:hover
+          color: $accent
+
+      &:last-child
+        margin-bottom: 0
+
+.dropdown-footer
+  margin-top: auto
+
+.dropdown-footer
+  border-top: 1px solid #DEDBDB
+  padding-top: 27px
+
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+    column-count: 2
+
+    li
+      page-break-inside: avoid
+      break-inside: avoid
+      margin-bottom: 7px
+
+      &:last-child
+        margin-bottom: 0
+
+      a
+        color: #000
+        +tr
+
+        &:hover
+          color: $accent
+
+.brands-list
+  margin-bottom: 50px
+
+.brands-item
+  margin-bottom: 45px
+
+  &:last-child
+    margin-bottom: 0
+
+  img
+    max-width: 230px
+    max-height: 58px
+    object-fit: contain
+    filter: grayscale(1)
+
+.catalog-dropdown-content-tab
+  display: flex
+  flex-direction: column
+  height: 100%
+  flex-grow: 1
+
+.catalog-dropdown-tabs
+  margin-bottom: 40px
+
+.search-catalog
+  margin-bottom: 27px
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.search-catalog-item
+  display: flex
+  align-items: center
+  margin-bottom: 10px
+  font-weight: bold
+  font-size: 16px
+  +tr
+  color: #000
+
+  &:hover
+    color: $accent
+
+  &:last-child
+    margin-bottom: 0
+
+  img
+    width: 40px
+    flex-shrink: 0
+    margin-right: 35px
+
+.search-categories
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  margin-left: 75px
+
+.search-category-item
+  font-size: 16px
+  font-weight: bold
+  color: #000
+  +tr
+  margin-bottom: 15px
+
+  &:last-child
+    margin-bottom: 0
+
+  &:hover
+    color: $accent
+
+.search-details
+  margin-top: 40px
+  padding-top: 25px
+  padding-right: 50px
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  border-top: 1px solid #DEDBDB
+
+.search-details-item
+  display: flex
+  align-items: center
+  font-size: 14px
+  color: #000
+  line-height: 1.86
+  margin: 19px 0 31px
+  +tr
+
+  &:hover
+    color: $accent
+
+  &:last-child
+    margin-bottom: 0
+
+  img
+    margin-right: 30px
+    width: 45px
+    flex-shrink: 0

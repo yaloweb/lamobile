@@ -1,0 +1,65 @@
+body
+  background-color: #EEEFF3
+
+a
+  text-decoration: none
+
+.container
+  padding: 0 70px
+  max-width: 100%
+
+.btn
+  display: inline-block
+  position: relative
+  white-space: nowrap
+  border: none
+  outline: none !important
+  text-decoration: none !important
+  color: #fff
+  background-color: $accent
+  height: 50px
+  line-height: 50px
+  -webkit-border-radius: 25px
+  -moz-border-radius: 25px
+  border-radius: 25px
+  padding: 0 50px
+  font-weight: 500
+  font-size: 16px
+  +tr
+
+  &:hover
+    background-color: #ff7b4a
+    color: #fff
+
+  &:disabled
+    border-color: #DEDBDB !important
+    background-color: #DEDBDB !important
+    color: #7A7A7A !important
+
+.btn-sm
+  height: 40px
+  line-height: 40px
+  &.btn-border
+    line-height: 38px
+
+.btn-border
+  background-color: transparent
+  border: 1px solid $accent
+  line-height: 48px
+  color: #000
+  &:hover
+    background-color: transparent
+    color: $accent
+  &:active
+    color: #fff
+    background-color: $accent
+
+.tabs
+  &-enter-active
+    transition: opacity .4s ease
+  &-enter
+    opacity: 0
+  &-enter-to
+    opacity: 1
+  &-leave
+    display: none

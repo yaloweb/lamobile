@@ -1,0 +1,81 @@
+// USER VARIABLES SECTION
+
+$accent: #FF5D20
+// Accent Color
+$fontsize: 16px
+// Body Font Size
+$textcolor: #000
+// Text Color
+$lineheight: 1.65
+// Document Line Height
+$userfont: Manrope, sans-serif
+// User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif
+// System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap')
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss'
+@import "node_modules/swiper/css/swiper.css"
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+    @font-face
+        font-family: $fname
+        font-style: $fstyle
+        font-weight: $fweight
+        src: url($furl) format('woff2')
+
+@mixin tr()
+    transition: all .3s ease
+
+@mixin tr4()
+  transition: all .4s ease
+
+@mixin scrollbar()
+  &::-webkit-scrollbar
+    width: 6px
+    height: 6px
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    border-radius: 3px
+    background-color: #F6F6F6
+  &::-webkit-scrollbar-thumb
+    width: 6px
+    height: 6px
+    -webkit-border-radius: 3px
+    -moz-border-radius: 3px
+    border-radius: 3px
+    background-color: #C4C4C4
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+    color: #666
+
+::selection
+    background-color: $accent
+    color: #fff
+
+input, textarea
+    outline: none
+
+    &:focus:required:invalid
+        border-color: red
+
+    &:required:valid
+        border-color: green
+
+body
+    font-family: $userfont
+    font-size: $fontsize
+    line-height: $lineheight
+    color: $textcolor
+    min-width: 320px
+    position: relative
+    overflow-x: hidden
+    font-weight: 500
