@@ -1,5 +1,9 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  server: {
+    port: 8080,
+    host: '0.0.0.0'
+  },
   head: {
     title: 'lamobile',
     htmlAttrs: {
@@ -21,8 +25,15 @@ export default {
     '@/assets/sass/main.sass'
   ],
 
+  // loading: {
+  //   color: '#FD5C2D',
+  //   height: '3px'
+  // },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/filters.js',
+    '~plugins/directives.js',
     {
       src: '~plugins/custom-scripts.js',
       ssr: false
@@ -41,15 +52,28 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL
+    baseURL: process.env.API_URL,
+    proxyHeaders: false,
+    credentials: false
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  proxy: {
+    '/lamobile': {
+      target: 'https://api.bikstart.ru',
+      pathRewrite: {
+        '^/lamobile': '/lamobile',
+        changeOrigin: true
+      }
+    }
   }
 }

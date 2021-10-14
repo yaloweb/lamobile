@@ -1,6 +1,7 @@
 .header
   position: relative
   padding: 40px 0 20px
+
   &.header-absolute
     position: absolute
     top: 0
@@ -36,68 +37,80 @@
   z-index: 6
   transition: max-width .4s ease
 
-.header-catalog-btn
-  display: flex
-  align-items: center
-  height: 40px
-  -webkit-border-radius: 20px
-  -moz-border-radius: 20px
-  border-radius: 20px
-  background-color: #FF5D20
-  color: #fff
-  border: none
-  outline: none !important
-  padding: 0 16px
-  +tr
-  font-size: 16px
-  font-weight: 600
-  position: relative
-  z-index: 1
+@media (min-width: 992px)
+  .header-catalog-btn
+    display: flex
+    align-items: center
+    height: 40px
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border-radius: 20px
+    background-color: #FF5D20
+    color: #fff
+    border: none
+    outline: none !important
+    padding: 0 16px
+    +tr
+    font-size: 16px
+    font-weight: 600
+    position: relative
+    z-index: 1
 
-  &:hover
-    background-color: #ff7b4a
+    &:hover
+      background-color: #ff7b4a
 
-  &.active
+    &.active
+      span
+        &:after
+          opacity: 0
+          transform: scale(0)
+
+        &:before
+          opacity: 1
+          transform: scale(1)
+
     span
-      &:after
+      font-size: 18px
+      margin-right: 11px
+      line-height: 1
+      width: 18px
+      height: 18px
+      position: relative
+
+      &:after,
+      &:before
+        font-family: icon
+        font-weight: normal
+        display: block
+        +tr
         opacity: 0
         transform: scale(0)
+        position: absolute
+        top: 0
+        left: 0
 
-      &:before
+      &:after
+        content: '\e902'
         opacity: 1
         transform: scale(1)
 
-  span
-    font-size: 18px
-    margin-right: 11px
-    line-height: 1
-    width: 18px
-    height: 18px
-    position: relative
-
-    &:after,
-    &:before
-      font-family: icon
-      font-weight: normal
-      display: block
-      +tr
-      opacity: 0
-      transform: scale(0)
-      position: absolute
-      top: 0
-      left: 0
-
-    &:after
-      content: '\e902'
-      opacity: 1
-      transform: scale(1)
-
-    &:before
-      content: '\e904'
+      &:before
+        content: '\e904'
 
 .header-search
   position: relative
   flex-grow: 1
+
+  &.active
+    .icon-search
+      transform: scale(0)
+      opacity: 0
+      visibility: hidden
+
+    .icon-close
+      transform: scale(1)
+      opacity: 1
+      visibility: visible
 
   span
     position: absolute
@@ -111,6 +124,9 @@
     transform: scale(0)
     opacity: 0
     visibility: hidden
+    font-size: 15px
+    top: 12px
+    cursor: pointer
 
 .search-input
   width: calc(100% + 32px)
@@ -204,6 +220,7 @@
   padding-right: 10px
   height: 100%
   overflow-y: auto
+  position: relative
   +scrollbar
 
 .catalog-dropdown-tabs-nav

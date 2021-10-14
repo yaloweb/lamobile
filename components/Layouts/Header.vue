@@ -10,7 +10,7 @@
         <div
           class="header-catalog"
           ref="headerCatalog"
-          :class="{'active': catalog || search}">
+          :class="{'active': catalog}">
 
           <div class="header-catalog-block">
 
@@ -19,20 +19,49 @@
               :class="{'active': catalog && this.activeTab === 1}"
               @click="toggleCatalog"><span></span>Каталог</button>
 
-            <div class="header-search">
+            <div
+              class="header-search"
+              :class="{'active': catalog && this.activeTab === 2}">
               <input
                 type="text"
                 class="search-input"
-                @focus="openSearch">
-              <span class="icon-search"></span>
-              <span class="icon-close"></span>
+                v-model="search"
+                @input="searchHandler">
+              <span class="icon-search" />
+              <span
+                class="icon-close"
+                @click="closeSearch"/>
             </div>
 
           </div>
 
           <div
             class="catalog-dropdown"
-            :class="{'opened': catalog}">
+            :class="{'opened': catalog}"
+            v-loading="searchLoading">
+
+            <div class="catalog-dropdown-close">
+              <span
+                class="icon-close"
+                @click="closeCatalog" />
+            </div>
+
+            <form class="mob-search-form">
+              <div
+                class="header-search"
+                :class="{'active': catalog && this.activeTab === 2}">
+                <input
+                  type="text"
+                  class="search-input"
+                  v-model="search"
+                  @input="searchHandler">
+                <span class="icon-search" />
+                <span
+                  class="icon-close"
+                  @click="closeSearch"/>
+              </div>
+            </form>
+
             <div class="catalog-dropdown-content">
 
               <transition name="tabs">
@@ -59,15 +88,17 @@
 
                         <div class="catalog-dropdown-products">
                           <ul>
-                            <li><a href="#">Роботы-пылесосы</a></li>
-                            <li><a href="#">Аксессуары для роботов-пылесосов</a></li>
-                            <li><a href="#">Свет</a></li>
-                            <li><a href="#">Климат</a></li>
-                            <li><a href="#">Внешние аккумуляторы</a></li>
-                            <li><a href="#">Аксессуары в авто</a></li>
-                            <li><a href="#">Беговые дорожки</a></li>
+                            <li
+                              v-for="link in global.header.catalogMenu"
+                              :key="link.id">
+                              <nuxt-link :to="link.url">
+                                {{ link.title }}
+                              </nuxt-link>
+                            </li>
                           </ul>
-                          <a href="#" class="btn btn-sm btn-border">Все товары</a>
+                          <nuxt-link
+                            to="/catalog"
+                            class="btn btn-sm btn-border">Все товары</nuxt-link>
                         </div>
 
                       </div>
@@ -81,21 +112,19 @@
                         <div class="brands">
 
                           <div class="brands-list">
-                            <div class="brands-item">
-                              <img src="~/assets/img/brands/1.png" alt="">
-                            </div>
-                            <div class="brands-item">
-                              <img src="~/assets/img/brands/2.png" alt="">
-                            </div>
-                            <div class="brands-item">
-                              <img src="~/assets/img/brands/3.png" alt="">
-                            </div>
-                            <div class="brands-item">
-                              <img src="~/assets/img/brands/4.jpg" alt="">
+                            <div
+                              v-for="brand in global.header.brands"
+                              :key="brand.id"
+                              class="brands-item">
+                              <img
+                                :src="brand.imgSrc"
+                                alt="">
                             </div>
                           </div>
 
-                          <a href="#" class="btn btn-sm btn-border">Все товары</a>
+                          <nuxt-link
+                            to="/catalog"
+                            class="btn btn-sm btn-border">Все товары</nuxt-link>
 
                         </div>
 
@@ -106,13 +135,13 @@
 
                   <div class="dropdown-footer">
                     <ul>
-                      <li><a href="#">Журнал</a></li>
-                      <li><a href="#">О нас</a></li>
-                      <li><a href="#">Гарантии</a></li>
-                      <li><a href="#">Оплата и доставка</a></li>
-                      <li><a href="#">Условия продажи</a></li>
-                      <li><a href="#">Обмен и возврат</a></li>
-                      <li><a href="#">Контакты</a></li>
+                      <li
+                        v-for="link in global.header.dropdownFooterMenu"
+                        :key="link.id">
+                        <nuxt-link :to="link.url">
+                          {{ link.title }}
+                        </nuxt-link>
+                      </li>
                     </ul>
                   </div>
 
@@ -129,73 +158,41 @@
                   <div class="search-results-main">
 
                     <div class="search-catalog">
-                      <a href="#" class="search-catalog-item">
-                        <img src="~/assets/img/brands/5.jpg" alt="">
-                        <span>Пылесосы Mi</span>
-                      </a>
-                      <a href="#" class="search-catalog-item">
-                        <img src="~/assets/img/brands/6.jpg" alt="">
-                        <span>Пылесосы Roborock</span>
-                      </a>
+
+                      <nuxt-link
+                        v-for="link in searchResults.products"
+                        :key="link.id"
+                        :to="link.url"
+                        class="search-catalog-item">
+                        <img
+                          :src="link.imgSrc"
+                          alt="">
+                        <span>{{ link.title }}</span>
+                      </nuxt-link>
                     </div>
 
                     <div class="search-categories">
-                      <a href="#" class="search-category-item">Роботы-пылесосы</a>
-                      <a href="#" class="search-category-item">Вертикальные пылесосы</a>
-                      <a href="#" class="search-category-item">Запчасти для пылесосов</a>
+                      <nuxt-link
+                        v-for="link in searchResults.categories"
+                        :key="link.id"
+                        :to="link.url"
+                        class="search-category-item">
+                        {{ link.title }}
+                      </nuxt-link>
                     </div>
 
                     <div class="search-details">
 
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
-
-                      <a href="#" class="search-details-item">
-                        <img src="~/assets/img/products-thumb/1.png" alt="">
-                        <span>Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6</span>
-                      </a>
+                      <nuxt-link
+                        v-for="link in searchResults.accessories"
+                        :key="link.id"
+                        :to="link.url"
+                        class="search-details-item">
+                        <img
+                          :src="link.imgSrc"
+                          alt="">
+                        <span>{{ link.title }}</span>
+                      </nuxt-link>
 
                     </div>
 
@@ -213,14 +210,14 @@
         <div
           v-if="logo"
           class="header-logo">
-          <a href="/" class="logo">
-            <img src="~/assets/img/logo.svg" alt="">
-          </a>
+          <nuxt-link to="/" class="logo">
+            <img :src="global.logoSrc" alt="">
+          </nuxt-link>
         </div>
 
         <div class="header-account">
 
-          <div class="header-location">Москва <a href="tel:+7 495 003 2233">+7 495 003 2233</a></div>
+          <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>
 
           <div class="header-account-btns">
             <a href="#" class="header-account-btn">
@@ -258,17 +255,24 @@ export default {
   },
   computed: {
     ...mapState({
-      global: state => state.global.global
+      global: state => state.global,
+      searchResults: state => state.search.results
     })
   },
   data: () => ({
     activeTab: 1,
     activeCatalogTab: 1,
-    catalog: false
+    catalog: false,
+    search: '',
+    searchLoading: false,
+    searchLoadingPromise: ''
   }),
   methods: {
     toggleCatalog () {
       if (this.catalog && this.activeTab === 2) {
+        this.activeTab = 1
+      } else if (!this.catalog && this.activeTab === 2) {
+        this.catalog = true
         this.activeTab = 1
       } else {
         this.catalog = !this.catalog
@@ -282,7 +286,23 @@ export default {
       this.activeTab = 2
     },
     closeSearch () {
-      this.search = false
+      if (window.innerWidth < 992) {
+        this.activeTab = 1
+      } else {
+        this.catalog = false
+      }
+      this.search = ''
+    },
+    searchHandler () {
+      if (this.search.length > 1) {
+        this.$store.dispatch('search/getSearchResults').then(() => {
+          this.openSearch()
+          if (this.searchLoading) {
+            this.searchLoading = false
+          }
+        })
+        this.searchLoading = true
+      }
     }
   },
   mounted () {

@@ -1,0 +1,101 @@
+.categories-row
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -25px
+
+.categories-col
+
+  &:first-child
+    .categories-item
+      &:nth-child(2)
+        -webkit-border-radius: 20px
+        -moz-border-radius: 20px
+        border-radius: 20px
+
+  &:nth-child(odd)
+    .categories-item
+      &:nth-child(even)
+        height: 688px
+
+  &:nth-child(even)
+    .categories-item
+      &:nth-child(odd)
+        height: 688px
+
+.categories-item
+  margin-bottom: 50px
+  position: relative
+  overflow: hidden
+  height: 420px
+  -webkit-mask-image: -webkit-radial-gradient(white, black)
+  transform: translateZ(0)
+
+  a
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 2
+
+  &:hover
+    .categories-item-img
+      img
+        transform: scale(1.1)
+    .categories-item-title
+      transform: translateY(0) !important
+    .categories-item-descr
+      transform: translateY(0)
+      opacity: 1
+
+.categories-item-img
+  position: absolute
+  z-index: 0
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(#000, .1)
+
+  img
+    object-fit: cover
+    +tr4
+    display: block
+    width: 100%
+    height: 100%
+
+.categories-item-content
+  position: relative
+  z-index: 1
+  height: 100%
+  display: flex
+  flex-direction: column
+  padding: 28px 30px 30px
+  color: #fff
+  text-align: center
+
+.categories-item-tag
+  margin-bottom: 30px
+
+.categories-item-text
+  margin-top: auto
+
+.categories-item-title
+  font-weight: bold
+  font-size: 24px
+  margin-top: auto
+  +tr4
+
+.categories-item-descr
+  margin-top: 20px
+  transform: translateY(100%)
+  opacity: 0
+  +tr4
