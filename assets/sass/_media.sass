@@ -26,6 +26,58 @@
     margin-bottom: 30px
   .catalog-dropdown
     width: calc(100% + 100px)
+  .catalog-filter
+    padding-left: 30px
+    padding-right: 20px
+  .brand-label
+    font-size: 14px
+    padding-right: 20px
+
+    &:after
+      height: 34px
+      margin-top: -17px
+      right: -14px
+      left: -14px
+
+  .select-categories-item
+    margin-bottom: 12px
+
+  .filter-checkbox
+    span
+      padding-left: 30px
+      font-size: 14px
+
+      &:after
+        width: 20px
+        height: 20px
+        top: 2px
+
+      &:before
+        top: 8px
+        left: 6px
+        width: 8px
+        height: 8px
+
+  .select-subcategories
+    margin: 15px 0 25px 30px
+
+  .open-filter-btn
+    height: 50px
+    padding: 0 20px
+    font-size: 14px
+    bottom: 40px
+
+    &.absolute
+      bottom: 70px
+
+    span
+      font-size: 24px
+      margin-right: 15px
+
+  .catalog-list
+    .product-item
+      margin-bottom: 30px
+      height: calc(100% - 30px)
 
 @media (max-width: 1439.98px)
   body
@@ -134,6 +186,11 @@
   .categories-item
     margin-bottom: 20px
 
+  .catalog-list
+    .product-item
+      margin-bottom: 20px
+      height: calc(100% - 20px)
+
 @media (max-width: 1199.98px)
   .logo
     img
@@ -165,8 +222,52 @@
       width: 33.33333%
   .footer-bottom
     margin-top: 30px
+  .catalog-filter
+    position: fixed
+    top: 0
+    left: 0
+    width: 300px
+    height: 100%
+    z-index: 10
+    padding-top: 20px
+    padding-bottom: 30px
+    overflow-y: auto
+    +scrollbar
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%)
+    display: block !important
+    +tr4
+    transform: translateX(-120%)
+
+    &.opened
+      transform: translateX(0)
+
+    .h4
+      font-size: 18px
+      margin-bottom: 15px
+  .catalog-filter-title
+    display: block
+  .catalog-filter-close
+    position: absolute
+    top: 26px
+    right: 20px
+    z-index: 1
+    display: block
+  .catalog
+    & > .row
+      & > *
+        width: 100%
+  .catalog-list
+    .row
+      & > *
+        width: 33.333333%
+  .open-filter-btn
+    &.active
+      opacity: 0
+      visibility: hidden
 
 @media (max-width: 991.98px)
+  h1, .h1
+    font-size: 44px
   .header
     padding: 21px 0
   .header-catalog
@@ -201,6 +302,7 @@
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
+
     span
       font-size: 15px
       line-height: 1
@@ -243,6 +345,7 @@
   .banner-item
     padding-right: 0
     text-align: center
+
     > *
       max-width: 320px
       margin-left: auto
@@ -271,11 +374,13 @@
     padding-left: 15px
   .categories-col
     width: 50%
+
     &:last-child
       display: flex
       flex-wrap: wrap
       margin: 0 -10px
       width: calc(100% + 20px)
+
       .categories-item
         height: 270px !important
         width: calc(50% - 20px)
@@ -291,6 +396,7 @@
     padding: 50px 0 20px
   .footer-bottom
     flex-wrap: wrap
+
     > div
       width: 100%
   .footer-bottom-right
@@ -299,6 +405,12 @@
     display: flex
   .mob-search-form
     display: flex
+  .catalog-list
+    .row
+      & > *
+        width: 50%
+  .page-title
+    margin-bottom: 30px
 
 @media (max-width: 767.98px)
   .container
@@ -308,10 +420,13 @@
     display: none
 
 @media (max-width: 575.98px)
+  h1, .h1
+    font-size: 20px
   .header
     padding-bottom: 30px
   .header-location
     margin-right: 3px
+
     a
       &:after
         font-size: 18px
@@ -331,10 +446,12 @@
     flex-direction: column
   .main-window-content
     flex-grow: 1
+
     .container
       flex-grow: 1
   .banners-slider
     margin-top: auto
+
     .swiper-slide
       display: flex
       flex-direction: column
@@ -346,6 +463,7 @@
   .banner-item
     p
       font-size: 14px
+
     .btn
       min-width: 191px
   .brands-row
@@ -374,6 +492,7 @@
     height: 100%
     padding: 17px 50px 17px 20px
     text-align: left
+
     &:after
       content: '\e908'
       font-family: icon
@@ -397,6 +516,7 @@
   .categories-col:last-child
     width: 100% !important
     margin: 0
+
     .categories-item
       height: auto !important
       width: 100% !important
@@ -417,9 +537,11 @@
     padding-bottom: 30px
   .footer-contacts
     text-align: center
+
     .h3, h3
       margin-bottom: 10px
       font-size: 18px
+
     p
       margin-bottom: 25px
   .subscribes-form-input
@@ -445,6 +567,7 @@
     width: 100%
     text-align: center
     margin: 15px 0 25px
+
     img
       width: 50px
   .soc-nav
@@ -454,10 +577,12 @@
     text-align: center
     margin-left: -16px
     margin-right: -16px
+
     span
       order: -1
       margin-bottom: 10px
       width: 100%
+
     a
       margin: 0 16px
   .footer-bottom
@@ -469,6 +594,7 @@
     width: calc(100% + 34px)
     margin: 0 -17px 40px
     justify-content: center
+
     img
       max-width: 53px
       max-height: 15px
@@ -482,3 +608,20 @@
     font-size: 12px
   .footer-copyright
     margin: 0 0 6px
+  .breadcrumbs
+    margin: 0 0 13px
+  .page-title
+    margin-bottom: 20px
+  .catalog-list .row > *
+    width: 100%
+  .open-filter-btn
+    height: 40px
+    border-radius: 20px
+    padding: 0 19px
+    font-size: 12px
+    bottom: 20px
+    &.absolute
+      bottom: 40px
+    span
+      font-size: 19px
+      margin-right: 12px

@@ -6,6 +6,8 @@
   -moz-border-radius: 20px
   border-radius: 20px
   padding: 45px 32px 40px
+  display: flex
+  flex-direction: column
 
 .product-item-tag
   position: absolute
@@ -24,6 +26,7 @@
   position: relative
   padding-bottom: 100%
   z-index: 0
+  margin-bottom: auto
 
   img
     position: absolute
@@ -72,3 +75,11 @@
 
 .products-slider-button-next
   right: -30px
+
+.catalog-list
+  .product-item
+    height: calc(100% - 50px)
+    margin-bottom: 50px
+
+.catalog
+  position: relative

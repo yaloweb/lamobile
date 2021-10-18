@@ -1,14 +1,14 @@
 <template>
 
-  <div class="catalog-page">
-    123321
+  <div class="container">
+    Каталог
   </div>
 
 </template>
 
 <script>
 export default {
-  name: 'catalog'
+  name: 'index'
 }
 </script>
 

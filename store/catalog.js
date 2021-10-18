@@ -1,6 +1,7 @@
 export const state = () => ({
   categories: [],
-  sliderProducts: []
+  sliderProducts: [],
+  catalog: []
 })
 
 export const mutations = {
@@ -15,6 +16,9 @@ export const mutations = {
   },
   setSliderProducts (state, array) {
     state.sliderProducts = array
+  },
+  setCatalog (state, array) {
+    state.catalog = array
   }
 }
 
@@ -26,5 +30,9 @@ export const actions = {
   async getSliderProducts ({ commit }) {
     const res = await this.$axios.get('/product-slider-list.json')
     commit('setSliderProducts', res.data)
+  },
+  async getCatalog ({ commit }) {
+    const res = await this.$axios.get('/catalog.json')
+    commit('setCatalog', res.data)
   }
 }
