@@ -77,7 +77,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Banners',
+  name: 'SliderBanners',
   components: {
     Swiper,
     SwiperSlide
@@ -87,7 +87,7 @@ export default {
   },
   computed: {
     ...mapState({
-      logo: state => state.global.logoBigSrc
+      logo: state => state.global.logoLightSrc
     }),
     bannersImgSwiper () {
       return this.$refs.bannersImgSwiper.$swiper

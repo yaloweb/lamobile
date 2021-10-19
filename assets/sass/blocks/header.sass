@@ -9,6 +9,13 @@
     width: 100%
     z-index: 5
 
+  &.light
+    .header-location
+      color: #DEDBDB
+
+    .header-account-btn
+      color: #fff
+
 .header-row
   display: flex
   align-items: center
@@ -187,7 +194,7 @@
     margin-right: 0
 
   &:hover
-    color: $accent
+    color: $accent !important
 
 .catalog-dropdown
   background-color: #fff
@@ -298,6 +305,11 @@
 .brands-item
   margin-bottom: 45px
 
+  &:hover
+    img
+      filter: grayscale(0)
+
+
   &:last-child
     margin-bottom: 0
 
@@ -306,6 +318,7 @@
     max-height: 58px
     object-fit: contain
     filter: grayscale(1)
+    +tr
 
 .catalog-dropdown-content-tab
   display: flex

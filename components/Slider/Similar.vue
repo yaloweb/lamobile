@@ -1,18 +1,18 @@
 <template>
-  <div class="products-slider">
+  <div class="similar-slider products-slider">
 
     <swiper :options="swiperOptions">
 
       <swiper-slide
         v-for="slide in list"
         :key="slide.id">
-        <CatalogItem :item="slide" />
+        <CatalogCategory :item="slide"/>
       </swiper-slide>
 
     </swiper>
 
-    <div class="products-slider-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
-    <div class="products-slider-button-next slider-next"><span class="icon-arrow-right"></span></div>
+    <div class="similar-prev products-slider-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
+    <div class="similar-next products-slider-button-next slider-next"><span class="icon-arrow-right"></span></div>
 
   </div>
 </template>
@@ -22,7 +22,7 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
-  name: 'ProductsSlider',
+  name: 'SliderSimilar',
   components: {
     Swiper,
     SwiperSlide
@@ -32,10 +32,9 @@ export default {
   },
   data: () => ({
     swiperOptions: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 50,
       speed: 600,
-      parallax: true,
       breakpoints: {
         0: {
           spaceBetween: 20,
@@ -48,15 +47,15 @@ export default {
           slidesPerView: 3
         },
         1200: {
-          slidesPerView: 4
+          slidesPerView: 3
         },
         1600: {
-          spaceBetween: 40
+          spaceBetween: 50
         }
       },
       navigation: {
-        nextEl: '.products-slider-button-next',
-        prevEl: '.products-slider-button-prev'
+        nextEl: '.similar-next',
+        prevEl: '.similar-prev'
       }
     }
   })

@@ -152,9 +152,8 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
-    if (this.$store.state.catalog.catalog.length === 0) {
-      await this.$store.dispatch('catalog/getCatalog')
-    }
+    const symbol = this.$route.params.symbol
+    await this.$store.dispatch('catalog/getCatalog', symbol)
   },
   name: 'catalogCategory',
   computed: {

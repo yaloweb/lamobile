@@ -2,7 +2,7 @@
 
   <header
     class="header"
-    :class="{'header-absolute': positionAbsolute}">
+    :class="{'header-absolute': positionAbsolute, 'light': light}">
     <div class="container">
 
       <div class="header-row">
@@ -116,9 +116,11 @@
                               v-for="brand in global.header.brands"
                               :key="brand.id"
                               class="brands-item">
-                              <img
-                                :src="brand.imgSrc"
-                                alt="">
+                              <nuxt-link :to="brand.url">
+                                <img
+                                  :src="brand.imgSrc"
+                                  alt="">
+                              </nuxt-link>
                             </div>
                           </div>
 
@@ -211,7 +213,7 @@
           v-if="logo"
           class="header-logo">
           <nuxt-link to="/" class="logo">
-            <img :src="global.logoSrc" alt="">
+            <img :src="light ? global.logoLightSrc : global.logoSrc" alt="">
           </nuxt-link>
         </div>
 
@@ -242,13 +244,17 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Header',
+  name: 'LayoutsHeader',
   props: {
     logo: {
       type: Boolean,
       default: true
     },
     positionAbsolute: {
+      type: Boolean,
+      default: false
+    },
+    light: {
       type: Boolean,
       default: false
     }

@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'Breadcrumbs'
+  name: 'UIBreadcrumbs'
 }
 </script>
 

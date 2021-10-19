@@ -36,7 +36,7 @@ export default {
       brands: state => state.brands.brands
     })
   },
-  name: 'Brands'
+  name: 'SectionBrands'
 }
 </script>
 

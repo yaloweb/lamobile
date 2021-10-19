@@ -107,7 +107,7 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Footer',
+  name: 'LayoutsFooter',
   computed: {
     ...mapState({
       global: state => state.global

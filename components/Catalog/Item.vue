@@ -1,16 +1,23 @@
 <template>
 
-  <div class="product-item">
+  <div
+    class="product-item"
+    :class="{'disabled': item.inStock === false}">
 
     <div
       v-if="item.tag"
       class="product-item-tag"
       :class="item.tag.color">
-      {{item.tag.title}}
+      <template v-if="item.inStock === false">
+        <a href="#" class="goods-arrival-link">Узнать о поступлении ></a>
+      </template>
+      <template v-else>
+        {{item.tag.title}}
+      </template>
     </div>
 
     <div class="product-item-img">
-      <a :href="item.url">
+      <a :href="item.inStock === false ? false : item.url">
         <img
           :src="item.imgSrc"
           alt="">
@@ -20,7 +27,7 @@
     <div class="product-item-text">
 
       <div class="product-item-title">
-        <a :href="item.url">
+        <a :href="item.inStock === false ? false : item.url">
           {{ item.title }}
         </a>
       </div>
@@ -37,7 +44,7 @@
 
 <script>
 export default {
-  name: 'Item',
+  name: 'CatalogItem',
   props: {
     item: Object
   }
