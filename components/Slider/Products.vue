@@ -42,13 +42,16 @@ export default {
           slidesPerView: 1
         },
         576: {
-          slidesPerView: 2
+          slidesPerView: 2,
+          spaceBetween: 20
         },
         992: {
-          slidesPerView: 3
+          slidesPerView: 3,
+          spaceBetween: 20
         },
         1200: {
-          slidesPerView: 4
+          slidesPerView: 4,
+          spaceBetween: 20
         },
         1600: {
           spaceBetween: 40
