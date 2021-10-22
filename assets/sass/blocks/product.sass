@@ -1,22 +1,53 @@
 .s-product
-  padding: 38px 0 53px
+  padding: 38px 0 58px
 
 .product-main
-  margin-bottom: 58px
   display: grid
   grid-template-columns: 1fr 1fr
   grid-gap: 49px
 
 .product-main-img
-  display: flex
-  align-items: center
-  background-color: #fff
+  display: grid
+  position: relative
+  padding-bottom: 100%
+
+  .swiper-container
+    position: absolute
+    height: 100%
+    width: 100%
+
+  .swiper-slide
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 25px
+
+    .product-main-img-container
+      &:first-child:last-child
+        grid-column: span 2
+        padding-bottom: calc(50% - 12.5px)
+        padding-top: 0
+
+  &.only-one
+    .product-main-img-container
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
+.product-main-img-slider
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 
 .product-main-img-container
   position: relative
-  padding-bottom: 100%
+  padding: 50% 0
   width: 100%
   flex-shrink: 0
+  background-color: #fff
 
   img
     position: absolute
@@ -24,8 +55,8 @@
     transform: translateY(-50%)
     left: 0
     width: 100%
-    max-height: 100%
-    object-fit: contain
+    height: 100%
+    object-fit: cover
     opacity: 0
     +tr
     visibility: hidden
@@ -33,6 +64,33 @@
     &.visible
       opacity: 1
       visibility: visible
+
+.product-img-nav-prev
+  position: absolute
+  left: 50%
+  z-index: 2
+  margin-left: -35px
+  top: 17px
+  transform: rotate(90deg)
+  +tr
+
+  &.swiper-button-disabled
+    opacity: 0
+    visibility: hidden
+
+.product-img-nav-next
+  position: absolute
+  left: 50%
+  z-index: 2
+  margin-left: -35px
+  bottom: 17px
+  transform: rotate(90deg)
+  +tr
+
+  &.swiper-button-disabled
+    opacity: 0
+    visibility: hidden
+
 
 .product-main-info
   background-color: #fff
@@ -171,7 +229,7 @@
     object-fit: contain
 
 .s-products-features
-  padding-top: 56px
+  padding: 40px 0 52px
 
   .small-container
     width: 1170px
@@ -183,7 +241,7 @@
     margin-bottom: 25px
 
 .products-features
-  margin-bottom: 60px
+  margin-bottom: 55px
 
   ul
     padding: 0
@@ -204,8 +262,9 @@
 
       span
         &:first-child
-          min-width: 270px
-          margin-right: 30px
+          width: 50%
+          flex-shrink: 0
+          margin-right: 20px
 
         &:last-child
           color: #000
@@ -227,3 +286,99 @@
 .s-similar
   padding: 65px 0 40px
   overflow: hidden
+
+.similar-slider
+  .categories-item
+    margin-bottom: 0
+
+.images-length-4
+  grid-template-columns: 1fr 1fr
+  grid-gap: 25px
+
+.s-product-advantages
+  padding-bottom: 60px
+
+.advantages
+  display: grid
+  grid-gap: 50px
+  grid-template-columns: 1fr 1fr
+
+.advantages-item
+  min-height: 50vw
+  padding: 82px 102px
+  position: relative
+  overflow: hidden
+
+  &:hover
+    .advantages-item-img
+      img
+        transform: scale(1.05)
+
+  &:nth-child(3n-2)
+    grid-column: span 2
+
+    .advantages-item-content
+      max-width: 610px
+
+.advantages-item-img
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    +tr
+
+
+.advantages-item-content
+  color: #fff
+  max-width: 461px
+  position: relative
+  z-index: 1
+
+  .h2
+    font-size: 40px
+    margin-bottom: 15px
+    font-weight: 600
+
+  p
+    font-size: 18px
+
+.product-description
+  margin-bottom: 50px
+  padding-bottom: 60px
+  border-bottom: 1px solid #DEDBDB
+
+  .h3
+    margin-bottom: 30px
+
+.product-description-content
+  p
+    margin-bottom: 2rem
+
+  > *
+    &:last-child
+      margin-bottom: 0
+
+.product-set
+  margin-bottom: 60px
+  padding-top: 50px
+  margin-top: 40px
+  border-top: 1px solid #DEDBDB
+
+.set-list
+  list-style-type: none
+  padding: 0
+  margin: 0
+  column-count: 3
+  margin-bottom: 30px
+
+  li
+    page-break-inside: avoid
+    break-inside: avoid
+    margin-bottom: 15px
+    margin-right: 30px

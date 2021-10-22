@@ -38,7 +38,7 @@ export default {
       parallax: true,
       breakpoints: {
         0: {
-          spaceBetween: 20,
+          spaceBetween: 10,
           slidesPerView: 1
         },
         576: {

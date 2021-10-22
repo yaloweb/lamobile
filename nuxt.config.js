@@ -65,15 +65,5 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  },
-
-  proxy: {
-    '/lamobile': {
-      target: 'https://api.bikstart.ru',
-      pathRewrite: {
-        '^/lamobile': '/lamobile',
-        changeOrigin: true
-      }
-    }
   }
 }

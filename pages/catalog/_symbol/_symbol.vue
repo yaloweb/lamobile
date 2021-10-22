@@ -1,4 +1,5 @@
 <template>
+
   <div class="product-page">
 
     <UIBreadcrumbs/>
@@ -8,60 +9,89 @@
 
         <div class="product-main">
 
-          <div class="product-main-img">
-            <div class="product-main-img-container">
+          <ProductInfoImages :selectedColor="selectedColor"/>
+
+          <ProductInfoMain
+            :selectedColor="selectedColor"
+            @select-color="selectedColor = $event"/>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section
+      v-if="advantages ? advantages.length > 0 : false"
+      class="s-product-advantages">
+      <div class="container">
+
+        <div class="advantages">
+
+          <div
+            v-for="advantage in advantages"
+            :key="advantage.id"
+            class="advantages-item">
+            <div class="advantages-item-img">
               <img
-                v-for="img in productImages"
-                :key="img.id"
-                :class="{'visible': img.color === selectedColor}"
-                :src="img.imgSrc"
+                :src="advantage.imgSrc"
                 alt="">
+            </div>
+            <div class="advantages-item-content">
+              <div
+                class="h2"
+                v-html="advantage.title"/>
+              <p v-html="advantage.descr"/>
             </div>
           </div>
 
-          <div class="product-main-info">
+        </div>
 
-            <div class="product-main-info-content">
+      </div>
+    </section>
 
-              <div class="product-main-id">ID товара: {{ productId }}</div>
+    <section class="s-products-features">
 
-              <div class="product-title">
-                <h1 v-html="title"/>
-              </div>
+      <div class="container">
+        <div class="small-container">
 
-              <div class="product-colors">
-                <div class="product-colors-block">
-                  <span
-                    v-for="color in colors"
-                    :key="color.id"
-                    :style="{backgroundColor: color.background}"
-                    :class="{'active': color.id === selectedColor}"
-                    @click="selectedColor = color.id"/>
-                </div>
-              </div>
+          <div
+            v-if="description ? description.length > 0 : false"
+            class="product-description">
 
-              <div class="product-buy">
-                <button class="btn btn-border">Купить от {{ price | priceFilter }} ₽</button>
-              </div>
+            <div class="h3">Описание</div>
 
-            </div>
+            <div
+              class="product-description-content"
+              v-html="description"/>
 
-            <div class="product-gifts">
+          </div>
 
-              <div class="product-gifts-left">
-                <div class="h3">Подарок</div>
-                <p v-html="giftsDescr"/>
-              </div>
+          <div class="product-features">
 
-              <div class="product-gifts-right">
-                <div class="gifst-list">
+            <div class="h3">Характеристики</div>
+
+            <div class="row">
+
+              <div
+                v-for="(feature, index) in features"
+                :key="feature.id"
+                class="col-6">
+                <div
+                  ref="productsFeatures"
+                  class="products-features">
                   <div
-                    v-for="gift in gifts"
-                    :key="gift.id"
-                    class="gift-item">
-                    <img
-                      :src="gift.imgSrc"
-                      alt="">
+                    class="h5"
+                    :class="{'active': index === 0}"
+                    @click="openFeature">{{ feature.title }} <span @click.stop /></div>
+                  <div class="products-features-list">
+                    <ul>
+                      <li
+                        v-for="item in feature.list"
+                        :key="item.id">
+                        <span>{{ item.title }}</span>
+                        <span>{{ item.value }}</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -70,50 +100,38 @@
 
           </div>
 
-        </div>
+          <div
+            v-if="(set.list ? set.list.length > 0 : false) || (set.instruction ? set.instruction.length > 0 : false)"
+            class="product-set">
 
-        <div class="s-products-features">
+            <div class="h3">Комплектации</div>
 
-          <div class="small-container">
+            <ul
+              v-if="set.list ? set.list.length > 0 : false"
+              class="set-list">
+              <li
+                v-for="setItem in set.list"
+                :key="setItem.id">
+                {{ setItem }}
+              </li>
+            </ul>
 
-            <div class="h3">Характеристики</div>
-
-            <div class="products-features">
-              <ul>
-                <li>
-                  <span>Производитель</span>
-                  <span>{{ features.manufacturer }}</span>
-                </li>
-                <li>
-                  <span>Страна</span>
-                  <span>{{ features.country }}</span>
-                </li>
-                <li>
-                  <span>Материал</span>
-                  <span>{{ features.material }}</span>
-                </li>
-                <li>
-                  <span>Объём</span>
-                  <span>{{ features.volume }}</span>
-                </li>
-                <li>
-                  <span><a href="#">Гарантия</a></span>
-                  <span>{{ features.guarantee }}</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="products-features-descr">
-              <div
-                class="products-features-descr-content"
-                v-html="featuresFooterInfo"/>
-            </div>
+            <a
+              v-if="set.instruction ? set.instruction.length > 0 : false"
+              :href="set.instruction"
+              class="btn btn-border">Скачать инструкцию</a>
 
           </div>
 
-        </div>
+          <div class="products-features-descr">
+            <div
+              class="products-features-descr-content"
+              v-html="featuresFooterInfo"/>
+          </div>
 
+        </div>
       </div>
+
     </section>
 
     <section class="s-recommended">
@@ -123,7 +141,7 @@
           <div class="h3">Рекомендуем также посмотреть</div>
         </div>
 
-        <SliderProducts :list="recommendedProducts" />
+        <SliderProducts :list="recommendedProducts"/>
 
       </div>
     </section>
@@ -141,6 +159,7 @@
     </section>
 
   </div>
+
 </template>
 
 <script>
@@ -149,7 +168,9 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
+    const symbol = this.$route.params.symbol
     await Promise.all([
+      this.$store.dispatch('product/getProductInfo', symbol),
       this.$store.dispatch('recommended/getRecommended'),
       this.$store.dispatch('recommended/getSimilar')
     ])
@@ -157,73 +178,46 @@ export default {
   name: 'ProductPage',
   computed: {
     ...mapState({
+      pageType: state => state.product.pageType,
       recommendedProducts: state => state.recommended.recommendedProducts,
-      similarProducts: state => state.recommended.similarProducts
-    })
+      similarProducts: state => state.recommended.similarProducts,
+      features: state => state.product.features,
+      featuresFooterInfo: state => state.product.featuresFooterInfo,
+      advantages: state => state.product.advantages,
+      description: state => state.product.description,
+      set: state => state.product.set
+    }),
+    productsFeatures () {
+      return this.$refs.productsFeatures
+    }
   },
   data: () => ({
-    productId: 7770002257,
-    title: 'Основная щетка Roborock Main Brush of Robotic Vacuum Cleaner для робота-пылесоса S5 (SDZS02RR)',
-    colors: [
-      {
-        id: 1,
-        background: '#EEEFF3'
-      },
-      {
-        id: 2,
-        background: '#000000'
-      },
-      {
-        id: 3,
-        background: '#DDBBBB'
+    selectedColor: 1
+  }),
+  methods: {
+    openFeature (e) {
+      if (window.innerWidth < 576) {
+        const tg = e.target
+        const contentInner = tg.nextSibling.nextSibling
+        const content = contentInner.querySelector('ul')
+        if (tg.classList.contains('active')) {
+          tg.classList.remove('active')
+          contentInner.style.maxHeight = '0px'
+        } else {
+          tg.classList.add('active')
+          contentInner.style.maxHeight = `${content.offsetHeight}px`
+        }
       }
-    ],
-    productImages: [
-      {
-        id: 1,
-        color: 1,
-        imgSrc: '/img/product/1.jpg'
-      },
-      {
-        id: 2,
-        color: 2,
-        imgSrc: '/img/product/2.jpg'
-      },
-      {
-        id: 3,
-        color: 3,
-        imgSrc: '/img/product/3.jpg'
-      }
-    ],
-    selectedColor: 1,
-    price: 990,
-    giftsDescr: 'Рюкзак + термос + зонт Roborock <br> в подарок при покупке пылесоса',
-    gifts: [
-      {
-        id: 1,
-        title: 'Рюкзак',
-        imgSrc: '/img/gifts/1.png'
-      },
-      {
-        id: 2,
-        title: 'Термос',
-        imgSrc: '/img/gifts/2.png'
-      },
-      {
-        id: 3,
-        title: 'зонт Roborock',
-        imgSrc: '/img/gifts/3.png'
-      }
-    ],
-    features: {
-      manufacturer: 'Roborock',
-      country: 'Китай',
-      material: 'Пластик',
-      volume: '297 мл',
-      guarantee: '365 дней'
-    },
-    featuresFooterInfo: 'Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.'
-  })
+    }
+  },
+  mounted () {
+    if (window.innerWidth < 576) {
+      const tg = this.productsFeatures[0]
+      const contentInner = tg.querySelector('.products-features-list')
+      const content = contentInner.querySelector('ul')
+      contentInner.style.maxHeight = `${content.offsetHeight}px`
+    }
+  }
 }
 </script>
 

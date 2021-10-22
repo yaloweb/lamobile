@@ -90,6 +90,16 @@
   .product-gifts-left p
     font-size: 12px
 
+  .advantages-item
+    padding: 50px
+    min-height: 42vw
+
+  .advantages
+    grid-gap: 30px
+
+  .images-length-4
+    grid-gap: 20px
+
 @media (max-width: 1439.98px)
   body
     font-size: 14px
@@ -176,6 +186,17 @@
   .brands-main-window-content-left
     p
       font-size: 16px
+  .gift-item
+    margin-right: 28px
+
+    &:before
+      width: 13px
+      right: -21px
+
+    &:after
+      height: 13px
+      margin-top: -6px
+      right: -15px
 
 @media (max-width: 1365.98px)
   .banner-item
@@ -204,6 +225,39 @@
     .product-item
       margin-bottom: 20px
       height: calc(100% - 20px)
+  .product-title
+    h1
+      font-size: 20px
+  .product-main-info
+    padding: 80px 20px 20px
+  .product-gifts
+    padding-top: 20px
+  .product-gifts-left
+    .h3
+      font-size: 18px
+
+    p
+      font-size: 11px
+  .gift-item
+    width: 60px
+    height: 60px
+  .advantages-item
+    padding: 40px
+
+    .h2
+      font-size: 27px
+
+    p
+      font-size: 15px
+
+    &:nth-child(3n-2)
+      .advantages-item-content
+        max-width: 450px
+  .advantages-item-content
+    max-width: 330px
+  .s-product-advantages
+    padding-bottom: 30px
+
 
 @media (max-width: 1199.98px)
   .logo
@@ -278,10 +332,26 @@
     &.active
       opacity: 0
       visibility: hidden
+  .product-main
+    margin-bottom: 25px
+  .s-products-features
+    padding-top: 25px
+  .products-features
+    margin-bottom: 30px
+  .s-product
+    padding-bottom: 25px
+  .s-recommended
+    padding: 25px 0
+  .section-title
+    margin-bottom: 30px
+  .advantages
+    grid-gap: 20px
 
 @media (max-width: 991.98px)
   h1, .h1
     font-size: 44px
+  h3, .h3
+    font-size: 24px
   .header
     padding: 21px 0
   .header-catalog
@@ -435,6 +505,11 @@
     display: block
   .brands-main-window-content-left
     margin-bottom: 30px
+  .product-main
+    display: block
+    grid-gap: 0
+  .product-main-img
+    margin-bottom: 20px
 
 @media (max-width: 767.98px)
   .container
@@ -442,12 +517,48 @@
   .products-slider-button-prev,
   .products-slider-button-next
     display: none
+  .product-main-img
+    .swiper-slide
+      grid-gap: 20px
+  .advantages
+    display: block
+  .advantages-item-img
+    position: static
+    margin-bottom: 25px
+  .advantages-item
+    padding: 0
+    margin-bottom: 25px
+  .advantages-item-content
+    max-width: none !important
+    color: #000
+  .advantages-item-content
+    .h2
+      font-size: 18px
+      margin-bottom: 9px
+
+    p
+      font-size: 14px
+      margin: 0
+  .products-features
+    ul
+      font-size: 12px
+  .set-list
+    column-count: 2
 
 @media (max-width: 575.98px)
+  .wrapper
+    overflow: hidden
   h1, .h1
     font-size: 20px
+  h3, .h3
+    font-size: 22px
+  .container
+    padding: 0 10px
   .header
     padding-bottom: 30px
+
+    .container
+      padding: 0 18px
   .header-location
     margin-right: 3px
 
@@ -666,6 +777,7 @@
     text-align: center
     flex-grow: 1
     align-items: center
+
     p
       display: none
   .brands-logo-block
@@ -680,3 +792,257 @@
     padding: 4px 12px
     font-size: 11px
     line-height: 1.3636
+  .product-main-info
+    padding: 30px 10px 45px
+  .product-main-id
+    font-size: 12px
+    margin-bottom: 10px
+  .product-title
+    margin-bottom: 10px
+
+    h1
+      font-size: 16px
+  .product-colors
+    margin-bottom: 30px
+  .product-colors-block
+    height: 40px
+    padding: 0 4px
+
+    span
+      margin: 0 4px
+      width: 16px
+      height: 16px
+
+      &:after
+        width: 20px
+        height: 20px
+        margin-top: -10px
+        margin-left: -10px
+  .product-main-info-content
+    margin-bottom: 35px
+  .product-buy
+    .btn
+      height: 40px
+      line-height: 38px
+      padding: 0 57px
+      font-size: 14px
+  .s-product
+    padding-top: 10px
+  .product-gifts
+    border-top: none
+    padding-top: 25px
+    position: relative
+    display: block
+    text-align: center
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: -10px
+      right: -10px
+      background-color: #DEDBDB
+      height: 1px
+  .product-gifts-left
+    margin-bottom: 15px
+
+    .h3
+      font-size: 18px
+      margin-bottom: 8px
+
+    p
+      font-size: 12px
+  .gifst-list
+    justify-content: center
+  .s-products-features
+    padding-top: 20px
+
+    .h3
+      text-align: center
+      font-size: 22px
+      margin-bottom: 28px
+  .products-features
+    margin-bottom: 28px
+
+    ul
+      li
+        span
+          &:first-child
+            width: 50vw
+            min-width: 0
+  .products-features-descr
+    border-top: none
+    padding-top: 0
+  .section-title
+    text-align: center
+    margin-bottom: 30px
+
+    .h3
+      font-size: 22px
+  .similar-slider
+    .categories-item
+      border-radius: 0
+  .s-similar
+    padding: 30px 0 0
+  .similar-slider
+    .categories-item-content
+      padding: 28px 20px 30px
+      text-align: center
+
+      &:after
+        display: none
+
+    .categories-item-tag
+      font-size: 14px
+      text-align: center
+
+    .categories-item-title
+      font-size: 18px
+
+    .categories-item-descr
+      margin-top: 10px
+      font-size: 14px
+
+    .swiper-slide-active
+      .categories-item-title
+        transform: none !important
+
+      .categories-item-descr
+        transform: none !important
+        opacity: 1 !important
+  .product-main-img
+    .swiper-slide
+      grid-gap: 10px
+  .product-main-img-slider
+    .swiper-container
+      overflow: hidden auto !important
+
+    .swiper-wrapper
+      transform: none !important
+      transition-duration: 0s !important
+  .product-img-nav-prev,
+  .product-img-nav-next
+    display: none
+  .product-main-img-scroll
+    display: grid
+    grid-gap: 10px
+    grid-template-columns: 1fr 1fr
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow-y: auto
+
+    &.length-3
+      .product-main-img-container:first-child
+        padding-bottom: calc(50% - 5px)
+        padding-top: 0
+        grid-column: span 2
+
+    .product-main-img-container
+      &.wide
+        padding-bottom: calc(50% - 5px)
+        padding-top: 0
+        grid-column: span 2
+  .product-main-info
+    &.visible-content
+      .product-main-id
+        max-height: 19px
+        margin-bottom: 10px
+
+        span
+          opacity: 1
+          transform: translateY(0)
+
+      .product-colors
+        max-height: 40px
+        margin-bottom: 30px
+
+      .product-colors-block
+        opacity: 1
+        transform: translateY(0)
+
+  .product-main-id
+    +tr
+    max-height: 0
+    margin-bottom: 0
+
+    span
+      display: block
+      opacity: 0
+      transform: translateY(-10px)
+      +tr
+  .product-colors
+    +tr
+    margin-bottom: 0
+    max-height: 0
+  .product-colors-block
+    opacity: 0
+    transform: translateY(-10px)
+    +tr
+  .product-buy
+    margin-top: 10px
+  .product-main-img
+    margin-bottom: 10px
+  .s-product + .s-product-advantages
+    margin-top: -15px
+  .product-description
+    padding-bottom: 23px
+  .product-features
+    margin-bottom: 0
+    [class*=col-]
+      width: 100%
+    .h5
+      position: relative
+      font-size: 16px
+      padding-right: 45px
+      &:after
+        content: ''
+        position: absolute
+        top: -4px
+        right: 0
+        width: 29px
+        height: 29px
+        z-index: 1
+      &.active
+        span
+          border-color: #7A7A7A
+          &:after
+            background-color: #7A7A7A
+          &:before
+            transform: rotate(90deg)
+            background-color: #7A7A7A
+      span
+        position: absolute
+        top: -4px
+        right: 0
+        width: 29px
+        height: 29px
+        -webkit-border-radius: 50%
+        -moz-border-radius: 50%
+        border-radius: 50%
+        border: 1px solid #DEDBDB
+        +tr
+        &:after
+          content: ''
+          width: 13px
+          height: 1px
+          background-color: #C4C4C4
+          position: absolute
+          top: 13px
+          left: 7px
+        &:before
+          content: ''
+          width: 1px
+          height: 13px
+          background-color: #C4C4C4
+          position: absolute
+          top: 7px
+          left: 13px
+          +tr
+
+  .products-features-list
+    overflow: hidden
+    +tr4
+    max-height: 0

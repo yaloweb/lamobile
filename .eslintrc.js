@@ -14,10 +14,10 @@ module.exports = {
   ],
   plugins: [],
   rules: {
-    'indent': [
+    indent: [
       'error',
       2,
-      { 'SwitchCase': 1 }
+      { SwitchCase: 1 }
     ],
     'prefer-const': 'off',
     'arrow-parens': 'off'
