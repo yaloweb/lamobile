@@ -37,6 +37,10 @@ export default {
     {
       src: '~plugins/custom-scripts.js',
       ssr: false
+    },
+    {
+      src: '~plugins/youtube.js',
+      ssr: false
     }
   ],
 

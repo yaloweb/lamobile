@@ -11,8 +11,8 @@
 
     </swiper>
 
-    <div class="products-slider-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
-    <div class="products-slider-button-next slider-next"><span class="icon-arrow-right"></span></div>
+    <div class="products-prev style-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
+    <div class="products-next style-button-next slider-next"><span class="icon-arrow-right"></span></div>
 
   </div>
 </template>
@@ -58,8 +58,8 @@ export default {
         }
       },
       navigation: {
-        nextEl: '.products-slider-button-next',
-        prevEl: '.products-slider-button-prev'
+        prevEl: '.products-prev',
+        nextEl: '.products-next'
       }
     }
   })

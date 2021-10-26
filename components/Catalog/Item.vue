@@ -17,19 +17,19 @@
     </div>
 
     <div class="product-item-img">
-      <a :href="item.inStock === false ? false : item.url">
+      <nuxt-link :to="item.inStock === false ? false : item.url">
         <img
           :src="item.imgSrc"
           alt="">
-      </a>
+      </nuxt-link>
     </div>
 
     <div class="product-item-text">
 
       <div class="product-item-title">
-        <a :href="item.inStock === false ? false : item.url">
+        <nuxt-link :to="item.inStock === false ? false : item.url">
           {{ item.title }}
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="product-item-price">

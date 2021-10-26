@@ -105,31 +105,27 @@ export default {
           } else {
             res[1].push(item)
           }
-        } else {
-          if (item.wide) {
-            if (res[count].length > 0) {
-              count++
-              res[count].push(item)
-              count++
-            } else {
-              res[count].push(item)
-              count++
-            }
+        } else if (item.wide) {
+          if (res[count].length > 0) {
+            count++
+            res[count].push(item)
+            count++
           } else {
-            if (res[count].length === 2) {
-              count++
-              res[count].push(item)
-            } else if (res[count].length === 1) {
-              if (res[count][0].wide) {
-                count++
-              } else {
-                res[count].push(item)
-                count++
-              }
-            } else {
-              res[count].push(item)
-            }
+            res[count].push(item)
+            count++
           }
+        } else if (res[count].length === 2) {
+          count++
+          res[count].push(item)
+        } else if (res[count].length === 1) {
+          if (res[count][0].wide) {
+            count++
+          } else {
+            res[count].push(item)
+            count++
+          }
+        } else {
+          res[count].push(item)
         }
       })
       return res

@@ -214,6 +214,10 @@
           class="header-logo">
           <nuxt-link to="/" class="logo">
             <img :src="light ? global.logoLightSrc : global.logoSrc" alt="">
+            <img
+              class="logo-dark-theme"
+              :src="global.logoLightSrc"
+              alt="">
           </nuxt-link>
         </div>
 
