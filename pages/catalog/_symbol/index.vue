@@ -112,7 +112,9 @@
             <div :class="visibleFilter ? 'col-9' : 'col-12'">
               <div class="catalog-list">
 
-                <div class="row">
+                <div
+                  v-if="type === 'grid'"
+                  class="row">
 
                   <div
                     v-for="item in catalog"
@@ -124,18 +126,40 @@
 
                 </div>
 
+                <div
+                  v-if="type === 'list'"
+                  class="catalog-list-view">
+                  <CatalogListItem
+                    v-for="item in catalog"
+                    :key="item.id"
+                    :item="item"/>
+                </div>
+
               </div>
             </div>
 
           </div>
 
-          <button
-            ref="filterBtn"
-            class="open-filter-btn"
-            :class="{'active': visibleFilter}"
-            @click="visibleFilter = !visibleFilter">
-            <span class="icon-filter"></span>{{ !visibleFilter ? 'Показать фильтр' : 'Скрыть фильтр' }}
-          </button>
+          <div
+            ref="filterBtns"
+            class="filter-footer-btns">
+            <button
+              class="open-filter-btn"
+              :class="{'active': visibleFilter}"
+              @click="visibleFilter = !visibleFilter">
+              <span class="icon-filter"></span>{{ !visibleFilter ? 'Показать фильтр' : 'Скрыть фильтр' }}
+            </button>
+            <div class="filter-view-type">
+              <span
+                class="icon-masonry"
+                :class="{'active': type === 'grid'}"
+                @click="type = 'grid'"/>
+              <span
+                class="icon-list"
+                :class="{'active': type === 'list'}"
+                @click="type = 'list'"/>
+            </div>
+          </div>
 
         </div>
 
@@ -153,7 +177,7 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     const symbol = this.$route.params.symbol
-    await this.$store.dispatch('catalog/getCatalog', symbol)
+    return await this.$store.dispatch('catalog/getCatalog', symbol)
   },
   name: 'catalogCategory',
   computed: {
@@ -163,6 +187,7 @@ export default {
   },
   data: () => ({
     visibleFilter: false,
+    type: 'list',
     brands: [
       {
         id: 1,
@@ -288,7 +313,7 @@ export default {
     }
   },
   mounted () {
-    const fitlerBtn = this.$refs.filterBtn
+    const fitlerBtns = this.$refs.filterBtns
     const sCatalog = this.$refs.catalog
     const filterBtnScroll = e => {
       const scrY = window.scrollY
@@ -296,7 +321,7 @@ export default {
       const offH = sCatalog.offsetHeight
       const wH = window.innerHeight
       const res = scrTop + offH - scrY - wH
-      res > 0 ? fitlerBtn.classList.remove('absolute') : fitlerBtn.classList.add('absolute')
+      res > 0 ? fitlerBtns.classList.remove('absolute') : fitlerBtns.classList.add('absolute')
     }
     const clickOutFilter = e => {
       if (window.innerWidth < 1200) {

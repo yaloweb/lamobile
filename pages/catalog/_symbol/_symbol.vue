@@ -77,7 +77,7 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     const symbol = this.$route.params.symbol
-    await Promise.all([
+    return await Promise.all([
       this.$store.dispatch('product/getProductInfo', symbol),
       this.$store.dispatch('recommended/getRecommended'),
       this.$store.dispatch('recommended/getSimilar')
@@ -94,10 +94,7 @@ export default {
       additionalAdvantages: state => state.product.additionalAdvantages,
       operation: state => state.product.operation,
       compareSection: state => state.product.compareSection
-    }),
-    productsFeatures () {
-      return this.$refs.productsFeatures
-    }
+    })
   },
   watch: {
     pageType (val) {

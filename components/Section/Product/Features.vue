@@ -34,7 +34,9 @@
                   class="h5"
                   :class="{'active': index === 0}"
                   @click="openFeature">{{ feature.title }} <span @click.stop /></div>
-                <div class="products-features-list">
+                <div
+                  v-if="feature.list"
+                  class="products-features-list">
                   <ul>
                     <li
                       v-for="item in feature.list"
@@ -99,7 +101,10 @@ export default {
       features: state => state.product.features,
       set: state => state.product.set,
       featuresFooterInfo: state => state.product.featuresFooterInfo
-    })
+    }),
+    productsFeatures () {
+      return this.$refs.productsFeatures
+    }
   },
   methods: {
     openFeature (e) {
@@ -119,10 +124,12 @@ export default {
   },
   mounted () {
     if (window.innerWidth < 576) {
-      const tg = this.productsFeatures[0]
-      const contentInner = tg.querySelector('.products-features-list')
-      const content = contentInner.querySelector('ul')
-      contentInner.style.maxHeight = `${content.offsetHeight}px`
+      if (this.productsFeatures) {
+        const tg = this.productsFeatures[0]
+        const contentInner = tg.querySelector('.products-features-list')
+        const content = contentInner.querySelector('ul')
+        contentInner.style.maxHeight = `${content.offsetHeight}px`
+      }
     }
   }
 }

@@ -28,7 +28,9 @@
 
     </div>
 
-    <div class="product-gifts">
+    <div
+      v-if="gifts ? gifts.length > 0 : false"
+      class="product-gifts">
 
       <div class="product-gifts-left">
         <div class="h3">Подарок</div>

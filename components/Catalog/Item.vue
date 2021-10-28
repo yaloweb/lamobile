@@ -5,9 +5,9 @@
     :class="{'disabled': item.inStock === false}">
 
     <div
-      v-if="item.tag"
+      v-if="item.tag || item.inStock === false"
       class="product-item-tag"
-      :class="item.tag.color">
+      :class="item.tag ? item.tag.color : ''">
       <template v-if="item.inStock === false">
         <a href="#" class="goods-arrival-link">Узнать о поступлении ></a>
       </template>

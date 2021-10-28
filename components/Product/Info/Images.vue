@@ -58,12 +58,14 @@
     <div
       v-else
       class="product-main-img-container">
-      <img
-        v-for="img in productImages[0].list"
-        :key="img.id"
-        :class="{'visible': img.color === selectedColor}"
-        :src="img.imgSrc"
-        alt="">
+      <template v-if="productImages[0]">
+        <img
+          v-for="img in productImages[0].list"
+          :key="img.id"
+          :class="{'visible': img.color === selectedColor}"
+          :src="img.imgSrc"
+          alt="">
+      </template>
     </div>
 
   </div>

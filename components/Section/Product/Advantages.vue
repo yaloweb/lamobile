@@ -8,7 +8,7 @@
           v-for="advantage in advantages"
           :key="advantage.id"
           class="advantages-item"
-          :class="{'wide': advantage.wide}">
+          :class="{'wide': advantage.wide, 'no-text': !advantage.title && !advantage.descr }">
           <div class="advantages-item-img">
             <img
               :src="advantage.imgSrc"

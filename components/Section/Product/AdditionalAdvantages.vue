@@ -11,7 +11,9 @@
           <p v-html="additionalAdvantages.descr"/>
         </div>
 
-        <div class="additional-advantages-list">
+        <div
+          v-if="additionalAdvantages.list"
+          class="additional-advantages-list">
           <div
             v-for="advantage in additionalAdvantages.list"
             :key="advantage.id"

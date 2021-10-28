@@ -90,7 +90,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
   async fetch () {
-    await this.$store.dispatch('compare/getCompareData')
+    return await this.$store.dispatch('compare/getCompareData')
   },
   name: 'Table',
   components: {
@@ -113,6 +113,20 @@ export default {
       scrollbar: {
         el: '.slider-scrollbar',
         draggable: true
+      },
+      breakpoints: {
+        0: {
+          spaceBetween: 80,
+          slidesPerView: 2
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
       }
     }
   }),
@@ -121,33 +135,43 @@ export default {
       const parameterTitle = this.$refs.parameterTitle
       const productTitle = this.$refs.productTitle
 
-      productTitle.forEach(item => {
-        item.style.removeProperty('height')
-      })
+      if (productTitle) {
+        productTitle.forEach(item => {
+          item.style.removeProperty('height')
+        })
+      }
 
       const parameter = this.$refs.parameter
       const product = this.$refs.product
       let titleHeight = 0
 
-      productTitle.forEach(item => {
-        if (item.offsetHeight > titleHeight) {
-          titleHeight = item.offsetHeight
-        }
-      })
+      if (productTitle) {
+        productTitle.forEach(item => {
+          if (item.offsetHeight > titleHeight) {
+            titleHeight = item.offsetHeight
+          }
+        })
+      }
 
       parameterTitle.style.height = `${titleHeight}px`
-      productTitle.forEach(item => {
-        item.style.height = `${titleHeight}px`
-      })
-      parameter.forEach((item, index) => {
-        product.forEach(group => {
-          group.querySelectorAll('.compare-item-parameters li').forEach((prodItem, prodIndex) => {
-            if (prodIndex === index) {
-              prodItem.style.height = `${item.clientHeight}px`
-            }
+
+      if (productTitle) {
+        productTitle.forEach(item => {
+          item.style.height = `${titleHeight}px`
+        })
+      }
+
+      if (parameter) {
+        parameter.forEach((item, index) => {
+          product.forEach(group => {
+            group.querySelectorAll('.compare-item-parameters li').forEach((prodItem, prodIndex) => {
+              if (prodIndex === index) {
+                prodItem.style.height = `${item.clientHeight}px`
+              }
+            })
           })
         })
-      })
+      }
     }
   },
   mounted () {

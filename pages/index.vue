@@ -50,15 +50,17 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
+    let promises = []
     if (this.$store.state.catalog.categories.length === 0) {
-      await this.$store.dispatch('catalog/getCategories')
+      promises.push(this.$store.dispatch('catalog/getCategories'))
     }
     if (this.$store.state.catalog.sliderProducts.length === 0) {
-      await this.$store.dispatch('catalog/getSliderProducts')
+      promises.push(this.$store.dispatch('catalog/getSliderProducts'))
     }
     if (this.$store.state.banners.banners.length === 0) {
-      await this.$store.dispatch('banners/getBanners')
+      promises.push(this.$store.dispatch('banners/getBanners'))
     }
+    return await Promise.all(promises)
   },
   layout: 'index',
   computed: {

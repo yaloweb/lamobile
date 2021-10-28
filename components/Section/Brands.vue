@@ -28,7 +28,7 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     if (this.$store.state.brands.brands.length === 0) {
-      await this.$store.dispatch('brands/getBrands')
+      return await this.$store.dispatch('brands/getBrands')
     }
   },
   computed: {

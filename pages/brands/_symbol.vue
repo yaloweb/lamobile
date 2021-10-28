@@ -60,7 +60,7 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     const symbol = this.$route.params.symbol
-    await Promise.all([
+    return await Promise.all([
       this.$store.dispatch('catalog/getCatalog', symbol),
       this.$store.dispatch('catalog/getBrandsMainInfo', symbol)
     ])

@@ -9,6 +9,24 @@
     -webkit-border-radius: 10px
     -moz-border-radius: 10px
     border-radius: 10px
+  .product-list-view-img
+    padding-right: 10px
+    width: 110px
+  .product-list-view-id
+    padding-right: 10px
+  .product-list-view-title
+    padding-right: 10px
+  .product-list-view-colors
+    padding-right: 15px
+  .product-list-view-qnt
+    padding-right: 15px
+  .product-list-view-price
+    padding-right: 15px
+    width: 103px
+  .product-list-view-cart
+    .btn
+      width: 200px
+      font-size: 14px
 
 @media (max-width: 1599.98px)
   .s-main-window
@@ -105,8 +123,10 @@
 
   .additional-advantages-descr
     margin-bottom: 70px
+
     .h1
       font-size: 40px
+
     p
       font-size: 18px
       max-width: 770px
@@ -127,6 +147,7 @@
   .operation-content
     .h1
       font-size: 40px
+
     p
       font-size: 16px
 
@@ -138,15 +159,18 @@
 
   .compare-table-title
     margin-bottom: 50px
+
     .h1
       font-size: 40px
 
   .compare-table-parameters
     padding-top: 180px
+
     ul
       li
         font-size: 16px
         margin-bottom: 20px
+
         &:first-child
           padding-top: 4px
 
@@ -168,6 +192,7 @@
     span
       width: 85px
       height: 85px
+
       &:after
         font-size: 28px
         transform: translateX(2px)
@@ -419,6 +444,8 @@
     margin-bottom: 30px
   .advantages
     grid-gap: 20px
+  .additional-advantages
+
 
 @media (max-width: 991.98px)
   h1, .h1
@@ -583,6 +610,41 @@
     grid-gap: 0
   .product-main-img
     margin-bottom: 20px
+  .additional-advantages
+    padding: 30px
+  .additional-advantages-descr
+    margin-bottom: 20px
+
+    p
+      font-size: 14px
+  .additional-advantages-list
+    grid-gap: 20px
+  .additional-advantages-item-img
+    height: 46px
+    width: 66px
+    margin-bottom: 15px
+  .additional-advantages-item-title
+    font-size: 12px
+  .product-page
+    &.dark
+      .product-main-img
+        background-color: transparent
+
+      .s-recommended
+        padding-top: 90px
+  .advantages-item
+    padding: 20px
+  .operation-block
+    padding: 30px
+    display: block
+  .operation-content
+    padding: 0
+    width: 100%
+    margin-bottom: 30px
+  .operation-img
+    width: 100%
+  .compare-table-block
+    padding: 30px
 
 @media (max-width: 767.98px)
   .container
@@ -1064,13 +1126,16 @@
     padding-bottom: 23px
   .product-features
     margin-bottom: 0
+
     [class*=col-]
       width: 100%
+
     .h5
       position: relative
       font-size: 16px
       padding-right: 45px
       margin-bottom: 0
+
       &:after
         content: ''
         position: absolute
@@ -1079,14 +1144,18 @@
         width: 29px
         height: 29px
         z-index: 1
+
       &.active
         span
           border-color: #7A7A7A
+
           &:after
             background-color: #7A7A7A
+
           &:before
             transform: rotate(90deg)
             background-color: #7A7A7A
+
       span
         position: absolute
         top: -4px
@@ -1098,6 +1167,7 @@
         border-radius: 50%
         border: 1px solid #DEDBDB
         +tr
+
         &:after
           content: ''
           width: 13px
@@ -1106,6 +1176,7 @@
           position: absolute
           top: 13px
           left: 7px
+
         &:before
           content: ''
           width: 1px
@@ -1120,14 +1191,17 @@
     overflow: hidden
     +tr4
     max-height: 0
+
     ul
       padding-top: 25px
   .product-set
     padding-top: 20px
     margin: 0 0 20px
+
     .h3
       text-align: left
       margin-bottom: 15px
+
     .btn
       display: block
       width: 100%
@@ -1137,8 +1211,169 @@
   .set-list
     column-count: 1
     margin-bottom: 15px
+
     li
       margin: 0 0 8px
       font-size: 12px
   .s-products-features
     padding-bottom: 10px
+  .offers-row
+    grid-template-columns: 1fr
+    grid-gap: 25px
+  .s-product
+    & + .s-product-video
+      margin-top: -30px
+  .video-poster
+    span
+      width: 60px
+      height: 60px
+      &:after
+        font-size: 25px
+  .s-additional-advantages
+    padding: 20px 0
+  .product-page
+    &.dark
+      .product-main-info
+        margin-left: -10px
+        margin-right: -10px
+      .product-gifts
+        &:after
+          background-color: #7a7a7a
+          left: 0
+          right: 0
+      .advantages-item-content
+        color: #fff
+      .additional-advantages
+        margin-left: -10px
+        margin-right: -10px
+      .operation-block
+        margin-left: -10px
+        margin-right: -10px
+      .compare-table-block
+        margin-left: -10px
+        margin-right: -10px
+      .s-products-features
+        padding-bottom: 65px
+      .product-features
+        ul
+          li
+            span
+              &:last-child
+                color: #fff
+        .h5
+          &.active
+            span
+              border-color: #7A7A7A
+              &:after,
+              &:before
+                background-color: #7A7A7A
+          span
+            border-color: #404040
+            &:after,
+            &:before
+              background-color: #404040
+  .additional-advantages
+    padding: 35px 30px
+  .additional-advantages-descr
+    margin-bottom: 80px
+    .h1
+      font-size: 22px
+      margin-bottom: 20px
+    p
+      line-height: 1.5
+  .additional-advantages-list
+    grid-template-columns: 1fr
+    grid-gap: 50px
+  .additional-advantages-item
+    text-align: left
+    display: flex
+    align-items: center
+  .additional-advantages-item-img
+    height: 66px
+    width: 77px
+    margin: 0 30px 0 0
+  .additional-advantages-item-title
+    font-size: 14px
+  .advantages-item
+    &.no-text
+      .advantages-item-img
+        margin: 0
+  .operation-block
+    padding: 35px 30px 65px
+  .operation-content
+    margin-bottom: 70px
+    .h1
+      font-size: 22px
+      margin-bottom: 20px
+      text-align: center
+    p
+      font-size: 14px
+      line-height: 1.5
+  .compare-table-block
+    padding: 55px 19px 80px
+  .compare-table-title
+    margin-bottom: 35px
+    .h1
+      font-size: 22px
+      text-align: center
+  .compare-table
+    position: relative
+  .compare-table-parameters
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    text-align: center
+    padding: 115px 0 0
+    margin: 0
+    ul
+      width: 149px
+      margin-left: auto
+      margin-right: auto
+      li
+        font-size: 12px
+        line-height: 1.5
+        color: #c4c4c4
+        margin-bottom: 55px
+        height: 18px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: flex-end
+        &:first-child
+          display: none
+  .compare-table-items
+    position: relative
+    z-index: 1
+    width: 100%
+  .compare-item-img
+    height: 95px
+    margin-bottom: 5px
+  .compare-item-title
+    font-size: 14px
+    line-height: 1.36
+    margin-bottom: 20px
+  .compare-items-colors
+    span
+      width: 15px
+      height: 15px
+      margin: 0 3px
+  .compare-items-colors
+    height: 18px
+  .compare-item-parameters
+    ul
+      li
+        line-height: 1.36
+        font-size: 14px
+        margin-bottom: 55px
+  .compare-item-btn
+    .btn
+      height: 40px
+      text-align: center
+      line-height: 38px
+      padding: 0
+      width: 100%
+      font-size: 14px
+  .slider-scrollbar
+    margin-top: 25px
