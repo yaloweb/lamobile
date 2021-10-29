@@ -17,7 +17,9 @@
     </div>
 
     <div class="product-item-img">
-      <nuxt-link :to="item.inStock === false ? false : item.url">
+      <nuxt-link
+        :to="item.url"
+        :event="item.inStock === false ? '' : 'click'">
         <img
           :src="item.imgSrc"
           alt="">
@@ -27,7 +29,9 @@
     <div class="product-item-text">
 
       <div class="product-item-title">
-        <nuxt-link :to="item.inStock === false ? false : item.url">
+        <nuxt-link
+          :to="item.url"
+          :event="item.inStock === false ? '' : 'click'">
           {{ item.title }}
         </nuxt-link>
       </div>

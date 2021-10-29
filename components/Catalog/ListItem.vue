@@ -6,7 +6,9 @@
     <div class="product-list-view-row">
 
       <div class="product-list-view-img">
-        <nuxt-link :to="item.inStock === false ? false : item.url">
+        <nuxt-link
+          :to="item.url"
+          :event="item.inStock === false ? '' : 'click'">
           <img
             v-if="!item.colors"
             :src="item.imgSrc"
@@ -34,7 +36,8 @@
           v-text="item.tag.title"/>
         <div class="h6">
           <nuxt-link
-            :to="item.inStock === false ? false : item.url"
+            :to="item.url"
+            :event="item.inStock === false ? '' : 'click'"
             v-text="item.title" />
         </div>
       </div>

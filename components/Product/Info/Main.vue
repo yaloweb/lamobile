@@ -23,7 +23,9 @@
       </div>
 
       <div class="product-buy">
-        <button class="btn btn-border">Купить от {{ price | priceFilter }} ₽</button>
+        <button
+          class="btn btn-border"
+          @click="buyModal = true">Купить от {{ price | priceFilter }} ₽</button>
       </div>
 
     </div>
@@ -52,6 +54,35 @@
 
     </div>
 
+    <div
+      class="product-buy-modal"
+      :class="{'opened': buyModal}">
+
+      <div class="back-link">
+        <a
+          href="#"
+          @click.prevent="buyModal = false"><span class="icon-angle-left"></span>Назад</a>
+      </div>
+
+      <div class="product-buy-content">
+        <div
+          v-for="shop in shops"
+          :key="shop.id"
+          class="product-buy-shop">
+          <div class="product-buy-shop-title">{{shop.shopTitle}}</div>
+          <div class="product-buy-shop-price">{{shop.price | priceFilter}} ₽</div>
+          <div class="product-buy-shop-footer">
+            <ul class="product-buy-shop-del">
+              <li v-if="shop.deliveryPrice">Доставка — {{shop.deliveryPrice | priceFilter}} ₽</li>
+              <li v-if="shop.pickup">Самовывоз, {{shop.pickup.date | parseDate}} — {{shop.pickup.price | priceFilter}} ₽</li>
+            </ul>
+            <button class="btn btn-border">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -71,11 +102,13 @@ export default {
       colors: state => state.product.colors,
       price: state => state.product.price,
       giftsDescr: state => state.product.giftsDescr,
-      gifts: state => state.product.gifts
+      gifts: state => state.product.gifts,
+      shops: state => state.product.shops
     })
   },
   data: () => ({
-    mobContentVisible: false
+    mobContentVisible: false,
+    buyModal: false
   }),
   mounted () {
     const scroll = () => {

@@ -8,7 +8,7 @@
       <div class="container">
 
         <div class="page-title">
-          <h1>Роботы-пылесосы</h1>
+          <h1>Роботы-пылесосы {{mob}}</h1>
         </div>
 
         <div
@@ -113,7 +113,7 @@
               <div class="catalog-list">
 
                 <div
-                  v-if="type === 'grid'"
+                  v-if="type === 'grid' || mob"
                   class="row">
 
                   <div
@@ -127,7 +127,7 @@
                 </div>
 
                 <div
-                  v-if="type === 'list'"
+                  v-if="type === 'list' && !mob"
                   class="catalog-list-view">
                   <CatalogListItem
                     v-for="item in catalog"
@@ -142,14 +142,16 @@
 
           <div
             ref="filterBtns"
-            class="filter-footer-btns">
+            class="filter-footer-btns"
+            :class="{'active': visibleFilter}">
             <button
               class="open-filter-btn"
-              :class="{'active': visibleFilter}"
               @click="visibleFilter = !visibleFilter">
               <span class="icon-filter"></span>{{ !visibleFilter ? 'Показать фильтр' : 'Скрыть фильтр' }}
             </button>
-            <div class="filter-view-type">
+            <div
+              v-if="!mob"
+              class="filter-view-type">
               <span
                 class="icon-masonry"
                 :class="{'active': type === 'grid'}"
@@ -187,7 +189,7 @@ export default {
   },
   data: () => ({
     visibleFilter: false,
-    type: 'list',
+    type: 'grid',
     brands: [
       {
         id: 1,
@@ -280,7 +282,8 @@ export default {
     filters: {
       brands: []
     },
-    categoriesAll: false
+    categoriesAll: false,
+    mob: false
   }),
   methods: {
     selectBrand (item, all) {
@@ -310,6 +313,9 @@ export default {
       const rect = el.getBoundingClientRect()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       return (rect.top + scrollTop)
+    },
+    checkMob () {
+      this.mob = window.innerWidth < 576
     }
   },
   mounted () {
@@ -331,10 +337,15 @@ export default {
         }
       }
     }
+
+    this.checkMob()
+
     window.addEventListener('scroll', filterBtnScroll)
+    window.addEventListener('resize', this.checkMob)
     document.addEventListener('click', clickOutFilter)
     this.$on('hook:beforeDestroy', () => {
       window.removeEventListener('scroll', filterBtnScroll)
+      window.removeEventListener('resize', this.checkMob)
       document.removeEventListener('click', clickOutFilter)
     })
   }

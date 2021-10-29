@@ -41,6 +41,10 @@ export default {
     {
       src: '~plugins/youtube.js',
       ssr: false
+    },
+    {
+      src: '~plugins/mask.js',
+      ssr: false
     }
   ],
 

@@ -91,10 +91,6 @@
     height: 50px
     padding: 0 20px
     font-size: 14px
-    bottom: 40px
-
-    &.absolute
-      bottom: 70px
 
     span
       font-size: 24px
@@ -196,6 +192,58 @@
       &:after
         font-size: 28px
         transform: translateX(2px)
+
+  .filter-view-type
+    height: 50px
+    padding: 0 20px
+
+    span
+      font-size: 16px
+      margin: 0 8px
+
+  .product-list-view
+    padding: 15px 20px
+
+  .product-colors-images
+    width: 80px
+    height: 80px
+
+  .product-list-view-img
+    width: 90px
+
+  .product-list-view-title .h6
+    font-size: 12px
+    line-height: 1.5
+
+  .product-list-view-colors
+    padding-right: 10px
+
+    .product-colors-block
+      height: 40px
+
+      span
+        width: 14px
+        height: 14px
+        margin: 0 3px
+
+        &:after
+          margin: -10px 0 0 -10px
+          width: 20px
+          height: 20px
+  .product-list-view-qnt
+    span
+      height: 40px
+      line-height: 38px
+      width: 51px
+
+  .product-list-view-price
+    font-size: 14px
+
+  .product-list-view-tag
+    font-size: 12px
+
+  .product-list-view-inquire
+    font-size: 14px
 
 
 @media (max-width: 1439.98px)
@@ -426,7 +474,7 @@
     .row
       & > *
         width: 33.333333%
-  .open-filter-btn
+  .filter-footer-btns
     &.active
       opacity: 0
       visibility: hidden
@@ -444,7 +492,6 @@
     margin-bottom: 30px
   .advantages
     grid-gap: 20px
-  .additional-advantages
 
 
 @media (max-width: 991.98px)
@@ -645,6 +692,19 @@
     width: 100%
   .compare-table-block
     padding: 30px
+  .product-list-view-row
+    flex-wrap: wrap
+  .product-list-view-id
+    width: 18%
+    line-height: 1.5
+  .product-list-view-title
+    padding: 0
+    width: calc(82% - 90px)
+  .product-list-view-price
+    width: auto
+    flex-grow: 1
+  .product-list-view-inquire
+    margin-left: auto
 
 @media (max-width: 767.98px)
   .container
@@ -1227,6 +1287,7 @@
     span
       width: 60px
       height: 60px
+
       &:after
         font-size: 25px
   .s-additional-advantages
@@ -1236,39 +1297,50 @@
       .product-main-info
         margin-left: -10px
         margin-right: -10px
+
       .product-gifts
         &:after
           background-color: #7a7a7a
           left: 0
           right: 0
+
       .advantages-item-content
         color: #fff
+
       .additional-advantages
         margin-left: -10px
         margin-right: -10px
+
       .operation-block
         margin-left: -10px
         margin-right: -10px
+
       .compare-table-block
         margin-left: -10px
         margin-right: -10px
+
       .s-products-features
         padding-bottom: 65px
+
       .product-features
         ul
           li
             span
               &:last-child
                 color: #fff
+
         .h5
           &.active
             span
               border-color: #7A7A7A
+
               &:after,
               &:before
                 background-color: #7A7A7A
+
           span
             border-color: #404040
+
             &:after,
             &:before
               background-color: #404040
@@ -1276,9 +1348,11 @@
     padding: 35px 30px
   .additional-advantages-descr
     margin-bottom: 80px
+
     .h1
       font-size: 22px
       margin-bottom: 20px
+
     p
       line-height: 1.5
   .additional-advantages-list
@@ -1302,10 +1376,12 @@
     padding: 35px 30px 65px
   .operation-content
     margin-bottom: 70px
+
     .h1
       font-size: 22px
       margin-bottom: 20px
       text-align: center
+
     p
       font-size: 14px
       line-height: 1.5
@@ -1313,6 +1389,7 @@
     padding: 55px 19px 80px
   .compare-table-title
     margin-bottom: 35px
+
     .h1
       font-size: 22px
       text-align: center
@@ -1327,10 +1404,12 @@
     text-align: center
     padding: 115px 0 0
     margin: 0
+
     ul
       width: 149px
       margin-left: auto
       margin-right: auto
+
       li
         font-size: 12px
         line-height: 1.5
@@ -1341,6 +1420,7 @@
         flex-direction: column
         align-items: center
         justify-content: flex-end
+
         &:first-child
           display: none
   .compare-table-items
@@ -1377,3 +1457,5 @@
       font-size: 14px
   .slider-scrollbar
     margin-top: 25px
+  .filter-view-type
+    display: none

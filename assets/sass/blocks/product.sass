@@ -97,6 +97,8 @@
   padding: 117px 41px 45px
   display: flex
   flex-direction: column
+  overflow: hidden
+  position: relative
 
 .product-main-info-content
   text-align: center
@@ -297,6 +299,7 @@
 
 .s-product-advantages
   padding-bottom: 60px
+
   + .s-operation
     padding-top: 0
 
@@ -313,6 +316,7 @@
 
   &.wide
     grid-column: span 2
+
     .advantages-item-content
       max-width: 610px
 
@@ -416,6 +420,7 @@
 
     .s-products-features
       color: #fff
+
       .btn-border
         &:not(:hover):not(:active)
           color: #fff
@@ -432,12 +437,34 @@
     .s-recommended
       background-color: #F6F6F6
       padding-top: 179px
+
     .s-similar
       background-color: #F6F6F6
+
+    .product-buy-modal
+      background-color: #404040
+      color: #fff
+
+    .back-link a:not(:hover)
+      color: #fff
+
+    .product-buy-shop-footer
+      .btn:not(:hover):not(:active)
+        color: #fff
+
+    .product-buy-shop
+      border-bottom-color: #7A7A7A
+
+    .product-buy-content
+      &::-webkit-scrollbar
+        background-color: #000
+      &::-webkit-scrollbar-thumb
+        background-color: #7a7a7a
 
 .video-block
   position: relative
   padding-bottom: 56.26%
+
   iframe
     position: absolute
     top: 0
@@ -463,12 +490,15 @@
   +tr
   opacity: 0
   visibility: hidden
+
   &.active
     opacity: 1
     visibility: visible
+
     span
       opacity: 1
       transform: scale(1)
+
   span
     flex-shrink: 0
     width: 125px
@@ -482,6 +512,7 @@
     +tr
     opacity: 0
     transform: scale(1.5)
+
     &:after
       content: '\e90b'
       font-family: icon
@@ -501,8 +532,10 @@
 
 .additional-advantages-descr
   margin-bottom: 104px
+
   .h1
     margin-bottom: 30px
+
   p
     margin: 0
     font-size: 20px
@@ -521,6 +554,7 @@
   height: 116px
   width: 154px
   margin: 0 auto 30px
+
   img
     width: 100%
     height: 100%
@@ -539,8 +573,10 @@
   width: 62%
   flex-shrink: 0
   padding: 42px 30px 0 0
+
   .h1
     margin-bottom: 40px
+
   p
     margin: 0
     max-width: 668px
@@ -548,6 +584,7 @@
 
 .operation-img
   width: 38%
+
   img
     display: block
     width: 100%
@@ -560,5 +597,83 @@
           .h5
             span
               display: none !important
+
           .products-features-list
             max-height: none !important
+
+.product-buy-modal
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  +tr4
+  opacity: 0
+  visibility: hidden
+  transform: scale(1.05)
+  background-color: #fff
+  z-index: 1
+  padding: 34px 41px
+  overflow: hidden
+  display: flex
+  flex-direction: column
+
+  &.opened
+    visibility: visible
+    opacity: 1
+    transform: scale(1)
+
+.back-link
+  margin-bottom: 17px
+
+  a
+    color: #000
+    +tr
+    display: flex
+    align-items: center
+    white-space: nowrap
+    font-size: 24px
+    font-weight: bold
+
+    &:hover
+      color: $accent
+
+    span
+      font-size: 15px
+      transform: translateY(2px)
+      margin-right: 3px
+
+.product-buy-content
+  overflow-y: auto
+  flex-grow: 1
+  +scrollbar
+
+.product-buy-shop
+  border-bottom: 1px solid #ededed
+  padding: 38px 133px
+
+  &:last-child
+    border-bottom: none
+
+.product-buy-shop-title
+  font-weight: bold
+  margin-bottom: 20px
+
+.product-buy-shop-price
+  margin-bottom: 20px
+  font-size: 24px
+  font-weight: bold
+
+.product-buy-shop-footer
+  display: flex
+  align-items: flex-end
+
+  .btn
+    padding: 0 37px
+    margin-left: auto
+
+.product-buy-shop-del
+  list-style-type: none
+  padding: 0
+  margin: 0 20px 0 0
+  line-height: 1.75
