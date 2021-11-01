@@ -1,13 +1,15 @@
 <template>
 
   <div class="form-group">
-    <label class="form-label">{{label}}</label>
-    <textarea
-      class="form-control"
-      :value="value"
-      :name="name"
-      :placeholder="placeholder"
-      @input="handleInput" />
+    <label class="form-label">{{ label }}</label>
+    <div class="form-input">
+      <textarea
+        class="form-control"
+        :value="value"
+        :name="name"
+        :placeholder="placeholder"
+        @input="handleInput"/>
+    </div>
   </div>
 
 </template>

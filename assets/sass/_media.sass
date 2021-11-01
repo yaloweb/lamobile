@@ -245,6 +245,25 @@
   .product-list-view-inquire
     font-size: 14px
 
+  .account-block
+    padding: 70px
+
+  .account-form-right
+    padding-left: 100px
+
+  .auth-layout-header
+    margin: 30px 0 45px
+
+  .auth-page
+    padding-bottom: 50px
+
+  .auth-block
+    padding: 50px 50px 80px
+
+  .auth-form
+    .form-title
+      margin-bottom: 40px
+
 
 @media (max-width: 1439.98px)
   body
@@ -443,7 +462,7 @@
     width: 300px
     height: 100%
     z-index: 10
-    padding-top: 20px
+    padding-top: 14px
     padding-bottom: 30px
     overflow-y: auto
     +scrollbar
@@ -462,10 +481,20 @@
     display: block
   .catalog-filter-close
     position: absolute
-    top: 26px
-    right: 20px
+    top: 11px
+    right: 14px
     z-index: 1
     display: block
+    width: 40px
+    height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    border: 1px solid #DEDBDB
+    color: #C4C4C4
   .catalog
     & > .row
       & > *
@@ -492,6 +521,10 @@
     margin-bottom: 30px
   .advantages
     grid-gap: 20px
+  .account-block
+    padding: 50px 30px
+  .account-form-right
+    padding-left: 30px
 
 
 @media (max-width: 991.98px)
@@ -705,6 +738,14 @@
     flex-grow: 1
   .product-list-view-inquire
     margin-left: auto
+  .form-group
+    display: block
+  .form-label
+    margin: 0 0 10px
+    width: auto
+  .account-form-left
+    .form-submit
+      padding: 0
 
 @media (max-width: 767.98px)
   .container
@@ -739,6 +780,19 @@
       font-size: 12px
   .set-list
     column-count: 2
+  .account-form
+    display: block
+  .account-form-left
+    width: 100%
+    margin-bottom: 40px
+  .form-submit
+    margin-top: 25px
+  .account-form-right
+    padding: 0
+    width: 100%
+
+    .form-group
+      max-width: none
 
 @media (max-width: 575.98px)
   .wrapper
@@ -749,6 +803,12 @@
     font-size: 22px
   .container
     padding: 0 10px
+  .btn
+    height: 40px
+    line-height: 40px
+    font-size: 14px
+  .btn-border
+    line-height: 38px
   .header
     padding-bottom: 30px
 
@@ -1459,3 +1519,100 @@
     margin-top: 25px
   .filter-view-type
     display: none
+  .catalog-filter
+    width: 100%
+  .catalog-filter-btn
+    display: block
+    margin-top: 20px
+  .account-block
+    margin-left: -10px
+    margin-right: -10px
+    padding: 18px 30px 57px
+  .form-title
+    margin-bottom: 25px
+    font-size: 16px
+  .form-control
+    height: 40px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    padding: 0 20px
+    font-size: 14px
+  .check-password
+    width: 21px
+    height: 21px
+    top: 10px
+    right: 15px
+
+    &.active
+      &:after
+        width: 18px
+  .pass-input
+    padding-right: 50px
+  .form-checkbox
+    span
+      padding-left: 32px
+
+      &:after
+        width: 20px
+        height: 20px
+
+      &:before
+        width: 8px
+        height: 8px
+        top: 5px
+        left: 6px
+  .account-form-right
+    .form-submit
+      display: block
+  .auth-layout-header
+    padding: 35px 0 32px
+    margin: 0
+  .auth-layout
+    display: flex
+    flex-direction: column
+    min-height: calc(100 * var(--vh))
+  .auth-page
+    padding: 0
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+
+    .container
+      flex-grow: 1
+      display: flex
+      flex-direction: column
+  .auth-block
+    margin: 0 -10px
+    height: 100%
+    flex-grow: 1
+    padding: 26px 32px
+  .auth-form
+    .form-title
+      font-size: 18px
+      margin-bottom: 35px
+  .form-footer-link
+    margin-top: 15px
+    a
+      font-size: 12px
+  .back-to-main-link
+    display: block
+    position: absolute
+    top: 27px
+    left: 18px
+    a
+      display: block
+      width: 30px
+      height: 30px
+      -webkit-border-radius: 50%
+      -moz-border-radius: 50%
+      border-radius: 50%
+      border: 1px solid #DEDBDB
+      background-image: url(/img/icons/angle-left-light.svg)
+      -webkit-background-size: 11px
+      background-size: 6px
+      background-repeat: no-repeat
+      background-position: center
+  .radio-group
+    .form-label
+      margin-bottom: 15px

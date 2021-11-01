@@ -8,7 +8,7 @@
       <div class="container">
 
         <div class="page-title">
-          <h1>Роботы-пылесосы {{mob}}</h1>
+          <h1>Роботы-пылесосы</h1>
         </div>
 
         <div
@@ -104,6 +104,12 @@
 
                   </div>
 
+                </div>
+
+                <div class="catalog-filter-btn">
+                  <button
+                    class="btn btn-border btn-block"
+                    @click="visibleFilter = false">Показать товары</button>
                 </div>
 
               </div>

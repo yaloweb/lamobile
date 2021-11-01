@@ -18,31 +18,33 @@
 
           <div class="account-form-left">
 
-            <div class="form-title">Ваши данные</div>
+            <div class="account-form-data">
 
-            <FormInput
-              label="Логин/почта"
-              v-model="login"
-              placeholder="Введите логин или почту"/>
+              <div class="form-title">Ваши данные</div>
 
-            <FormInput
-              label="Телефон"
-              v-model="phone"
-              placeholder="Введите Телефон"
-              :mask="'+7 (###) ### ## ##'"/>
+              <FormInput
+                label="Логин/почта"
+                v-model="login"
+                placeholder="Введите логин или почту"/>
 
-            <FormCheckbox
-              label="Тип организации"
-              v-model="companyType">Юридическое лицо</FormCheckbox>
+              <FormInput
+                label="Телефон"
+                v-model="phone"
+                placeholder="Введите Телефон"
+                :mask="'+7 (###) ### ## ##'"/>
 
-            <FormTextarea
-              label="Описание"
-              v-model="description"
-              placeholder="Введите Телефон"
-              :mask="'+7 (###) ### ## ##'"/>
+              <FormCheckbox
+                label="Тип организации"
+                v-model="companyType">Юридическое лицо
+              </FormCheckbox>
 
-            <div class="form-submit">
-              <button type="submit" class="btn">Сохранить</button>
+              <div class="form-submit">
+                <button
+                  type="submit"
+                  class="btn btn-border btn-block">Сохранить
+                </button>
+              </div>
+
             </div>
 
           </div>
@@ -65,6 +67,13 @@
               type="password"
               label="Повторите пароль"
               v-model="repeatPassword"/>
+
+            <div class="form-submit">
+              <button
+                type="submit"
+                class="btn btn-border btn-block">Сохранить
+              </button>
+            </div>
 
           </div>
 

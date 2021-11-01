@@ -6,7 +6,7 @@
       :class="{'disabled': disabled}">
       <label>
         <input
-          :type="type"
+          type="checkbox"
           :name="name"
           :checked="isChecked"
           :disabled="disabled"
@@ -34,11 +34,7 @@ export default {
       type: Boolean,
       default: false
     },
-    name: String,
-    type: {
-      type: String,
-      default: 'checkbox'
-    }
+    name: String
   },
   computed: {
     isChecked () {
