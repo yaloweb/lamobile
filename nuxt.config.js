@@ -45,6 +45,10 @@ export default {
     {
       src: '~plugins/mask.js',
       ssr: false
+    },
+    {
+      src: '~plugins/select.js',
+      ssr: false
     }
   ],
 

@@ -27,6 +27,18 @@
     .btn
       width: 200px
       font-size: 14px
+  .product-color-item
+    margin-bottom: 7px
+  .product-color-item-texture
+    width: 19px
+    height: 19px
+  .product-color-item-quantity
+    height: 19px
+    line-height: 19px
+    font-size: 12px
+    width: 36px
+  .product-color-item-price
+    font-size: 12px
 
 @media (max-width: 1599.98px)
   .s-main-window
@@ -160,7 +172,7 @@
       font-size: 40px
 
   .compare-table-parameters
-    padding-top: 180px
+    padding-top: 260px
 
     ul
       li
@@ -263,6 +275,9 @@
   .auth-form
     .form-title
       margin-bottom: 40px
+
+  .product-list-view-id
+    width: 8%
 
 
 @media (max-width: 1439.98px)
@@ -422,6 +437,10 @@
     max-width: 330px
   .s-product-advantages
     padding-bottom: 30px
+  .vs__selected-options
+    padding-left: 15px
+  .vs__actions
+    padding-right: 15px
 
 
 @media (max-width: 1199.98px)
@@ -525,7 +544,20 @@
     padding: 50px 30px
   .account-form-right
     padding-left: 30px
+  .product-colors-qnt
+    width: 130px
+    padding-right: 10px
+  .product-list-view-id
+    width: 10%
+  .compare-items-list
+    margin: 0 -10px
 
+    .compare-item
+      width: 50%
+      padding: 0 10px
+
+      &:last-child
+        display: none !important
 
 @media (max-width: 991.98px)
   h1, .h1
@@ -793,6 +825,74 @@
 
     .form-group
       max-width: none
+  .compare-table-title
+    margin-bottom: 35px
+
+    .h1
+      font-size: 22px
+      text-align: center
+  .compare-table
+    position: relative
+  .compare-table-parameters
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    text-align: center
+    padding: 195px 0 0
+    margin: 0
+
+    ul
+      width: 149px
+      margin-left: auto
+      margin-right: auto
+
+      li
+        font-size: 12px
+        line-height: 1.5
+        color: #c4c4c4
+        margin-bottom: 55px
+        height: 18px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: flex-end
+
+        &:first-child
+          display: none
+  .compare-table-items
+    position: relative
+    z-index: 1
+    width: 100%
+  .compare-item-img
+    height: 95px
+    margin-bottom: 5px
+  .compare-item-title
+    font-size: 14px
+    line-height: 1.36
+    margin-bottom: 20px
+  .compare-items-colors
+    span
+      width: 15px
+      height: 15px
+      margin: 0 3px
+  .compare-items-colors
+    height: 18px
+  .compare-item-parameters
+    ul
+      li
+        line-height: 1.36
+        font-size: 14px
+        margin-bottom: 55px
+  .compare-item-btn
+    .btn
+      height: 40px
+      text-align: center
+      line-height: 38px
+      padding: 0
+      width: 100%
+      font-size: 14px
 
 @media (max-width: 575.98px)
   .wrapper
@@ -1447,78 +1547,8 @@
       line-height: 1.5
   .compare-table-block
     padding: 55px 19px 80px
-  .compare-table-title
-    margin-bottom: 35px
-
-    .h1
-      font-size: 22px
-      text-align: center
-  .compare-table
-    position: relative
-  .compare-table-parameters
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    text-align: center
-    padding: 115px 0 0
-    margin: 0
-
-    ul
-      width: 149px
-      margin-left: auto
-      margin-right: auto
-
-      li
-        font-size: 12px
-        line-height: 1.5
-        color: #c4c4c4
-        margin-bottom: 55px
-        height: 18px
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: flex-end
-
-        &:first-child
-          display: none
-  .compare-table-items
-    position: relative
-    z-index: 1
-    width: 100%
-  .compare-item-img
-    height: 95px
-    margin-bottom: 5px
-  .compare-item-title
-    font-size: 14px
-    line-height: 1.36
-    margin-bottom: 20px
-  .compare-items-colors
-    span
-      width: 15px
-      height: 15px
-      margin: 0 3px
-  .compare-items-colors
-    height: 18px
-  .compare-item-parameters
-    ul
-      li
-        line-height: 1.36
-        font-size: 14px
-        margin-bottom: 55px
-  .compare-item-btn
-    .btn
-      height: 40px
-      text-align: center
-      line-height: 38px
-      padding: 0
-      width: 100%
-      font-size: 14px
   .slider-scrollbar
     margin-top: 25px
-  .filter-view-type
-    display: none
   .catalog-filter
     width: 100%
   .catalog-filter-btn
@@ -1593,6 +1623,7 @@
       margin-bottom: 35px
   .form-footer-link
     margin-top: 15px
+
     a
       font-size: 12px
   .back-to-main-link
@@ -1600,19 +1631,133 @@
     position: absolute
     top: 27px
     left: 18px
+
     a
-      display: block
+      display: flex
+      align-items: center
+      justify-content: center
       width: 30px
       height: 30px
       -webkit-border-radius: 50%
       -moz-border-radius: 50%
       border-radius: 50%
       border: 1px solid #DEDBDB
-      background-image: url(/img/icons/angle-left-light.svg)
-      -webkit-background-size: 11px
-      background-size: 6px
-      background-repeat: no-repeat
-      background-position: center
+
+      &:after
+        content: '\e90f'
+        font-family: icon
+        font-size: 11px
+        color: #C4C4C4
+        font-weight: normal
+        line-height: 1
   .radio-group
     .form-label
       margin-bottom: 15px
+  .filter-view-type
+    height: 40px
+    padding: 0 8px
+
+    span
+      font-size: 14px
+      margin: 0 5px
+  .product-list-view
+    padding: 20px 15px 30px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    position: relative
+  .product-list-view-img
+    width: 109px
+    padding-right: 13px
+  .product-colors-images
+    width: 96px
+    height: 96px
+  .product-list-view-tag
+    display: none
+    font-size: 14px
+
+    &.mob
+      display: block
+      width: 100%
+  .product-list-view-id
+    display: none
+
+    &.mob
+      display: block
+      width: 100%
+      padding: 0
+      margin-bottom: 10px
+  .product-list-view-title
+    width: calc(100% - 109px)
+    margin-top: 30px
+
+    .h6
+      font-size: 14px
+  .product-colors-qnt
+    padding: 0
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    margin: 20px 0 10px
+  .product-color-item
+    margin: 0 7px
+    flex-direction: column
+    text-align: center
+  .product-color-item-texture
+    width: 25px
+    height: 25px
+    margin: 0 0 5px
+  .product-color-item-quantity
+    margin: 0
+    width: 64px
+    height: 25px
+    line-height: 25px
+    font-size: 12px
+  .product-color-item-price
+    margin-top: 7px
+    font-size: 12px
+  .product-list-view-price
+    margin-top: 10px
+    width: 100%
+    padding: 0
+    font-size: 16px
+    text-align: center
+  .product-list-view-cart
+    margin-top: 24px
+    width: 100%
+    padding: 0
+
+    .btn
+      width: 100%
+  .product-list-view-inquire
+    width: 100%
+    margin: 25px 0 0
+    font-size: 16px
+    text-align: center
+  .compare-items-list
+    margin: 0 -5px
+    .compare-item
+      padding: 0 5px
+  .vs__dropdown-toggle
+    height: 40px
+    border-radius: 10px
+  .vs__selected-options
+    padding: 0 10px
+  .vs__actions
+    padding: 0 10px 0 0
+    &:after
+      font-size: 7px
+  .vs__selected
+    font-size: 12px
+  .vs__dropdown-option
+    padding: 8px 10px
+    font-size: 12px
+  .vs__dropdown-menu
+    min-width: 0
+  .compare-table-parameters
+    padding-top: 180px
+  .compare-item-btn
+    max-width: 136px
+    margin-left: auto
+    margin-right: auto

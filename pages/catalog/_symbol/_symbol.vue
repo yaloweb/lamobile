@@ -40,7 +40,7 @@
       </div>
     </section>
 
-    <SectionProductFeatures/>
+    <SectionProductFeatures ref="SectionProductFeatures"/>
 
     <section class="s-recommended">
       <div class="container">
@@ -77,11 +77,12 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     const symbol = this.$route.params.symbol
-    return await Promise.all([
+    const promises = await Promise.all([
       this.$store.dispatch('product/getProductInfo', symbol),
       this.$store.dispatch('recommended/getRecommended'),
       this.$store.dispatch('recommended/getSimilar')
     ])
+    return promises
   },
   name: 'ProductPage',
   computed: {

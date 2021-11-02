@@ -28,7 +28,7 @@
   flex-grow: 1
 
 .form-control
-  height: 61px
+  height: 60px
   padding: 0 33px
   -webkit-border-radius: 20px
   -moz-border-radius: 20px
@@ -154,3 +154,68 @@ textarea.form-control
     margin-bottom: 15px
   .form-checkbox
     margin: 0
+
+.vs__dropdown-toggle
+  height: 60px
+  background-color: #EEEFF3
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border-radius: 20px
+  border: none
+  +tr
+  padding: 0
+
+.vs__selected-options
+  padding: 0 10px 0 33px
+  flex-grow: 1
+  flex-wrap: nowrap
+  .vs__search
+    min-width: 0
+    padding: 0 !important
+
+.vs__selected
+  margin: 0 !important
+  border: none !important
+  padding: 0 !important
+  flex-grow: 1
+  position: static !important
+  opacity: 1 !important
+  text-align: left
+  justify-content: flex-start
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+.vs__clear
+  display: none !important
+
+.vs__actions
+  padding: 0 33px 0 0
+  &:after
+    content: '\e910'
+    font-family: icon
+    font-weight: normal
+    line-height: 1
+    font-size: 11px
+    color: #7A7A7A
+    +tr
+
+.vs__open-indicator
+  display: none !important
+
+.vs--open
+  .vs__actions
+    &:after
+      transform: rotate(180deg)
+
+.vs__dropdown-menu
+  border: none
+  -webkit-border-radius: 0
+  -moz-border-radius: 0
+  border-radius: 0
+
+.vs__dropdown-option--selected
+  background-color: #f6f6f6
+
+.vs__dropdown-option--highlight
+  background-color: $accent

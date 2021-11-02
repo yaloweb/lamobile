@@ -5,30 +5,26 @@
     :class="{'disabled': item.inStock === false}">
     <div class="product-list-view-row">
 
+      <div
+        v-if="item.tag"
+        class="product-list-view-tag mob"
+        :class="item.tag.color"
+        v-text="item.tag.title"/>
+
       <div class="product-list-view-img">
         <nuxt-link
           :to="item.url"
           :event="item.inStock === false ? '' : 'click'">
           <img
-            v-if="!item.colors"
             :src="item.imgSrc"
             alt="">
-          <div
-            v-else
-            class="product-colors-images">
-            <img
-              v-for="img in item.colorsImages"
-              :key="img.id"
-              :class="{'active': selectedColor === img.color}"
-              :src="img.imgSrc"
-              alt="">
-          </div>
         </nuxt-link>
       </div>
 
       <div class="product-list-view-id">ID товара: <br>{{item.productId}}</div>
 
       <div class="product-list-view-title">
+        <div class="product-list-view-id mob">ID товара: {{item.productId}}</div>
         <div
           v-if="item.tag"
           class="product-list-view-tag"
@@ -43,20 +39,23 @@
       </div>
 
       <div
-        v-if="item.colors"
-        class="product-list-view-colors">
-        <div class="product-colors-block">
-          <span
-            v-for="color in item.colors"
-            :key="color.id"
-            :style="{backgroundColor: color.background}"
-            :class="{'active': color.id === selectedColor}"
-            @click="selectedColor = color.id"/>
+        v-if="item.colors && item.inStock !== false"
+        class="product-colors-qnt">
+        <div
+          v-for="color in item.colors"
+          :key="color.id"
+          class="product-color-item">
+          <div
+            class="product-color-item-texture"
+            :class="{'with-border': color.withBorder}"
+            :style="{backgroundColor: color.background}"/>
+          <div
+            class="product-color-item-quantity"
+            :class="{'disabled': color.quantity === undefined || color.quantity === 0}">{{ color.quantity }}</div>
+          <div
+            v-if="color.quantity !== undefined && color.quantity !== 0"
+            class="product-color-item-price">{{ color.price | priceFilter }} ₽</div>
         </div>
-      </div>
-
-      <div class="product-list-view-qnt">
-        <span v-if="item.inStock !== false">{{item.quantity}}</span>
       </div>
 
       <div
@@ -87,10 +86,7 @@ export default {
   name: 'CatalogListItem',
   props: {
     item: Object
-  },
-  data: () => ({
-    selectedColor: 1
-  })
+  }
 }
 </script>
 

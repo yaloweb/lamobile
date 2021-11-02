@@ -25,7 +25,7 @@
         v-for="brand in brands"
         :key="brand.id"
         class="brand-label"
-        :class="{'active': selectedBrands.filter(item => item === brand.id).length > 0}">
+        :class="{'active': filters.brands.filter(item => item === brand.id).length > 0}">
         <div
           class="brand-title"
           @click="selectBrand(brand)">{{ brand.title }}</div>
@@ -49,7 +49,7 @@
             <input
               type="checkbox"
               name="category"
-              :value="categoriesAll"
+              v-model="categoriesAll"
               @change="categoriesAllSelect">
             <span>Все категории</span>
           </label>
@@ -63,8 +63,7 @@
             <input
               type="checkbox"
               name="category"
-              :checked="category.selected"
-              @change="selectCategory($event, category.id)">
+              v-model="category.selected">
             <span>{{ category.title }}</span>
           </label>
           <div
@@ -78,8 +77,7 @@
                 <input
                   type="checkbox"
                   name="category"
-                  :checked="subcategory.selected"
-                  @change="selectSubCategory($event, category.id, subcategory.id)">
+                  v-model="subcategory.selected">
                 <span>{{ subcategory.title }}</span>
               </label>
             </div>
@@ -90,86 +88,143 @@
 
     </div>
 
+    <div class="catalog-filter-btn">
+      <button
+        class="btn btn-border btn-block"
+        @click="closeFilter">Показать товары</button>
+    </div>
+
   </div>
 </template>
 
 <script>
-
-import { mapState } from 'vuex'
-
 export default {
   name: 'CatalogFilter',
-  computed: {
-    ...mapState({
-      visibleFilter: state => state.filter.visibleFilter,
-      brands: state => state.filter.brands,
-      categories: state => state.filter.categories,
-      selectedBrands: state => state.filter.selectedBrands,
-      categoriesAll: state => state.filter.categoriesAll
-    })
+  props: {
+    visibleFilter: Boolean
   },
+  data: () => ({
+    brands: [
+      {
+        id: 1,
+        title: 'Roborock'
+      },
+      {
+        id: 2,
+        title: 'Yeelight'
+      },
+      {
+        id: 3,
+        title: '70mai'
+      },
+      {
+        id: 4,
+        title: 'ZMI'
+      },
+      {
+        id: 5,
+        title: '1More'
+      },
+      {
+        id: 6,
+        title: 'WalkingPad'
+      },
+      {
+        id: 7,
+        title: 'Mi'
+      }
+    ],
+    categories: [
+      {
+        id: 1,
+        title: 'Аксессуары для роботов-пылесосов',
+        selected: false
+      },
+      {
+        id: 2,
+        title: 'Свет',
+        selected: false,
+        subcategories: [
+          {
+            id: 1,
+            title: 'Диодные ленты',
+            selected: false
+          },
+          {
+            id: 2,
+            title: 'Настольные лампы',
+            selected: false
+          },
+          {
+            id: 3,
+            title: 'Ночники',
+            selected: false
+          },
+          {
+            id: 4,
+            title: 'Потолочные светильники',
+            selected: false
+          },
+          {
+            id: 5,
+            title: 'Цокольные лампы',
+            selected: false
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: 'Климат',
+        selected: false
+      },
+      {
+        id: 4,
+        title: 'Внешние аккумуляторы',
+        selected: false
+      },
+      {
+        id: 5,
+        title: 'Аксессуары в авто',
+        selected: false
+      },
+      {
+        id: 6,
+        title: 'Беговые дорожки',
+        selected: false
+      }
+    ],
+    filters: {
+      brands: []
+    },
+    categoriesAll: false
+  }),
   methods: {
     selectBrand (item, all) {
       if (!all) {
-        this.$store.commit('filter/addSelectedBrand', item)
+        if (this.filters.brands.filter(arrItem => arrItem === item.id).length === 0) {
+          this.filters.brands.push(item.id)
+        }
       } else {
-        this.$store.commit('filter/addAllBrand')
+        this.filters.brands = this.brands.map(item => item.id)
       }
     },
     removeBrand (id) {
-      this.$store.commit('filter/removeSelectedBrand', id)
+      this.filters.brands = this.filters.brands.filter(arrItem => arrItem !== id)
     },
-    categoriesAllSelect (e) {
-      const value = e.target.checked
-      this.$store.dispatch('filter/selectAllCategories', value)
-    },
-    selectCategory (e, id) {
-      this.$store.commit('filter/selectCategory', {
-        id,
-        value: e.target.checked
-      })
-    },
-    selectSubCategory (e, parentId, id) {
-      this.$store.commit('filter/selectSubCategory', {
-        id,
-        parentId,
-        value: e.target.checked
+    categoriesAllSelect () {
+      let res = !!this.categoriesAll
+      this.categories.forEach(category => {
+        category.selected = res
+        if (category.subcategories) {
+          category.subcategories.forEach(subcategory => {
+            subcategory.selected = res
+          })
+        }
       })
     },
     closeFilter () {
-      this.$store.commit('filter/setFilterState', false)
-    },
-    offset (el) {
-      const rect = el.getBoundingClientRect()
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      return (rect.top + scrollTop)
+      this.$emit('close', false)
     }
-  },
-  mounted () {
-    const filterBtn = document.querySelector('.open-filter-btn')
-    const sCatalog = document.querySelector('.s-catalog')
-    const filterBtnScroll = e => {
-      const scrY = window.scrollY
-      const scrTop = this.offset(sCatalog)
-      const offH = sCatalog.offsetHeight
-      const wH = window.innerHeight
-      const res = scrTop + offH - scrY - wH
-      res > 0 ? filterBtn.classList.remove('absolute') : filterBtn.classList.add('absolute')
-    }
-    const clickOutFilter = e => {
-      if (window.innerWidth < 1200) {
-        let tg = e.target
-        if (!tg.closest('.catalog-filter') && !tg.closest('.open-filter-btn')) {
-          this.closeFilter()
-        }
-      }
-    }
-    window.addEventListener('scroll', filterBtnScroll)
-    document.addEventListener('click', clickOutFilter)
-    this.$on('hook:beforeDestroy', () => {
-      window.removeEventListener('scroll', filterBtnScroll)
-      document.removeEventListener('click', clickOutFilter)
-    })
   }
 }
 </script>

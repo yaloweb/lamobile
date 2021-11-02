@@ -23,55 +23,57 @@
 
       <div class="compare-table-items">
 
-        <div class="compare-items-slider">
+        <div class="compare-items-list">
 
-          <swiper :options="swiperOptions">
-            <swiper-slide
-              v-for="item in items"
-              :key="item.id">
+          <div
+            v-for="(item, index) in compareItems"
+            :key="`${item.id}-${index}`"
+            ref="product"
+            class="compare-item">
 
-              <div
-                ref="product"
-                class="compare-item">
-                <div class="compare-item-img">
-                  <img
-                    :src="item.imgSrc"
-                    alt="">
-                </div>
-                <div
-                  ref="productTitle"
-                  class="compare-item-title"
-                  v-html="item.title" />
-                <div class="compare-item-parameters">
-                  <ul>
-                    <li
-                      v-for="parameter in parameters"
-                      :key="parameter.key">
-                      <template v-if="parameter.key === 'colors'">
-                        <div class="compare-items-colors">
-                          <span
-                            v-for="(color, index) in item.parameters.colors"
-                            :key="index"
-                            :style="{backgroundColor: color}"/>
-                        </div>
-                      </template>
-                      <template v-else>
-                        {{ item.parameters[parameter.key] ? (item.parameters[parameter.key].length > 0 ? item.parameters[parameter.key] : '1-') : '-' }}
-                      </template>
-                    </li>
-                  </ul>
-                </div>
-                <div class="compare-item-btn">
-                  <nuxt-link
-                    :to="item.url"
-                    class="btn btn-border">Подробнее</nuxt-link>
-                </div>
-              </div>
+            <div class="compare-item-select">
+              <v-select
+                label="title"
+                :options="items"
+                v-model="activeElements[index]"
+                :reduce="option => option.id"
+                :searchable="false"/>
+            </div>
 
-            </swiper-slide>
-          </swiper>
-
-          <div class="slider-scrollbar"/>
+            <div class="compare-item-img">
+              <img
+                :src="item.imgSrc"
+                alt="">
+            </div>
+            <div
+              ref="productTitle"
+              class="compare-item-title"
+              v-html="item.title" />
+            <div class="compare-item-parameters">
+              <ul>
+                <li
+                  v-for="parameter in parameters"
+                  :key="parameter.key">
+                  <template v-if="parameter.key === 'colors'">
+                    <div class="compare-items-colors">
+                      <span
+                        v-for="(color, colorIndex) in item.parameters.colors"
+                        :key="colorIndex"
+                        :style="{backgroundColor: color}"/>
+                    </div>
+                  </template>
+                  <template v-else>
+                    {{ item.parameters[parameter.key] ? (item.parameters[parameter.key].length > 0 ? item.parameters[parameter.key] : '1-') : '-' }}
+                  </template>
+                </li>
+              </ul>
+            </div>
+            <div class="compare-item-btn">
+              <nuxt-link
+                :to="item.url"
+                class="btn btn-border">Подробнее</nuxt-link>
+            </div>
+          </div>
 
         </div>
 
@@ -86,92 +88,86 @@
 <script>
 
 import { mapState } from 'vuex'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
   async fetch () {
-    return await this.$store.dispatch('compare/getCompareData')
+    await this.$store.dispatch('compare/getCompareData').then(() => {
+      this.activeElements.push(this.items[0].id)
+      this.activeElements.push(this.items[1].id)
+      this.activeElements.push(this.items[2].id)
+      this.eqHeight()
+    })
   },
   name: 'Table',
-  components: {
-    Swiper,
-    SwiperSlide
-  },
   computed: {
     ...mapState({
       title: state => state.compare.title,
       parameters: state => state.compare.parameters,
       items: state => state.compare.items
-    })
+    }),
+    compareItems () {
+      let arr = []
+      this.activeElements.forEach(id => {
+        arr.push(this.getCurrentCompareItem(id))
+      })
+      this.eqHeight()
+      return arr
+    }
   },
   data: () => ({
-    swiperOptions: {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      speed: 600,
-      watchSlidesVisibility: true,
-      scrollbar: {
-        el: '.slider-scrollbar',
-        draggable: true
-      },
-      breakpoints: {
-        0: {
-          spaceBetween: 80,
-          slidesPerView: 2
-        },
-        576: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        992: {
-          slidesPerView: 3,
-          spaceBetween: 30
-        }
-      }
-    }
+    activeElements: []
   }),
   methods: {
+    getCurrentCompareItem (id) {
+      return Object.assign({}, this.items.filter(item => item.id === id)[0])
+    },
     eqHeight () {
-      const parameterTitle = this.$refs.parameterTitle
-      const productTitle = this.$refs.productTitle
+      this.$nextTick(() => {
+        const parameterTitle = this.$refs.parameterTitle
+        const productTitle = this.$refs.productTitle
 
-      if (productTitle) {
-        productTitle.forEach(item => {
-          item.style.removeProperty('height')
-        })
-      }
-
-      const parameter = this.$refs.parameter
-      const product = this.$refs.product
-      let titleHeight = 0
-
-      if (productTitle) {
-        productTitle.forEach(item => {
-          if (item.offsetHeight > titleHeight) {
-            titleHeight = item.offsetHeight
-          }
-        })
-      }
-
-      parameterTitle.style.height = `${titleHeight}px`
-
-      if (productTitle) {
-        productTitle.forEach(item => {
-          item.style.height = `${titleHeight}px`
-        })
-      }
-
-      if (parameter) {
-        parameter.forEach((item, index) => {
-          product.forEach(group => {
-            group.querySelectorAll('.compare-item-parameters li').forEach((prodItem, prodIndex) => {
-              if (prodIndex === index) {
-                prodItem.style.height = `${item.clientHeight}px`
-              }
-            })
+        if (productTitle) {
+          productTitle.forEach(item => {
+            item.style.removeProperty('height')
           })
-        })
-      }
+        }
+
+        const parameter = this.$refs.parameter
+        const product = this.$refs.product
+        let titleHeight = 0
+
+        if (productTitle) {
+          productTitle.forEach(item => {
+            if (item.offsetHeight > titleHeight) {
+              titleHeight = item.offsetHeight
+            }
+          })
+        }
+
+        if (parameterTitle) {
+          parameterTitle.style.height = `${titleHeight}px`
+        }
+
+        if (productTitle) {
+          productTitle.forEach(item => {
+            item.style.height = `${titleHeight}px`
+          })
+        }
+
+        if (parameter) {
+          parameter.forEach((item, index) => {
+            if (product) {
+              product.forEach(group => {
+                group.querySelectorAll('.compare-item-parameters li').forEach((prodItem, prodIndex) => {
+                  if (prodIndex === index) {
+                    prodItem.style.height = `${item.clientHeight}px`
+                  }
+                })
+              })
+            }
+          })
+        }
+      })
     }
   },
   mounted () {

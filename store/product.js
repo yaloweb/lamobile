@@ -30,7 +30,6 @@ export const mutations = {
         state[key] = data[key] ? data[key] : state[key]
       }
     }
-    console.log(state)
   }
 }
 

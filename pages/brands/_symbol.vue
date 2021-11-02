@@ -13,7 +13,8 @@
           <div class="row">
 
             <div class="col-3">
-              <CatalogFilter />
+              <CatalogFilter
+                :visibleFilter="visibleFilter" />
             </div>
 
             <div :class="visibleFilter ? 'col-9' : 'col-12'">
@@ -36,13 +37,26 @@
 
           </div>
 
-          <button
-            ref="filterBtn"
-            class="open-filter-btn"
-            :class="{'active': visibleFilter}"
-            @click="toggleFilter">
-            <span class="icon-filter" />{{ !visibleFilter ? 'Показать фильтр' : 'Скрыть фильтр' }}
-          </button>
+          <div
+            ref="filterBtns"
+            class="filter-footer-btns"
+            :class="{'active': visibleFilter}">
+            <button
+              class="open-filter-btn"
+              @click="visibleFilter = !visibleFilter">
+              <span class="icon-filter"></span>{{ !visibleFilter ? 'Показать фильтр' : 'Скрыть фильтр' }}
+            </button>
+            <div class="filter-view-type">
+              <span
+                class="icon-masonry"
+                :class="{'active': type === 'grid'}"
+                @click="type = 'grid'"/>
+              <span
+                class="icon-list"
+                :class="{'active': type === 'list'}"
+                @click="type = 'list'"/>
+            </div>
+          </div>
 
         </div>
 
@@ -68,14 +82,46 @@ export default {
   layout: 'brands',
   computed: {
     ...mapState({
-      catalog: state => state.catalog.catalog,
-      visibleFilter: state => state.filter.visibleFilter
+      catalog: state => state.catalog.catalog
     })
   },
+  data: () => ({
+    visibleFilter: false,
+    type: 'grid'
+  }),
   methods: {
-    toggleFilter () {
-      this.$store.commit('filter/setFilterState', !this.visibleFilter)
+    offset (el) {
+      const rect = el.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      return (rect.top + scrollTop)
     }
+  },
+  mounted () {
+    const fitlerBtns = this.$refs.filterBtns
+    const sCatalog = this.$refs.catalog
+    const filterBtnScroll = e => {
+      const scrY = window.scrollY
+      const scrTop = this.offset(sCatalog)
+      const offH = sCatalog.offsetHeight
+      const wH = window.innerHeight
+      const res = scrTop + offH - scrY - wH
+      res > 0 ? fitlerBtns.classList.remove('absolute') : fitlerBtns.classList.add('absolute')
+    }
+    const clickOutFilter = e => {
+      if (window.innerWidth < 1200) {
+        let tg = e.target
+        if (!tg.closest('.catalog-filter') && !tg.closest('.open-filter-btn')) {
+          this.visibleFilter = false
+        }
+      }
+    }
+
+    window.addEventListener('scroll', filterBtnScroll)
+    document.addEventListener('click', clickOutFilter)
+    this.$on('hook:beforeDestroy', () => {
+      window.removeEventListener('scroll', filterBtnScroll)
+      document.removeEventListener('click', clickOutFilter)
+    })
   }
 }
 </script>
