@@ -1,9 +1,9 @@
 <template>
-  <div class="form-group">
+  <div class="form-group form-group-checkbox">
     <label class="form-label">{{label}}</label>
     <div
       class="form-checkbox"
-      :class="{'disabled': disabled}">
+      :class="[classes, {'disabled': disabled}]">
       <label>
         <input
           type="checkbox"
@@ -34,7 +34,8 @@ export default {
       type: Boolean,
       default: false
     },
-    name: String
+    name: String,
+    classes: [String, Object, Array]
   },
   computed: {
     isChecked () {

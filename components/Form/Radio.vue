@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group">
+  <div class="form-group form-group-checkbox">
     <div
       class="form-checkbox"
       :class="{'disabled': disabled}">
@@ -25,7 +25,10 @@ export default {
   },
   props: {
     modelValue: { default: '' },
-    value: { type: String, default: undefined },
+    value: {
+      type: String,
+      default: undefined
+    },
     disabled: Boolean,
     name: String
   },

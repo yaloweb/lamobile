@@ -49,6 +49,10 @@ export default {
     {
       src: '~plugins/select.js',
       ssr: false
+    },
+    {
+      src: '~plugins/vuelidate.js',
+      ssr: false
     }
   ],
 
