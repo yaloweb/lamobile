@@ -1,7 +1,20 @@
 <template>
   <div
+    ref="basketTotal"
     class="basket-total"
     v-loading="loading">
+
+    <div
+      class="basket-total-mob"
+      :class="{'visible': basketTotalMob}">
+      <div class="container">
+        <div class="basket-total-mob-value">
+          <span>Итого {{ total.products.quantity }} {{$options.filters.declensionNumbers(total.products.quantity, ['товар', 'товара', 'товаров'])}} на сумму:</span>
+          <span>{{ total.products.price | priceFilter}} ₽</span>
+        </div>
+        <button class="btn btn-block btn-border">Перейти к оформлению</button>
+      </div>
+    </div>
 
     <div class="basket-total-prices">
       <ul>
@@ -42,7 +55,7 @@
     </div>
 
     <div class="basket-total-submit">
-      <button class="btn btn-block">Перейти к оформлению</button>
+      <button class="btn btn-block btn-border">Оформить заказ</button>
     </div>
 
     <nav class="basket-total-links">
@@ -71,11 +84,37 @@ export default {
     }),
     totalPrice () {
       return (this.total.products.price + this.total.delivery - this.total.discount)
+    },
+    basketTotal () {
+      return this.$refs.basketTotal
     }
   },
   data: () => ({
-    promocode: ''
-  })
+    promocode: '',
+    basketTotalMob: false
+  }),
+  methods: {
+    getOffsetTop (el) {
+      const rect = el.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      return (scrollTop + rect.top)
+    },
+    toggleTotalMob () {
+      const offsetTop = this.getOffsetTop(this.basketTotal)
+      this.basketTotalMob = window.pageYOffset < (offsetTop - 300)
+    }
+  },
+  mounted () {
+    const events = ['load', 'resize', 'scroll']
+    events.forEach(event => {
+      window.addEventListener(event, this.toggleTotalMob)
+    })
+    this.$on('hook:beforeDestroy', () => {
+      events.forEach(event => {
+        window.removeEventListener(event, this.toggleTotalMob)
+      })
+    })
+  }
 }
 </script>
 

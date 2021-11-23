@@ -1,5 +1,9 @@
 export const state = () => ({
   products: [],
+  gifts: {
+    descr: '',
+    list: []
+  },
   total: {
     products: {
       quantity: 0,
@@ -13,6 +17,8 @@ export const state = () => ({
 export const mutations = {
   setBasketData (state, data) {
     state.products = data.products
+    state.gifts.descr = data.gifts.descr
+    state.gifts.list = data.gifts.list
     state.total.products = data.total.products
     state.total.delivery = data.total.delivery
     state.total.discount = data.total.discount

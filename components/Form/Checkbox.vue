@@ -1,6 +1,8 @@
 <template>
   <div class="form-group form-group-checkbox">
-    <label class="form-label">{{label}}</label>
+    <label
+      v-if="withLabel"
+      class="form-label">{{label}}</label>
     <div
       class="form-checkbox"
       :class="[classes, {'disabled': disabled}]">
@@ -35,7 +37,11 @@ export default {
       default: false
     },
     name: String,
-    classes: [String, Object, Array]
+    classes: [String, Object, Array],
+    withLabel: {
+      type: Boolean,
+      default: true
+    }
   },
   computed: {
     isChecked () {

@@ -28,6 +28,28 @@
                 @delete-product="deleteProduct(product.id)"
               />
 
+              <div
+                v-if="gifts.list.length > 0"
+                class="basket-gifts-block">
+
+                <div class="basket-gifts-block-text">
+                  <div class="h5">Подарок</div>
+                  <p v-html="gifts.descr"/>
+                </div>
+
+                <div class="basket-gifts-block-items">
+                  <div
+                    v-for="item in gifts.list"
+                    :key="item.id"
+                    class="basket-gifts-block-item">
+                    <img
+                      :src="item.imgSrc"
+                      alt="">
+                  </div>
+                </div>
+
+              </div>
+
             </div>
 
             <BasketOrdering
@@ -58,7 +80,8 @@ export default {
   name: 'Basket',
   computed: {
     ...mapState({
-      products: state => state.basket.products
+      products: state => state.basket.products,
+      gifts: state => state.basket.gifts
     })
   },
   data: () => ({

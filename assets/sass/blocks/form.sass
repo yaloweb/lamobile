@@ -42,6 +42,10 @@
   background-color: #EEEFF3
   outline: none !important
   color: #000
+  +tr
+
+  &.invalid
+    background-color: #fff0f0
 
   &::placeholder
     color: #999
@@ -60,7 +64,7 @@ textarea.form-control
   margin: 17px 0
 
   &.square
-    span
+    label > span
       &:after
         -webkit-border-radius: 5px
         -moz-border-radius: 5px
@@ -85,15 +89,16 @@ textarea.form-control
         &:before
           transform: scale(1)
 
-  span
+  label > span
     position: relative
     padding-left: 36px
+    display: block
 
     &:after
       content: ''
       position: absolute
       left: 0
-      top: -1px
+      top: 0px
       width: 24px
       height: 24px
       //border-radius: 5px
@@ -113,7 +118,7 @@ textarea.form-control
       -moz-border-radius: 50%
       border-radius: 50%
       z-index: 1
-      top: 6px
+      top: 7px
       left: 7px
       +tr
       transform: scale(0)
@@ -123,7 +128,15 @@ textarea.form-control
       display: block
       color: #7A7A7A
       font-size: 14px
-      padding-left: 36px
+
+    a
+      position: relative
+      color: #7A7A7A
+      text-decoration: underline !important
+      +tr
+
+      &:hover
+        color: $accent
 
 .check-password
   position: absolute
@@ -250,3 +263,22 @@ textarea.form-control
 
 .vs__dropdown-option--highlight
   background-color: $accent
+
+.form-row
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-gap: 19px
+
+.form-row-item
+  &.wide
+    grid-column: span 3
+
+.checkbox-with-img
+  display: flex
+  align-items: center
+  transform: translateY(-7px)
+
+  img
+    flex-shrink: 0
+    height: 38px
+    margin-right: 20px

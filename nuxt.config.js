@@ -34,6 +34,7 @@ export default {
   plugins: [
     '~plugins/filters.js',
     '~plugins/directives.js',
+    '~plugins/vuelidate.js',
     {
       src: '~plugins/custom-scripts.js',
       ssr: false
@@ -48,10 +49,6 @@ export default {
     },
     {
       src: '~plugins/select.js',
-      ssr: false
-    },
-    {
-      src: '~plugins/vuelidate.js',
       ssr: false
     }
   ],
@@ -69,7 +66,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    ['@nuxtjs/recaptcha',
+      {
+        siteKey: '6LesVlMdAAAAABTs5N78L1UMDKBYi_jAfm76o2_w',
+        version: 3
+      }
+    ]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

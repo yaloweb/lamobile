@@ -7,7 +7,7 @@
     <div class="form-input">
       <input
         class="form-control"
-        :class="{'pass-input': type === 'password'}"
+        :class="{'pass-input': type === 'password', 'invalid': invalid}"
         :value="value"
         :type="type === 'password' ? ( checkPass ? 'text' : 'password' ) : type"
         :name="name"
@@ -37,7 +37,11 @@ export default {
     placeholder: String,
     value: [String, Number],
     mask: String,
-    classes: [String, Object, Array]
+    classes: [String, Object, Array],
+    invalid: {
+      type: Boolean,
+      default: false
+    }
   },
   data: () => ({
     checkPass: false
