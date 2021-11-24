@@ -171,6 +171,7 @@
 .header-location
   margin-right: 25px
   color: #7A7A7A
+  white-space: nowrap
 
   a
     text-decoration: none !important
@@ -192,12 +193,46 @@
   text-decoration: none !important
   +tr
   margin-right: 20px
+  position: relative
 
   &:last-child
     margin-right: 0
 
   &:hover
     color: $accent !important
+
+  .basket-quantity
+    position: absolute
+    font-size: 14px
+    line-height: 1
+    bottom: 11px
+    left: 0
+    right: 0
+    text-align: center
+    color: #fff
+
+.header-account-basket
+  &.active
+    .icon-bag
+      &:after
+        opacity: 1
+      &:before
+        opacity: 0
+  .icon-bag
+    position: relative
+    &:before
+      +tr
+    &:after
+      content: '\e914'
+      font-family: icon
+      position: absolute
+      line-height: 1
+      top: 0
+      left: 0
+      font-weight: normal
+      +tr
+      opacity: 0
+
 
 .catalog-dropdown
   background-color: #fff
@@ -415,3 +450,8 @@
 
 .mob-search-form
   display: none
+
+.header-name
+  line-height: 1.3
+  margin: 0 25px 0 32px
+  font-weight: 600

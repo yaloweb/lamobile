@@ -12,7 +12,9 @@
           <span>Итого {{ total.products.quantity }} {{$options.filters.declensionNumbers(total.products.quantity, ['товар', 'товара', 'товаров'])}} на сумму:</span>
           <span>{{ total.products.price | priceFilter}} ₽</span>
         </div>
-        <button class="btn btn-block btn-border">Перейти к оформлению</button>
+        <button
+          class="btn btn-block btn-border"
+          @click="scrollToOrder">Перейти к оформлению</button>
       </div>
     </div>
 
@@ -55,7 +57,9 @@
     </div>
 
     <div class="basket-total-submit">
-      <button class="btn btn-block btn-border">Оформить заказ</button>
+      <button
+        class="btn btn-block btn-border"
+        @click="scrollToOrder">Оформить заказ</button>
     </div>
 
     <nav class="basket-total-links">
@@ -102,6 +106,14 @@ export default {
     toggleTotalMob () {
       const offsetTop = this.getOffsetTop(this.basketTotal)
       this.basketTotalMob = window.pageYOffset < (offsetTop - 300)
+    },
+    scrollToOrder () {
+      const block = document.querySelector('.ordering')
+      const top = block ? block.getBoundingClientRect().top + window.pageYOffset : 0
+      window.scrollTo({
+        top,
+        behavior: 'smooth'
+      })
     }
   },
   mounted () {

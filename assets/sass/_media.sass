@@ -43,6 +43,8 @@
     width: 350px
 
 @media (max-width: 1599.98px)
+  body
+    font-size: 14px
   .s-main-window
     padding-top: 160px
   .main-window-logo
@@ -322,9 +324,47 @@
   .basket-list
     margin-bottom: 70px
 
+  .header-name
+    margin-right: 15px
+    margin-left: 0
+
+  .orders-list-item
+    padding: 20px 35px
+
+  .order-list-item-info-date
+    font-size: 15px
+    line-height: 1.4
+    margin-bottom: 5px
+
+  .order-list-item-info-number
+    font-size: 13px
+
+  .order-list-item-products
+    height: 80px
+
+    .swiper-slide
+      width: 50px
+      height: 50px
+
+  .order-list-item-products
+    margin-right: 30px
+
+  .order-list-item-total
+    font-size: 16px
+    margin-right: 30px
+
+  .order-list-item-status
+    width: 130px
+    font-size: 15px
+
+  .order-list-item-check
+    margin-right: 40px
+
+  .order-list-item-repeat
+    .btn
+      padding: 0 30px
+
 @media (max-width: 1439.98px)
-  body
-    font-size: 14px
   .container
     padding: 0 40px
   .catalog-dropdown
@@ -487,6 +527,36 @@
   .basket-main
     margin-right: 30px
 
+  .header-name
+    span
+      display: none
+
+  .orders-list-item
+    padding: 15px 25px
+
+  .order-list-item-info
+    margin-right: 30px
+
+  .order-list-item-info-date
+    font-size: 14px
+
+  .order-list-item-products
+    width: 22%
+    margin-right: 30px
+    min-width: 250px
+
+  .order-list-item-total
+    font-size: 14px
+
+  .order-list-item-status
+    font-size: 14px
+    width: 115px
+
+  .order-list-item-check
+    margin-right: 30px
+
+    a
+      font-size: 16px
 
 @media (max-width: 1199.98px)
   .logo
@@ -625,6 +695,40 @@
   .delivery-type
     .form-group
       margin-right: 30px
+
+  .header-name
+    display: none
+
+  .orders-list-item
+    padding: 15px 20px
+
+  .order-list-item-info
+    margin-right: 20px
+
+  .order-list-item-info-date
+    font-size: 13px
+
+  .order-list-item-products
+    width: 20%
+    margin-right: 20px
+    min-width: 220px
+
+  .order-list-item-total
+    font-size: 13px
+
+  .order-list-item-status
+    font-size: 13px
+    width: 110px
+
+  .order-list-item-check
+    margin-right: 20px
+
+    a
+      font-size: 16px
+
+  .order-list-item-repeat
+    .btn
+      padding: 0 20px
 
 @media (max-width: 991.98px)
   h1, .h1
@@ -860,6 +964,34 @@
     width: 100%
     position: static
 
+  .orders-list-item
+    flex-wrap: wrap
+
+  .order-list-item-products
+    width: 300px
+    min-width: 0
+    margin: 0 0 25px
+
+  .order-list-item-info
+    width: calc(100% - 300px)
+    padding-right: 30px
+    margin: 0 0 25px
+
+  .order-list-item-total
+    width: auto
+    flex-grow: 1
+
+  .page-title
+    .page-back-link
+      top: 11px
+
+  .page-back-link a
+    font-size: 14px
+
+    span
+      font-size: 10px
+      transform: translateY(1px)
+
 @media (max-width: 767.98px)
   .container
     padding: 0 25px
@@ -978,6 +1110,24 @@
   .basket-total-mob
     display: block
 
+  .page-back-link
+    a
+      width: 30px
+      height: 30px
+      font-size: 0
+      display: flex
+      justify-content: center
+      align-items: center
+      -webkit-border-radius: 50%
+      -moz-border-radius: 50%
+      border-radius: 50%
+      border: 1px solid #DEDBDB
+
+      span
+        font-size: 11px
+        margin: 0
+        transform: translate(-1px, 0)
+
 @media (max-width: 575.98px)
   .wrapper
     overflow: hidden
@@ -998,6 +1148,18 @@
 
     .container
       padding: 0 18px
+  .header-logo
+    transform: none
+    margin: 0 0 0 57px
+    flex-grow: 1
+    justify-content: center
+
+    .logo
+      img
+        width: 105px
+  .header-account
+    flex-grow: 0
+    width: auto
   .header-location
     margin-right: 3px
 
@@ -1664,7 +1826,7 @@
   .pass-input
     padding-right: 50px
   .form-checkbox
-    span
+    label > span
       padding-left: 32px
 
       &:after
@@ -1847,3 +2009,221 @@
     max-width: 136px
     margin-left: auto
     margin-right: auto
+
+  .basket-item
+    padding: 16px 22px 19px 14px
+
+    .product-list-view-img
+      padding: 0
+      width: 47px
+      height: 47px
+      margin: 0 16px auto 0
+
+    .product-colors-qnt
+      width: 100%
+      flex-direction: column
+      padding-left: 63px
+
+    .product-color-item
+      flex-direction: row
+      margin: 0 0 5px
+
+      &:last-child
+        margin-bottom: 0
+
+    .product-color-item-texture
+      margin: 0 4px 0 0
+      width: 20px
+      height: 20px
+
+    .product-color-item-quantity
+      width: 40px
+      height: 20px
+      line-height: 20px
+
+    .product-color-item-price
+      margin: 0 0 0 4px
+
+    .product-list-view-price
+      font-size: 14px
+      width: calc(100% - 62px)
+      text-align: left
+      padding-left: 63px
+
+  .product-list-view-delete
+    width: 62px
+    flex-shrink: 0
+
+    a
+      font-size: 12px
+
+      span
+        font-size: 7px
+        margin-top: 0
+        margin-left: 7px
+
+  .basket-list
+    margin-bottom: 60px
+
+  .basket-gifts-block
+    padding: 15px 18px 19px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+
+  .basket-gifts-block-item
+    width: 66px
+    height: 66px
+    flex-shrink: 0
+    margin-right: 49px
+    -webkit-border-radius: 7px
+    -moz-border-radius: 7px
+    border-radius: 7px
+
+    &:after
+      font-size: 9px
+      right: -29px
+      top: calc(50% - 4.5px)
+
+  .ordering
+    margin-left: -10px
+    margin-right: -10px
+    padding: 35px
+
+  .ordering-title
+    font-size: 20px
+    margin-bottom: 42px
+
+  .ordering-form
+    .h4
+      margin-bottom: 25px
+      font-size: 16px
+
+  .delivery-type
+    flex-wrap: wrap
+
+    .form-group
+      margin: 0 0 20px 0
+
+      &:last-child
+        margin-bottom: 0
+
+  .form-group:not(.form-group-checkbox)
+    & + .form-group-checkbox
+      margin-top: -13px
+
+  .delivery-address
+    .v-select
+      width: 100%
+  .form-row
+    grid-gap: 10px
+
+  .checkbox-with-img
+    img
+      height: 29px
+      margin-right: 12px
+  .delivery-captcha
+    p
+      margin-bottom: 10px
+  .delivery-confirm
+    .btn
+      min-width: 0
+      width: 100%
+  .basket-total-prices
+    margin-bottom: 17px
+
+    ul
+      li
+        margin-bottom: 10px
+        font-size: 16px
+  .basket-total-promocode
+    margin-bottom: 17px
+
+    input
+      height: 40px
+      padding: 0 50px 0 18px
+
+    button
+      width: 40px
+      height: 40px
+      font-size: 16px
+  .basket-total-price
+    line-height: 1.375
+    font-size: 16px
+    margin-bottom: 20px
+
+    br
+      display: none
+
+    span
+      &:last-child
+        font-size: 20px
+  .basket-total-links
+    margin-top: 40px
+
+    a
+      font-size: 14px
+      margin-bottom: 5px
+  .header-account-btn
+    .basket-quantity
+      font-size: 10px
+      bottom: 7px
+  .page-title
+    .page-back-link
+      top: -3px
+  .orders-list-item
+    padding: 20px 15px 25px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    margin-bottom: 25px
+  .order-list-item-info
+    width: 100%
+    padding: 0
+    display: flex
+    align-items: center
+    margin: 0 0 20px
+    order: 1
+  .order-list-item-info-date
+    flex-grow: 1
+    margin: 0 15px 0 0
+    font-size: 14px
+  .order-list-item-info-number
+    font-size: 14px
+  .order-list-item-products
+    width: 100%
+    margin: 0 0 20px
+    -webkit-border-radius: 14px
+    -moz-border-radius: 14px
+    border-radius: 14px
+    height: 67px
+    padding: 0 14px
+    order: 2
+
+    .swiper-slide
+      width: 50px
+      height: 50px
+
+  .order-list-item-total
+    flex-grow: 1
+    order: 3
+    margin-bottom: 20px
+    font-size: 14px
+  .order-list-item-status
+    width: auto
+    display: inline
+    text-align: right
+    order: 4
+    font-size: 14px
+    margin-bottom: 20px
+  .order-list-item-repeat
+    order: 5
+    width: calc(100% - 43px)
+
+    .btn
+      width: 100%
+  .order-list-item-check
+    order: 6
+    margin: 0 0 0 22px
+    a
+      font-size: 21px

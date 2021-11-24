@@ -225,6 +225,8 @@
 
           <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>
 
+          <div class="header-name"><span>Здравствуйте, </span>{{ user.name }}</div>
+
           <div class="header-account-btns">
             <nuxt-link
               to="/user"
@@ -233,8 +235,12 @@
             </nuxt-link>
             <nuxt-link
               to="/user/basket"
-              class="header-account-btn">
+              class="header-account-btn header-account-basket"
+              :class="{'active': user.basket > 0}">
               <span class="icon-bag"></span>
+              <span
+                v-if="user.basket > 0"
+                class="basket-quantity">{{ user.basket }}</span>
             </nuxt-link>
           </div>
 
@@ -270,6 +276,7 @@ export default {
   computed: {
     ...mapState({
       global: state => state.global,
+      user: state => state.user,
       searchResults: state => state.search.results
     })
   },

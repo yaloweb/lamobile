@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'icon';
-  src: url('/fonts/icons/icon.ttf?ydxc9p') format('truetype'),
-  url('/fonts/icons/icon.woff?ydxc9p') format('woff'),
-  url('/fonts/icons/icon.svg?ydxc9p#icon') format('svg');
+  src: url('/fonts/icons/icon.ttf?6xx6ik') format('truetype'),
+  url('/fonts/icons/icon.woff?6xx6ik') format('woff'),
+  url('/fonts/icons/icon.svg?6xx6ik#icon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -21,6 +21,18 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-download:before {
+  content: "\e916";
+}
+
+.icon-angle-left-light-2:before {
+  content: "\e915";
+}
+
+.icon-bag-fill:before {
+  content: "\e914";
 }
 
 .icon-plus-light:before {
