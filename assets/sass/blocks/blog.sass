@@ -1,0 +1,59 @@
+.magazine-row
+  --gutter: 50px
+  margin: 0 calc(-1 * var(--gutter)) 0 0
+
+.magazine-row-sizer
+  width: calc(33.33333% - var(--gutter))
+
+.magazine-row-gutter
+  width: var(--gutter)
+
+.magazine-item
+  width: calc(33.33333% - var(--gutter))
+  margin-bottom: var(--gutter)
+  transition: none !important
+
+  .categories-item
+    margin: 0
+
+
+@media (min-width: 1366px)
+  .magazine-item
+    .categories-item
+      height: 668px
+
+    &:nth-child(2n - 1)
+      .categories-item
+        height: 420px
+
+@media (min-width: 992px) and (max-width: 1365.98px)
+  .magazine-item
+    .categories-item
+      height: 558px
+
+    &:nth-child(2n - 1)
+      .categories-item
+        height: 340px
+
+  .magazine-item
+    .categories-item
+      height: 480px
+
+    &:nth-child(2n - 1)
+      .categories-item
+        height: 270px
+
+.magazine-list
+  &.blog-loading
+    .magazine-item
+      opacity: .4
+
+.s-magazine
+  position: relative
+
+.magazine-categories
+  position: fixed
+  z-index: 3
+  bottom: 50px
+  left: 50%
+  transform: translateX(-50%)

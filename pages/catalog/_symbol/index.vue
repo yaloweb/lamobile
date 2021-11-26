@@ -18,7 +18,8 @@
 
             <div class="col-3">
               <CatalogFilter
-                :visibleFilter="visibleFilter" />
+                :visibleFilter="visibleFilter"
+                @close="visibleFilter = false"/>
             </div>
 
             <div :class="visibleFilter ? 'col-9' : 'col-12'">
@@ -91,7 +92,7 @@ export default {
     const symbol = this.$route.params.symbol
     return await this.$store.dispatch('catalog/getCatalog', symbol)
   },
-  name: 'catalogCategory',
+  name: 'CatalogPage',
   computed: {
     ...mapState({
       catalog: state => state.catalog.catalog

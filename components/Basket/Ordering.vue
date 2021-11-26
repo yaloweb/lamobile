@@ -261,7 +261,7 @@ export default {
         this.$v.$touch()
         return false
       }
-      this.$router.push('/user/basket/success')
+      this.$router.push('/account/basket/success')
     }
   }
 }

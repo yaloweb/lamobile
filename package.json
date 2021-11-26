@@ -22,6 +22,7 @@
     "swiper": "5.x",
     "v-mask": "^2.3.0",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-masonry": "^0.13.0",
     "vue-select": "^3.16.0",
     "vue-youtube": "^1.4.0",
     "vuelidate": "^0.7.6"

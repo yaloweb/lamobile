@@ -4,9 +4,7 @@
     ref="category"
     class="categories-item">
 
-    <!--    <a :href="item.url"></a>-->
-
-    <nuxt-link to="/catalog"></nuxt-link>
+    <nuxt-link :to="item.url" />
 
     <div class="categories-item-img">
       <img
@@ -34,7 +32,7 @@
 
 <script>
 export default {
-  name: 'Category',
+  name: 'BlogItem',
   props: {
     item: Object
   },

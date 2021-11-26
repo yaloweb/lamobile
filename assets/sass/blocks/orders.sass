@@ -162,3 +162,108 @@
 
     &:hover
       color: $accent
+
+.order-products-list
+  margin-bottom: 40px
+  background-color: #fff
+  padding: 0 50px
+
+.order-product
+  display: flex
+  align-items: center
+  border-bottom: 1px solid #DEDBDB
+  padding: 25px 0
+
+  &:last-child
+    border-bottom: none
+
+  > *
+    flex-shrink: 0
+
+.order-product-img
+  width: 250px
+  height: 250px
+  position: relative
+  margin-right: 21px
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: contain
+
+.order-product-title
+  flex-grow: 1
+  max-width: 588px
+  margin-right: auto
+  line-height: 1.7
+  font-size: 18px
+  flex-shrink: 1
+  padding-right: 30px
+
+  a
+    color: #000
+    text-decoration: none
+    +tr
+
+    &:hover
+      color: $accent
+
+.order-product-price
+  font-size: 16px
+  font-weight: bold
+  width: 110px
+  margin-right: 4%
+
+.order-product-add-to-cart
+  width: 230px
+  text-align: center
+
+  .btn
+    padding: 0 10px
+    width: 100% !important
+
+.order-info
+  display: flex
+  align-items: center
+  padding: 0 4% 0 9%
+
+.order-info-total
+  font-size: 18px
+  font-weight: bold
+  margin-right: 11%
+
+.order-info-status
+  font-size: 18px
+  margin-right: 14%
+
+  &.green
+    color: #41CF9C
+
+  &.gray
+    color: #7A7A7A
+
+  &.red
+    color: #FF5D20
+
+.order-info-repeat
+  .btn
+    background-color: #fff
+
+.order-info-pdf
+  margin-left: auto
+  padding-left: 30px
+
+  a
+    display: flex
+    font-size: 16px
+    align-items: center
+    white-space: nowrap
+    +tr
+    color: #000
+
+    &:hover
+      color: $accent
+
+    span
+      font-size: 22px
+      margin-left: 14px

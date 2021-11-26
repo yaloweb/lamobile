@@ -5,6 +5,11 @@
     <div class="container">
 
       <div class="auth-block">
+
+        <div class="back-to-main-link">
+          <nuxt-link to="/"></nuxt-link>
+        </div>
+
         <form
           class="auth-form"
           @submit.prevent>

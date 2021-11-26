@@ -9,9 +9,38 @@
           v-for="brand in brands"
           :key="brand.id"
           class="brands-row-item">
-          <img
-            :src="brand.imgSrc"
-            alt="">
+
+          <div class="brands-row-item-img">
+            <nuxt-link
+              :to="brand.url">
+              <img
+                :src="brand.imgSrc"
+                alt="">
+            </nuxt-link>
+          </div>
+
+          <div class="brands-row-item-card">
+
+            <div class="brands-row-item-card-img">
+              <img
+                  :src="brand.card.imgSrc"
+                  alt="">
+            </div>
+
+            <div class="brands-row-item-card-content">
+              <img
+                :src="brand.imgSrc"
+                alt="">
+              <p v-html="brand.card.descr"/>
+              <nuxt-link
+                :to="brand.url"
+                class="btn btn-border">
+                В каталог
+              </nuxt-link>
+            </div>
+
+          </div>
+
         </div>
 
       </div>

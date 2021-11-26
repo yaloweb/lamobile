@@ -50,6 +50,10 @@ export default {
     {
       src: '~plugins/select.js',
       ssr: false
+    },
+    {
+      src: '~plugins/masonry.js',
+      ssr: false
     }
   ],
 

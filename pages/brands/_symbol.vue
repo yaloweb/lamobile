@@ -14,7 +14,8 @@
 
             <div class="col-3">
               <CatalogFilter
-                :visibleFilter="visibleFilter" />
+                :visibleFilter="visibleFilter"
+                @close="visibleFilter = false"/>
             </div>
 
             <div :class="visibleFilter ? 'col-9' : 'col-12'">
@@ -23,10 +24,25 @@
                 <div class="row">
 
                   <div
-                    v-for="item in catalog"
-                    :key="item.id"
-                    :class="visibleFilter ? 'col-4' : 'col-3'">
-                    <CatalogItem
+                    v-if="type === 'grid'"
+                    class="row">
+
+                    <div
+                      v-for="item in catalog"
+                      :key="item.id"
+                      :class="visibleFilter ? 'col-4' : 'col-3'">
+                      <CatalogItem
+                        :item="item"/>
+                    </div>
+
+                  </div>
+
+                  <div
+                    v-if="type === 'list'"
+                    class="catalog-list-view">
+                    <CatalogListItem
+                      v-for="item in catalog"
+                      :key="item.id"
                       :item="item"/>
                   </div>
 

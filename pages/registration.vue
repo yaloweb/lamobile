@@ -5,6 +5,11 @@
     <div class="container">
 
       <div class="auth-block">
+
+        <div class="back-to-main-link">
+          <nuxt-link to="/"></nuxt-link>
+        </div>
+
         <form
           class="auth-form"
           @submit.prevent>
@@ -35,7 +40,7 @@
           </div>
 
           <div class="form-footer-link">
-            <nuxt-link to="/registration">Регистрация</nuxt-link>
+            <nuxt-link to="/login">Войти</nuxt-link>
           </div>
 
         </form>

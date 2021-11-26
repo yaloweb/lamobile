@@ -85,6 +85,13 @@ export default {
     return promises
   },
   name: 'ProductPage',
+  head () {
+    return {
+      bodyAttrs: {
+        class: this.darkTheme
+      }
+    }
+  },
   computed: {
     ...mapState({
       pageType: state => state.product.pageType,
@@ -95,7 +102,10 @@ export default {
       additionalAdvantages: state => state.product.additionalAdvantages,
       operation: state => state.product.operation,
       compareSection: state => state.product.compareSection
-    })
+    }),
+    darkTheme () {
+      return this.pageType === 2 ? 'dark' : ''
+    }
   },
   watch: {
     pageType (val) {
@@ -110,10 +120,10 @@ export default {
     selectedColor: 1
   }),
   mounted () {
-    if (this.pageType === 2) {
-      document.body.classList.add('dark')
-    }
-    this.$on('hook:beforeDestroy', () => document.body.classList.remove('dark'))
+    // if (this.pageType === 2) {
+    //   document.body.classList.add('dark')
+    // }
+    // this.$on('hook:beforeDestroy', () => document.body.classList.remove('dark'))
   }
 }
 </script>

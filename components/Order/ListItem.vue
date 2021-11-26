@@ -4,7 +4,7 @@
     <div class="order-list-item-info">
 
       <div class="order-list-item-info-date">
-        <nuxt-link :to="`/orders/${item.number}`">Заказ от {{ parseDate (item.createdAt) }}</nuxt-link>
+        <nuxt-link :to="`/account/orders/${item.number}`">Заказ от {{ parseDate (item.createdAt) }}</nuxt-link>
       </div>
 
       <div class="order-list-item-info-number">№{{ item.number }}</div>

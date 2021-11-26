@@ -6,7 +6,7 @@
       <swiper-slide
         v-for="slide in list"
         :key="slide.id">
-        <CatalogCategory :item="slide"/>
+        <BlogItem :item="slide"/>
       </swiper-slide>
 
     </swiper>

@@ -14,14 +14,14 @@
         <div class="categories-row row">
 
           <div
-            v-for="(col, index) in categories"
+            v-for="(col, index) in blog"
             :key="index"
             class="categories-col col-4">
 
-            <CatalogCategory
-              v-for="category in col"
-              :key="category.id"
-              :item="category"/>
+            <BlogItem
+              v-for="blogItem in col"
+              :key="blogItem.id"
+              :item="blogItem"/>
 
           </div>
 
@@ -52,7 +52,7 @@ export default {
   async fetch () {
     let promises = []
     if (this.$store.state.catalog.categories.length === 0) {
-      promises.push(this.$store.dispatch('catalog/getCategories'))
+      promises.push(this.$store.dispatch('blog/getBlogMain'))
     }
     if (this.$store.state.catalog.sliderProducts.length === 0) {
       promises.push(this.$store.dispatch('catalog/getSliderProducts'))
@@ -65,7 +65,7 @@ export default {
   layout: 'index',
   computed: {
     ...mapState({
-      categories: state => state.catalog.categories,
+      blog: state => state.blog.blogMain,
       sliderProducts: state => state.catalog.sliderProducts,
       sliderBanners: state => state.banners.banners
     })

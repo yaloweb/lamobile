@@ -5,7 +5,7 @@
       <div class="order-success-block">
 
         <div class="back-circle-link">
-          <nuxt-link to="/user/orders">
+          <nuxt-link to="/account/orders">
             <span class="icon-angle-left-light-2"></span>
           </nuxt-link>
         </div>

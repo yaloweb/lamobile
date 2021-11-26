@@ -2,11 +2,38 @@
   margin: 39px 0 86px
   text-align: center
   position: relative
+
   .header-logo
     justify-content: center
 
+  .back-to-main-link
+    display: none
+
 .back-to-main-link
-  display: none
+  a
+    width: 60px
+    height: 60px
+    border: 1px solid #DEDBDB
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #c4c4c4
+    +tr
+
+    &:hover
+      color: $accent
+      border-color: $accent
+
+    &:after
+      content: '\e915'
+      font-weight: normal
+      font-family: icon
+      font-size: 23px
+      transform: translateX(-1px)
+      line-height: 1
 
 .auth-page
   padding-bottom: 133px
@@ -16,13 +43,21 @@
   margin: 0 auto
   background-color: #fff
   padding: 71px 50px 180px
+  position: relative
+
+  .back-to-main-link
+    position: absolute
+    top: 48px
+    left: 42px
 
 .auth-form
   max-width: 408px
   margin-left: auto
   margin-right: auto
+
   .form-title
     text-align: center
     margin-bottom: 75px
+
   .form-submit
     margin-top: 40px

@@ -1,6 +1,6 @@
 <template>
 
-  <div class="wrapper">
+  <div class="wrapper wrapper--auth">
 
     <div class="auth-layout">
 

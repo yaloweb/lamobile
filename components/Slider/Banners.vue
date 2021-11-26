@@ -49,10 +49,6 @@
 
             </swiper-slide>
 
-            <div
-              class="banners-pagination slider-pagination"
-              slot="pagination"/>
-
           </swiper>
 
           <div class="banners-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
@@ -104,9 +100,6 @@ export default {
       speed: 1000,
       allowTouchMove: false,
       parallax: true,
-      pagination: {
-        el: '.banners-pagination'
-      },
       navigation: {
         nextEl: '.banners-button-next',
         prevEl: '.banners-button-prev'
