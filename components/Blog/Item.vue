@@ -23,6 +23,11 @@
         <div
           class="categories-item-descr"
           v-html="item.descr"/>
+        <div class="categories-item-more">
+          <nuxt-link
+            v-if="withMobBtn"
+            :to="item.url">Подробнее</nuxt-link>
+        </div>
       </div>
     </div>
 
@@ -34,7 +39,11 @@
 export default {
   name: 'BlogItem',
   props: {
-    item: Object
+    item: Object,
+    withMobBtn: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     transformTitle () {

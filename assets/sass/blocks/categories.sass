@@ -35,8 +35,10 @@
     .categories-item-img
       img
         transform: scale(1.1)
+
     .categories-item-title
       transform: translateY(0) !important
+
     .categories-item-descr
       transform: translateY(0)
       opacity: 1
@@ -92,3 +94,17 @@
   transform: translateY(100%)
   opacity: 0
   +tr4
+
+.categories-item-more
+  display: none
+  margin: 15px
+
+  a
+    position: static !important
+    font-size: 16px
+    +tr
+    color: #7A7A7A
+
+    &:hover
+      color: $accent
+

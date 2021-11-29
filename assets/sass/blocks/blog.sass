@@ -35,11 +35,14 @@
       .categories-item
         height: 340px
 
+@media (min-width: 576px) and (max-width: 991.98px)
+
   .magazine-item
     .categories-item
       height: 480px
 
-    &:nth-child(2n - 1)
+    &:nth-child(4n - 3),
+    &:nth-child(4n - 4)
       .categories-item
         height: 270px
 
@@ -57,3 +60,25 @@
   bottom: 50px
   left: 50%
   transform: translateX(-50%)
+  max-width: 100%
+
+.magazine-categories-nav
+  display: flex
+  align-items: center
+  a
+    height: 70px
+    line-height: 68px
+    white-space: nowrap
+    background-color: #fff
+    -webkit-border-radius: 35px
+    -moz-border-radius: 35px
+    border-radius: 35px
+    border: 1px solid #DEDBDB
+    padding: 0 60px
+    font-size: 16px
+    color: #C4C4C4
+    +tr
+    &.active
+      color: $accent
+    &:hover:not(.active)
+      color: $accent

@@ -4,7 +4,7 @@
     <div class="order-list-item-info">
 
       <div class="order-list-item-info-date">
-        <nuxt-link :to="`/account/orders/${item.number}`">Заказ от {{ parseDate (item.createdAt) }}</nuxt-link>
+        <nuxt-link :to="`/account/orders/${item.number}`">Заказ от {{ item.createdAt | dateFormat }}</nuxt-link>
       </div>
 
       <div class="order-list-item-info-number">№{{ item.number }}</div>
@@ -51,7 +51,6 @@
 
 <script>
 
-import moment from 'moment'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
@@ -71,10 +70,6 @@ export default {
     }
   }),
   methods: {
-    parseDate (date) {
-      const mDate = moment(date).locale('ru')
-      return mDate.format('DD MMMM YYYY')
-    },
     status (status) {
       switch (status) {
         case 1:

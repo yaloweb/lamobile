@@ -25,9 +25,10 @@ body
 
     .header-name
       color: #fff
-      
+
     .basket-quantity
       color: #000
+
 a
   text-decoration: none
 
@@ -163,6 +164,7 @@ h5, .h5
 
 .loading
   position: relative
+
   &:not(.btn)
     &:after
       content: ''
@@ -251,8 +253,10 @@ h5, .h5
     +tr
     display: inline-flex
     align-items: center
+
     &:hover
       color: $accent
+
     span
       font-size: 11px
       font-weight: normal
@@ -288,6 +292,7 @@ h5, .h5
   border-radius: 6px
   height: 6px
   background-color: #F7F7F7
+
   .swiper-scrollbar-drag
     background-color: #C4C4C4
 
@@ -296,3 +301,22 @@ h5, .h5
 
 .error-text
   color: $red
+
+.soc
+  display: flex
+  align-items: center
+
+  a
+    margin-right: 15px
+    +tr
+    opacity: .35
+
+    &:hover
+      opacity: 1
+
+    &:last-child
+      margin-right: 0
+
+    img
+      display: block
+      width: 25px

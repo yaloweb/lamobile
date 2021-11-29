@@ -16,7 +16,7 @@
 
           <h1>Заказ №{{order.number}}</h1>
 
-          <p>от {{ parseDate(order.createdAt) }}</p>
+          <p>от {{ order.createdAt | dateFormat }}</p>
 
         </div>
 
@@ -63,7 +63,6 @@
 <script>
 
 import { mapState } from 'vuex'
-import moment from 'moment'
 
 export default {
   name: 'Order',
@@ -77,10 +76,6 @@ export default {
     })
   },
   methods: {
-    parseDate (date) {
-      const mDate = moment(date).locale('ru')
-      return mDate.format('DD MMMM YYYY')
-    },
     status (status) {
       switch (status) {
         case 1:

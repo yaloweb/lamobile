@@ -9,13 +9,8 @@ export const mutations = {
     state.blog = data
   },
   setBlogMain (state, data) {
-    let row = [[], [], []]
-    let i = 1
-    data.forEach(item => {
-      row[i - 1].push(item)
-      i === 3 ? i = 1 : i++
-    })
-    state.blogMain = row
+    state.blogMain = []
+    state.blogMain = data
   },
   setLoadedBlogItems (state, items) {
     state.blog.push(...items)
@@ -43,5 +38,9 @@ export const actions = {
   async filterBlogByCategory ({ commit }, id) {
     const res = await this.$axios.get('/blog/blog-all.json')
     commit('setBlog', res.data)
+  },
+  async getCategories ({ commit }) {
+    const res = await this.$axios.get('/blog/categories.json')
+    commit('setCategories', res.data)
   }
 }

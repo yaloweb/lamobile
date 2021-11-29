@@ -11,21 +11,7 @@
     <section class="s-categories">
       <div class="container">
 
-        <div class="categories-row row">
-
-          <div
-            v-for="(col, index) in blog"
-            :key="index"
-            class="categories-col col-4">
-
-            <BlogItem
-              v-for="blogItem in col"
-              :key="blogItem.id"
-              :item="blogItem"/>
-
-          </div>
-
-        </div>
+        <BlogList :list="blog"/>
 
       </div>
     </section>
