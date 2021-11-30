@@ -1,8 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   server: {
-    port: 8080,
-    host: '0.0.0.0'
+    port: 8080
   },
   head: {
     title: 'lamobile',

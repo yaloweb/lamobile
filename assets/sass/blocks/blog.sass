@@ -65,6 +65,7 @@
 .magazine-categories-nav
   display: flex
   align-items: center
+
   a
     height: 70px
     line-height: 68px
@@ -78,7 +79,33 @@
     font-size: 16px
     color: #C4C4C4
     +tr
+
     &.active
       color: $accent
+
     &:hover:not(.active)
       color: $accent
+
+.mob-back-link
+  display: none
+  position: absolute
+  left: 10px
+  top: -3px
+
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 30px
+    height: 30px
+    border: 1px solid #DEDBDB
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+
+    &:after
+      content: '\e90f'
+      font-family: icon
+      font-size: 11px
+      color: #c4c4c4
+      transform: translateX(-1px)

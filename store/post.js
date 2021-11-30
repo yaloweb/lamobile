@@ -1,5 +1,6 @@
 export const state = () => ({
   banner: '',
+  mobBanner: '',
   createdAt: '',
   category: '',
   views: 0,
@@ -12,6 +13,7 @@ export const state = () => ({
 export const mutations = {
   setPostData (state, data) {
     state.banner = data.banner
+    state.mobBanner = data.mobBanner
     state.createdAt = data.createdAt
     state.category = data.category
     state.views = data.views

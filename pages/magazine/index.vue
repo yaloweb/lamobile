@@ -4,10 +4,24 @@
 
     <UIBreadcrumbs/>
 
+    <div class="mob-back-link">
+      <a
+        href="#"
+        @click.prevent="$router.go(-1)"/>
+    </div>
+
     <div class="page-content">
 
       <div class="page-title">
+
+        <div class="mob-back-link">
+          <a
+            href="#"
+            @click.prevent="$router.go(-1)"/>
+        </div>
+
         <h1>Журнал</h1>
+
       </div>
 
       <section class="s-magazine">

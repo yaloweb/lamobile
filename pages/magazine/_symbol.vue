@@ -5,9 +5,22 @@
 
       <UIBreadcrumbs/>
 
-      <div class="post-banner">
+      <div class="mob-back-link">
+        <a
+          href="#"
+          @click.prevent="$router.go(-1)"/>
+      </div>
+
+      <div
+        class="post-banner"
+        :class="{'with-mob-banner': post.mobBanner}">
         <img
           :src="post.banner"
+          alt="">
+        <img
+          v-if="post.mobBanner"
+          class="post-banner-mob"
+          :src="post.mobBanner"
           alt="">
       </div>
     </section>
@@ -76,6 +89,20 @@
           </div>
 
         </div>
+
+      </div>
+    </section>
+
+    <section
+      v-if="post.similar"
+      class="s-similar">
+      <div class="container">
+
+        <div class="section-title">
+          <div class="h3">Похожее в журнале</div>
+        </div>
+
+        <SliderSimilar :list="post.similar"/>
 
       </div>
     </section>
