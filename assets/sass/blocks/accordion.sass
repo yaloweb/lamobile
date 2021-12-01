@@ -1,0 +1,76 @@
+.accordion-item
+  position: relative
+  background-color: #fff
+  margin-bottom: 5px
+
+  &:last-child
+    margin-bottom: 0
+
+  &:not(.opened)
+    .accordion-body
+      max-height: 0 !important
+
+  &.opened
+    .accordion-item-toggle
+      transform: rotate(90deg)
+      &:after
+        opacity: 0
+
+.accordion-title
+  height: 120px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 0 50px 0 44px
+  font-weight: bold
+  font-size: 24px
+  color: #000
+  line-height: 1.42
+  cursor: pointer
+
+.accordion-item-toggle
+  margin-left: 20px
+  width: 60px
+  height: 60px
+  flex-shrink: 0
+  border: 1px solid #DEDBDB
+  position: relative
+  border-radius: 50%
+  +tr
+
+  &:after,
+  &:before
+    content: ''
+    position: absolute
+    background: #C4C4C4
+    top: 50%
+    left: 50%
+    +tr
+
+  &:after
+    width: 32px
+    height: 2px
+    margin-top: -1px
+    margin-left: -16px
+
+  &:before
+    width: 2px
+    height: 32px
+    margin-top: -16px
+    margin-left: -1px
+
+.accordion-body
+  overflow: hidden
+  transition: max-height .4s ease
+
+.accordion-body-content
+  padding: 50px 50px 78px 44px
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 44px
+    height: 1px
+    right: 50px
+    background-color: #DEDBDB

@@ -1,6 +1,8 @@
 <template>
 
-  <footer class="footer">
+  <footer
+    class="footer"
+    :class="{'footer--light': light}">
 
     <div class="container">
 
@@ -77,17 +79,16 @@
         <div class="footer-bottom-right">
 
           <div class="footer-pay">
-            <img
-              v-for="(payItem, index) in global.footer.payMethods"
-              :key="index"
-              :src="payItem"
-              alt="">
+            <img :src="`/img/pay/mastercard${light ? '-light': ''}.svg`" alt="">
+            <img :src="`/img/pay/visa${light ? '-light': ''}.svg`" alt="">
+            <img :src="`/img/pay/paypal${light ? '-light': ''}.svg`" alt="">
+            <img :src="`/img/pay/mir${light ? '-light': ''}.svg`" alt="">
           </div>
 
           <div class="footer-logo">
             <nuxt-link to="/">
               <img
-                :src="global.logoIllustrationSrc"
+                :src="`/img/logo-illustration${light ? '-light': ''}.svg`"
                 alt="">
             </nuxt-link>
           </div>
@@ -108,6 +109,12 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'LayoutsFooter',
+  props: {
+    light: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     ...mapState({
       global: state => state.global

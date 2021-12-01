@@ -1,0 +1,57 @@
+.error-page
+  color: #fff
+  background-color: #7A7A7A
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+
+.error-component
+  flex-grow: 1
+
+.error
+  padding: 290px 0 50px
+  max-width: 700px
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+
+  h1, .h1
+    margin-bottom: 49px
+
+  img
+    width: 161px
+    margin-bottom: 43px
+    -webkit-transition:  time
+    -moz-transition:  time
+    -ms-transition:  time
+    -o-transition:  time
+    transition:  time
+
+.error-nav
+  .h4
+    font-size: 24px
+    margin-bottom: 36px
+
+  ul
+    display: flex
+    justify-content: center
+    align-items: center
+    list-style-type: none
+    padding: 0
+    margin: 0
+
+    li
+      margin-right: 60px
+
+      &:last-child
+        margin-right: 0
+
+      a
+        font-size: 18px
+        font-weight: 500
+        color: #fff
+        +tr
+        white-space: nowrap
+
+        &:hover
+          color: $accent
