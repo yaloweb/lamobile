@@ -23,3 +23,105 @@
     -moz-border-radius: 20px
     border-radius: 20px
     padding: 0 30px
+
+.quarantee-defect
+  margin: 150px 0
+  max-width: 974px
+
+  ol
+    list-style-type: none
+    padding: 0
+    margin: 0 0 15px
+    counter-reset: counter
+
+    li
+      position: relative
+      padding-left: 15px
+      margin-bottom: 10px
+
+      &:last-child
+        margin-bottom: 0
+
+      &:before
+        counter-increment: counter
+        content: counter(counter) '.'
+        position: absolute
+        top: 0
+        left: 0
+
+  p
+    margin: 0
+    color: #7A7A7A
+
+.quarantee-terms
+  margin-bottom: 150px
+
+  .h4
+    margin-bottom: 25px
+
+  p
+    color: $muted
+
+.quarantee-terms-items
+  display: flex
+  flex-wrap: wrap
+
+.quarantee-term
+  margin-bottom: 25px
+  padding-right: 30px
+  flex-shrink: 0
+
+  &:nth-child(odd)
+    width: 60%
+
+  &:nth-child(even)
+    width: 40%
+
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+
+    li
+      font-size: 16px
+      font-weight: bold
+      margin-bottom: 10px
+
+      &:last-child
+        margin-bottom: 0
+
+.quarantee-term-title
+  margin-bottom: 20px
+  font-weight: bold
+  font-size: 30px
+  color: $accent
+
+.guarantee-warranty-cases
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+
+    li
+      position: relative
+      margin-bottom: 13px
+      padding-left: 10px
+
+      &:before
+        content: ''
+        position: absolute
+        width: 3px
+        height: 3px
+        border-radius: 50%
+        background-color: #000
+        left: 0
+        top: 16px
+
+      &:last-child
+        margin-bottom: 0
+
+      p
+        margin: 0
+
+        span
+          color: $muted

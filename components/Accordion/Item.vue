@@ -35,6 +35,13 @@ export default {
   data: () => ({
     height: 0
   }),
+  watch: {
+    opened (newVal) {
+      if (newVal) {
+        this.getContentHeight()
+      }
+    }
+  },
   computed: {
     content () {
       return this.$refs.content
@@ -43,11 +50,16 @@ export default {
   methods: {
     toggle () {
       this.$emit('toggle', this.opened)
+    },
+    getContentHeight () {
+      const h = this.content.scrollHeight
+      this.height = h
     }
   },
   mounted () {
-    const h = this.content.scrollHeight
-    this.height = h
+    this.getContentHeight()
+    window.addEventListener('resize', this.getContentHeight)
+    this.$on('hook:beforeDestroy', () => window.removeEventListener('resize', this.getContentHeight))
   }
 }
 </script>

@@ -1,7 +1,25 @@
+.accordion
+  max-width: 1170px
+  margin-left: auto
+  margin-right: auto
+  font-size: 14px
+  line-height: 1.71
+
+  p
+    max-width: 973px
+
+    &:last-child
+      margin-bottom: 0
+
+  &.active
+    .accordion-item:not(.opened)
+      background-color: #F7F7F7
+
 .accordion-item
   position: relative
   background-color: #fff
   margin-bottom: 5px
+  +tr
 
   &:last-child
     margin-bottom: 0
@@ -11,8 +29,10 @@
       max-height: 0 !important
 
   &.opened
+
     .accordion-item-toggle
       transform: rotate(90deg)
+
       &:after
         opacity: 0
 
@@ -66,6 +86,7 @@
 .accordion-body-content
   padding: 50px 50px 78px 44px
   position: relative
+
   &:after
     content: ''
     position: absolute

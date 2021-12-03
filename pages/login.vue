@@ -12,7 +12,7 @@
 
         <form
           class="auth-form"
-          @submit.prevent>
+          @submit.prevent="event">
 
           <div class="form-title">Вход</div>
 
@@ -59,7 +59,15 @@ export default {
   data: () => ({
     login: '',
     password: ''
-  })
+  }),
+  methods: {
+    event () {
+      this.$store.dispatch('auth/login', {
+        login: this.login,
+        password: this.password
+      })
+    }
+  }
 }
 </script>
 
