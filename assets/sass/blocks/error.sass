@@ -21,11 +21,15 @@
   img
     width: 161px
     margin-bottom: 43px
-    -webkit-transition:  time
-    -moz-transition:  time
-    -ms-transition:  time
-    -o-transition:  time
-    transition:  time
+    animation: swing 1.4s infinite ease-in-out
+
+@keyframes swing
+  0%
+    transform: rotate(20deg)
+  50%
+    transform: rotate(-20deg)
+  100%
+    transform: rotate(20deg)
 
 .error-nav
   .h4

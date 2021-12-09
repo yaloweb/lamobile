@@ -17,8 +17,8 @@
           <AccordionItem
             :opened="accordionOpened.indexOf(1) !== -1"
             @toggle="toggle($event, 1)">
-            <template v-slot:header>Гарантии</template>
-            <template v-slot:body>
+            <template #header>Гарантии</template>
+            <template #body>
               <InfoGuarantee/>
             </template>
           </AccordionItem>
@@ -26,8 +26,8 @@
           <AccordionItem
             :opened="accordionOpened.indexOf(2) !== -1"
             @toggle="toggle($event, 2)">
-            <template v-slot:header>Оплата и доставка</template>
-            <template v-slot:body>
+            <template #header>Оплата и доставка</template>
+            <template #body>
               <InfoPaymentAndDelivery />
             </template>
           </AccordionItem>
@@ -35,8 +35,8 @@
           <AccordionItem
             :opened="accordionOpened.indexOf(3) !== -1"
             @toggle="toggle($event, 3)">
-            <template v-slot:header>Условия продажи</template>
-            <template v-slot:body>
+            <template #header>Условия продажи</template>
+            <template #body>
               <InfoTermsOfSale />
             </template>
           </AccordionItem>
@@ -44,8 +44,8 @@
           <AccordionItem
             :opened="accordionOpened.indexOf(4) !== -1"
             @toggle="toggle($event, 4)">
-            <template v-slot:header>Обмен и возврат товара</template>
-            <template v-slot:body>
+            <template #header>Обмен и возврат товара</template>
+            <template #body>
               <InfoExchange />
             </template>
           </AccordionItem>
@@ -53,8 +53,8 @@
           <AccordionItem
             :opened="accordionOpened.indexOf(5) !== -1"
             @toggle="toggle($event, 5)">
-            <template v-slot:header>Контакты</template>
-            <template v-slot:body>
+            <template #header>Контакты</template>
+            <template #body>
               <InfoContacts />
             </template>
           </AccordionItem>
@@ -72,13 +72,13 @@ export default {
   async fetch () {
     return await this.$store.dispatch('forUsers/getInfoForUsers')
   },
-  name: 'for-users',
+  name: 'ForUsers',
   data: () => ({
     accordionOpened: []
   }),
   methods: {
     toggle (bool, id) {
-      this.accordionOpened = bool ? 0 : id
+      bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
     }
   }
 }

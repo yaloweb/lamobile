@@ -1,6 +1,8 @@
 <template>
 
-  <div class="magazine-page">
+  <div
+    v-if="pageLoad"
+    class="magazine-page">
 
     <UIBreadcrumbs/>
 
@@ -65,6 +67,7 @@ export default {
       this.$store.dispatch('blog/getCategories')
     ])
     this.selectedCategory = this.categories[0].id
+    this.pageLoad = true
     return ajax
   },
   computed: {
@@ -74,7 +77,8 @@ export default {
     })
   },
   data: () => ({
-    selectedCategory: 0
+    selectedCategory: 0,
+    pageLoad: false
   }),
   methods: {
     async filterByCategory (categoryId) {

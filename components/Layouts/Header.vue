@@ -148,7 +148,7 @@
                       </li>
                     </ul>
                     <nuxt-link
-                      to="/catalog"
+                      to="/catalog/roboty-pylesosy"
                       class="btn btn-sm btn-border">Все товары
                     </nuxt-link>
                   </div>
@@ -177,7 +177,7 @@
                     </div>
 
                     <nuxt-link
-                      to="/catalog"
+                      to="/catalog/roboty-pylesosy"
                       class="btn btn-sm btn-border">Все товары
                     </nuxt-link>
 

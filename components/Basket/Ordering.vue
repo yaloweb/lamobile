@@ -166,7 +166,7 @@
       <FormCheckbox
         :withLabel="false"
         v-model="paymentOnAccount">
-        <span class="checkbox-with-img"><img src="/img/icons/file.svg" alt="">По счету</span>
+        <span class="checkbox-with-img"><img src="/img/icons/file.svg" alt="">Онлайн-оплата</span>
       </FormCheckbox>
 
       <div class="delivery-captcha">
