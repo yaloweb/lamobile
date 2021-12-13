@@ -164,7 +164,6 @@
       <div class="h4">Оплата</div>
 
       <FormCheckbox
-        :withLabel="false"
         v-model="paymentOnAccount">
         <span class="checkbox-with-img"><img src="/img/icons/file.svg" alt="">Онлайн-оплата</span>
       </FormCheckbox>
@@ -176,7 +175,6 @@
 
       <div class="privacy-policy-checkbox">
         <FormCheckbox
-          :withLabel="false"
           v-model="privacyPolicy"
           classes="square">
           Я согласен с <a href="#">политикой обработки персональных данных</a>

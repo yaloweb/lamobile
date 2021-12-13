@@ -17,11 +17,12 @@
           <div class="form-title">Вход</div>
 
           <FormInput
-            label="Логин/почта"
+            label="Почта"
             name="login"
-            placeholder="Введите логин или почту"
+            placeholder="Введите почту"
             classes="vertical"
-            v-model="login"/>
+            :invalid="$v.email.$error ? (!$v.email.required || !$v.email.email) : false"
+            v-model="email"/>
 
           <FormInput
             type="password"
@@ -29,6 +30,7 @@
             name="password"
             placeholder="Введите пароль"
             classes="vertical"
+            :invalid="$v.password.$error ? !$v.password.required : false"
             v-model="password"/>
 
           <div class="form-submit">
@@ -53,19 +55,47 @@
 </template>
 
 <script>
+
+import { required, email } from 'vuelidate/lib/validators'
+
 export default {
   name: 'Login',
   layout: 'auth',
-  data: () => ({
-    login: '',
-    password: ''
-  }),
+  validations: {
+    email: { required, email },
+    password: { required }
+  },
+  computed: {
+    email: {
+      get () {
+        return this.$store.state.auth.login.email
+      },
+      set (value) {
+        this.$store.commit('auth/setLoginData', {
+          field: 'email',
+          value
+        })
+      }
+    },
+    password: {
+      get () {
+        return this.$store.state.auth.login.password
+      },
+      set (value) {
+        this.$store.commit('auth/setLoginData', {
+          field: 'password',
+          value
+        })
+      }
+    }
+  },
   methods: {
     event () {
-      this.$store.dispatch('auth/login', {
-        login: this.login,
-        password: this.password
-      })
+      if (this.$v.$invalid) {
+        this.$v.$touch()
+        return false
+      }
+      this.$router.push('/')
     }
   }
 }

@@ -70,6 +70,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    // '@nuxtjs/auth',
     ['@nuxtjs/recaptcha',
       {
         siteKey: '6LesVlMdAAAAABTs5N78L1UMDKBYi_jAfm76o2_w',

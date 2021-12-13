@@ -7,43 +7,23 @@
       <div class="auth-block">
 
         <div class="back-to-main-link">
-          <nuxt-link to="/"></nuxt-link>
+          <a href="#" @click="prev"></a>
         </div>
 
-        <form
-          class="auth-form"
-          @submit.prevent>
+        <RegistrationStep1
+          ref="step1"
+          v-if="step === 1"
+          @next="step = 2"/>
 
-          <div class="form-title">Регистрация</div>
+        <RegistrationStep2
+          ref="step2"
+          v-if="step === 2"
+          @next="step = 3"/>
 
-          <FormInput
-            label="Логин/почта"
-            name="login"
-            placeholder="Введите логин или почту"
-            classes="vertical"
-            v-model="login"/>
+        <RegistrationStep3
+          ref="step3"
+          v-if="step === 3"/>
 
-          <FormInput
-            type="password"
-            label="Пароль"
-            name="password"
-            placeholder="Введите пароль"
-            classes="vertical"
-            v-model="password"/>
-
-          <div class="form-submit">
-            <button type="submit" class="btn btn-border btn-block">Войти</button>
-          </div>
-
-          <div class="form-footer-link">
-            <nuxt-link to="/forgot-password">Забыли пароль?</nuxt-link>
-          </div>
-
-          <div class="form-footer-link">
-            <nuxt-link to="/login">Войти</nuxt-link>
-          </div>
-
-        </form>
       </div>
 
     </div>
@@ -57,12 +37,31 @@ export default {
   name: 'Registration',
   layout: 'auth',
   data: () => ({
-    login: '',
-    password: ''
-  })
+    step: 3
+  }),
+  methods: {
+    prev () {
+      if (this.step > 1) {
+        this.$refs[`step${this.step}`].saveData()
+        this.step--
+      } else {
+        this.$router.go(-1)
+      }
+    }
+  }
 }
 </script>
 
-<style scoped>
-
+<style
+  type="text/css"
+  scoped>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all .5s ease
+  }
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+    transform: translateY(40px);
+  }
 </style>

@@ -63,11 +63,45 @@
             <div class="header-name"><span>Здравствуйте, </span>{{ user.name }}</div>
 
             <div class="header-account-btns">
-              <nuxt-link
-                to="/account"
-                class="header-account-btn">
-                <span class="icon-user"></span>
-              </nuxt-link>
+              <div
+                class="header-account-link"
+                :class="{'opened': accountDropdown}">
+                <a
+                  href="#"
+                  class="header-account-btn"
+                  @click="accountDropdown = true">
+                  <span class="icon-user"></span>
+                </a>
+                <div class="header-acc-dropdown">
+                  <div class="header-acc-dropdown-header">
+                    <div class="header-acc-dropdown-user">
+                      Здравствуйте, {{ user.name }}
+                    </div>
+                    <div class="header-acc-dropdown-exit">
+                      <a href="#">Выйти</a>
+                    </div>
+                  </div>
+                  <nav class="header-acc-dropdown-links">
+                    <ul>
+                      <li @click="accountDropdown = false">
+                        <router-link to="/account">
+                          <span class="icon-user"></span> Личный кабинет
+                        </router-link>
+                      </li>
+                      <li @click="accountDropdown = false">
+                        <router-link to="/account/orders">
+                          <span class="icon-orders"></span> Мои заказы
+                        </router-link>
+                      </li>
+                      <li @click="accountDropdown = false">
+                        <router-link to="/for-users">
+                          <span class="icon-attention"></span> Пользователям
+                        </router-link>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
               <nuxt-link
                 to="/account/basket"
                 class="header-account-btn header-account-basket"
@@ -300,7 +334,8 @@ export default {
     searchLoadingPromise: '',
     pageScroll: 0,
     fixed: false,
-    visible: false
+    visible: false,
+    accountDropdown: false
   }),
   methods: {
     toggleCatalog () {
@@ -354,6 +389,9 @@ export default {
       if (!tg.closest('.header-catalog-block') && !tg.closest('.catalog-dropdown')) {
         this.closeCatalog()
         this.closeSearch()
+      }
+      if (!tg.closest('.header-account-link')) {
+        this.accountDropdown = false
       }
     }
 

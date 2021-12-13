@@ -76,7 +76,7 @@
               <li v-if="shop.deliveryPrice">Доставка — {{shop.deliveryPrice | priceFilter}} ₽</li>
               <li v-if="shop.pickup">Самовывоз, {{shop.pickup.date | parseDate}} — {{shop.pickup.price | priceFilter}} ₽</li>
             </ul>
-            <button class="btn btn-border">Добавить в корзину</button>
+            <button class="btn btn-border">Перейти</button>
           </div>
         </div>
       </div>

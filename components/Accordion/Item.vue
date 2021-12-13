@@ -27,10 +27,7 @@
 export default {
   name: 'AccordionItem',
   props: {
-    opened: {
-      type: Boolean,
-      default: true
-    }
+    opened: Boolean
   },
   data: () => ({
     height: 0

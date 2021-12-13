@@ -1,7 +1,7 @@
 <template>
   <div class="form-group form-group-checkbox">
     <label
-      v-if="withLabel"
+      v-if="label"
       class="form-label">{{label}}</label>
     <div
       class="form-checkbox"
@@ -37,11 +37,7 @@ export default {
       default: false
     },
     name: String,
-    classes: [String, Object, Array],
-    withLabel: {
-      type: Boolean,
-      default: true
-    }
+    classes: [String, Object, Array]
   },
   computed: {
     isChecked () {
