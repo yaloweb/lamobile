@@ -96,7 +96,6 @@ export default {
     swiperOptions: {
       slidesPerView: 1,
       spaceBetween: 0,
-      loop: false,
       speed: 1000,
       allowTouchMove: false,
       parallax: true,

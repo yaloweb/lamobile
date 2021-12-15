@@ -295,6 +295,9 @@
     &.active
       color: #000
 
+    a
+      color: inherit
+
 .catalog-dropdown-products
   ul
     list-style-type: none
@@ -360,7 +363,7 @@
 
   img
     max-width: 230px
-    max-height: 58px
+    max-height: 36px
     object-fit: contain
     filter: grayscale(1)
     +tr
@@ -381,24 +384,27 @@
   align-items: flex-start
 
 .search-catalog-item
-  display: flex
-  align-items: center
   margin-bottom: 10px
-  font-weight: bold
-  font-size: 16px
-  +tr
-  color: #000
 
-  &:hover
-    color: $accent
+  a
+    display: flex
+    align-items: center
+    margin-bottom: 10px
+    font-weight: bold
+    font-size: 16px
+    +tr
+    color: #000
 
-  &:last-child
-    margin-bottom: 0
+    &:hover
+      color: $accent
 
-  img
-    width: 40px
-    flex-shrink: 0
-    margin-right: 35px
+    &:last-child
+      margin-bottom: 0
+
+    img
+      width: 40px
+      flex-shrink: 0
+      margin-right: 35px
 
 .search-categories
   display: flex
@@ -429,24 +435,26 @@
   border-top: 1px solid #DEDBDB
 
 .search-details-item
-  display: flex
-  align-items: center
-  font-size: 14px
-  color: #000
-  line-height: 1.86
   margin: 19px 0 31px
-  +tr
 
-  &:hover
-    color: $accent
+  a
+    display: flex
+    align-items: center
+    font-size: 14px
+    color: #000
+    line-height: 1.86
+    +tr
 
-  &:last-child
-    margin-bottom: 0
+    &:hover
+      color: $accent
 
-  img
-    margin-right: 30px
-    width: 45px
-    flex-shrink: 0
+    &:last-child
+      margin-bottom: 0
+
+    img
+      margin-right: 30px
+      width: 45px
+      flex-shrink: 0
 
 .catalog-dropdown-close
   display: none

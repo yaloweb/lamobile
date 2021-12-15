@@ -155,13 +155,18 @@
             v-show="activeTab === 1"
             class="catalog-dropdown-content-tab">
 
-            <div class="catalog-dropdown-tabs-nav">
+            <div
+              class="catalog-dropdown-tabs-nav"
+              @click="closeCatalog">
               <span
                 :class="{'active': activeCatalogTab === 1}"
                 @click="activeCatalogTab = 1">Товары</span>
               <span
                 :class="{'active': activeCatalogTab === 2}"
                 @click="activeCatalogTab = 2">Бренды</span>
+              <span @click="closeCatalog">
+                <nuxt-link to="/for-users">Покупателям</nuxt-link>
+              </span>
             </div>
 
             <div class="catalog-dropdown-tabs">
@@ -175,16 +180,22 @@
                     <ul>
                       <li
                         v-for="link in global.header.catalogMenu"
-                        :key="link.id">
+                        :key="link.id"
+                        @click="closeCatalog"
+                      >
                         <nuxt-link :to="link.url">
                           {{ link.title }}
                         </nuxt-link>
                       </li>
                     </ul>
-                    <nuxt-link
-                      to="/catalog/roboty-pylesosy"
-                      class="btn btn-sm btn-border">Все товары
-                    </nuxt-link>
+                    <div
+                      class="catalog-dropdown-all"
+                      @click="closeCatalog">
+                      <nuxt-link
+                        to="/catalog/roboty-pylesosy"
+                        class="btn btn-sm btn-border">Все товары
+                      </nuxt-link>
+                    </div>
                   </div>
 
                 </div>
@@ -226,7 +237,8 @@
               <ul>
                 <li
                   v-for="link in global.header.dropdownFooterMenu"
-                  :key="link.id">
+                  :key="link.id"
+                  @click="closeCatalog">
                   <nuxt-link :to="link.url">
                     {{ link.title }}
                   </nuxt-link>
@@ -248,40 +260,46 @@
 
               <div class="search-catalog">
 
-                <nuxt-link
+                <div
                   v-for="link in searchResults.products"
                   :key="link.id"
-                  :to="link.url"
-                  class="search-catalog-item">
-                  <img
-                    :src="link.imgSrc"
-                    alt="">
-                  <span>{{ link.title }}</span>
-                </nuxt-link>
+                  class="search-catalog-item"
+                  @click="closeCatalog">
+                  <nuxt-link :to="link.url">
+                    <img
+                      :src="link.imgSrc"
+                      alt="">
+                    <span>{{ link.title }}</span>
+                  </nuxt-link>
+                </div>
               </div>
 
               <div class="search-categories">
-                <nuxt-link
+                <div
                   v-for="link in searchResults.categories"
                   :key="link.id"
-                  :to="link.url"
-                  class="search-category-item">
-                  {{ link.title }}
-                </nuxt-link>
+                  class="search-catalog-item"
+                  @click="closeCatalog">
+                  <nuxt-link :to="link.url">
+                    {{ link.title }}
+                  </nuxt-link>
+                </div>
               </div>
 
               <div class="search-details">
 
-                <nuxt-link
+                <div
                   v-for="link in searchResults.accessories"
                   :key="link.id"
-                  :to="link.url"
-                  class="search-details-item">
-                  <img
-                    :src="link.imgSrc"
-                    alt="">
-                  <span>{{ link.title }}</span>
-                </nuxt-link>
+                  class="search-details-item"
+                  @click="closeCatalog">
+                  <nuxt-link :to="link.url">
+                    <img
+                      :src="link.imgSrc"
+                      alt="">
+                    <span>{{ link.title }}</span>
+                  </nuxt-link>
+                </div>
 
               </div>
 

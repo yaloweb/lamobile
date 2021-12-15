@@ -35,7 +35,6 @@ export default {
       slidesPerView: 4,
       spaceBetween: 50,
       speed: 600,
-      parallax: true,
       breakpoints: {
         0: {
           spaceBetween: 10,

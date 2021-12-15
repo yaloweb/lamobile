@@ -10,8 +10,11 @@
 
         <div class="footer-col col-6">
           <div class="footer-contacts">
+
             <div class="h3">Мы всегда рады помочь</div>
             <p v-html="global.footer.contacts"/>
+
+            <div class="subscribe-form-title">Подписаться на рассылку:</div>
             <form class="subscribes-form">
               <input
                 type="text"
@@ -19,6 +22,7 @@
                 placeholder="Подписаться на обновления">
               <button type="submit" class="btn">Ок</button>
             </form>
+
           </div>
         </div>
 

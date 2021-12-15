@@ -19,8 +19,9 @@
 
 .form-label
   display: block
-  margin: 18px 0 0
+  //margin: 18px 0 0
   padding-right: 5px
+  margin: auto 0
   width: 155px
   flex-shrink: 0
   line-height: 1.4
@@ -293,3 +294,38 @@ textarea.form-control
 .danger-text
   font-size: 12px
   color: $red
+
+.upload-file
+  position: relative
+  display: inline-block
+  margin: 0
+
+  input
+    position: absolute
+    z-index: -1
+    visibility: hidden
+    opacity: 0
+
+.upload-file-preview
+  width: 100px
+  height: 100px
+  background-color: #EEEFF3
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  font-size: 12px
+  color: $accent
+  cursor: pointer
+  overflow: hidden
+  background-image: url(/img/upload-preview.svg)
+  background-repeat: no-repeat
+  background-position: center
+  -webkit-background-size: cover
+  background-size: cover
+  position: relative
+  z-index: 1
+
+  span
+    position: relative
+    z-index: 1

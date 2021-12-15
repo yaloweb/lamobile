@@ -16,14 +16,46 @@
       </template>
     </div>
 
-    <div class="product-item-img">
-      <nuxt-link
-        :to="item.url"
-        :event="item.inStock === false ? '' : 'click'">
-        <img
-          :src="item.imgSrc"
-          alt="">
-      </nuxt-link>
+    <div
+      class="product-item-img">
+
+      <template v-if="Array.isArray(item.imgSrc)">
+
+        <div class="product-item-img-slider">
+
+          <swiper :options="swiperOptions">
+
+            <swiper-slide
+              v-for="(img, index) in item.imgSrc"
+              :key="index">
+              <div class="product-item-img-slider-img">
+                <img
+                  :src="img.images[0]"
+                  alt="">
+              </div>
+            </swiper-slide>
+
+          </swiper>
+
+          <div class="product-img-slider-prev slider-prev"><span class="icon-arrow-left"></span></div>
+          <div class="product-img-slider-next slider-next"><span class="icon-arrow-right"></span></div>
+
+        </div>
+
+      </template>
+
+      <template v-else>
+
+        <nuxt-link
+          :to="item.url"
+          :event="item.inStock === false ? '' : 'click'">
+          <img
+            :src="item.imgSrc"
+            alt="">
+        </nuxt-link>
+
+      </template>
+
     </div>
 
     <div class="product-item-text">
@@ -47,11 +79,25 @@
 </template>
 
 <script>
+
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+
 export default {
   name: 'CatalogItem',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   props: {
     item: Object
-  }
+  },
+  data: () => ({
+    swiperOptions: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      speed: 600
+    }
+  })
 }
 </script>
 

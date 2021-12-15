@@ -37,7 +37,7 @@ export default {
   name: 'Registration',
   layout: 'auth',
   data: () => ({
-    step: 3
+    step: 1
   }),
   methods: {
     prev () {

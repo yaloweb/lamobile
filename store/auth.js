@@ -53,5 +53,16 @@ export const mutations = {
     state.registration.contactPerson.phone = data.phone
     state.registration.contactPerson.email = data.email
     state.registration.contactPerson.individual = data.individual
+  },
+  setRegStep3 (state, data) {
+    let root = state.registration.company
+    root.user = data.user
+    root.name = data.name
+    root.inn = data.inn
+    root.address = data.address
+    root.additionalPhone = data.additionalPhone
+    root.site = data.site
+    root.logo = data.logo
+    root.contactPersons = data.contactPersons
   }
 }
