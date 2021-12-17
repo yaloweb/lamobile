@@ -155,9 +155,7 @@
             v-show="activeTab === 1"
             class="catalog-dropdown-content-tab">
 
-            <div
-              class="catalog-dropdown-tabs-nav"
-              @click="closeCatalog">
+            <div class="catalog-dropdown-tabs-nav">
               <span
                 :class="{'active': activeCatalogTab === 1}"
                 @click="activeCatalogTab = 1">Товары</span>

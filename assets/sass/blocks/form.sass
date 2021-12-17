@@ -75,6 +75,11 @@ textarea.form-control
     margin: 0
     position: relative
 
+    &:hover
+      span
+        &:after
+          border-color: $accent
+
   input
     position: absolute
     z-index: -1
@@ -99,7 +104,7 @@ textarea.form-control
       content: ''
       position: absolute
       left: 0
-      top: 0px
+      top: 0
       width: 24px
       height: 24px
       //border-radius: 5px

@@ -6,12 +6,13 @@
 
     <div
       v-if="productImages.length > 1 && !isMob"
-      class="product-main-img-slider">
+      class="product-main-img-slider"
+      @click="popup = true">
 
       <swiper :options="swiperOptions">
 
         <swiper-slide
-          v-for="(slide, index) in this.slidesArr"
+          v-for="(slide, index) in slidesArr"
           :key="index">
 
           <div
@@ -67,6 +68,11 @@
           alt="">
       </template>
     </div>
+
+    <ImagesGalleryPopup
+      :show="popup"
+      @close="popup = false"
+      :list="popupImages"/>
 
   </div>
 
@@ -131,6 +137,17 @@ export default {
         }
       })
       return res
+    },
+    popupImages () {
+      const res = []
+      this.productImages.forEach(images => {
+        images.list.forEach(item => {
+          if (item.color === this.selectedColor) {
+            res.push(item.imgSrc)
+          }
+        })
+      })
+      return res
     }
   },
   data: () => ({
@@ -155,21 +172,12 @@ export default {
         }
       }
     },
-    isMob: false
+    isMob: false,
+    popup: false
   }),
   methods: {
     sliderIterator (i) {
       let arr = []
-      // const a = i * 2 - 1
-      // const b = i * 2
-      // if (this.productImages[a].wide) {
-      //   arr = arr[a]
-      //   return arr
-      // }
-      // if (this.productImages[b].wide) {
-      //   arr = arr[b]
-      //   return arr
-      // }
       arr.push(i * 2 - 1)
       if ((i * 2) <= this.productImages.length) {
         arr.push(i * 2)

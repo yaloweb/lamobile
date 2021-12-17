@@ -11,6 +11,21 @@
   position: relative
   padding-bottom: 100%
 
+  &.only-one
+    .product-main-img-container
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
+.product-main-img-slider
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
   .swiper-container
     position: absolute
     height: 100%
@@ -27,20 +42,6 @@
         padding-bottom: calc(50% - 12.5px)
         padding-top: 0
 
-  &.only-one
-    .product-main-img-container
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-
-.product-main-img-slider
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
 
 .product-main-img-container
   position: relative
@@ -678,17 +679,3 @@
   padding: 0
   margin: 0 20px 0 0
   line-height: 1.75
-
-.product-item-img-slider
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-
-  img
-    display: block
-    position: static
-
-  .swiper-wrapper
-    width: 100%

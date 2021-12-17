@@ -33,9 +33,9 @@
 
 .product-item-img
   position: relative
-  padding-bottom: 100%
   z-index: 0
-  margin-bottom: auto
+  margin: -45px -32px auto
+  padding-bottom: calc(100% + 64px)
 
   img
     position: absolute
@@ -44,6 +44,7 @@
     width: 100%
     height: 100%
     object-fit: contain
+
 
 .product-item-title
   a
@@ -136,6 +137,7 @@
   line-height: 2
   flex-shrink: 0
   margin-bottom: auto
+
   &.mob
     display: none
 
@@ -201,9 +203,11 @@
 
 .product-list-view-inquire
   white-space: nowrap
+
   a
     color: #000AFF
     +tr
+
     &:hover
       color: $accent
 
@@ -211,6 +215,7 @@
   position: relative
   width: 100px
   height: 100px
+
   img
     position: absolute
     top: 0
@@ -221,6 +226,7 @@
     +tr
     visibility: hidden
     opacity: 0
+
     &.active
       opacity: 1
       visibility: visible
@@ -229,8 +235,10 @@
   display: flex
   align-items: center
   margin-bottom: 10px
+
   &:last-child
     margin-bottom: 0
+
   & > *
     flex-shrink: 0
 
@@ -241,6 +249,7 @@
   -moz-border-radius: 50%
   border-radius: 50%
   margin-right: 5px
+
   &.with-border
     border: 1px solid #DEDBDB
 
@@ -256,6 +265,7 @@
   border-radius: 13px
   background-color: #EEEFF3
   margin-right: 5px
+
   &.disabled
     background-color: #F6F6F6
     color: #DEDBDB
@@ -269,3 +279,108 @@
   flex-shrink: 0
   width: 210px
   padding-right: 20px
+
+.product-item-img-slider
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+  img
+    display: block
+    position: static
+
+  .swiper-container
+    height: 100%
+
+  .swiper-wrapper
+    width: 100%
+    height: 100%
+
+.product-item-img-slider-img
+  position: relative
+
+  img
+    display: block
+    width: 100%
+    height: 100%
+    object-fit: cover
+    position: absolute
+    top: 0
+    left: 0
+    +tr
+    opacity: 0
+    visibility: hidden
+    &.active
+      opacity: 1
+      visibility: visible
+
+.product-img-slider-prev,
+.product-img-slider-next
+  position: absolute
+  top: 50%
+  margin-top: -30px
+
+.product-img-slider-prev
+  left: 32px
+
+.product-img-slider-next
+  right: 32px
+
+.product-img-pagination
+  display: flex
+  align-items: center
+  justify-content: center
+  position: absolute
+  top: calc(100% + 12px)
+  left: 0
+  width: 100%
+
+  .swiper-pagination-bullet
+    flex-grow: 1
+    margin: 0 4px
+    max-width: 62px
+    height: 2px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    +tr
+    background-color: #DEDBDB
+    opacity: 1
+
+  .swiper-pagination-bullet-active
+    background-color: $accent
+
+.product-img-thumbs-block
+  position: absolute
+  bottom: 21px
+  left: 0
+  width: 100%
+  display: flex
+  justify-content: center
+  z-index: 1
+
+.product-img-thumbs
+  background-color: #fff
+  display: flex
+  align-items: center
+  height: 60px
+  padding: 0 22px
+  -webkit-border-radius: 30px
+  -moz-border-radius: 30px
+  border-radius: 30px
+  user-select: none
+
+.product-img-thumb
+  margin-right: 20px
+  cursor: pointer
+
+  &:last-child
+    margin-right: 0
+
+  img
+    display: block
+    width: 32px
+    height: 32px
+    object-fit: contain

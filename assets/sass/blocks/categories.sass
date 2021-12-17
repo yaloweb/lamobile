@@ -22,6 +22,7 @@
   height: 420px
   -webkit-mask-image: -webkit-radial-gradient(white, black)
   transform: translateZ(0)
+  +tr
 
   a
     position: absolute
@@ -30,8 +31,13 @@
     width: 100%
     height: 100%
     z-index: 2
+    cursor: url(/img/icons/arrow-right.png), pointer
 
   &:hover
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border-radius: 20px
+
     .categories-item-img
       img
         transform: scale(1.1)

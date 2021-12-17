@@ -17,7 +17,8 @@
     </div>
 
     <div
-      class="product-item-img">
+      class="product-item-img"
+      :class="{'is-slider': Array.isArray(item.imgSrc)}">
 
       <template v-if="Array.isArray(item.imgSrc)">
 
@@ -26,11 +27,14 @@
           <swiper :options="swiperOptions">
 
             <swiper-slide
-              v-for="(img, index) in item.imgSrc"
+              v-for="(imgList, index) in item.imgSrc"
               :key="index">
               <div class="product-item-img-slider-img">
                 <img
-                  :src="img.images[0]"
+                  v-for="(img, imgIndex) in imgList"
+                  :key="`img.id-${imgIndex}`"
+                  :src="img.imgSrc"
+                  :class="{'active': img.color === selectedColor}"
                   alt="">
               </div>
             </swiper-slide>
@@ -39,6 +43,24 @@
 
           <div class="product-img-slider-prev slider-prev"><span class="icon-arrow-left"></span></div>
           <div class="product-img-slider-next slider-next"><span class="icon-arrow-right"></span></div>
+
+          <div class="product-img-pagination" slot="pagination" />
+
+          <div
+            v-if="item.colors"
+            class="product-img-thumbs-block">
+            <div class="product-img-thumbs">
+              <div
+                v-for="color in item.colors"
+                :key="color.id"
+                class="product-img-thumb"
+                @click="selectedColor = color.id">
+                <img
+                  :src="color.imgSrc"
+                  alt="">
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -95,9 +117,29 @@ export default {
     swiperOptions: {
       slidesPerView: 1,
       spaceBetween: 0,
-      speed: 600
+      speed: 600,
+      navigation: {
+        prevEl: '.product-img-slider-prev',
+        nextEl: '.product-img-slider-next'
+      },
+      pagination: {
+        el: '.product-img-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    },
+    selectedColor: 0
+  }),
+  methods: {
+    sliderImages (colorId) {
+      return this.item.imgSrc.filter(item => item.id === colorId)[0]
     }
-  })
+  },
+  mounted () {
+    if (Array.isArray(this.item.imgSrc)) {
+      this.selectedColor = this.item.colors[0].id
+    }
+  }
 }
 </script>
 

@@ -16,6 +16,11 @@
           :to="item.url"
           :event="item.inStock === false ? '' : 'click'">
           <img
+            v-if="Array.isArray(item.imgSrc)"
+            :src="item.imgSrc[0][0].imgSrc"
+            alt="">
+          <img
+            v-else
             :src="item.imgSrc"
             alt="">
         </nuxt-link>
