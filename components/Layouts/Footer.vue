@@ -103,6 +103,11 @@
 
     </div>
 
+    <div
+      class="up-btn"
+      :class="{'visible': scrollUpVisible}"
+      @click="scrollUp"/>
+
   </footer>
 
 </template>
@@ -123,6 +128,27 @@ export default {
     ...mapState({
       global: state => state.global
     })
+  },
+  data: () => ({
+    scrollUpVisible: false
+  }),
+  methods: {
+    scrollUp () {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+  },
+  mounted () {
+    const scrollEvent = () => {
+      const scrollTop = window.pageYOffset
+      this.scrollUpVisible = scrollTop > window.innerHeight
+    }
+    scrollEvent()
+    window.addEventListener('scroll', scrollEvent)
+    this.$on('hook:beforeDestroy', () => window.removeEventListener('scroll', scrollEvent))
   }
 }
 </script>

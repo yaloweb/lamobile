@@ -48,6 +48,9 @@ a
 .container
   padding: 0 70px
   max-width: 100%
+  width: 1920px
+  margin-left: auto
+  margin-right: auto
 
 h1, .h1
   font-size: 60px
@@ -324,3 +327,39 @@ h5, .h5
     img
       display: block
       width: 25px
+
+.up-btn
+  position: fixed
+  +tr
+  z-index: 3
+  right: 38px
+  bottom: 38px
+  width: 70px
+  height: 70px
+  border: 1px solid #DEDBDB
+  -webkit-border-radius: 50%
+  -moz-border-radius: 50%
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  color: #C4C4C4
+  cursor: pointer
+  transform: translateX(100px)
+  opacity: 0
+
+  &.visible
+    opacity: 1
+    transform: translateX(0)
+
+
+  &:hover
+    color: $accent
+    border-color: $accent
+
+  &:after
+    content: '\e91b'
+    line-height: 1
+    font-weight: normal
+    font-family: icon
+    font-size: 25px

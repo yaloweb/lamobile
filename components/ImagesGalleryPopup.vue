@@ -88,6 +88,14 @@ export default {
       slidesPerView: 'auto',
       spaceBetween: 60,
       speed: 600,
+      breakpoints: {
+        0: {
+          spaceBetween: 20
+        },
+        1200: {
+          spaceBetween: 60
+        }
+      },
       navigation: {
         nextEl: '.thumbs-nav-next',
         prevEl: '.thumbs-nav-prev'
@@ -97,6 +105,14 @@ export default {
       direction: 'vertical',
       slidesPerView: 'auto',
       spaceBetween: 60,
+      breakpoints: {
+        0: {
+          spaceBetween: 20
+        },
+        1200: {
+          spaceBetween: 60
+        }
+      },
       speed: 600
     },
     active: 0

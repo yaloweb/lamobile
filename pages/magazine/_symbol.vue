@@ -23,6 +23,7 @@
           :src="post.mobBanner"
           alt="">
       </div>
+
     </section>
 
     <section class="s-post-content">
@@ -120,7 +121,7 @@ export default {
     return await this.$store.dispatch('post/getPostData', symbol)
   },
   name: 'MagazinePost',
-  layout: 'index',
+  layout: 'brands',
   computed: {
     ...mapState({
       post: state => state.post

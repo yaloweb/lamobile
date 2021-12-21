@@ -32,20 +32,10 @@
           <BlogList
             ref="blogList"
             :list="blog"
-            :scrollAutoLoad="true"/>
-
-          <div class="magazine-categories">
-            <nav class="magazine-categories-nav">
-              <a
-                v-for="category in categories"
-                :key="category.id"
-                href="#"
-                :class="{'active': selectedCategory === category.id}"
-                @click.prevent="filterByCategory(category.id)">
-                {{category.title}}
-              </a>
-            </nav>
-          </div>
+            :scrollAutoLoad="true"
+            :selectedCategory="selectedCategory"
+            @changeCategory="selectedCategory = $event"
+            />
 
         </div>
       </section>
@@ -79,15 +69,6 @@ export default {
   data: () => ({
     selectedCategory: 0,
     pageLoad: false
-  }),
-  methods: {
-    async filterByCategory (categoryId) {
-      this.loading = true
-      await this.$store.dispatch('blog/filterBlogByCategory', categoryId)
-      this.selectedCategory = categoryId
-      this.$refs.blogList.blogScroll()
-      window.scrollTo(0, 0)
-    }
-  }
+  })
 }
 </script>

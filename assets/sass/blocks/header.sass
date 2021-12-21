@@ -19,6 +19,9 @@
     .header-name
       color: #fff
 
+    .basket-quantity
+      color: $textcolor
+
 .header-row
   display: flex
   align-items: center
@@ -204,6 +207,9 @@
   &:hover
     color: $accent !important
 
+    .basket-quantity
+      color: #fff !important
+
   .basket-quantity
     position: absolute
     font-size: 14px
@@ -213,6 +219,7 @@
     right: 0
     text-align: center
     color: #fff
+    +tr
 
 .header-account-basket
   &.active

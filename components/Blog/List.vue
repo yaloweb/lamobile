@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="magazineList"
     class="magazine-list"
     :class="{'blog-loading': loading}">
     <div
@@ -28,6 +29,22 @@
       <span class="magazine-row-gutter"></span>
 
     </div>
+
+    <div
+      class="magazine-categories"
+      :class="{'visible': visibleTags}">
+      <nav class="magazine-categories-nav">
+        <a
+          v-for="category in categories"
+          :key="category.id"
+          href="#"
+          :class="{'active': selectedCategory === category.id}"
+          @click.prevent="filterByCategory(category.id)">
+          {{category.title}}
+        </a>
+      </nav>
+    </div>
+
   </div>
 </template>
 
@@ -36,11 +53,21 @@ export default {
   name: 'List',
   props: {
     list: Array,
-    scrollAutoLoad: Boolean
+    scrollAutoLoad: Boolean,
+    selectedCategory: Number
   },
   data: () => ({
-    loading: false
+    loading: false,
+    visibleTags: true
   }),
+  computed: {
+    categories () {
+      return this.$store.state.blog.categories
+    },
+    magazineList () {
+      return this.$refs.magazineList
+    }
+  },
   methods: {
     async scrollLoadBlogList () {
       this.loading = true
@@ -60,12 +87,38 @@ export default {
         })
       })
       observer.observe(item)
+    },
+    offset (el) {
+      const rect = el.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      return (rect.top + scrollTop)
+    },
+    async filterByCategory (categoryId) {
+      this.loading = true
+      await this.$store.dispatch('blog/filterBlogByCategory', categoryId)
+      this.$emit('changeCategory', categoryId)
+      this.blogScroll()
+      this.loading = false
+      window.scrollTo(0, 0)
     }
   },
   mounted () {
     if (this.scrollAutoLoad) {
       this.blogScroll()
     }
+    const filterBtnScroll = e => {
+      const scrY = window.scrollY
+      const scrTop = this.offset(this.magazineList)
+      const offH = this.magazineList.offsetHeight
+      const wH = window.innerHeight
+      const res = scrTop + offH - scrY - wH
+      this.visibleTags = res > 0
+    }
+
+    window.addEventListener('scroll', filterBtnScroll)
+    this.$on('hook:beforeDestroy', () => {
+      window.removeEventListener('scroll', filterBtnScroll)
+    })
   }
 }
 </script>

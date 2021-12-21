@@ -12,12 +12,7 @@
   padding-bottom: 100%
 
   &.only-one
-    .product-main-img-container
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
+    padding-bottom: 0
 
 .product-main-img-slider
   position: absolute
@@ -35,6 +30,7 @@
     display: grid
     grid-template-columns: 1fr 1fr
     grid-gap: 25px
+    overflow: hidden
 
     .product-main-img-container
       &:first-child:last-child
@@ -49,6 +45,7 @@
   width: 100%
   flex-shrink: 0
   background-color: #fff
+  cursor: pointer
 
   img
     position: absolute
@@ -106,6 +103,15 @@
   margin-bottom: 50px
   flex-grow: 1
 
+.product-main-info-container
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  transition: all .5s ease
+
+  &.hidden
+    transform: translateX(-100%)
+
 .product-main-id
   margin-bottom: 20px
   color: #7A7A7A
@@ -124,28 +130,42 @@
   justify-content: center
   margin-bottom: 50px
 
+  .swiper-container
+    width: 100%
+
 .product-colors-block
   flex-shrink: 0
   height: 50px
   display: flex
   align-items: center
-  justify-content: center
-  padding: 0 5px
+  padding: 0 10px
   border: 1px solid #DEDBDB
   -webkit-border-radius: 25px
   -moz-border-radius: 25px
   border-radius: 25px
+  overflow: hidden
+  max-width: 102px
+
+  .swiper-container
+    overflow: visible
+
+  .swiper-slide
+    width: 20px
+    flex-shrink: 0
+
+    &:last-child
+      margin-right: 0 !important
 
   span
     width: 20px
-    height: 20px
+    height: 20px !important
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
-    margin: 0 4px
     flex-shrink: 0
     cursor: pointer
     position: relative
+    display: block
 
     &:after
       content: ''
@@ -320,11 +340,6 @@
 
     .advantages-item-content
       max-width: 610px
-
-  &:hover
-    .advantages-item-img
-      img
-        transform: scale(1.05)
 
 .advantages-item-img
   position: absolute
@@ -610,9 +625,7 @@
   width: 100%
   height: 100%
   +tr4
-  opacity: 0
-  visibility: hidden
-  transform: scale(1.05)
+  transform: translateX(100%)
   background-color: #fff
   z-index: 1
   padding: 34px 41px
@@ -621,9 +634,7 @@
   flex-direction: column
 
   &.opened
-    visibility: visible
-    opacity: 1
-    transform: scale(1)
+    transform: translateX(0)
 
 .back-link
   margin-bottom: 17px
@@ -642,7 +653,7 @@
 
     span
       font-size: 15px
-      transform: translateY(2px)
+      transform: translateY(1px)
       margin-right: 3px
 
 .product-buy-content

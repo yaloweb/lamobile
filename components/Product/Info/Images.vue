@@ -6,8 +6,7 @@
 
     <div
       v-if="productImages.length > 1 && !isMob"
-      class="product-main-img-slider"
-      @click="popup = true">
+      class="product-main-img-slider">
 
       <swiper :options="swiperOptions">
 
@@ -18,7 +17,8 @@
           <div
             v-for="(item, itemIndex) in slide"
             :key="itemIndex"
-            class="product-main-img-container">
+            class="product-main-img-container"
+            @click="popup = true">
             <img
               v-for="img in item.list"
               :key="img.id"
@@ -39,13 +39,15 @@
     <div
       v-else-if="productImages.length > 1 && isMob"
       class="product-main-img-scroll"
-      :class="{'length-3': this.productImages.length === 3}">
+      :class="{'length-3': this.productImages.length === 3}"
+      @click="popup = true">
 
       <div
         v-for="(item, itemIndex) in this.productImages"
         :key="itemIndex"
         class="product-main-img-container"
-        :class="{'wide': item.wide}">
+        :class="{'wide': item.wide}"
+        @click="popup = true">
         <img
           v-for="img in item.list"
           :key="img.id"

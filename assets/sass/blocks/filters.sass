@@ -30,6 +30,7 @@
 
   &:hover
     color: $accent
+
     .brand-close
       color: $accent
 
@@ -110,8 +111,12 @@
     display: block
     padding-left: 37px
     position: relative
+    +tr
+    cursor: pointer
 
     &:hover
+      color: $accent
+
       &:after
         border-color: $accent
 

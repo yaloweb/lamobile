@@ -61,6 +61,12 @@
   left: 50%
   transform: translateX(-50%)
   max-width: 100%
+  +tr
+  opacity: 0
+  visibility: hidden
+  &.visible
+    opacity: 1
+    visibility: visible
 
 .magazine-categories-nav
   display: flex

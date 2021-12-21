@@ -31,25 +31,33 @@
 
         <div class="order-info">
 
-          <div class="order-info-total">Итого: {{ order.totalPrice | priceFilter }} ₽ </div>
+          <div class="order-info-left">
 
-          <div
-            class="order-info-status"
-            :class="status(order.status).color">
-            {{ status(order.status).title }}
+            <div class="order-info-total">Итого: {{ order.totalPrice | priceFilter }} ₽</div>
+
+            <div
+              class="order-info-status"
+              :class="status(order.status).color">
+              {{ status(order.status).title }}
+            </div>
+
           </div>
 
           <div class="order-info-repeat">
             <button class="btn btn-border">Повторить заказ</button>
           </div>
 
-          <div class="order-info-pdf">
-            <a
-              :href="order.checkPdf"
-              target="_blank"
-              download="">
-              Скачать счёт в PDF <span class="icon-download"></span>
-            </a>
+          <div class="order-info-right">
+
+            <div class="order-info-pdf">
+              <a
+                :href="order.checkPdf"
+                target="_blank"
+                download="">
+                Скачать счёт в PDF <span class="icon-download"></span>
+              </a>
+            </div>
+
           </div>
 
         </div>

@@ -3,53 +3,65 @@
     class="product-main-info"
     :class="{'visible-content': mobContentVisible}">
 
-    <div class="product-main-info-content">
-
-      <div class="product-main-id"><span>ID товара: {{ productId }}</span></div>
-
-      <div class="product-title">
-        <h1 v-html="title"/>
-      </div>
-
-      <div class="product-colors">
-        <div class="product-colors-block">
-          <span
-            v-for="color in colors"
-            :key="color.id"
-            :style="{backgroundColor: color.background}"
-            :class="{'active': color.id === selectedColor}"
-            @click="$emit('select-color', color.id)"/>
-        </div>
-      </div>
-
-      <div class="product-buy">
-        <button
-          class="btn btn-border"
-          @click="buyModal = true">Купить от {{ price | priceFilter }} ₽</button>
-      </div>
-
-    </div>
-
     <div
-      v-if="gifts ? gifts.length > 0 : false"
-      class="product-gifts">
+      class="product-main-info-container"
+      :class="{'hidden': buyModal}">
 
-      <div class="product-gifts-left">
-        <div class="h3">Подарок</div>
-        <p v-html="giftsDescr"/>
-      </div>
+      <div class="product-main-info-content">
 
-      <div class="product-gifts-right">
-        <div class="gifst-list">
+        <div class="product-main-id"><span>ID товара: {{ productId }}</span></div>
+
+        <div class="product-title">
+          <h1 v-html="title"/>
+        </div>
+
+        <div class="product-colors">
           <div
-            v-for="gift in gifts"
-            :key="gift.id"
-            class="gift-item">
-            <img
-              :src="gift.imgSrc"
-              alt="">
+            class="product-colors-block">
+            <swiper :options="swiperOptions">
+              <swiper-slide
+                v-for="color in colors"
+                :key="color.id">
+                <span
+                  :style="{backgroundColor: color.background}"
+                  :class="{'active': color.id === selectedColor}"
+                  @click="$emit('select-color', color.id)"/>
+              </swiper-slide>
+            </swiper>
           </div>
         </div>
+
+        <div class="product-buy">
+          <button
+            class="btn btn-border"
+            @click="buyModal = true">Купить от {{ price | priceFilter }} ₽
+          </button>
+        </div>
+
+      </div>
+
+      <div
+        v-if="gifts ? gifts.length > 0 : false"
+        class="product-gifts">
+
+        <div class="product-gifts-left">
+          <div class="h3">Подарок</div>
+          <p v-html="giftsDescr"/>
+        </div>
+
+        <div class="product-gifts-right">
+          <div class="gifst-list">
+            <div
+              v-for="gift in gifts"
+              :key="gift.id"
+              class="gift-item">
+              <img
+                :src="gift.imgSrc"
+                alt="">
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -89,9 +101,14 @@
 <script>
 
 import { mapState } from 'vuex'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: 'ProductInfoMain',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   props: {
     selectedColor: Number
   },
@@ -108,7 +125,11 @@ export default {
   },
   data: () => ({
     mobContentVisible: false,
-    buyModal: false
+    buyModal: false,
+    swiperOptions: {
+      slidesPerView: 'auto',
+      spaceBetween: 7
+    }
   }),
   mounted () {
     const scroll = () => {

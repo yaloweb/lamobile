@@ -27,7 +27,7 @@
               name="verification"
               label="email"
               value="email"
-              v-model="verification">Почта</FormRadio>
+              v-model="verification">Email</FormRadio>
           </div>
 
           <div class="form-descr">
