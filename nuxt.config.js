@@ -81,9 +81,13 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL,
+    // baseURL: process.env.API_URL,
+    baseURL: 'https://career.bikdev.ru/api/v1',
     proxyHeaders: false,
-    credentials: false
+    credentials: false,
+    init (axios) {
+      axios.defaults.withCredentials = true
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

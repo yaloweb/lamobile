@@ -60,8 +60,6 @@
 
             <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>
 
-            <div class="header-name"><span>Здравствуйте, </span>{{ user.name }}</div>
-
             <div class="header-account-btns">
               <div
                 class="header-account-link"

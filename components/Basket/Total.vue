@@ -21,7 +21,7 @@
     <div class="basket-total-prices">
       <ul>
         <li>
-          <span>{{ total.products.quantity }} товар(а)</span>
+          <span>{{ total.products.quantity }} {{$options.filters.declensionNumbers(total.products.quantity, ['товар', 'товара', 'товаров'])}}</span>
           <span>{{ total.products.price | priceFilter}} ₽</span>
         </li>
         <li v-if="total.delivery">
@@ -52,7 +52,7 @@
     </form>
 
     <div class="basket-total-price">
-      <span>Итого {{ total.products.quantity }} товар(а)<br>на сумму:</span>
+      <span>Итого {{ total.products.quantity }} {{$options.filters.declensionNumbers(total.products.quantity, ['товар', 'товара', 'товаров'])}}<br>на сумму:</span>
       <span>{{ totalPrice | priceFilter }} ₽</span>
     </div>
 
