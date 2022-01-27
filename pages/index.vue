@@ -55,18 +55,6 @@ export default {
       sliderProducts: state => state.catalog.sliderProducts,
       sliderBanners: state => state.banners.banners
     })
-  },
-  mounted () {
-    this.$axios({
-      method: 'get',
-      url: 'https://career.bikdev.ru/api/v1/auth/signup',
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      data: JSON.stringify({
-        role: 1
-      })
-    }).then((res) => {
-      console.log(res)
-    })
   }
 }
 </script>

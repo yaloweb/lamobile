@@ -11,6 +11,22 @@
         <swiper-slide
           v-for="slide in slides"
           :key="slide.id">
+          <div class="banners-slider-img-item">
+            <video
+              v-if="mob"
+              :src="slide.mobVideoSrc || slide.videoSrc"
+              muted
+              autoplay
+              loop
+              preload="none"/>
+            <video
+              v-else
+              :src="slide.videoSrc"
+              muted
+              autoplay
+              loop
+              preload="none"/>
+          </div>
           <div
             class="banners-slider-img-item"
             :style="{backgroundImage: `url(${slide.imgSrc})`}"/>
@@ -111,7 +127,8 @@ export default {
           allowTouchMove: false
         }
       }
-    }
+    },
+    mob: false
   }),
   methods: {
     sliderImgToSlide (i) {
@@ -121,6 +138,9 @@ export default {
       let i = this.bannersTextSwiper.realIndex
       this.sliderImgToSlide(i)
     }
+  },
+  mounted () {
+    this.mob = window.innerWidth < 576
   }
 }
 </script>
