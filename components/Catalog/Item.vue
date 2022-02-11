@@ -44,7 +44,9 @@
           <div class="product-img-slider-prev slider-prev"><span class="icon-arrow-left"></span></div>
           <div class="product-img-slider-next slider-next"><span class="icon-arrow-right"></span></div>
 
-          <div class="product-img-pagination" slot="pagination" />
+          <div class="product-img-pagination" slot="pagination"/>
+
+          {{item.colors.background}}
 
           <div
             v-if="item.colors"
@@ -54,11 +56,9 @@
                 v-for="color in item.colors"
                 :key="color.id"
                 class="product-img-thumb"
-                @click="selectedColor = color.id">
-                <img
-                  :src="color.imgSrc"
-                  alt="">
-              </div>
+                :class="{active: selectedColor === color.id}"
+                @click="selectedColor = color.id"
+                :style="{backgroundColor: color.background}"/>
             </div>
           </div>
 
@@ -90,8 +90,20 @@
         </nuxt-link>
       </div>
 
-      <div class="product-item-price">
-        Цена: <span>{{ item.price | priceFilter }} ₽</span>
+      <div class="product-item-footer">
+
+        <div class="product-item-price">
+          Цена: <span>{{ item.price | priceFilter }} ₽</span>
+        </div>
+
+        <div class="product-item-add-to-cart">
+          <button
+            class="product-item-add-to-cart-btn"
+            v-tooltip.top="'В корзину'">
+            <span class="icon-bag"></span>
+          </button>
+        </div>
+
       </div>
 
     </div>

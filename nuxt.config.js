@@ -34,6 +34,7 @@ export default {
     '~plugins/filters.js',
     '~plugins/directives.js',
     '~plugins/vuelidate.js',
+    '~plugins/tooltip.js',
     {
       src: '~plugins/custom-scripts.js',
       ssr: false

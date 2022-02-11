@@ -45,7 +45,7 @@
   width: 100%
   flex-shrink: 0
   background-color: #fff
-  cursor: pointer
+  cursor: url(/img/icons/check-full-img.png), pointer
 
   img
     position: absolute
@@ -92,7 +92,7 @@
 
 .product-main-info
   background-color: #fff
-  padding: 117px 41px 45px
+  padding: 34px 41px
   display: flex
   flex-direction: column
   overflow: hidden
@@ -102,6 +102,10 @@
   text-align: center
   margin-bottom: 50px
   flex-grow: 1
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
 
 .product-main-info-container
   flex-grow: 1
@@ -135,30 +139,13 @@
 
 .product-colors-block
   flex-shrink: 0
-  height: 50px
   display: flex
   align-items: center
   padding: 0 10px
-  border: 1px solid #DEDBDB
-  -webkit-border-radius: 25px
-  -moz-border-radius: 25px
-  border-radius: 25px
-  overflow: hidden
-  max-width: 102px
-
-  .swiper-container
-    overflow: visible
-
-  .swiper-slide
-    width: 20px
-    flex-shrink: 0
-
-    &:last-child
-      margin-right: 0 !important
 
   span
-    width: 20px
-    height: 20px !important
+    width: 34px
+    height: 34px
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
@@ -166,15 +153,17 @@
     cursor: pointer
     position: relative
     display: block
+    margin: 0 8px
+    box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.25)
 
     &:after
       content: ''
       position: absolute
-      width: 26px
-      height: 26px
+      width: 40px
+      height: 40px
       top: 50%
       left: 50%
-      margin: -13px 0 0 -13px
+      margin: -20px 0 0 -20px
       border-radius: 50%
       border: 1px solid #7A7A7A
       transform: scale(.75)
@@ -415,9 +404,6 @@
     .product-title
       color: #fff
 
-    .product-colors-block
-      background-color: #fff
-
     .product-buy
       .btn
         color: #fff
@@ -477,6 +463,16 @@
 
       &::-webkit-scrollbar-thumb
         background-color: #7a7a7a
+
+    .product-check-marketplaces
+      border-top-color: #7A7A7A
+
+    .product-marketplace
+      color: #fff
+
+    .find-about-admission-form
+      .form-descr
+        color: #fff
 
 .video-block
   position: relative
@@ -690,3 +686,246 @@
   padding: 0
   margin: 0 20px 0 0
   line-height: 1.75
+
+
+.product-item-footer
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.product-item-add-to-cart-btn
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  outline: none
+  padding: 0
+  border: none
+  background-color: transparent
+  position: relative
+  font-size: 26px
+  color: #000
+  line-height: 1
+  +tr
+
+  &:hover
+    color: $accent
+
+  .tooltip-info
+    position: absolute
+    bottom: 0
+    left: 50%
+    -webkit-transform: translateX(-50%)
+    -moz-transform: translateX(-50%)
+    -ms-transform: translateX(-50%)
+    -o-transform: translateX(-50%)
+    transform: translateX(-50%)
+    font-size: 12px
+    color: #000
+    padding: 7px 15px
+    z-index: 3
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25)
+    white-space: nowrap
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    border-radius: 5px
+
+.img-full-slider
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  +tr4
+  z-index: 3
+
+  &:not(.visible)
+    opacity: 0
+    visibility: hidden
+
+.img-full-slider-list-container
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 3
+
+.img-full-slider-list-container
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  +tr4
+  cursor: url(/img/icons/close-full-img.png), pointer
+
+  &:not(.visible)
+    opacity: 0
+    visibility: hidden
+
+  img
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    +tr4
+
+    &:not(.visible)
+      opacity: 0
+      visibility: hidden
+
+.img-full-slider-prev,
+.img-full-slider-next
+  position: absolute
+  z-index: 6
+  top: 50%
+  width: 60px
+  height: 60px
+  -webkit-border-radius: 50%
+  -moz-border-radius: 50%
+  border-radius: 50%
+  margin-top: -30px
+  border: 1px solid #DEDBDB
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+
+  &:after
+    font-family: icon
+    font-size: 22px
+    color: #C4C4C4
+    font-weight: normal
+    line-height: 1
+
+.img-full-slider-prev
+  left: 20px
+  &:after
+    content: '\e900'
+
+.img-full-slider-next
+  right: 20px
+  &:after
+    content: '\e901'
+
+.product-main-img-swiper
+  +tr4
+
+  &:not(.visible)
+    opacity: 0
+    visibility: hidden
+
+.product-main-img
+  &.only-one
+    .product-main-img-container
+      cursor: default
+
+.product-check-marketplaces
+  text-align: center
+  padding-top: 34px
+  border-top: 1px solid #DEDBDB
+  margin-top: 45px
+
+  a
+    +tr
+    font-weight: 500
+    font-size: 18px
+    color: #C4C4C4
+
+    &:hover
+      color: $accent
+
+
+.product-marketplaces
+  margin-top: 53px
+
+.product-marketplaces-row
+  display: flex
+  justify-content: center
+
+.product-marketplace
+  min-width: 115px
+  flex-shrink: 0
+  margin: 0 20px
+  text-align: center
+
+  &:first-child
+    margin-left: 0
+
+  &:last-child
+    margin-right: 0
+
+.product-marketplace-img
+  margin-bottom: 15px
+
+  img
+    width: 84px
+    height: 84px
+    -webkit-border-radius: 20px
+    -moz-border-radius: 20px
+    border-radius: 20px
+    object-fit: cover
+
+.product-marketplace-title
+  line-height: 1.7
+  font-weight: 500
+  font-size: 14px
+
+.product-marketplace-price
+  font-size: 16px
+  font-weight: bold
+  line-height: 1.6
+
+.product-marketplace-link
+  margin-top: 5px
+
+  a
+    color: #7A7A7A
+    +tr
+    font-size: 14px
+
+    &:hover
+      color: $accent
+
+.find-about-admission-form
+  width: 560px
+  max-width: 100%
+  margin-top: 50px
+
+  .form-descr
+    margin: 0 0 25px
+
+  .form-group
+    margin-bottom: 15px
+
+  .form-label
+    display: none
+
+  .form-submit
+    margin-top: 30px
+
+    .btn
+      color: #000AFF
+      border-color: #000AFF
+      background-color: #fff
+
+      &:hover
+        color: $accent
+        border-color: $accent
+
+@media (min-width: 1366px)
+  .marketplace-opened
+    .product-gifts
+      padding-top: 30px
+
+    .product-check-marketplaces
+      margin-top: 30px
+      padding-top: 18px
+
+

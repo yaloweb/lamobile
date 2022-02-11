@@ -58,9 +58,18 @@
 
           <div class="header-account">
 
-            <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>
+<!--            <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>-->
 
             <div class="header-account-btns">
+              <div
+                class="header-account-link">
+                <a
+                  href="#"
+                  class="header-account-btn"
+                  @click="accountDropdown = true">
+                  <span class="icon-exclamation"></span>
+                </a>
+              </div>
               <div
                 class="header-account-link"
                 :class="{'opened': accountDropdown}">

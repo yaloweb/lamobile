@@ -13,6 +13,21 @@
 
     <div class="select-brands">
 
+      <nav class="select-category">
+        <button
+          class="select-category-btn"
+          :class="{ 'active': selectedCategory === 1 }"
+          @click="selectedCategory = 1">
+          Товары
+        </button>
+        <button
+          class="select-category-btn"
+          :class="{ 'active': selectedCategory === 2 }"
+          @click="selectedCategory = 2">
+          Запчасти
+        </button>
+      </nav>
+
       <div class="h4">Бренды</div>
 
       <div
@@ -196,7 +211,8 @@ export default {
     filters: {
       brands: []
     },
-    categoriesAll: false
+    categoriesAll: false,
+    selectedCategory: 1
   }),
   methods: {
     selectBrand (item, all) {

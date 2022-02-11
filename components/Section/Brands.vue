@@ -23,8 +23,8 @@
 
             <div class="brands-row-item-card-img">
               <img
-                  :src="brand.card.imgSrc"
-                  alt="">
+                :src="brand.card.imgSrc"
+                alt="">
             </div>
 
             <div class="brands-row-item-card-content">
@@ -32,11 +32,6 @@
                 :src="brand.imgSrc"
                 alt="">
               <p v-html="brand.card.descr"/>
-              <nuxt-link
-                :to="brand.url"
-                class="btn btn-border">
-                В каталог
-              </nuxt-link>
             </div>
 
           </div>

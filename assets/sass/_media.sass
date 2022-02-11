@@ -72,6 +72,14 @@
     padding-left: 50px
     padding-right: 50px
 
+  .brands-row
+    margin-left: -20px
+    margin-right: -20px
+
+  .brands-row-item
+    padding-right: 20px
+    padding-left: 20px
+
 @media (max-width: 1599.98px)
   body
     font-size: 14px
@@ -417,11 +425,6 @@
     width: 75px
     margin-right: 2%
 
-  .brands-row-item-card
-    width: 340px
-    margin-left: -170px
-    top: -266px
-
   .brands-row-item-card-content
     padding: 20px
 
@@ -506,6 +509,47 @@
   .images-gallery-thumbs
     width: 100px
     margin-right: 80px
+
+  .product-check-marketplaces
+    a
+      font-size: 14px
+
+  .product-marketplace
+    margin: 0 10px
+    min-width: 100px
+
+  .product-marketplace-img
+    margin-bottom: 6px
+
+    img
+      width: 56px
+      height: 56px
+      -webkit-border-radius: 10px
+      -moz-border-radius: 10px
+      border-radius: 10px
+
+  .product-marketplace-title
+    font-size: 12px
+
+  .product-marketplace-price
+    font-size: 14px
+
+  .product-marketplace-link
+    margin-top: 5px
+
+    a
+      font-size: 12px
+
+  .product-colors-block
+    span
+      width: 26px
+      height: 26px
+      margin: 0 5px
+
+      &:after
+        width: 32px
+        height: 32px
+        margin: -16px 0 0 -16px
 
 @media (max-width: 1439.98px)
 
@@ -776,19 +820,6 @@
   .order-info
     padding: 0
 
-
-  .brands-row-item
-    &:nth-child(4n - 3)
-      .brands-row-item-card
-        margin-left: 0
-        left: 0
-
-    &:nth-child(4n)
-      .brands-row-item-card
-        margin-left: 0
-        left: auto
-        right: 0
-
   .magazine-row
     --gutter: 20px
 
@@ -813,6 +844,32 @@
 
   .s-about
     font-size: 14px
+
+  .brands-row
+    margin-left: -10px
+    margin-right: -10px
+
+  .brands-row-item
+    padding-right: 10px
+    padding-left: 10px
+
+  .s-brands
+    padding: 30px 0
+
+  .product-check-marketplaces
+    margin-top: 20px
+    padding-top: 20px
+
+  .select-category
+    top: -65px
+
+  .select-category-btn
+    height: 44px
+    line-height: 44px
+    font-size: 14px
+
+  .catalog-filter
+    margin-top: 65px
 
 
 @media (max-width: 1199.98px)
@@ -869,6 +926,7 @@
     display: block !important
     +tr4
     transform: translateX(-120%)
+    margin: 0
 
     &.opened
       transform: translateX(0)
@@ -876,6 +934,11 @@
     .h4
       font-size: 18px
       margin-bottom: 15px
+
+  .select-category
+    position: static
+    background-color: #EEEFF3
+    margin: 0 0 20px
 
   .catalog-filter-title
     display: block
@@ -1129,6 +1192,14 @@
       content: '\e915'
       font-size: 16px
       transform: rotate(90deg)
+
+  .brands-row-item
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .brands-row-item-img
+    display: block
 
 @media (max-width: 991.98px)
   h1, .h1
@@ -3631,3 +3702,48 @@
 
   .magazine-categories
     bottom: 25px
+
+  .img-full-slider-prev
+    left: 10px
+    width: 40px
+    height: 40px
+    margin-top: -20px
+
+    &:after
+      font-size: 15px
+
+  .img-full-slider-next
+    right: 10px
+    width: 40px
+    height: 40px
+    margin-top: -20px
+
+    &:after
+      font-size: 15px
+
+  .product-marketplaces-row
+    flex-direction: column
+
+  .product-marketplace
+    position: relative
+    padding-left: 65px
+    text-align: left
+    margin: 0 0 20px
+
+    &:last-child
+      margin: 0
+
+  .product-marketplace-img
+    position: absolute
+    top: 0
+    left: 0
+
+    img
+      width: 50px
+      height: 50px
+      -webkit-border-radius: 6px
+      -moz-border-radius: 6px
+      border-radius: 6px
+
+  .product-marketplaces
+    margin-top: 30px

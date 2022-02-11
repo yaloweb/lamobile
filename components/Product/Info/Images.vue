@@ -5,54 +5,91 @@
     :class="{'only-one': productImages.length === 1}">
 
     <div
+      v-if="productImages.length > 1"
+      class="img-full-slider"
+      :class="{visible: fullImageScreen}">
+
+      <div
+        class="img-full-slider-prev"
+        @click="goToSlide('prev')"/>
+
+      <div
+        class="img-full-slider-next"
+        @click="goToSlide('next')"/>
+
+      <div class="img-full-slider-list">
+        <div
+          v-for="(slide, index) in productImages"
+          :key="index"
+          :class="{visible: index === selectedImageIndex}"
+          class="img-full-slider-list-container"
+          @click="fullImageScreen = false">
+          <img
+            v-for="img in slide.list"
+            :key="img.id"
+            :src="img.imgSrc"
+            :class="{'visible': img.color === selectedColor}"
+            alt="">
+        </div>
+      </div>
+    </div>
+
+    <div
       v-if="productImages.length > 1 && !isMob"
       class="product-main-img-slider">
 
-      <swiper :options="swiperOptions">
+      <div
+        class="product-main-img-swiper"
+        :class="{visible: !fullImageScreen}">
 
-        <swiper-slide
-          v-for="(slide, index) in slidesArr"
-          :key="index">
+        <swiper :options="swiperOptions">
 
-          <div
-            v-for="(item, itemIndex) in slide"
-            :key="itemIndex"
-            class="product-main-img-container"
-            @click="popup = true">
-            <img
-              v-for="img in item.list"
-              :key="img.id"
-              :class="{'visible': img.color === selectedColor}"
-              :src="img.imgSrc"
-              alt="">
-          </div>
+          <swiper-slide
+            v-for="(slide, index) in slidesArr"
+            :key="index">
 
-        </swiper-slide>
+            <div
+              v-for="(item, itemIndex) in slide"
+              :key="itemIndex"
+              class="product-main-img-container">
+              <img
+                v-for="img in item.list"
+                :key="img.id"
+                :class="{'visible': img.color === selectedColor}"
+                :src="img.imgSrc"
+                @click="selectIndexById(img.id)"
+                alt="">
+            </div>
 
-      </swiper>
+          </swiper-slide>
 
-      <div class="slider-prev product-img-nav-prev"><span class="icon-arrow-left"></span></div>
-      <div class="slider-next product-img-nav-next"><span class="icon-arrow-right"></span></div>
+        </swiper>
+
+        <div class="slider-prev product-img-nav-prev"><span class="icon-arrow-left"></span></div>
+        <div class="slider-next product-img-nav-next"><span class="icon-arrow-right"></span></div>
+
+      </div>
 
     </div>
 
     <div
       v-else-if="productImages.length > 1 && isMob"
       class="product-main-img-scroll"
-      :class="{'length-3': this.productImages.length === 3}"
+      :class="{'length-3': productImages.length === 3}"
       @click="popup = true">
 
       <div
-        v-for="(item, itemIndex) in this.productImages"
+        v-for="(item, itemIndex) in productImages"
         :key="itemIndex"
         class="product-main-img-container"
         :class="{'wide': item.wide}"
-        @click="popup = true">
+        @click="selectedImageIndex = itemIndex">
         <img
           v-for="img in item.list"
           :key="img.id"
           :class="{'visible': img.color === selectedColor}"
           :src="img.imgSrc"
+          @click="selectIndexById(img.id)"
           alt="">
       </div>
 
@@ -70,11 +107,6 @@
           alt="">
       </template>
     </div>
-
-    <ImagesGalleryPopup
-      :show="popup"
-      @close="popup = false"
-      :list="popupImages"/>
 
   </div>
 
@@ -139,17 +171,11 @@ export default {
         }
       })
       return res
-    },
-    popupImages () {
-      const res = []
-      this.productImages.forEach(images => {
-        images.list.forEach(item => {
-          if (item.color === this.selectedColor) {
-            res.push(item.imgSrc)
-          }
-        })
-      })
-      return res
+    }
+  },
+  watch: {
+    selectedImageIndex (newVal) {
+      console.log(newVal)
     }
   },
   data: () => ({
@@ -175,19 +201,37 @@ export default {
       }
     },
     isMob: false,
-    popup: false
+    selectedImageIndex: 0,
+    fullImageScreen: false
   }),
   methods: {
-    sliderIterator (i) {
-      let arr = []
-      arr.push(i * 2 - 1)
-      if ((i * 2) <= this.productImages.length) {
-        arr.push(i * 2)
-      }
-      return arr
-    },
     checkDevice () {
       window.innerWidth < 576 ? this.isMob = true : this.isMob = false
+    },
+    selectIndexById (id) {
+      this.productImages.forEach((item, index) => {
+        const hasId = item.list.filter(listItem => listItem.id === id).length > 0
+        if (hasId) {
+          this.selectedImageIndex = hasId ? index : 0
+        }
+      })
+      this.fullImageScreen = true
+    },
+    goToSlide (to) {
+      if (to === 'prev') {
+        if (this.selectedImageIndex !== 0) {
+          this.selectedImageIndex--
+        } else {
+          this.selectedImageIndex = this.productImages.length - 1
+        }
+      }
+      if (to === 'next') {
+        if (this.selectedImageIndex < this.productImages.length - 1) {
+          this.selectedImageIndex++
+        } else {
+          this.selectedImageIndex = 0
+        }
+      }
     }
   },
   mounted () {

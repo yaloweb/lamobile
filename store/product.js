@@ -3,6 +3,7 @@ const getDefaultState = () => ({
   pageType: 0,
   title: '',
   colors: [],
+  inStock: true,
   productImages: [],
   price: 0,
   giftsDescr: '',
@@ -26,8 +27,9 @@ export const mutations = {
   },
   setProductInfo (state, data) {
     for (const key in data) {
-      if (data[key]) {
-        state[key] = data[key] ? data[key] : state[key]
+      const dataIsDefined = data[key] !== undefined && data[key] !== null
+      if (dataIsDefined) {
+        state[key] = data[key]
       }
     }
   }
