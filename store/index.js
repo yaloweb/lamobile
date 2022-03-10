@@ -10,8 +10,11 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit ({ dispatch }) {
-    await dispatch('getGlobal')
-    await dispatch('user/getUserData')
+    await Promise.all([
+      dispatch('getGlobal'),
+      dispatch('user/getUserData'),
+      dispatch('catalog/getCatalogCategories')
+    ])
   },
   async getGlobal ({ commit }) {
     const res = await this.$axios.$get('/global.json')

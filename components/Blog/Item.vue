@@ -4,7 +4,7 @@
     ref="category"
     class="categories-item">
 
-    <nuxt-link :to="item.url" />
+    <nuxt-link :to="'/magazine/' + item.id" />
 
     <div class="categories-item-img">
       <img
@@ -12,7 +12,9 @@
         alt="">
     </div>
 
-    <div class="categories-item-content">
+    <div
+      class="categories-item-content"
+      :class="{'only-title': item.descr.length === 0}">
       <div
         class="categories-item-tag"
         v-text="item.tag"/>
@@ -21,6 +23,7 @@
           class="categories-item-title"
           v-html="item.title"/>
         <div
+          v-if="item.descr.length > 0"
           class="categories-item-descr"
           v-html="item.descr"/>
         <div class="categories-item-more">
@@ -50,9 +53,11 @@ export default {
       const item = this.$refs.category
       const title = item.querySelector('.categories-item-title')
       const descr = item.querySelector('.categories-item-descr')
-      const descrH = descr.offsetHeight
-      const margin = parseFloat(window.getComputedStyle(descr, null).marginTop)
-      title.style.transform = `translateY(${descrH + margin}px)`
+      if (descr) {
+        const descrH = descr.offsetHeight
+        const margin = parseFloat(window.getComputedStyle(descr, null).marginTop)
+        title.style.transform = `translateY(${descrH + margin}px)`
+      }
     }
   },
   mounted () {

@@ -39,9 +39,9 @@ export const actions = {
   startResetState ({ commit }) {
     commit('resetState')
   },
-  async getProductInfo ({ dispatch, commit }, symbol) {
-    const res = await this.$axios.get(`/products/${symbol}.json`)
+  async getProductInfo ({ dispatch, commit }, id) {
+    const res = await this.$axios.$get(`http://lamobile-api.bikstart.ru/api/catalog/product/${id}`)
     dispatch('startResetState')
-    commit('setProductInfo', res.data)
+    commit('setProductInfo', res)
   }
 }

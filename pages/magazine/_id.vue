@@ -117,8 +117,8 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
-    const symbol = this.$route.params.symbol
-    return await this.$store.dispatch('post/getPostData', symbol)
+    const id = this.$route.params.id
+    return await this.$store.dispatch('post/getPostData', id)
   },
   name: 'MagazinePost',
   layout: 'brands',

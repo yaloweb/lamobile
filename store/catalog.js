@@ -12,6 +12,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setCatalogCategories (state, array) {
+    state.categories = array
+  },
   setSliderProducts (state, array) {
     state.sliderProducts = array
   },
@@ -28,13 +31,21 @@ export const mutations = {
 }
 
 export const actions = {
+  async getCatalogCategories ({ commit }) {
+    const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/category')
+    commit('setCatalogCategories', res)
+  },
   async getSliderProducts ({ commit }) {
     const res = await this.$axios.get('/product-slider-list.json')
     commit('setSliderProducts', res.data)
   },
-  async getCatalog ({ commit }, symbol) {
-    const res = await this.$axios.get('/catalog.json')
-    commit('setCatalog', res.data)
+  async getCatalog ({ commit }, category) {
+    const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/product', {
+      params: {
+        categoryCode: category
+      }
+    })
+    commit('setCatalog', res)
   },
   async getBrandsMainInfo ({ commit }, symbol) {
     const res = await this.$axios.get('/brand-catalog-main.json')

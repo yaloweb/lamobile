@@ -70,7 +70,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    '@nuxtjs/proxy/',
     // '@nuxtjs/auth',
     ['@nuxtjs/recaptcha',
       {
@@ -82,8 +82,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: process.env.API_URL,
-    baseURL: 'https://career.bikdev.ru/api/v1',
+    baseURL: process.env.API_URL,
     proxyHeaders: false,
     credentials: false,
     init (axios) {
@@ -93,5 +92,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  env: {
+    apiUrl: process.env.BIK_API_URL
   }
 }

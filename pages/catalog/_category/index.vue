@@ -8,7 +8,7 @@
       <div class="container">
 
         <div class="page-title">
-          <h1>Роботы-пылесосы</h1>
+          <h1>{{ currentCategory.title }}</h1>
         </div>
 
         <div
@@ -54,6 +54,7 @@
           </div>
 
           <div
+            v-if="catalog ? catalog.length : false"
             ref="filterBtns"
             class="filter-footer-btns"
             :class="{'active': visibleFilter}">
@@ -89,14 +90,19 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
-    const symbol = this.$route.params.symbol
-    return await this.$store.dispatch('catalog/getCatalog', symbol)
+    const category = this.$route.params.category
+    return await this.$store.dispatch('catalog/getCatalog', category)
   },
   name: 'CatalogPage',
   computed: {
     ...mapState({
-      catalog: state => state.catalog.catalog
-    })
+      catalog: state => state.catalog.catalog,
+      categories: state => state.catalog.categories
+    }),
+    currentCategory () {
+      const category = this.$route.params.category
+      return this.categories.filter(item => item.code === category)[0]
+    }
   },
   data: () => ({
     visibleFilter: false,

@@ -6,7 +6,7 @@
       :slides="sliderBanners"
     />
 
-    <SectionBrands />
+    <SectionBrands/>
 
     <section class="s-categories">
       <div class="container">

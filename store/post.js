@@ -12,21 +12,16 @@ export const state = () => ({
 
 export const mutations = {
   setPostData (state, data) {
-    state.banner = data.banner
-    state.mobBanner = data.mobBanner
-    state.createdAt = data.createdAt
-    state.category = data.category
-    state.views = data.views
-    state.title = data.title
-    state.descr = data.descr
-    state.content = data.content
-    state.similar = data.similar
+    for (let key in data) {
+      state[key] = data[key]
+    }
   }
 }
 
 export const actions = {
-  async getPostData ({ commit }, symbol) {
-    const res = await this.$axios.get(`/blog/posts/${symbol}.json`)
+  async getPostData ({ commit }, id) {
+    const res = await this.$axios.get(`http://lamobile-api.bikstart.ru/api/blog/article/${id}`)
+    console.log(res)
     commit('setPostData', res.data)
   }
 }

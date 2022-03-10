@@ -76,9 +76,9 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
-    const symbol = this.$route.params.symbol
+    const id = this.$route.params.id
     const promises = await Promise.all([
-      this.$store.dispatch('product/getProductInfo', symbol),
+      this.$store.dispatch('product/getProductInfo', id),
       this.$store.dispatch('recommended/getRecommended'),
       this.$store.dispatch('recommended/getSimilar')
     ])

@@ -34,8 +34,9 @@
             :list="blog"
             :scrollAutoLoad="true"
             :selectedCategory="selectedCategory"
+            :limit="limit"
             @changeCategory="selectedCategory = $event"
-            />
+          />
 
         </div>
       </section>
@@ -52,13 +53,15 @@ import { mapState } from 'vuex'
 export default {
   name: 'Magazine',
   async fetch () {
-    const ajax = await Promise.all([
-      this.$store.dispatch('blog/getBlog'),
-      this.$store.dispatch('blog/getCategories')
-    ])
+    await this.$store.dispatch('blog/getCategories')
     this.selectedCategory = this.categories[0].id
+    const blogPromise = await this.$store.dispatch('blog/loadBlog', {
+      category: this.selectedCategory,
+      limit: this.limit,
+      offset: 0
+    })
     this.pageLoad = true
-    return ajax
+    return blogPromise
   },
   computed: {
     ...mapState({
@@ -68,7 +71,8 @@ export default {
   },
   data: () => ({
     selectedCategory: 0,
-    pageLoad: false
+    pageLoad: false,
+    limit: 12
   })
 }
 </script>

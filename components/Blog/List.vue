@@ -54,11 +54,18 @@ export default {
   props: {
     list: Array,
     scrollAutoLoad: Boolean,
-    selectedCategory: Number
+    selectedCategory: Number,
+    limit: Number
+  },
+  watch: {
+    selectedCategory () {
+      this.offset = 0
+    }
   },
   data: () => ({
     loading: false,
-    visibleTags: true
+    visibleTags: true,
+    offset: 0
   }),
   computed: {
     categories () {
@@ -70,10 +77,20 @@ export default {
   },
   methods: {
     async scrollLoadBlogList () {
-      this.loading = true
-      await this.$store.dispatch('blog/loadBlog')
-      this.blogScroll()
-      this.loading = false
+      if (this.list.length === ((this.offset + 1) * this.limit)) {
+        try {
+          this.offset += this.limit
+          this.loading = true
+          await this.$store.dispatch('blog/loadBlog', {
+            offset: this.offset,
+            limit: this.limit,
+            category: this.selectedCategory
+          })
+          this.blogScroll()
+        } finally {
+          this.loading = false
+        }
+      }
     },
     blogScroll () {
       const group = this.$refs.magazineItem
@@ -88,7 +105,7 @@ export default {
       })
       observer.observe(item)
     },
-    offset (el) {
+    elementOffset (el) {
       const rect = el.getBoundingClientRect()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       return (rect.top + scrollTop)
@@ -108,7 +125,7 @@ export default {
     }
     const filterBtnScroll = e => {
       const scrY = window.scrollY
-      const scrTop = this.offset(this.magazineList)
+      const scrTop = this.elementOffset(this.magazineList)
       const offH = this.magazineList.offsetHeight
       const wH = window.innerHeight
       const res = scrTop + offH - scrY - wH

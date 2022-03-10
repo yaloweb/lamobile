@@ -1,6 +1,7 @@
 <template>
 
   <div class="header-component">
+
     <header
       class="header"
       :class="{
@@ -58,7 +59,7 @@
 
           <div class="header-account">
 
-<!--            <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>-->
+            <!--            <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>-->
 
             <div class="header-account-btns">
               <div
@@ -181,10 +182,12 @@
                   v-show="activeCatalogTab === 1"
                   class="catalog-dropdown-tab">
 
-                  <div class="catalog-dropdown-products">
+                  <div
+                    v-if="categories"
+                    class="catalog-dropdown-products">
                     <ul>
                       <li
-                        v-for="link in global.header.catalogMenu"
+                        v-for="link in categories"
                         :key="link.id"
                         @click="closeCatalog"
                       >
@@ -197,7 +200,7 @@
                       class="catalog-dropdown-all"
                       @click="closeCatalog">
                       <nuxt-link
-                        to="/catalog/roboty-pylesosy"
+                        :to="categories[0] ? categories[0].url : '#'"
                         class="btn btn-sm btn-border">Все товары
                       </nuxt-link>
                     </div>
@@ -345,7 +348,8 @@ export default {
     ...mapState({
       global: state => state.global,
       user: state => state.user,
-      searchResults: state => state.search.results
+      searchResults: state => state.search.results,
+      categories: state => state.catalog.categories
     })
   },
   data: () => ({
