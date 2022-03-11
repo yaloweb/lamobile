@@ -29,7 +29,7 @@
             :options="swiperOptions">
 
             <swiper-slide
-              v-for="(imgList, index) in imageFilterByColor"
+              v-for="(imgList, index) in item.imgSrc"
               :key="index">
               <div class="product-item-img-slider-img">
                 <img
@@ -44,24 +44,28 @@
           </swiper>
 
           <button
+            v-if="item.imgSrc.length > 1"
             class="product-img-slider-prev slider-prev"
             @click="slidePrev">
             <span class="icon-arrow-left" />
           </button>
 
           <button
+            v-if="item.imgSrc.length > 1"
             class="product-img-slider-next slider-next"
             @click="slideNext">
             <span class="icon-arrow-right" />
           </button>
+
+          <div class="product-img-pagination" slot="pagination"/>
 
           <div
             v-if="item.colors"
             class="product-img-thumbs-block">
             <div class="product-img-thumbs">
               <div
-                v-for="(color, idx) in item.colors"
-                :key="idx"
+                v-for="color in item.colors"
+                :key="color.id"
                 class="product-img-thumb"
                 :class="{active: selectedColor === color.id}"
                 @click="selectedColor = color.id"
@@ -120,7 +124,6 @@
 </template>
 
 <script>
-
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
@@ -131,30 +134,6 @@ export default {
   },
   props: {
     item: Object
-  },
-  computed: {
-    imageFilterByColor () {
-      let res = []
-      for (let i = 0; i < this.item.imgSrc[0].length; i++) {
-        let a = []
-        this.item.colors.forEach(item => {
-          a.push({
-            color: item.id
-          })
-        })
-        res.push(a)
-      }
-      this.item.imgSrc.forEach((item, index) => {
-        item.forEach((subItem, subIndex) => {
-          res[subIndex]?.forEach((resItem) => {
-            if (resItem.color === subItem.color) {
-              resItem.imgSrc = subItem.imgSrc
-            }
-          })
-        })
-      })
-      return res
-    }
   },
   data: () => ({
     swiperOptions: {
@@ -167,7 +146,6 @@ export default {
         clickable: true
       }
     },
-    componentIsMounted: false,
     selectedColor: 0
   }),
   methods: {
@@ -187,5 +165,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
