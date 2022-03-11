@@ -238,6 +238,7 @@ export default {
     this.checkDevice()
     window.addEventListener('resize', this.checkDevice)
     this.$on('hook:beforeDestroy', () => window.removeEventListener('resize', this.checkDevice))
+    console.log(this.productImages)
   }
 }
 </script>

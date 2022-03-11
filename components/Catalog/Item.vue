@@ -29,19 +29,15 @@
             :options="swiperOptions">
 
             <swiper-slide
-              v-for="(imgList, index) in item.imgSrc"
+              v-for="(imgList, index) in imageFilterByColor"
               :key="index">
               <div class="product-item-img-slider-img">
                 <img
-                  :src="imgList[0].imgSrc"
-                  class="active"
+                  v-for="(img, imgIndex) in imgList"
+                  :key="`img.id-${imgIndex}`"
+                  :src="img.imgSrc"
+                  :class="{'active': img.color === selectedColor}"
                   alt="">
-<!--                <img-->
-<!--                  v-for="(img, imgIndex) in imgList"-->
-<!--                  :key="`img.id-${imgIndex}`"-->
-<!--                  :src="img.imgSrc"-->
-<!--                  :class="{'active': img.color === selectedColor}"-->
-<!--                  alt="">-->
               </div>
             </swiper-slide>
 
@@ -64,11 +60,11 @@
             class="product-img-thumbs-block">
             <div class="product-img-thumbs">
               <div
-                v-for="(color, colorIdx) in item.colors"
-                :key="colorIdx"
+                v-for="(color, idx) in item.colors"
+                :key="idx"
                 class="product-img-thumb"
-                :class="{active: selectedColor === colorIdx}"
-                @click="goToThumb(colorIdx)"
+                :class="{active: selectedColor === color.id}"
+                @click="selectedColor = color.id"
                 :style="{backgroundColor: color.background}"/>
             </div>
           </div>
@@ -136,6 +132,30 @@ export default {
   props: {
     item: Object
   },
+  computed: {
+    imageFilterByColor () {
+      let res = []
+      for (let i = 0; i < this.item.imgSrc[0].length; i++) {
+        let a = []
+        this.item.colors.forEach(item => {
+          a.push({
+            color: item.id
+          })
+        })
+        res.push(a)
+      }
+      this.item.imgSrc.forEach((item, index) => {
+        item.forEach((subItem, subIndex) => {
+          res[subIndex]?.forEach((resItem) => {
+            if (resItem.color === subItem.color) {
+              resItem.imgSrc = subItem.imgSrc
+            }
+          })
+        })
+      })
+      return res
+    }
+  },
   data: () => ({
     swiperOptions: {
       slidesPerView: 1,
@@ -151,22 +171,16 @@ export default {
     selectedColor: 0
   }),
   methods: {
-    sliderImages (colorId) {
-      return this.item.imgSrc.filter(item => item.id === colorId)[0]
-    },
     slidePrev () {
-      const slider = this.$refs.gallerySlider.$swiper
-      slider.slidePrev()
-      this.selectedColor = slider.activeIndex
+      this.$refs.gallerySlider.$swiper.slidePrev()
     },
     slideNext () {
-      const slider = this.$refs.gallerySlider.$swiper
-      slider.slideNext()
-      this.selectedColor = slider.activeIndex
-    },
-    goToThumb (idx) {
-      this.$refs.gallerySlider.$swiper.slideTo(idx)
-      this.selectedColor = idx
+      this.$refs.gallerySlider.$swiper.slideNext()
+    }
+  },
+  mounted () {
+    if (Array.isArray(this.item.imgSrc)) {
+      this.selectedColor = this.item.colors[0].id
     }
   }
 }

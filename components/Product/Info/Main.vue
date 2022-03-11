@@ -9,7 +9,7 @@
 
       <div class="product-main-info-content">
 
-        <div class="product-main-id"><span>ID товара: {{ productId }}</span></div>
+        <div class="product-main-id"><span>ID товара: {{ productMainInfo.productId }}</span></div>
 
         <div class="product-title">
           <h1 v-html="title"/>
@@ -31,7 +31,7 @@
           v-if="inStock"
           class="product-buy">
           <button
-            class="btn btn-border">Купить от {{ price | priceFilter }} ₽
+            class="btn btn-border">Купить от {{ productMainInfo.price | priceFilter }} ₽
           </button>
         </div>
 
@@ -87,11 +87,14 @@
       </div>
 
       <div
-        v-if="shops"
+        v-if="shops ? shops.length > 0 : false"
         class="product-check-marketplaces">
         <a
           href="#"
-          @click.prevent="marketplacesCheck = true">Или купить на другой площадке от 990 ₽ </a>
+          @click.prevent="marketplacesCheck = true"
+        >
+          Или купить на другой площадке от 990 ₽
+        </a>
       </div>
 
       <transition name="fade">
@@ -152,15 +155,20 @@ export default {
   },
   computed: {
     ...mapState({
-      productId: state => state.product.productId,
       title: state => state.product.title,
       inStock: state => state.product.inStock,
       colors: state => state.product.colors,
-      price: state => state.product.price,
       giftsDescr: state => state.product.giftsDescr,
       gifts: state => state.product.gifts,
       shops: state => state.product.shops
-    })
+    }),
+    productMainInfo () {
+      const selectedColor = this.colors.filter(item => item.id === this.selectedColor)[0]
+      return {
+        productId: selectedColor?.productId,
+        price: selectedColor?.price
+      }
+    }
   },
   data: () => ({
     mobContentVisible: false,

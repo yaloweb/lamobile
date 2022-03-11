@@ -76,9 +76,9 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
-    const id = this.$route.params.id
+    const symbol = this.$route.params.symbol
     const promises = await Promise.all([
-      this.$store.dispatch('product/getProductInfo', id),
+      this.$store.dispatch('product/getProductInfo', symbol),
       this.$store.dispatch('recommended/getRecommended'),
       this.$store.dispatch('recommended/getSimilar')
     ])
@@ -101,7 +101,8 @@ export default {
       youtubeVideo: state => state.product.youtubeVideo,
       additionalAdvantages: state => state.product.additionalAdvantages,
       operation: state => state.product.operation,
-      compareSection: state => state.product.compareSection
+      compareSection: state => state.product.compareSection,
+      colors: state => state.product.colors
     }),
     darkTheme () {
       return this.pageType === 2 ? 'dark' : ''
@@ -120,10 +121,7 @@ export default {
     selectedColor: 1
   }),
   mounted () {
-    // if (this.pageType === 2) {
-    //   document.body.classList.add('dark')
-    // }
-    // this.$on('hook:beforeDestroy', () => document.body.classList.remove('dark'))
+    this.selectedColor = this.colors[0].id
   }
 }
 </script>
