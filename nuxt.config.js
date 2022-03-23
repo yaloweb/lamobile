@@ -84,7 +84,7 @@ export default {
   axios: {
     baseURL: process.env.API_URL,
     proxyHeaders: false,
-    credentials: false,
+    credentials: true,
     init (axios) {
       axios.defaults.withCredentials = true
     }

@@ -33,5 +33,25 @@ export const actions = {
   async deleteProduct ({ commit }, id) {
     const res = await this.$axios.get('/basket.json')
     commit('setBasketData', res.data)
+  },
+  addToBasket (ctx, { productId, quantity }) {
+    return new Promise((resolve, reject) => {
+      this.$axios({
+        method: 'post',
+        url: 'http://lamobile-api.bikstart.ru/api/basket/add',
+        data: {
+          productId,
+          quantity
+        }
+      }).then(response => {
+        console.log(response)
+        resolve()
+      }).catch(error => {
+        console.log(error)
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject(error)
+        return error
+      })
+    })
   }
 }

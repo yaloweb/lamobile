@@ -8,12 +8,15 @@
       v-if="item.tag || item.inStock === false"
       class="product-item-tag"
       :class="item.tag ? item.tag.color : ''">
+
       <template v-if="item.inStock === false">
         <a href="#" class="goods-arrival-link">Узнать о поступлении ></a>
       </template>
+
       <template v-else>
         {{item.tag.title}}
       </template>
+
     </div>
 
     <div
@@ -59,20 +62,6 @@
 
           <div class="product-img-pagination" slot="pagination"/>
 
-          <div
-            v-if="item.colors"
-            class="product-img-thumbs-block">
-            <div class="product-img-thumbs">
-              <div
-                v-for="color in item.colors"
-                :key="color.id"
-                class="product-img-thumb"
-                :class="{active: selectedColor === color.id}"
-                @click="selectedColor = color.id"
-                :style="{backgroundColor: color.background}"/>
-            </div>
-          </div>
-
         </div>
 
       </template>
@@ -103,14 +92,31 @@
 
       <div class="product-item-footer">
 
+        <div
+          v-if="item.colors"
+          class="product-img-thumbs-block">
+          <div class="product-img-thumbs">
+            <div
+              v-for="color in item.colors"
+              :key="color.id"
+              class="product-img-thumb"
+              :class="{active: selectedColor === color.id}"
+              @click="selectedColor = color.id"
+              :style="{backgroundColor: color.background}"/>
+          </div>
+        </div>
+
         <div class="product-item-price">
           Цена: <span>{{ item.price | priceFilter }} ₽</span>
         </div>
 
-        <div class="product-item-add-to-cart">
+        <div
+          class="product-item-add-to-cart">
           <button
             class="product-item-add-to-cart-btn"
-            v-tooltip.top="'В корзину'">
+            v-tooltip.top="'В корзину'"
+            @click="addToBasket"
+            :disabled="addToCardLoading">
             <span class="icon-bag"></span>
           </button>
         </div>
@@ -135,6 +141,14 @@ export default {
   props: {
     item: Object
   },
+  computed: {
+    haveColors () {
+      return this.item.colors
+    },
+    currentColor () {
+      return this.item.colors?.filter(item => item.id === this.selectedColor)[0]
+    }
+  },
   data: () => ({
     swiperOptions: {
       slidesPerView: 1,
@@ -146,7 +160,8 @@ export default {
         clickable: true
       }
     },
-    selectedColor: 0
+    selectedColor: 0,
+    addToCardLoading: false
   }),
   methods: {
     slidePrev () {
@@ -154,10 +169,24 @@ export default {
     },
     slideNext () {
       this.$refs.gallerySlider.$swiper.slideNext()
+    },
+    async addToBasket () {
+      const data = {
+        productId: this.haveColors ? this.currentColor.productId : this.item.productId,
+        quantity: 1
+      }
+      this.addToCardLoading = true
+      try {
+        await this.$store.dispatch('basket/addToBasket', data)
+      } catch (e) {
+        alert(e)
+      } finally {
+        this.addToCardLoading = false
+      }
     }
   },
   mounted () {
-    if (Array.isArray(this.item.imgSrc)) {
+    if (this.haveColors) {
       this.selectedColor = this.item.colors[0].id
     }
   }

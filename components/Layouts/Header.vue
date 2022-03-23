@@ -33,6 +33,7 @@
                 <input
                   type="text"
                   class="search-input"
+                  placeholder="Поиск"
                   v-model="search"
                   @input="searchHandler">
                 <span class="icon-search"/>
@@ -59,9 +60,15 @@
 
           <div class="header-account">
 
-            <!--            <div class="header-location">Москва <a :href="`tel:${global.phone}`">{{ global.phone }}</a></div>-->
-
             <div class="header-account-btns">
+              <div
+                class="header-account-link">
+                <a
+                  href="#"
+                  class="header-account-btn">
+                  <span class="icon-phone"></span>
+                </a>
+              </div>
               <div
                 class="header-account-link">
                 <a
@@ -146,6 +153,7 @@
           <input
             type="text"
             class="search-input"
+            placeholder="Поиск"
             v-model="search"
             @input="searchHandler">
           <span class="icon-search"/>
@@ -170,9 +178,6 @@
               <span
                 :class="{'active': activeCatalogTab === 2}"
                 @click="activeCatalogTab = 2">Бренды</span>
-              <span @click="closeCatalog">
-                <nuxt-link to="/for-users">Покупателям</nuxt-link>
-              </span>
             </div>
 
             <div class="catalog-dropdown-tabs">
@@ -201,7 +206,7 @@
                       @click="closeCatalog">
                       <nuxt-link
                         :to="categories[0] ? categories[0].url : '#'"
-                        class="btn btn-sm btn-border">Все товары
+                        class="btn">Все товары
                       </nuxt-link>
                     </div>
                   </div>
@@ -231,7 +236,7 @@
 
                     <nuxt-link
                       to="/catalog/roboty-pylesosy"
-                      class="btn btn-sm btn-border">Все товары
+                      class="btn">Все бренды
                     </nuxt-link>
 
                   </div>

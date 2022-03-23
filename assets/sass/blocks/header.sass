@@ -1,6 +1,6 @@
 .header
   position: relative
-  padding: 40px 0 20px
+  padding: 37px 0 20px
 
   &.header-absolute
     position: absolute
@@ -147,13 +147,22 @@
   border: none
   outline: none
   height: 40px
-  padding: 0 50px 0 52px
+  padding: 0 50px 0 46px
   -webkit-border-radius: 0 20px 20px 0
   -moz-border-radius: 0 20px 20px 0
   border-radius: 0 20px 20px 0
   color: #404040
   font-weight: 500
   +tr4
+
+  &:focus
+    &::placeholder
+      transform: translateY(-5px)
+      opacity: 0
+
+  &::placeholder
+    color: #7A7A7A
+    +tr
 
 .header-logo
   margin: 0 30px
@@ -194,7 +203,7 @@
   align-items: center
   justify-content: center
   flex-shrink: 0
-  font-size: 24px
+  font-size: 31px
   color: #000
   text-decoration: none !important
   +tr
@@ -214,7 +223,7 @@
     position: absolute
     font-size: 14px
     line-height: 1
-    bottom: 11px
+    bottom: 10px
     left: 0
     right: 0
     text-align: center
@@ -251,20 +260,22 @@
 .catalog-dropdown
   background-color: #fff
   z-index: 4
-  width: 660px
+  width: 619px
   position: absolute
-  top: 20px
-  left: 20px
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
-  padding: 101px 50px 46px
-  height: calc(100 * var(--vh) - 40px)
-  min-height: 400px
+  top: 13px
+  left: 45px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+  padding: 98px 68px 26px
+  max-height: calc(100 * var(--vh) - 26px)
   display: flex
   flex-direction: column
   opacity: 0
   transform: scale(.9)
   transform-origin: top left
   visibility: hidden
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  border-radius: 5px
   +tr4
 
   &.opened
@@ -285,14 +296,14 @@
 .catalog-dropdown-tabs-nav
   display: flex
   align-items: center
-  margin-bottom: 50px
+  margin-bottom: 38px
 
   span
     font-size: 24px
     font-weight: bold
     color: #7A7A7A
     +tr
-    margin-right: 65px
+    margin-right: 41px
     cursor: pointer
 
     &:last-child
@@ -341,39 +352,44 @@
       page-break-inside: avoid
       break-inside: avoid
       margin-bottom: 7px
-      &:nth-child(3)
-        margin-bottom: 10px
-
-      &:last-child
-        margin-bottom: 0
 
       a
-        color: #000
+        color: #7a7a7a
         +tr
 
         &:hover
           color: $accent
 
 .brands-list
-  margin-bottom: 50px
+  margin-bottom: 5px
+  display: flex
+  flex-wrap: wrap
 
 .brands-item
-  margin-bottom: 45px
-
-  &:hover
-    img
-      filter: grayscale(0)
-
+  margin: 0 23px 25px 0
 
   &:last-child
     margin-bottom: 0
 
-  img
-    max-width: 230px
-    max-height: 36px
-    object-fit: contain
-    filter: grayscale(1)
+  a
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 72px
+    -webkit-border-radius: 36px
+    -moz-border-radius: 36px
+    border-radius: 36px
+    border: 1px solid #DEDBDB
+    padding: 0 21px
     +tr
+
+    &:hover
+      border-color: $accent
+
+    img
+      max-width: 168px
+      max-height: 45px
+      object-fit: contain
 
 .catalog-dropdown-content-tab
   display: flex

@@ -259,20 +259,46 @@
 
 .product-color-item-quantity
   text-align: center
-  width: 50px
-  height: 25px
-  line-height: 25px
-  font-size: 14px
-  color: #000
-  -webkit-border-radius: 13px
-  -moz-border-radius: 13px
-  border-radius: 13px
-  background-color: #EEEFF3
   margin-right: 5px
 
   &.disabled
     background-color: #F6F6F6
     color: #DEDBDB
+
+  input
+    min-width: 0
+    width: 50px
+    height: 25px
+    line-height: 25px
+    font-size: 14px
+    color: #000
+    -webkit-border-radius: 13px
+    -moz-border-radius: 13px
+    border-radius: 13px
+    background-color: #EEEFF3
+    text-align: center
+    border: none
+    padding: 0
+    display: block
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    -moz-appearance: textfield
+    +tr
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+      margin: 0
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none
+
+    &.is-error
+      background-color: #ffd2d2
+
+    &:disabled
+      opacity: .85
+      color: #9f9f9f
 
 .product-color-item-price
   white-space: nowrap
@@ -339,33 +365,28 @@
   align-items: center
   justify-content: center
   position: absolute
-  top: calc(100% + 12px)
-  left: 0
-  width: 100%
+  bottom: 10px
+  left: 32px
+  right: 32px
+  z-index: 2
 
   .swiper-pagination-bullet
     flex-grow: 1
     margin: 0 4px
-    max-width: 62px
-    height: 2px
+    height: 4px
     -webkit-border-radius: 4px
     -moz-border-radius: 4px
     border-radius: 4px
     +tr
-    background-color: #DEDBDB
+    background-color: rgba(#fff, .6)
     opacity: 1
 
   .swiper-pagination-bullet-active
     background-color: $accent
 
 .product-img-thumbs-block
-  position: absolute
-  bottom: 0
-  left: 0
-  width: 100%
   display: flex
-  justify-content: center
-  z-index: 1
+  align-items: center
 
 .product-img-thumbs
   background-color: #fff
