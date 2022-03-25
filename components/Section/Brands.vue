@@ -5,38 +5,20 @@
 
       <div class="brands-row">
 
+        <swiper :options="swiperOptions">
+
+          <swiper-slide
+            v-for="brand in brands"
+            :key="brand.id">
+            <BrandsCard :item="brand" />
+          </swiper-slide>
+
+        </swiper>
+
         <div
-          v-for="brand in brands"
-          :key="brand.id"
-          class="brands-row-item">
-
-          <div class="brands-row-item-img">
-            <nuxt-link
-              :to="brand.url">
-              <img
-                :src="brand.imgSrc"
-                alt="">
-            </nuxt-link>
-          </div>
-
-          <div class="brands-row-item-card">
-
-            <div class="brands-row-item-card-img">
-              <img
-                :src="brand.card.imgSrc"
-                alt="">
-            </div>
-
-            <div class="brands-row-item-card-content">
-              <img
-                :src="brand.imgSrc"
-                alt="">
-              <p v-html="brand.card.descr"/>
-            </div>
-
-          </div>
-
-        </div>
+          v-if="brands.length > 4"
+          class="products-slider-pagination brands-slider-pagination"
+          slot="pagination"/>
 
       </div>
 
@@ -46,10 +28,15 @@
 </template>
 
 <script>
-
 import { mapState } from 'vuex'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
+  name: 'SectionBrands',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   async fetch () {
     if (this.$store.state.brands.brands.length === 0) {
       return await this.$store.dispatch('brands/getBrands')
@@ -60,7 +47,41 @@ export default {
       brands: state => state.brands.brands
     })
   },
-  name: 'SectionBrands'
+  data: () => ({
+    swiperOptions: {
+      slidesPerView: 4,
+      spaceBetween: 50,
+      speed: 600,
+      pagination: {
+        el: '.brands-slider-pagination',
+        clickable: true
+      },
+      breakpoints: {
+        0: {
+          spaceBetween: 10,
+          slidesPerView: 1
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 20
+        },
+        1600: {
+          spaceBetween: 40
+        },
+        1800: {
+          spaceBetween: 50
+        }
+      }
+    }
+  })
 }
 </script>
 

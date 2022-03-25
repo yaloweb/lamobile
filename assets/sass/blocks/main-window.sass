@@ -41,9 +41,10 @@
 .banners-slider
   margin-left: auto
   margin-right: 0
-  width: 33.33333%
+  width: 35%
   overflow: visible
   position: static
+  padding-right: 56px
 
   .swiper-container
     overflow: visible
@@ -54,8 +55,9 @@
 
 
 .main-window-logo
-  width: 66.66666%
+  width: 70%
   padding-right: 30px
+  margin-top: 87px
 
   img
     width: 100%
@@ -71,14 +73,6 @@
     margin-bottom: 30px
     font-size: 20px
     line-height: 1.8
-
-  .btn
-    height: 42px
-    line-height: 40px
-    padding: 0 50px
-
-    &:not(:hover)
-      color: #fff
 
 .banner-item-title
   font-size: 60px
@@ -107,14 +101,21 @@
 .banners-button-next,
 .banners-button-prev
   position: absolute
+  bottom: 0
+  background-color: $accent
+  border-color: $accent
+  font-size: 21px
+  color: #fff
+  +tr
+
+  &:hover
+    background-color: #ff7b4a
 
 .banners-button-next
   right: 70px
-  bottom: 68px
 
 .banners-button-prev
-  bottom: 68px
-  right: 151px
+  right: 155px
 
 .banners-pagination
   position: absolute

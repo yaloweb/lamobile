@@ -10,6 +10,15 @@
     z-index: 5
 
   &.light
+
+    .logo
+      img
+        visibility: hidden
+        opacity: 0
+
+        &.light-logo
+          opacity: 1
+          visibility: visible
     .header-location
       color: #DEDBDB
 
@@ -34,6 +43,7 @@
   &.active
     .header-catalog-block
       max-width: 560px
+      background-color: #F7F7F7
 
     .search-input
       background-color: #F7F7F7
@@ -48,67 +58,67 @@
   max-width: 408px
   position: relative
   z-index: 6
-  transition: max-width .4s ease
+  transition: max-width .4s ease, background-color .4s ease
 
-@media (min-width: 992px)
-  .header-catalog-btn
-    display: flex
-    align-items: center
-    height: 40px
-    -webkit-border-radius: 20px
-    -moz-border-radius: 20px
-    border-radius: 20px
-    background-color: #FF5D20
-    color: #fff
-    border: none
-    outline: none !important
-    padding: 0 16px
-    +tr
-    font-size: 16px
-    font-weight: 600
-    position: relative
-    z-index: 1
+.header-catalog-btn
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 40px
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border-radius: 20px
+  background-color: #FF5D20
+  color: #fff
+  border: none
+  outline: none !important
+  padding: 0 16px
+  +tr
+  font-size: 16px
+  font-weight: 600
+  position: relative
+  z-index: 1
 
-    &:hover
-      background-color: #ff7b4a
+  &:hover
+    background-color: #ff7b4a
 
-    &.active
-      span
-        &:after
-          opacity: 0
-          transform: scale(0)
-
-        &:before
-          opacity: 1
-          transform: scale(1)
-
+  &.active
     span
-      font-size: 18px
-      margin-right: 11px
-      line-height: 1
-      width: 18px
-      height: 18px
-      position: relative
-
-      &:after,
-      &:before
-        font-family: icon
-        font-weight: normal
-        display: block
-        +tr
+      &:after
         opacity: 0
         transform: scale(0)
-        position: absolute
-        top: 0
-        left: 0
 
-      &:after
-        content: '\e91d'
+      &:before
         opacity: 1
         transform: scale(1)
 
-      &:before
-        content: '\e904'
+  span
+    font-size: 18px
+    margin-right: 11px
+    line-height: 1
+    width: 18px
+    height: 18px
+    position: relative
+
+    &:after,
+    &:before
+      font-family: icon
+      font-weight: normal
+      display: block
+      +tr
+      opacity: 0
+      transform: scale(0)
+      position: absolute
+      top: 0
+      left: 0
+
+    &:after
+      content: '\e91d'
+      opacity: 1
+      transform: scale(1)
+
+    &:before
+      content: '\e904'
 
 .header-search
   position: relative
@@ -154,6 +164,7 @@
   color: #404040
   font-weight: 500
   +tr4
+  background-color: transparent
 
   &:focus
     &::placeholder
@@ -169,9 +180,20 @@
   display: flex
 
 .logo
+  position: relative
+
   img
     display: block
     width: 231px
+    +tr
+
+  .light-logo
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    visibility: hidden
+    opacity: 0
 
 .logo-dark-theme
   display: none !important
@@ -551,7 +573,7 @@
   right: -110px
   background-color: #fff
   width: 382px
-  z-index: 2
+  z-index: 3
   padding: 24px 21px 29px
   box-shadow: 0px 0px 10px rgb(0 0 0 / 20%)
   transform: translateY(-10px)

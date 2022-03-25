@@ -74,13 +74,11 @@
     padding-left: 50px
     padding-right: 50px
 
-  .brands-row
-    margin-left: -20px
-    margin-right: -20px
+  .footer-copyright
+    margin-right: 30px
 
-  .brands-row-item
-    padding-right: 20px
-    padding-left: 20px
+  .footer-bottom
+    font-size: 14px
 
 @media (max-width: 1599.98px)
   body
@@ -553,6 +551,53 @@
         height: 32px
         margin: -16px 0 0 -16px
 
+  .header-account-btn
+    font-size: 25px
+
+  .products-slider-nav-link
+    height: 50px
+    line-height: 48px
+    padding: 0 20px
+    font-size: 16px
+    margin-right: 10px
+
+  .product-item
+    padding-left: 20px
+    padding-right: 20px
+
+  .product-item-tag
+    left: 20px
+
+  .product-item-img
+    margin-left: -20px
+    margin-right: -20px
+
+  .product-img-pagination
+    left: 16px
+    right: 16px
+
+  .product-img-thumb
+    width: 20px
+    height: 20px
+    margin-right: 8px
+
+  .product-item-price
+    margin-right: 15px
+
+    span
+      font-size: 18px
+
+  .product-item-add-to-cart-btn
+    width: 35px
+    height: 35px
+    font-size: 20px
+
+  .footer-bottom-left
+    width: 50%
+
+  .footer-bottom-right
+    width: 50%
+
 @media (max-width: 1439.98px)
 
   .container
@@ -561,6 +606,7 @@
   .catalog-dropdown
     width: 600px
     padding: 81px 20px 40px
+    left: 20px
 
   .search-catalog-item
     a
@@ -847,14 +893,6 @@
   .s-about
     font-size: 14px
 
-  .brands-row
-    margin-left: -10px
-    margin-right: -10px
-
-  .brands-row-item
-    padding-right: 10px
-    padding-left: 10px
-
   .s-brands
     padding: 30px 0
 
@@ -901,7 +939,7 @@
     padding: 100px 0 50px
 
   .footer-row
-    .col-6
+    .col-5
       width: 100%
       margin-bottom: 30px
 
@@ -1099,10 +1137,6 @@
   .order-product-price
     width: 65px
 
-
-  .brands-row-item-card
-    display: none
-
   .s-post-banner
     .breadcrumbs
       top: 90px
@@ -1198,10 +1232,14 @@
     align-items: center
     justify-content: center
 
-  .brands-row-item-img
-    display: block
+  .products-slider-nav
+    margin-bottom: 20px
 
 @media (max-width: 991.98px)
+
+  .container
+    padding: 0 10px
+
   h1, .h1
     font-size: 44px
   h3, .h3
@@ -1215,12 +1253,12 @@
     width: auto
 
   .catalog-dropdown
-    position: fixed
+    position: absolute
     z-index: 10
     top: 0
     left: 0
-    width: 320px
-    height: 100%
+    width: 100%
+    height: 100vh
     transform: translate(-105%)
     opacity: 1
     visibility: visible
@@ -1237,7 +1275,6 @@
     outline: none !important
     color: #fff
     border: none
-    padding: 0
     background-color: $accent
     display: flex
     align-items: center
@@ -1245,22 +1282,17 @@
     -webkit-border-radius: 50%
     -moz-border-radius: 50%
     border-radius: 50%
+    flex-shrink: 0
 
     span
-      font-size: 15px
+      font-size: 14px
       line-height: 1
+      margin-right: 0
 
-      &:after
-        content: '\e902'
-        font-family: icon
-        font-weight: normal
-
-  .header-catalog-block
-    background-color: transparent
-
-  .header-catalog-block
-    .header-search
-      display: none
+      &:after,
+      &:before
+        top: 2px
+        left: 2px
 
   .header-logo
     transform: translateY(-4px)
@@ -1314,33 +1346,6 @@
       max-width: 320px
       margin-left: auto
       margin-right: auto
-
-
-  .banners-button-prev,
-  .banners-button-next
-    bottom: auto
-    width: 30px
-    height: 30px
-    font-size: 11px
-    top: 20px
-
-  .banners-button-prev
-    left: 0
-
-    span
-      transform: translateX(-1px)
-
-      &:before
-        content: '\e915'
-
-  .banners-button-next
-    right: 0
-
-    span
-      transform: translateX(1px)
-
-      &:before
-        content: '\e912'
 
   .banners-slider-img
     overflow: hidden
@@ -1674,10 +1679,155 @@
   .order-info-right
     width: 50%
 
-@media (max-width: 767.98px)
+  .search-input
+    height: 30px
 
-  .container
-    padding: 0 25px
+  .search-input
+    padding-left: 13px
+    font-size: 14px
+
+  .header
+    padding: 13px 0 0
+
+  .header-row
+    flex-wrap: wrap
+    align-items: center
+
+  .header-search
+    span
+      font-size: 16px
+      right: 10px
+      top: 7px
+
+  .header-logo
+    display: flex !important
+    order: 1
+    margin: 0 auto 0 0
+    transform: none
+
+  .header-account
+    order: 2
+
+  .header-catalog
+    order: 3
+    width: 100%
+
+  .logo
+    img
+      width: 147px
+
+  .header-account
+    width: auto
+    margin-left: auto
+
+  .header-account-link
+    margin-right: 15px
+
+  .header-account-btn
+    width: auto
+    height: auto
+    font-size: 19px
+
+    .basket-quantity
+      font-size: 11px
+      bottom: 2px
+
+  .header-acc-dropdown
+    right: -34px
+    z-index: 6
+
+    &:after
+      right: 33px
+
+  .header-catalog-block
+    max-width: none !important
+    margin-top: 15px
+
+  .header
+    &.light
+      .header-catalog-block
+        background-color: rgba(#fff, .8)
+
+  .header
+    z-index: 11 !important
+
+  .catalog-dropdown
+    -webkit-border-radius: 0
+    -moz-border-radius: 0
+    border-radius: 0
+    max-height: none
+    padding-top: 115px
+    transform: translateY(-100vh)
+
+    &.opened
+      .catalog-dropdown-content
+        opacity: 1
+
+  .catalog-dropdown-content
+    +tr4
+    opacity: 0
+    transition-delay: .4s
+
+  .s-main-window
+    min-height: 360px
+    display: flex
+    flex-direction: column
+
+  .main-window-content
+    flex-grow: 1
+
+    .container
+      flex-grow: 1
+
+  .main-window-logo
+    display: none
+
+  .banner-item
+    text-align: left
+
+    p
+      max-width: 206px
+      margin: 0 0 40px
+      font-size: 12px
+
+    .btn
+      height: 40px
+      line-height: 40px
+      padding: 0 37px
+      font-size: 14px
+
+  .banner-item-title
+    font-size: 16px
+    margin: 0 0 15px
+
+    br
+      display: none
+
+  .banners-slider
+    padding: 0 14px
+    margin: auto 0 0
+
+  .banners-button-next
+    right: 14px
+    height: 40px
+    width: 40px
+    font-size: 24px
+
+  .banners-button-prev
+    right: 59px
+    height: 40px
+    width: 40px
+    font-size: 24px
+
+  .products-slider-pagination
+    margin-top: 20px
+
+    .swiper-pagination-bullet
+      margin: 0 5px
+      width: 7px
+      height: 7px
+
+@media (max-width: 767.98px)
 
   .style-button-prev,
   .style-button-next
@@ -1885,122 +2035,113 @@
   .btn-border
     line-height: 38px
 
-  .header
-    padding: 0
-    height: 55px
-    display: flex
-    align-items: center
-    position: absolute
-    z-index: 10
-    top: 0
-    left: 0
-    width: 100%
-    background-color: #EEEFF3
-    +tr4
+  //.header
+  //  padding: 0
+  //  height: 55px
+  //  display: flex
+  //  align-items: center
+  //  position: absolute
+  //  z-index: 10
+  //  top: 0
+  //  left: 0
+  //  width: 100%
+  //  background-color: #EEEFF3
+  //  +tr4
+  //
+  //  &.fixed
+  //    position: fixed !important
+  //    transform: translateY(-100%)
+  //
+  //    &.visible
+  //      transform: translateY(0)
+  //
+  //    &.light
+  //      .header-account-btn
+  //        color: #000
+  //
+  //      .header-location
+  //        a
+  //          &:after
+  //            color: #000
+  //
+  //  &.header-absolute
+  //    background-color: transparent
+  //
+  //    &.fixed
+  //      background-color: #EEEFF3
+  //
+  //  .container
+  //    padding: 0 18px
+  //    width: 100%
+  //
+  //
+  //.header-logo
+  //  transform: none
+  //  margin: 0 0 0 57px
+  //  flex-grow: 1
+  //  justify-content: center
+  //
+  //  .logo
+  //    img
+  //      width: 105px
+  //
+  //.header-account
+  //  flex-grow: 0
+  //  width: auto
+  //  margin-left: auto
+  //
+  //.header-location
+  //  margin-right: 3px
+  //
+  //  a
+  //    &:after
+  //      font-size: 18px
+  //      width: 27px
+  //      height: 27px
+  //      display: flex
+  //      align-items: center
+  //      justify-content: center
+  //
+  //.header-account-btn
+  //  height: 27px
+  //  width: 27px
+  //  font-size: 18px
+  //  margin-right: 3px
 
-    &.fixed
-      position: fixed !important
-      transform: translateY(-100%)
+  //.s-main-window
+  //  min-height: 532px
+  //  display: flex
+  //  flex-direction: column
+  //
+  //.main-window-content
+  //  flex-grow: 1
+  //
+  //  .container
+  //    flex-grow: 1
 
-      &.visible
-        transform: translateY(0)
-
-      &.light
-        .header-account-btn
-          color: #000
-
-        .header-location
-          a
-            &:after
-              color: #000
-
-    &.header-absolute
-      background-color: transparent
-
-      &.fixed
-        background-color: #EEEFF3
-
-    .container
-      padding: 0 18px
-      width: 100%
-
-
-  .header-logo
-    transform: none
-    margin: 0 0 0 57px
-    flex-grow: 1
-    justify-content: center
-
-    .logo
-      img
-        width: 105px
-
-  .header-account
-    flex-grow: 0
-    width: auto
-    margin-left: auto
-
-  .header-location
-    margin-right: 3px
-
-    a
-      &:after
-        font-size: 18px
-        width: 27px
-        height: 27px
-        display: flex
-        align-items: center
-        justify-content: center
-
-  .header-account-btn
-    height: 27px
-    width: 27px
-    font-size: 18px
-    margin-right: 3px
-
-  .s-main-window
-    min-height: 532px
-    display: flex
-    flex-direction: column
-
-  .main-window-content
-    flex-grow: 1
-
-    .container
-      flex-grow: 1
-
-  .banners-slider
-    .swiper-slide
-      display: flex
-      flex-direction: column
-      justify-content: flex-end
-      height: auto
-
-  .banner-item-title
-    font-size: 20px
-    margin-bottom: 10px
-
-  .banner-item
-    p
-      font-size: 14px
-
-    .btn
-      min-width: 191px
-
-  .main-window-logo
-    margin-top: auto
-
-  .brands-row
-    margin: 0 -8px
-
-  .brands-row-item
-    padding: 0 8px
+  //.banners-slider
+  //  .swiper-slide
+  //    display: flex
+  //    flex-direction: column
+  //    justify-content: flex-end
+  //    height: auto
+  //
+  //.banner-item-title
+  //  font-size: 20px
+  //  margin-bottom: 10px
+  //
+  //.banner-item
+  //  p
+  //    font-size: 14px
+  //
+  //  .btn
+  //    min-width: 191px
+  //
+  //.main-window-logo
+  //  margin-top: auto
 
   .s-brands
     padding: 35px 0
-
-  .brands-row-item
-    margin: 13px 0
 
   .categories-col
     width: 100%
@@ -2070,15 +2211,14 @@
     left: 15px
 
   .footer
-    padding-bottom: 30px
-
+    padding: 52px 0 79px
 
   .footer-contacts
-    text-align: center
+    text-align: left
 
     .h3, h3
       margin-bottom: 10px
-      font-size: 18px
+      font-size: 16px
 
     p
       margin-bottom: 25px
@@ -2120,22 +2260,6 @@
     img
       width: 50px
 
-  .soc-nav
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: center
-    text-align: center
-    margin-left: -16px
-    margin-right: -16px
-
-    span
-      order: -1
-      margin-bottom: 10px
-      width: 100%
-
-    a
-      margin: 0 16px
-
   .footer-bottom
     display: flex
     flex-direction: column-reverse
@@ -2146,7 +2270,6 @@
   .footer-pay
     width: calc(100% + 34px)
     margin: 0 -17px 40px
-    justify-content: center
 
     img
       max-width: 53px
@@ -2156,7 +2279,6 @@
       object-fit: contain
 
   .footer-bottom-left
-    text-align: center
     display: block
     padding: 0
     font-size: 12px
@@ -3098,10 +3220,10 @@
       font-size: 14px
       margin-bottom: 5px
 
-  .header-account-btn
-    .basket-quantity
-      font-size: 10px
-      bottom: 7px
+  //.header-account-btn
+  //  .basket-quantity
+  //    font-size: 10px
+  //    bottom: 7px
 
   .page-title
     .page-back-link
@@ -3279,25 +3401,13 @@
         font-size: 21px
         margin-left: 14px
 
-
-  .brands-row
-    flex-direction: column
-    align-items: center
-
-
-  .brands-row-item
-    margin: 20px 0
-    width: 100%
-    max-width: 175px
-
-
   .brands-row-item-img
     img
       max-height: 35px
 
-  .s-main-window
-    min-height: calc(100 * var(--vh))
-    padding-top: calc(var(--vh) * 20)
+  //.s-main-window
+  //  min-height: calc(100 * var(--vh))
+  //  padding-top: calc(var(--vh) * 20)
 
   .magazine-row
     margin: 0
@@ -3596,35 +3706,35 @@
       font-size: 20px
       margin-bottom: 10px
 
-  .header-account-link
-    margin-right: 3px
-
-  .header-acc-dropdown
-    width: 270px
-    padding: 15px
-    right: -38px
-
-    &:after
-      right: 41px
-
-  .header-acc-dropdown-user
-    font-size: 12px
-    margin-right: 15px
-
-  .header-acc-dropdown-exit
-    a
-      font-size: 12px
-
-  .header-acc-dropdown-header
-    padding-bottom: 15px
-
-  .header-acc-dropdown-links
-    a
-      font-size: 12px
-
-      span
-        font-size: 14px
-        margin-right: 7px
+  //.header-account-link
+  //  margin-right: 3px
+  //
+  //.header-acc-dropdown
+  //  width: 270px
+  //  padding: 15px
+  //  right: -38px
+  //
+  //  &:after
+  //    right: 41px
+  //
+  //.header-acc-dropdown-user
+  //  font-size: 12px
+  //  margin-right: 15px
+  //
+  //.header-acc-dropdown-exit
+  //  a
+  //    font-size: 12px
+  //
+  //.header-acc-dropdown-header
+  //  padding-bottom: 15px
+  //
+  //.header-acc-dropdown-links
+  //  a
+  //    font-size: 12px
+  //
+  //    span
+  //      font-size: 14px
+  //      margin-right: 7px
 
   .registration-step-2-inputs
     .form-group:not(.form-group-checkbox) + .form-group-checkbox
@@ -3765,3 +3875,186 @@
       width: 35px
       height: 35px
       font-size: 13px
+
+  .s-brands
+    padding: 20px 0
+
+  .brands-row
+    margin-right: 58px
+
+  .brands-row-item-card
+    -webkit-border-radius: 0
+    -moz-border-radius: 0
+    border-radius: 0
+    display: flex
+    flex-direction: column
+
+  .brands-row-item-card-img
+    padding-bottom: 42.55%
+
+  .brands-row-item-card-content
+    padding: 17px 24px 52px
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+
+    img
+      max-width: 142px
+      max-height: 25px
+      margin-bottom: 11px
+
+    p
+      font-size: 14px
+      line-height: 1.43
+
+  .brands-row-item-card-mob-link
+    display: flex
+    margin: auto 0 0 auto
+    height: 30px
+    width: 30px
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    border: 1px solid #DEDBDB
+    align-items: center
+    justify-content: center
+    font-size: 11px
+    color: #C4C4C4
+
+    &:after
+      content: '\e912'
+      font-family: icon
+      line-height: 1
+      font-weight: bold
+      transform: translateX(1px)
+
+  .s-products-slider
+    padding: 20px 0
+
+  .products-slider-nav
+    margin-left: -10px
+    margin-right: -10px
+    overflow-x: auto
+    padding: 0 10px
+
+    &:after
+      content: ''
+      width: 10px
+      height: 10px
+      flex-shrink: 0
+
+    &::-webkit-scrollbar
+      display: none
+
+  .products-slider-nav-link
+    height: 40px
+    line-height: 38px
+    padding: 0 30px
+    font-size: 20px
+    margin-right: 20px
+
+  .products-slider
+    padding-right: 0
+
+  .product-item
+    padding: 7px 10px
+
+  .product-item-img
+    margin: -7px -10px 17px
+
+  .product-img-pagination
+    bottom: 5px
+    left: 3px
+    right: 3px
+
+    .swiper-pagination-bullet
+      height: 2px
+      margin: 0 2px
+
+  .product-item-text
+    margin-top: 0
+
+  .product-item-title
+    font-size: 12px
+
+  .product-item-img
+    padding-bottom: calc(100% + 20px)
+
+  .product-item-title
+    margin-bottom: 18px
+
+  .product-item-footer
+    flex-wrap: wrap
+
+  .product-img-thumbs-block
+    width: 100%
+    margin-bottom: 0
+
+  .product-img-thumb
+    width: 15px
+    height: 15px
+    margin-right: 8px
+
+  .product-item-price
+    width: calc(100% - 30px)
+    margin: 0
+    padding-right: 10px
+
+    span
+      font-size: 14px
+
+  .product-item-add-to-cart-btn
+    width: 30px
+    height: 30px
+
+    span
+      font-size: 15px
+      transform: none
+
+  .product-item-tag
+    top: 10px
+    left: 10px
+    font-size: 10px
+
+  .footer-col
+    border-bottom: 2px solid #E6E5E7
+    margin-bottom: 30px
+    padding-bottom: 30px !important
+
+    &:last-child
+      margin-bottom: 0
+
+  .footer-nav
+    align-items: flex-start
+
+  .footer-contacts
+    p
+      &:last-child
+        margin-bottom: 0
+
+  .footer-nav-marketplaces-logo
+    display: block
+
+  .footer-nav-marketplaces
+    display: flex
+    align-items: flex-end
+
+    .footer-nav
+      flex-grow: 1
+      margin-right: 20px
+      margin-bottom: 0
+
+  .footer-nav-marketplaces-logo
+    img
+      width: 77px
+
+  .soc-nav
+    justify-content: flex-start
+    margin: 0 !important
+
+  .footer-bottom
+    padding-top: 30px
+    margin-top: 0
+
+  .footer-bottom-right
+    margin-top: 0

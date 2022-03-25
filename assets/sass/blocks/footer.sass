@@ -25,6 +25,12 @@
   flex-direction: column
   align-items: flex-start
 
+  .h6
+    margin-bottom: 10px
+    font-size: 16px
+    font-weight: bold
+    line-height: 1.375
+
   a
     margin-bottom: 7px
     +tr
@@ -79,13 +85,13 @@
   line-height: 1.5
 
   > div
-    width: 50%
     padding: 0 25px
     flex-shrink: 0
 
 .footer-bottom-left
   display: flex
   align-items: center
+  width: 41.66666%
 
 .footer-copyright
   margin-right: 50px
@@ -94,6 +100,7 @@
   display: flex
   justify-content: space-between
   align-items: flex-end
+  width: 58.33333%
 
 .footer-pay
   display: flex
@@ -127,3 +134,43 @@
 .subscribe-form-title
   margin-bottom: 10px
   font-size: 18px
+
+.soc-list
+  display: flex
+  align-items: center
+  margin-top: 11px
+
+  a
+    +tr
+    filter: grayscale(1)
+    margin: 0 15px 0 0
+
+    img
+      display: block
+      width: 25px
+
+    &:last-child
+      margin-right: 0
+
+    &:hover
+      filter: grayscale(0)
+
+.footer-nav-menu
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+    column-count: 2
+    display: block
+    width: 100%
+
+    li
+      page-break-inside: avoid
+      break-inside: avoid
+      margin-bottom: 7px
+
+      &:last-child
+        margin-bottom: 0
+
+.footer-nav-marketplaces-logo
+  display: none

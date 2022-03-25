@@ -59,7 +59,7 @@
                 <p v-html="slide.descr"/>
                 <a
                   :href="slide.url"
-                  class="btn btn-sm btn-border">Подробнее</a>
+                  class="btn">Подробнее</a>
 
               </div>
 

@@ -6,13 +6,15 @@
       <swiper-slide
         v-for="slide in list"
         :key="slide.id">
-        <CatalogItem :item="slide" />
+        <CatalogItem :item="slide"/>
       </swiper-slide>
 
     </swiper>
 
-    <div class="products-prev style-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
-    <div class="products-next style-button-next slider-next"><span class="icon-arrow-right"></span></div>
+    <div
+      class="products-slider-pagination"
+      :class="`products-slider-pagination-${index}`"
+      slot="pagination"/>
 
   </div>
 </template>
@@ -28,40 +30,49 @@ export default {
     SwiperSlide
   },
   props: {
-    list: Array
+    list: Array,
+    index: {
+      type: Number,
+      default: 0
+    }
   },
-  data: () => ({
-    swiperOptions: {
-      slidesPerView: 4,
-      spaceBetween: 50,
-      speed: 600,
-      breakpoints: {
-        0: {
-          spaceBetween: 10,
-          slidesPerView: 1
+  data () {
+    return {
+      swiperOptions: {
+        slidesPerView: 4,
+        spaceBetween: 50,
+        speed: 600,
+        pagination: {
+          el: `.products-slider-pagination-${this.index}`,
+          clickable: true
         },
-        576: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        992: {
-          slidesPerView: 3,
-          spaceBetween: 20
-        },
-        1200: {
-          slidesPerView: 4,
-          spaceBetween: 20
-        },
-        1600: {
-          spaceBetween: 40
+        breakpoints: {
+          0: {
+            spaceBetween: 10,
+            slidesPerView: 2
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 20
+          },
+          1600: {
+            spaceBetween: 40
+          },
+          1800: {
+            spaceBetween: 50
+          }
         }
-      },
-      navigation: {
-        prevEl: '.products-prev',
-        nextEl: '.products-next'
       }
     }
-  })
+  }
 }
 </script>
 

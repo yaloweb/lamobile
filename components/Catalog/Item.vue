@@ -48,17 +48,13 @@
 
           <button
             v-if="item.imgSrc.length > 1"
-            class="product-img-slider-prev slider-prev"
-            @click="slidePrev">
-            <span class="icon-arrow-left" />
-          </button>
+            class="product-img-slider-prev"
+            @click="slidePrev" />
 
           <button
             v-if="item.imgSrc.length > 1"
-            class="product-img-slider-next slider-next"
-            @click="slideNext">
-            <span class="icon-arrow-right" />
-          </button>
+            class="product-img-slider-next"
+            @click="slideNext" />
 
           <div class="product-img-pagination" slot="pagination"/>
 
@@ -107,7 +103,7 @@
         </div>
 
         <div class="product-item-price">
-          Цена: <span>{{ item.price | priceFilter }} ₽</span>
+          <span>{{ item.price | priceFilter }} ₽</span>
         </div>
 
         <div

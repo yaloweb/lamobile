@@ -691,7 +691,7 @@
 .product-item-footer
   display: flex
   align-items: center
-  justify-content: space-between
+  margin-top: auto
 
 .product-item-add-to-cart-btn
   -webkit-appearance: none
@@ -699,13 +699,25 @@
   appearance: none
   outline: none
   padding: 0
-  border: none
   background-color: transparent
   position: relative
-  font-size: 26px
-  color: #000
+  font-size: 23px
+  color: $accent
   line-height: 1
   +tr
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-shrink: 0
+  -webkit-border-radius: 50%
+  -moz-border-radius: 50%
+  border-radius: 50%
+  border: 1px solid #DEDBDB
+
+  span
+    transform: translateY(-2px)
 
   &:disabled
     color: transparent !important
@@ -720,8 +732,7 @@
     background-image: url(/img/loaders/dots.svg)
     background-repeat: no-repeat
     background-position: center
-    -webkit-background-size: contain
-    background-size: contain
+    background-size: 20px
     top: 0
     left: 0
     width: 100%
@@ -730,8 +741,10 @@
     visibility: hidden
     opacity: 0
 
-  &:hover
-    color: $accent
+  &:hover:not([disabled])
+    color: #fff
+    border-color: $accent
+    background-color: $accent
 
   .tooltip-info
     position: absolute
@@ -829,11 +842,13 @@
 
 .img-full-slider-prev
   left: 20px
+
   &:after
     content: '\e900'
 
 .img-full-slider-next
   right: 20px
+
   &:after
     content: '\e901'
 
@@ -941,6 +956,54 @@
       &:hover
         color: $accent
         border-color: $accent
+
+.products-slider-pagination
+  margin-top: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+
+  .swiper-pagination-bullet
+    width: 10px
+    height: 10px
+    margin: 0 16px
+    background-color: #C4C4C4
+    +tr
+    opacity: 1
+
+  .swiper-pagination-bullet-active
+    background-color: $accent
+
+.products-slider-nav
+  display: flex
+  align-items: center
+  margin-bottom: 40px
+
+.products-slider-nav-link
+  height: 60px
+  line-height: 58px
+  text-align: center
+  white-space: nowrap
+  padding: 0 39px
+  -webkit-border-radius: 30px
+  -moz-border-radius: 30px
+  border-radius: 30px
+  background-color: #fff
+  border: 1px solid #fff
+  font-size: 20px
+  color: #000
+  +tr
+  margin-right: 20px
+
+  &:last-child
+    margin-right: 0
+
+  &.active
+    border-color: $accent
+    color: #000 !important
+
+  &:hover
+    color: $accent
 
 @media (min-width: 1366px)
   .marketplace-opened

@@ -19,9 +19,32 @@
     <section class="s-products-slider">
       <div class="container">
 
-        <SliderProducts
-          :list="sliderProducts"
-        />
+        <nav class="products-slider-nav">
+          <a
+            v-for="(sliderProduct, idx) in sliderProducts"
+            :key="sliderProduct.id"
+            href="#"
+            class="products-slider-nav-link"
+            :class="{'active': selectedProductsSlider === idx}"
+            @click.prevent="selectedProductsSlider = idx">
+            {{ sliderProduct.category }}
+          </a>
+        </nav>
+
+        <div class="products-slider-tabs">
+
+          <div
+            v-for="(sliderProduct, idx) in sliderProducts"
+            :key="sliderProduct.id"
+            class="products-slider-tab">
+            <SliderProducts
+              v-if="selectedProductsSlider === idx"
+              :list="sliderProduct.list"
+              :index="sliderProduct.id"
+            />
+          </div>
+
+        </div>
 
       </div>
     </section>
@@ -55,6 +78,9 @@ export default {
       sliderProducts: state => state.catalog.sliderProducts,
       sliderBanners: state => state.banners.banners
     })
-  }
+  },
+  data: () => ({
+    selectedProductsSlider: 0
+  })
 }
 </script>

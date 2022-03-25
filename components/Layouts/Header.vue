@@ -6,7 +6,7 @@
       class="header"
       :class="{
         'header-absolute': positionAbsolute,
-        'light': light,
+        'light': isLight,
         'fixed': fixed,
         'visible': visible
       }">
@@ -47,13 +47,15 @@
           </div>
 
           <div
-            v-if="logo"
+            v-show="logo"
             class="header-logo">
             <nuxt-link to="/" class="logo">
-              <img :src="light ? global.logoLightSrc : global.logoSrc" alt="">
               <img
-                class="logo-dark-theme"
                 :src="global.logoLightSrc"
+                class="light-logo"
+                alt="">
+              <img
+                :src="global.logoSrc"
                 alt="">
             </nuxt-link>
           </div>
@@ -140,29 +142,6 @@
       :class="{'opened': catalog}"
       v-loading="searchLoading">
 
-      <div class="catalog-dropdown-close">
-        <span
-          class="icon-close"
-          @click="closeCatalog"/>
-      </div>
-
-      <form class="mob-search-form">
-        <div
-          class="header-search"
-          :class="{'active': catalog && this.activeTab === 2}">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Поиск"
-            v-model="search"
-            @input="searchHandler">
-          <span class="icon-search"/>
-          <span
-            class="icon-close"
-            @click="closeSearch"/>
-        </div>
-      </form>
-
       <div class="catalog-dropdown-content">
 
         <transition name="tabs">
@@ -221,12 +200,14 @@
 
                   <div class="brands">
 
-                    <div class="brands-list">
+                    <div
+                      class="brands-list">
                       <div
                         v-for="brand in global.header.brands"
                         :key="brand.id"
                         class="brands-item">
-                        <nuxt-link :to="brand.url">
+                        <nuxt-link
+                          :to="brand.url">
                           <img
                             :src="brand.imgSrc"
                             alt="">
@@ -355,7 +336,10 @@ export default {
       user: state => state.user,
       searchResults: state => state.search.results,
       categories: state => state.catalog.categories
-    })
+    }),
+    isLight () {
+      return this.isMob ? (this.catalog ? false : this.light) : this.light
+    }
   },
   data: () => ({
     activeTab: 1,
@@ -367,7 +351,8 @@ export default {
     pageScroll: 0,
     fixed: false,
     visible: false,
-    accountDropdown: false
+    accountDropdown: false,
+    isMob: true
   }),
   methods: {
     toggleCatalog () {

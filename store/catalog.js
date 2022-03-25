@@ -32,7 +32,8 @@ export const mutations = {
 
 export const actions = {
   async getCatalogCategories ({ commit }) {
-    const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/category')
+    // const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/category')
+    const res = await this.$axios.$get('/categories.json')
     commit('setCatalogCategories', res)
   },
   async getSliderProducts ({ commit }) {

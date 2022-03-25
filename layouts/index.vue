@@ -4,7 +4,8 @@
 
     <LayoutsHeader
       :logo="false"
-      :positionAbsolute="true"/>
+      :positionAbsolute="true"
+      :light="true"/>
 
     <Nuxt/>
 
