@@ -56,8 +56,7 @@ export default {
   async fetch () {
     const category = this.$route.params.category
     return await Promise.all([
-      this.$store.dispatch('catalog/getCatalog', category),
-      this.$store.dispatch('catalog/getSubcategories', category)
+      this.$store.dispatch('catalog/getCatalog', category)
     ])
   },
   name: 'CatalogPage',

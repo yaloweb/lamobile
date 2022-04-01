@@ -25,21 +25,24 @@
 
       <template v-if="Array.isArray(item.imgSrc)">
 
-        <div class="product-item-img-slider">
+        <div
+          v-for="(imgList, index) in item.imgSrc"
+          :key="index"
+          class="product-item-img-slider"
+          :class="{'visible': imgList.color === selectedColor}">
 
           <swiper
             ref="gallerySlider"
-            :options="swiperOptions">
+            :options="getSwiperOptions(index)">
 
             <swiper-slide
-              v-for="(imgList, index) in item.imgSrc"
-              :key="index">
+              v-for="(imgItem, idx) in imgList.list"
+              :key="`${index}-${idx}`"
+            >
               <div class="product-item-img-slider-img">
                 <img
-                  v-for="(img, imgIndex) in imgList"
-                  :key="`img.id-${imgIndex}`"
-                  :src="img.imgSrc"
-                  :class="{'active': img.color === selectedColor}"
+                  :src="imgItem"
+                  class="active"
                   alt="">
               </div>
             </swiper-slide>
@@ -47,16 +50,17 @@
           </swiper>
 
           <button
-            v-if="item.imgSrc.length > 1"
             class="product-img-slider-prev"
-            @click="slidePrev" />
+            :data-slider="index"/>
 
           <button
-            v-if="item.imgSrc.length > 1"
             class="product-img-slider-next"
-            @click="slideNext" />
+            :data-slider="index"/>
 
-          <div class="product-img-pagination" slot="pagination"/>
+          <div
+            class="product-img-pagination"
+            :data-slider="index"
+            slot="pagination"/>
 
         </div>
 
@@ -154,16 +158,6 @@ export default {
     }
   },
   data: () => ({
-    swiperOptions: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      speed: 600,
-      pagination: {
-        el: '.product-img-pagination',
-        type: 'bullets',
-        clickable: true
-      }
-    },
     selectedColor: 0,
     addToCardLoading: false
   }),
@@ -186,6 +180,22 @@ export default {
         alert(e)
       } finally {
         this.addToCardLoading = false
+      }
+    },
+    getSwiperOptions (index) {
+      return {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        speed: 600,
+        pagination: {
+          el: `.product-img-pagination[data-slider="${index}"]`,
+          type: 'bullets',
+          clickable: true
+        },
+        navigation: {
+          prevEl: `.product-img-slider-prev[data-slider="${index}"]`,
+          nextEl: `.product-img-slider-next[data-slider="${index}"]`
+        }
       }
     }
   },

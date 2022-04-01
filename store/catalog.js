@@ -25,7 +25,7 @@ export const state = () => ({
     code: 'price',
     title: 'по цене'
   },
-  selectedSubcategory: []
+  selectedSubcategory: null
 })
 
 export const getters = {
@@ -64,19 +64,21 @@ export const mutations = {
     state.selectedSort = data
   },
   setSelectedSubcategory (state, data) {
-    if (!state.selectedSubcategory.filter(item => item.id === data.id).length) {
-      state.selectedSubcategory.push(data)
-    }
+    console.log(data)
+    state.selectedSubcategory = data
   },
-  deleteSelectedSubcategory (state, data) {
-    state.selectedSubcategory = state.selectedSubcategory.filter(item => item.id !== data.id)
+  clearSelectedSubcategory (state) {
+    state.selectedSubcategory = null
   }
 }
 
 export const actions = {
   async getCatalogCategories ({ commit }) {
     const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/category')
-    commit('setCatalogCategories', res)
+    if (Array.isArray(res)) {
+      commit('setCatalogCategories', res.filter(item => item.level === '1'))
+      commit('setSubcategories', res.filter(item => item.level === '2'))
+    }
   },
   async getSliderProducts ({ commit }) {
     const res = await this.$axios.get('/product-slider-list')
@@ -95,14 +97,10 @@ export const actions = {
     const res = await this.$axios.$get('/brand-catalog-main')
     commit('setBrandsMainInfo', res)
   },
-  async getSubcategories ({ commit }, symbol) {
-    const res = await this.$axios.$get('/subcategories')
-    commit('setSubcategories', res)
-  },
-  async getCatalogFilterByCategories ({ commit }, data) {
+  async getCatalogFilterByCategories ({ commit }, category) {
     const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/product', {
       params: {
-        categoryCode: data.category
+        category
       }
     })
     commit('setCatalog', res)

@@ -1,13 +1,15 @@
 <template>
   <div class="catalog-filter">
 
-    <nav class="catalog-filter-nav">
+    <nav
+      v-if="filterSubcategories.length"
+      class="catalog-filter-nav">
       <a
-        v-for="category in subcategories"
+        v-for="category in filterSubcategories"
         :key="category.id"
         href="#"
-        :class="{'active': selectedSubcategory.filter(item => item.id === category.id).length}"
-        @click.prevent="setSelectedSubcategory(category)">
+        :class="{'active': selectedSubcategory === category.id}"
+        @click.prevent="setSelectedSubcategory(category.id)">
         {{ category.title }}
       </a>
     </nav>
@@ -44,7 +46,11 @@ export default {
       sortList: state => state.catalog.sortList,
       selectedSort: state => state.catalog.selectedSort,
       selectedSubcategory: state => state.catalog.selectedSubcategory
-    })
+    }),
+    filterSubcategories () {
+      const parentCategory = this.$route.params.category
+      return this.subcategories.filter(item => item.parentCode === parentCategory)
+    }
   },
   data: () => ({
     sortOpened: false
@@ -54,19 +60,18 @@ export default {
       this.$store.commit('catalog/setSelectedSort', data)
       this.sortOpened = false
     },
-    async setSelectedSubcategory (subcategory) {
-      console.log(this.selectedSubcategory)
-      if (this.selectedSubcategory.filter(item => item.id === subcategory.id).length) {
-        this.$store.commit('catalog/deleteSelectedSubcategory', subcategory)
-      } else {
-        this.$store.commit('catalog/setSelectedSubcategory', subcategory)
-      }
-      const category = this.$route.params.category
+    async setSelectedSubcategory (id) {
       this.$emit('loading', true)
-      await this.$store.dispatch('catalog/getCatalogFilterByCategories', {
-        category,
-        subcategory: subcategory.code
-      })
+
+      if (this.selectedSubcategory !== id) {
+        this.$store.commit('catalog/setSelectedSubcategory', id)
+        await this.$store.dispatch('catalog/getCatalogFilterByCategories', id)
+      } else {
+        const category = this.$route.params.category
+        this.$store.commit('catalog/setSelectedSubcategory', null)
+        this.$store.dispatch('catalog/getCatalog', category)
+      }
+
       this.$emit('loading', false)
     },
     clickOutsideSort (e) {
@@ -76,6 +81,7 @@ export default {
     }
   },
   mounted () {
+    this.$store.commit('catalog/clearSelectedSubcategory')
     document.addEventListener('click', this.clickOutsideSort)
   },
   beforeDestroy () {

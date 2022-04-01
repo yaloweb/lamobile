@@ -72,7 +72,7 @@
 
         <div
           v-if="inStock"
-          class="product-main-price">{{ price | priceFilter }} ₽</div>
+          class="product-main-price">{{ colors ? selectedColorObject.price : price | priceFilter }} ₽</div>
 
         <div
           v-if="!inStock"
@@ -112,7 +112,9 @@
 
       </div>
 
-      <div class="product-marketplaces">
+      <div
+        v-if="shops ? shops.length : false"
+        class="product-marketplaces">
 
         <div class="product-marketplaces-title">Или купить на другой площадке</div>
 

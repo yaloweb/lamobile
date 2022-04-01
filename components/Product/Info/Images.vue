@@ -10,34 +10,42 @@
       :class="{visible: fullImageScreen || isMob}">
 
       <div
-        class="img-full-slider-prev"
-        @click="goToPrevSlide"/>
+        v-for="(productImagesGroup, idx) in productImages"
+        :key="idx"
+        class="img-full-slider-list"
+        :class="{'visible': productImagesGroup.colorId === selectedColor}">
 
-      <div
-        class="img-full-slider-next"
-        @click="goToNextSlide"/>
-
-      <div class="img-full-slider-list">
         <swiper
-          ref="imgFullSliderList"
-          :options="fullSliderOptions">
+          :ref="`imgFullSliderList${idx}`"
+          :options="getFullSliderOptions(idx)">
           <swiper-slide
-            v-for="(slide, index) in productImages"
+            v-for="(slide, index) in productImagesGroup.list"
             :key="index">
             <div
               :class="{visible: index === selectedImageIndex}"
               class="img-full-slider-list-container">
               <img
-                v-for="img in slide.list"
-                :key="img.id"
-                :src="img.imgSrc"
-                :class="{'visible': img.color === selectedColor}"
+                :src="slide.imgSrc"
+                class="visible"
                 alt="">
             </div>
           </swiper-slide>
         </swiper>
-        <div class="img-full-slider-list-pagination" />
+
+        <div
+          class="img-full-slider-prev"
+          :data-slider="idx"/>
+
+        <div
+          class="img-full-slider-next"
+          :data-slider="idx"/>
+
+        <div
+          class="img-full-slider-list-pagination"
+          :data-slider="idx"/>
+
       </div>
+
     </div>
 
     <div
@@ -49,30 +57,53 @@
         class="product-main-img-swiper"
         :class="{visible: !fullImageScreen || isMob}">
 
-        <swiper :options="swiperOptions">
+        <div
+          v-for="(productImagesGroup, idx) in productImages"
+          :key="idx"
+          class="product-main-img-swiper-block"
+          :class="{'visible': productImagesGroup.colorId === selectedColor}">
 
-          <swiper-slide
-            v-for="(slide, index) in slidesArr"
-            :key="index">
+          <swiper
+            v-if="productImagesGroup.list.length > 1"
+            :options="getProductImagesSwiperOptions(idx)">
 
-            <div
-              v-for="(item, itemIndex) in slide"
-              :key="itemIndex"
-              class="product-main-img-container">
+            <swiper-slide
+              v-for="(slide, index) in slidesArr(productImagesGroup.list)"
+              :key="index">
+
+              <div
+                v-for="(item, itemIndex) in slide"
+                :key="itemIndex"
+                class="product-main-img-container">
+                <img
+                  class="visible"
+                  :src="item.imgSrc"
+                  alt="">
+              </div>
+
+            </swiper-slide>
+
+          </swiper>
+
+          <div
+            v-else
+            class="product-main-img-container">
+            <template v-if="productImagesGroup.list[0]">
               <img
-                v-for="img in item.list"
-                :key="img.id"
-                :class="{'visible': img.color === selectedColor}"
-                :src="img.imgSrc"
+                class="visible"
+                :src="productImagesGroup.list[0].imgSrc"
                 alt="">
-            </div>
+            </template>
+          </div>
 
-          </swiper-slide>
+          <div
+            v-if="productImagesGroup.list.length > 1"
+            class="product-img-nav">
+            <div class="slider-prev product-img-nav-prev" :data-slider="idx"><span class="icon-arrow-left"/></div>
+            <div class="slider-next product-img-nav-next" :data-slider="idx"><span class="icon-arrow-right"/></div>
+          </div>
 
-        </swiper>
-
-        <div class="slider-prev product-img-nav-prev"><span class="icon-arrow-left"></span></div>
-        <div class="slider-next product-img-nav-next"><span class="icon-arrow-right"></span></div>
+        </div>
 
       </div>
 
@@ -83,10 +114,8 @@
       class="product-main-img-container">
       <template v-if="productImages[0]">
         <img
-          v-for="img in productImages[0].list"
-          :key="img.id"
-          :class="{'visible': img.color === selectedColor}"
-          :src="img.imgSrc"
+          class="visible"
+          :src="productImages[0].list[0] ? productImages[0].list[0].imgSrc : null"
           alt="">
       </template>
     </div>
@@ -119,19 +148,35 @@ export default {
   computed: {
     ...mapState({
       productImages: state => state.product.productImages
-    }),
-    getSlidesLength () {
-      const wideLength = this.productImages.filter(item => item.wide).length
-      return Math.ceil((this.productImages.length - wideLength) / 2 + wideLength)
+    })
+  },
+  data: () => ({
+    isMob: false,
+    selectedImageIndex: 0,
+    fullImageScreen: false
+  }),
+  methods: {
+    checkDevice () {
+      window.innerWidth < 576 ? this.isMob = true : this.isMob = false
     },
-    slidesArr () {
+    goToPrevSlide () {
+      this.$refs.imgFullSliderList.$swiper?.slidePrev()
+    },
+    goToNextSlide () {
+      this.$refs.imgFullSliderList.$swiper?.slideNext()
+    },
+    getSlidesLength (array) {
+      const wideLength = array.filter(item => item.wide).length
+      return Math.ceil((array.length - wideLength) / 2 + wideLength)
+    },
+    slidesArr (array) {
       let res = []
       let count = 0
-      for (let i = 0; i < this.getSlidesLength; i++) {
+      for (let i = 0; i < this.getSlidesLength(array); i++) {
         res.push([])
       }
-      this.productImages.forEach((item, index) => {
-        if (this.productImages.length === 3) {
+      array.forEach((item, index) => {
+        if (array.length === 3) {
           if (index === 0) {
             res[0].push(item)
           } else {
@@ -161,58 +206,50 @@ export default {
         }
       })
       return res
-    }
-  },
-  data: () => ({
-    swiperOptions: {
-      direction: 'vertical',
-      slidesPerView: 2,
-      spaceBetween: 25,
-      speed: 600,
-      navigation: {
-        nextEl: '.product-img-nav-next',
-        prevEl: '.product-img-nav-prev'
-      },
-      breakpoints: {
-        0: {
-          spaceBetween: 10
+    },
+    getProductImagesSwiperOptions (idx) {
+      return {
+        direction: 'vertical',
+        slidesPerView: 2,
+        spaceBetween: 25,
+        speed: 600,
+        navigation: {
+          nextEl: `.product-img-nav-next[data-slider="${idx}"]`,
+          prevEl: `.product-img-nav-prev[data-slider="${idx}"]`
         },
-        576: {
-          spaceBetween: 20
-        },
-        768: {
-          spaceBetween: 25
+        breakpoints: {
+          0: {
+            spaceBetween: 10
+          },
+          576: {
+            spaceBetween: 20
+          },
+          768: {
+            spaceBetween: 25
+          }
         }
       }
     },
-    fullSliderOptions: {
-      slidesPerView: 1,
-      speed: 600,
-      pagination: {
-        el: '.img-full-slider-list-pagination'
-      },
-      breakpoints: {
-        0: {
-          spaceBetween: 5
+    getFullSliderOptions (idx) {
+      return {
+        slidesPerView: 1,
+        speed: 600,
+        pagination: {
+          el: `.img-full-slider-list-pagination[data-slider="${idx}"]`
         },
-        576: {
-          spaceBetween: 0
+        navigation: {
+          nextEl: `.img-full-slider-next[data-slider="${idx}"]`,
+          prevEl: `.img-full-slider-prev[data-slider="${idx}"]`
+        },
+        breakpoints: {
+          0: {
+            spaceBetween: 5
+          },
+          576: {
+            spaceBetween: 0
+          }
         }
       }
-    },
-    isMob: false,
-    selectedImageIndex: 0,
-    fullImageScreen: false
-  }),
-  methods: {
-    checkDevice () {
-      window.innerWidth < 576 ? this.isMob = true : this.isMob = false
-    },
-    goToPrevSlide () {
-      this.$refs.imgFullSliderList.$swiper?.slidePrev()
-    },
-    goToNextSlide () {
-      this.$refs.imgFullSliderList.$swiper?.slideNext()
     }
   },
   mounted () {

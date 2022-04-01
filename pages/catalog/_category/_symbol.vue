@@ -147,6 +147,9 @@ export default {
       } else {
         document.body.classList.remove('dark')
       }
+    },
+    colors () {
+      this.setDefaultColor()
     }
   },
   data: () => ({
@@ -157,10 +160,13 @@ export default {
   methods: {
     toggle (bool, id) {
       bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
+    },
+    setDefaultColor () {
+      this.selectedColor = this.colors[0]?.id || 1
     }
   },
   mounted () {
-    this.selectedColor = this.colors[0]?.id || 1
+    this.setDefaultColor()
   }
 }
 </script>

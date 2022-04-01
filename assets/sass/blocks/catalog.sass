@@ -339,6 +339,15 @@
   left: 0
   width: 100%
   height: 100%
+  visibility: hidden
+  z-index: -1
+  opacity: 0
+  +tr4
+
+  &.visible
+    opacity: 1
+    visibility: visible
+    z-index: 1
 
   img
     display: block
