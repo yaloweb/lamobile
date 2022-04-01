@@ -107,6 +107,16 @@
 
     </div>
 
+    <div
+      v-if="contacts"
+      class="guarantee-warranty-contacts">
+      <ul>
+        <li
+          v-for="(contact, idx) in contacts"
+          :key="idx">{{ contact }}</li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
@@ -123,7 +133,8 @@ export default {
   },
   computed: {
     ...mapState({
-      guarantee: state => state.forUsers.guarantee
+      guarantee: state => state.forUsers.guarantee,
+      contacts: state => state.forUsers.contacts
     })
   },
   data: () => ({

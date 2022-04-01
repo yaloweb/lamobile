@@ -7,9 +7,40 @@ export const state = () => ({
     title: '',
     descr: '',
     logoSrc: '',
-    advantage: ''
-  }
+    advantage: '',
+    youtubeVideo: null
+  },
+  subcategories: [],
+  sortList: [
+    {
+      code: 'price',
+      title: 'по цене'
+    },
+    {
+      code: 'title',
+      title: 'по названию'
+    }
+  ],
+  selectedSort: {
+    code: 'price',
+    title: 'по цене'
+  },
+  selectedSubcategory: []
 })
+
+export const getters = {
+  categoriesFilter (state) {
+    return [...state.catalog].sort((a, b) => {
+      if (state.selectedSort.code === 'price') {
+        return a.price - b.price
+      } else if (state.selectedSort.code === 'title') {
+        return a.title.localeCompare(b.title)
+      } else {
+        return 0
+      }
+    })
+  }
+}
 
 export const mutations = {
   setCatalogCategories (state, array) {
@@ -22,22 +53,33 @@ export const mutations = {
     state.catalog = array
   },
   setBrandsMainInfo (state, data) {
-    state.brandsMainInfo.bannerImgSrc = data.bannerImgSrc
-    state.brandsMainInfo.title = data.title
-    state.brandsMainInfo.descr = data.descr
-    state.brandsMainInfo.logoSrc = data.logoSrc
-    state.brandsMainInfo.advantage = data.advantage
+    for (let key in data) {
+      state.brandsMainInfo[key] = data[key]
+    }
+  },
+  setSubcategories (state, data) {
+    state.subcategories = data
+  },
+  setSelectedSort (state, data) {
+    state.selectedSort = data
+  },
+  setSelectedSubcategory (state, data) {
+    if (!state.selectedSubcategory.filter(item => item.id === data.id).length) {
+      state.selectedSubcategory.push(data)
+    }
+  },
+  deleteSelectedSubcategory (state, data) {
+    state.selectedSubcategory = state.selectedSubcategory.filter(item => item.id !== data.id)
   }
 }
 
 export const actions = {
   async getCatalogCategories ({ commit }) {
-    // const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/category')
-    const res = await this.$axios.$get('/categories.json')
+    const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/category')
     commit('setCatalogCategories', res)
   },
   async getSliderProducts ({ commit }) {
-    const res = await this.$axios.get('/product-slider-list.json')
+    const res = await this.$axios.get('/product-slider-list')
     commit('setSliderProducts', res.data)
   },
   async getCatalog ({ commit }, category) {
@@ -46,10 +88,23 @@ export const actions = {
         categoryCode: category
       }
     })
+    // const res = await this.$axios.$get('/catalog')
     commit('setCatalog', res)
   },
   async getBrandsMainInfo ({ commit }, symbol) {
-    const res = await this.$axios.get('/brand-catalog-main.json')
-    commit('setBrandsMainInfo', res.data)
+    const res = await this.$axios.$get('/brand-catalog-main')
+    commit('setBrandsMainInfo', res)
+  },
+  async getSubcategories ({ commit }, symbol) {
+    const res = await this.$axios.$get('/subcategories')
+    commit('setSubcategories', res)
+  },
+  async getCatalogFilterByCategories ({ commit }, data) {
+    const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/product', {
+      params: {
+        categoryCode: data.category
+      }
+    })
+    commit('setCatalog', res)
   }
 }

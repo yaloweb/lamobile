@@ -1,6 +1,7 @@
 .header
   position: relative
   padding: 37px 0 20px
+  +tr4
 
   &.header-absolute
     position: absolute
@@ -9,7 +10,7 @@
     width: 100%
     z-index: 5
 
-  &.light
+  &.light:not(.fixed)
 
     .logo
       img

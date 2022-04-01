@@ -1,11 +1,51 @@
 <template>
   <div
     class="product-main-info"
-    :class="{'visible-content': mobContentVisible}">
+    :class="{'not-available': !inStock}">
 
-    <div
-      class="product-main-info-container"
-      :class="{'marketplace-opened': marketplacesCheck}">
+    <div class="product-main-info-container">
+
+      <div
+        v-if="deliveryTime || deliveryGift"
+        class="product-main-delivery-info">
+
+        <div
+          v-if="deliveryTime"
+          class="product-main-delivery-info-item">
+
+          <img
+            v-if="pageType === 2"
+            src="/img/icons/delivery-car-time-dark.svg"
+            alt="">
+
+          <img
+            v-else
+            src="/img/icons/delivery-car-time.svg"
+            alt="">
+
+          <span>{{ deliveryTime }}</span>
+
+        </div>
+
+        <div
+          v-if="deliveryGift"
+          class="product-main-delivery-info-item">
+
+          <img
+            v-if="pageType === 2"
+            src="/img/icons/delivery-car-gift-dark.svg"
+            alt="">
+
+          <img
+            v-else
+            src="/img/icons/delivery-car-gift.svg"
+            alt="">
+
+          <span>{{ deliveryGift }}</span>
+
+        </div>
+
+      </div>
 
       <div class="product-main-info-content">
 
@@ -25,45 +65,31 @@
               :class="{'active': color.id === selectedColor}"
               @click="$emit('select-color', color.id)"/>
           </div>
+          <div class="product-selected-color-title">
+            {{ selectedColorObject.title }}
+          </div>
         </div>
 
         <div
           v-if="inStock"
+          class="product-main-price">{{ price | priceFilter }} ₽</div>
+
+        <div
+          v-if="!inStock"
+          class="product-main-not-avaliable">Данной модели нет в наличии</div>
+
+        <div
+          v-if="inStock"
           class="product-buy">
-          <button
-            class="btn btn-border">Купить от {{ productMainInfo.price | priceFilter }} ₽
-          </button>
+          <button class="btn btn-lg">Добавить в корзину</button>
         </div>
 
-        <form
-          v-if="!inStock"
-          class="find-about-admission-form"
-          @submit.prevent="sendAdmissionForm">
-
-          <div class="form-descr">Оставьте свой e-mail, или номер телефона и имя, <br>а мы оповестим вас, когда товар появится в наличии</div>
-
-          <FormInput
-            name="login"
-            placeholder="Имя"
-            :invalid="$v.userData.name.$error ? !$v.userData.name.required : false"
-            v-model="userData.name"/>
-
-          <FormInput
-            name="login"
-            placeholder="Email"
-            :invalid="$v.userData.email.$error ? (!$v.userData.email.required || !$v.userData.email.email) : false"
-            v-model="userData.email"/>
-
-          <div class="form-submit">
-            <button type="submit" class="btn btn-border">Узнать о поступлении ></button>
-          </div>
-
-        </form>
+        <FormAdmission v-if="!inStock" />
 
       </div>
 
       <div
-        v-if="gifts ? gifts.length > 0 : false"
+        v-if="(gifts ? gifts.length > 0 : false) && inStock"
         class="product-gifts">
 
         <div class="product-gifts-left">
@@ -86,51 +112,38 @@
 
       </div>
 
-      <div
-        v-if="shops ? shops.length > 0 : false"
-        class="product-check-marketplaces">
-        <a
-          href="#"
-          @click.prevent="marketplacesCheck = true"
-        >
-          Или купить на другой площадке от 990 ₽
-        </a>
-      </div>
+      <div class="product-marketplaces">
 
-      <transition name="fade">
-        <div
-          v-if="shops && marketplacesCheck"
-          class="product-marketplaces">
+        <div class="product-marketplaces-title">Или купить на другой площадке</div>
 
-          <div class="product-marketplaces-row">
+        <div class="product-marketplaces-row">
 
-            <div
-              v-for="shop in shops"
-              :key="shop.id"
-              class="product-marketplace">
+          <div
+            v-for="shop in shops"
+            :key="shop.id"
+            class="product-marketplace">
 
-              <div class="product-marketplace-img">
-                <img
-                  :src="shop.img"
-                  alt="">
-              </div>
+            <a
+              :href="shop.link"
+              class="product-marketplace-link"
+              target="_blank"
+            />
 
-              <div class="product-marketplace-title">
-                {{ shop.name }}
-              </div>
+            <div class="product-marketplace-img">
+              <img
+                :src="shop.img"
+                alt="">
+            </div>
 
-              <div class="product-marketplace-price">Цена: {{ shop.price | priceFilter }} ₽</div>
-
-              <div class="product-marketplace-link">
-                <a :href="shop.link">Перейти на сайт</a>
-              </div>
-
+            <div class="product-marketplace-title">
+              {{ shop.name }}
             </div>
 
           </div>
 
         </div>
-      </transition>
+
+      </div>
 
     </div>
 
@@ -140,27 +153,24 @@
 <script>
 
 import { mapState } from 'vuex'
-import { required, email } from 'vuelidate/lib/validators'
 
 export default {
   name: 'ProductInfoMain',
   props: {
     selectedColor: Number
   },
-  validations: {
-    userData: {
-      name: { required },
-      email: { required, email }
-    }
-  },
   computed: {
     ...mapState({
+      pageType: state => state.product.pageType,
       title: state => state.product.title,
       inStock: state => state.product.inStock,
       colors: state => state.product.colors,
       giftsDescr: state => state.product.giftsDescr,
       gifts: state => state.product.gifts,
-      shops: state => state.product.shops
+      shops: state => state.product.shops,
+      deliveryTime: state => state.product.deliveryTime,
+      deliveryGift: state => state.product.deliveryGift,
+      price: state => state.product.price
     }),
     productMainInfo () {
       const selectedColor = this.colors.filter(item => item.id === this.selectedColor)[0]
@@ -168,31 +178,11 @@ export default {
         productId: selectedColor?.productId,
         price: selectedColor?.price
       }
+    },
+    selectedColorObject () {
+      const res = this.colors.filter(item => item.id === this.selectedColor)[0]
+      return res || {}
     }
-  },
-  data: () => ({
-    mobContentVisible: false,
-    marketplacesCheck: false,
-    userData: {
-      name: '',
-      email: ''
-    }
-  }),
-  methods: {
-    sendAdmissionForm () {
-      if (this.$v.$invalid) {
-        this.$v.$touch()
-        return false
-      }
-    }
-  },
-  mounted () {
-    const scroll = () => {
-      const scrY = window.scrollY
-      scrY > 30 ? this.mobContentVisible = true : this.mobContentVisible = false
-    }
-    window.addEventListener('scroll', scroll)
-    this.$on('hook:beforeDestroy', () => window.removeEventListener('scroll', scroll))
   }
 }
 </script>

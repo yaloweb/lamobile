@@ -352,7 +352,7 @@ export default {
     fixed: false,
     visible: false,
     accountDropdown: false,
-    isMob: true
+    isMob: false
   }),
   methods: {
     toggleCatalog () {
@@ -394,10 +394,13 @@ export default {
     pageScrollEvent () {
       if (window.innerWidth < 576) {
         const t = window.pageYOffset
-        this.fixed = t > 55
+        this.fixed = t > 0
         this.visible = this.pageScroll > t
         this.pageScroll = t
       }
+    },
+    checkMob () {
+      this.isMob = window.innerWidth < 768
     }
   },
   mounted () {
@@ -416,11 +419,15 @@ export default {
 
     document.addEventListener('click', clickOutCatalog)
     window.addEventListener('scroll', this.pageScrollEvent)
+    window.addEventListener('resize', this.checkMob)
 
     this.$on('hook:beforeDestroy', () => {
       document.removeEventListener('click', clickOutCatalog)
       window.removeEventListener('scroll', this.pageScrollEvent)
+      window.removeEventListener('resize', this.checkMob)
     })
+
+    this.checkMob()
   }
 }
 </script>

@@ -1,0 +1,4388 @@
+{
+  "about": {
+    "title": "Привет, друг!",
+    "banner": "/img/about-banner.jpg",
+    "descr": "Про высокий профессионализм, десятилетия успешной работы на рынке и миллионную номенклатуру ты уже читал на других сайтах. У нас всё иначе.",
+    "advantages": [
+      {
+        "img": "/img/about-advantages/1.svg",
+        "text": "Про высокий профессионализм, десятилетия успешной работы на рынке и миллионную номенклатуру ты уже читал на других сайтах. У нас всё иначе."
+      },
+      {
+        "img": "/img/about-advantages/2.svg",
+        "text": "У нас всё иначе. Мы любим свою работу, а в остальном нам просто повезло. Приятных эмоций! И удачных покупок!"
+      },
+      {
+        "img": "/img/about-advantages/3.svg",
+        "text": "Если вам что-то не понятно, вы всегда можете нам позвонить, а мы всё-всё вам расскажем"
+      },
+      {
+        "img": "/img/about-advantages/4.svg",
+        "text": "Покупатель вправе отказаться от товара в любое время до его передачи, а после передачи товара — в течение 14 дней"
+      }
+    ],
+    "blockquote": {
+      "title": "Мы любим свою работу, <br>а в остальном нам просто повезло",
+      "text": "Приятных эмоций и удачных покупок!"
+    }
+  },
+  "basket": {
+    "products": [
+      {
+        "id": 1,
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "imgSrc": "/img/catalog/product-1.png",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 1,
+            "background": "#fff",
+            "withBorder": true,
+            "quantity": 0
+          },
+          {
+            "id": 2,
+            "background": "#000000",
+            "quantity": 0
+          },
+          {
+            "id": 3,
+            "background": "#DDBBBB",
+            "quantity": 2,
+            "price": 23490
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "imgSrc": "/img/catalog/product-1.png",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 1,
+            "background": "#fff",
+            "withBorder": true,
+            "quantity": 1,
+            "price": 23490
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "imgSrc": "/img/catalog/product-1.png",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 3,
+            "background": "#DDBBBB",
+            "quantity": 2,
+            "price": 23490
+          }
+        ]
+      }
+    ],
+    "gifts": {
+      "descr":"Рюкзак + термос + зонт Roborock в подарок при покупке пылесоса",
+      "list": [
+        {
+          "id": 1,
+          "title": "Рюкзак",
+          "imgSrc": "/img/gifts/1.png"
+        },
+        {
+          "id": 2,
+          "title": "Термос",
+          "imgSrc": "/img/gifts/2.png"
+        },
+        {
+          "id": 3,
+          "title": "зонт Roborock",
+          "imgSrc": "/img/gifts/3.png"
+        }
+      ]
+    },
+    "total": {
+      "products": {
+        "quantity": 5,
+        "price": 23566
+      },
+      "delivery": 500,
+      "discount": 490
+    }
+  },
+  "brand-catalog-main": {
+    "bannerImgSrc": "/img/brand-page-main.jpg",
+    "title": "Yeelight",
+    "descr": "<p>Лидирующий бренд умного освещения с глубокой интеграцией удаленного управления.<br>Компания Yeelight задаёт высокие стандарты качества в отрасли освещения. Чем еще хорош этот светильник? Тем, что он портативный. В него встроен мощный аккумулятор. Он обеспечивает до 40 часов автономной работы. Все зависит от яркости. Менять ее просто – достаточно провести по сенсорной панели или подробрать нужные настройки в приложении. Доступно 5 режимов освещения. Подзаряжать прибор можно как от розетки, так и от внешнего аккумулятора.</p><p>От холодных голубых до тёплых жёлтых оттенков – рукой подать. С помощью приложения можно менять настройки. 4 предустановленные сцены снимают часть задач. Yeelight Crystal Pendant Light легко крепится к потолку, за ним легко ухаживать. Внутренние элементы надежно скрыты под герметичным корпусом – насекомым и пыли там не место.</p>",
+    "logoSrc": "/img/brand-page-logo.png",
+    "advantage": "Официльный <br>представитель <br>в России",
+    "youtubeVideo": {
+      "id": "tWp0-btZXTU",
+      "poster": "/img/video/poster.jpg"
+    }
+  },
+  "brands": [
+    {
+      "id": 1,
+      "imgSrc": "/img/brands/1.png",
+      "symbol": "zomai",
+      "title": "Zomai",
+      "url": "/brands/zomai",
+      "card": {
+        "imgSrc": "/img/brands/card-img-4.jpg",
+        "descr": "Компания специализирующаяся на производстве  умной техники для автомобилей. В ассортименте представлены видеорегистраторы, зеркала заднего вида, системы контроля давления и другие гаджеты."
+      }
+    },
+    {
+      "id": 2,
+      "imgSrc": "/img/brands/2.png",
+      "symbol": "yeelight",
+      "title": "Yeelight",
+      "url": "/brands/yeelight",
+      "card": {
+        "imgSrc": "/img/brands/card-img-3.jpg",
+        "descr": "Лидирующий бренд умного освещения с глубокой интеграцией удаленного управления. Компания Yeelight задаёт высокие стандарты качества в отрасли освещения."
+      }
+    },
+    {
+      "id": 3,
+      "imgSrc": "/img/brands/3.png",
+      "symbol": "walking-pad",
+      "title": "Walking Pad",
+      "url": "/brands/walking-pad",
+      "card": {
+        "imgSrc": "/img/brands/card-img-2.jpg",
+        "descr": "Компания, которая полностью посвятила себя созданию тренажёров для домашних тренировок. Качество сборки, интеллектуальное управление через  приложение, дизайнерские решения и уникальная складная конструкция."
+      }
+    },
+    {
+      "id": 1,
+      "imgSrc": "/img/brands/4.jpg",
+      "symbol": "roborock",
+      "title": "Roborock",
+      "url": "/brands/roborock",
+      "card": {
+        "imgSrc": "/img/brands/card-img-1.jpg",
+        "descr": "Компания специализируется на исследованиях, разработке и производстве продуктов, которые делают жизнь людей более комфортной. Разрабатывают роботов-пылесосов и вертикальных пылесосов."
+      }
+    }
+  ],
+  "catalog": [
+    {
+      "id": 1,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "colors": [
+        {
+          "id": 1,
+          "imgSrc": "/img/colors-img/1.png",
+          "background": "#ffffff",
+          "withBorder": true,
+          "quantity": 1,
+          "price": 23880
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/colors-img/2.png",
+          "background": "#403F44",
+          "quantity": 3,
+          "price": 23880
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/colors-img/3.png",
+          "background": "#00426E",
+          "quantity": 2,
+          "price": 23880
+        }
+      ],
+      "imgSrc": [
+        [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/catalog/product-4.png"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/catalog/product-5.png"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/catalog/product-6.png"
+          }
+        ],
+        [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/11.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ],
+        [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/11.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      ],
+      "symbol": "osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr",
+      "url": "/catalog/roboty-pylesosy/osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr"
+    },
+    {
+      "id": 2,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 12415,
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inStock": false,
+      "inBasket": true
+    },
+    {
+      "id": 3,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 222,
+      "tag": {
+        "title": "Новинка",
+        "color": "green"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 4,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 65435,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 5,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 4351,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 6,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 111,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 7,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 524,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 8,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 6431,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 9,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 234,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 10,
+      "productId": "7770002257",
+      "title": "бАккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 123,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 11,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    },
+    {
+      "id": 12,
+      "productId": "7770002257",
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+      "inBasket": false
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Роботы-пылесосы",
+      "url": "roboty-pylesosi"
+    },
+    {
+      "id": 2,
+      "title": "Роботы-пылесосы",
+      "url": "roboty-pylesosi"
+    },
+    {
+      "id": 3,
+      "title": "Роботы-пылесосы",
+      "url": "roboty-pylesosi"
+    }
+  ],
+  "compare": {
+    "title": "Сравните модели <br>и выберите свой Xiaomi",
+    "parameters": [
+      {
+        "key": "colors",
+        "title": "Цвета"
+      },
+      {
+        "key": "worktime",
+        "title": "Работа на одном заряде"
+      },
+      {
+        "key": "suctionPower",
+        "title": "Мощность всасывания"
+      },
+      {
+        "key": "cartographicTechnology",
+        "title": "Картографическая технология "
+      },
+      {
+        "key": "zoneCleaning",
+        "title": "Зональная уборка"
+      },
+      {
+        "key": "rubbishSize",
+        "title": "Размер мусорного контейнера"
+      },
+      {
+        "key": "floorWashing",
+        "title": "Мытье пола"
+      },
+      {
+        "key": "waterLevelControl",
+        "title": "Контроль уровня воды"
+      },
+      {
+        "key": "waterTankControl",
+        "title": "Размер резервуара для воды"
+      },
+      {
+        "key": "filterType",
+        "title": "Тип фильтра"
+      },
+      {
+        "key": "batteryCapacity",
+        "title": "Емкость батареи"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "title": "Xiaomi Mi Robot",
+        "imgSrc": "/img/catalog/product-1.png",
+        "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "parameters": {
+          "colors": ["#DED6D6", "#000000", "#7A7A7A"],
+          "worktime": "150 мин",
+          "suctionPower": "1800 Па",
+          "cartographicTechnology": "Лидар LDS +",
+          "zoneCleaning": "нет",
+          "rubbishSize": "420 мл",
+          "floorWashing": "нет",
+          "waterLevelControl": "",
+          "waterTankControl": "200 мл",
+          "filterType": "HEPA",
+          "batteryCapacity": "5200 мАч  "
+        }
+      },
+      {
+        "id": 2,
+        "title": "Huawei S Robot",
+        "imgSrc": "/img/catalog/product-2.png",
+        "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "parameters": {
+          "colors": ["#DED6D6", "#000000", "#7A7A7A"],
+          "worktime": "150 мин",
+          "suctionPower": "1800 Па",
+          "cartographicTechnology": "Лидар LDS +",
+          "zoneCleaning": "нет",
+          "rubbishSize": "420 мл",
+          "floorWashing": "нет",
+          "waterLevelControl": "",
+          "waterTankControl": "200 мл",
+          "filterType": "HEPA",
+          "batteryCapacity": "5200 мАч  "
+        }
+      },
+      {
+        "id": 3,
+        "title": "Honor DD Robot",
+        "imgSrc": "/img/catalog/product-3.png",
+        "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "parameters": {
+          "colors": ["#DED6D6", "#000000", "#7A7A7A"],
+          "worktime": "150 мин",
+          "suctionPower": "1800 Па",
+          "cartographicTechnology": "Лидар LDS +",
+          "zoneCleaning": "нет",
+          "rubbishSize": "420 мл",
+          "floorWashing": "нет",
+          "waterLevelControl": "",
+          "waterTankControl": "200 мл",
+          "filterType": "HEPA",
+          "batteryCapacity": "5200 мАч  "
+        }
+      },
+      {
+        "id": 4,
+        "title": "Xiaomi Mi Robot",
+        "imgSrc": "/img/catalog/product-1.png",
+        "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "parameters": {
+          "colors": ["#DED6D6", "#000000", "#7A7A7A"],
+          "worktime": "150 мин",
+          "suctionPower": "1800 Па",
+          "cartographicTechnology": "Лидар LDS +",
+          "zoneCleaning": "нет",
+          "rubbishSize": "420 мл",
+          "floorWashing": "нет",
+          "waterLevelControl": "",
+          "waterTankControl": "200 мл",
+          "filterType": "HEPA",
+          "batteryCapacity": "5200 мАч  "
+        }
+      },
+      {
+        "id": 5,
+        "title": "Huawei S Robot",
+        "imgSrc": "/img/catalog/product-2.png",
+        "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "parameters": {
+          "colors": ["#DED6D6", "#000000", "#7A7A7A"],
+          "worktime": "150 мин",
+          "suctionPower": "1800 Па",
+          "cartographicTechnology": "Лидар LDS +",
+          "zoneCleaning": "нет",
+          "rubbishSize": "420 мл",
+          "floorWashing": "нет",
+          "waterLevelControl": "",
+          "waterTankControl": "200 мл",
+          "filterType": "HEPA",
+          "batteryCapacity": "5200 мАч  "
+        }
+      },
+      {
+        "id": 6,
+        "title": "Honor DD Robot",
+        "imgSrc": "/img/catalog/product-3.png",
+        "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+        "parameters": {
+          "colors": ["#DED6D6", "#000000", "#7A7A7A"],
+          "worktime": "150 мин",
+          "suctionPower": "1800 Па",
+          "cartographicTechnology": "Лидар LDS +",
+          "zoneCleaning": "нет",
+          "rubbishSize": "420 мл",
+          "floorWashing": "нет",
+          "waterLevelControl": "",
+          "waterTankControl": "200 мл",
+          "filterType": "HEPA",
+          "batteryCapacity": "5200 мАч  "
+        }
+      }
+    ]
+  },
+  "current-order": {
+    "id": 1,
+    "number": 334543,
+    "createdAt": "2021-11-23T18:25:43.511Z",
+    "products": [
+      {
+        "id": 1,
+        "productId": "7770002257",
+        "imgSrc": "/img/catalog/product-1.png",
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 3,
+            "background": "#FFD1E1",
+            "quantity": 2,
+            "price": 23490
+          }
+        ],
+        "inStock": false
+      },
+      {
+        "id": 2,
+        "productId": "7770002257",
+        "imgSrc": "/img/catalog/product-1.png",
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 3,
+            "background": "#fff",
+            "quantity": 1,
+            "withBorder": true,
+            "price": 23490
+          }
+        ]
+      },
+
+      {
+        "id": 3,
+        "productId": "7770002257",
+        "imgSrc": "/img/catalog/product-1.png",
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 3,
+            "background": "#FFD1E1",
+            "quantity": 2,
+            "price": 23490
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "productId": "7770002257",
+        "imgSrc": "/img/catalog/product-1.png",
+        "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+        "price": 32990,
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "colors": [
+          {
+            "id": 3,
+            "background": "#FFD1E1",
+            "quantity": 2,
+            "price": 23490
+          }
+        ]
+      }
+    ],
+    "totalPrice": 85694,
+    "status": 1,
+    "checkPdf": "#"
+  },
+  "delivery": {
+    "cities": [
+      {
+        "id": 1,
+        "value": "Москва"
+      },
+      {
+        "id": 2,
+        "value": "Санкт-Петербург"
+      },
+      {
+        "id": 3,
+        "value": "Екатеринбург"
+      },
+      {
+        "id": 4,
+        "value": "Краснодар"
+      },
+      {
+        "id": 5,
+        "value": "Казань"
+      },
+      {
+        "id": 6,
+        "value": "Елабуга"
+      }
+    ],
+    "dates": [
+      {
+        "id": 1,
+        "value": "2021-11-25T00:00:00.511Z"
+      },
+      {
+        "id": 2,
+        "value": "2021-11-26T00:00:00.511Z"
+      },
+      {
+        "id": 3,
+        "value": "2021-11-27T00:00:00.511Z"
+      },
+      {
+        "id": 4,
+        "value": "2021-11-28T00:00:00.511Z"
+      },
+      {
+        "id": 5,
+        "value": "2021-11-29T00:00:00.511Z"
+      },
+      {
+        "id": 6,
+        "value": "2021-11-30T00:00:00.511Z"
+      }
+    ],
+    "times": [
+      {
+        "id": 1,
+        "value": "10:00-18:00"
+      },
+      {
+        "id": 2,
+        "value": "18:00-24:00"
+      },
+      {
+        "id": 3,
+        "value": "00:00-10:00"
+      }
+    ]
+  },
+  "for-users": {
+    "guarantee": {
+      "defect": {
+        "title": "В течение гарантийного срока обнаружился брак?",
+        "list": [
+          "Обратитесь в сервис по номеру +7 (495) 374-68-64 или в чате сайта",
+          "Назовите номер гарантийного талона и характер неисправности",
+          "Передайте изделие для диагностики и, если случай гарантийный, — мы всё починим, или заменим вашу покупку!"
+        ],
+        "attention": "ВНИМАНИЕ! Просим обратить ваше внимание на то, что технически сложные товары надлежащего качества <br>не подлежат обмену и возврату, если они не понравились."
+      },
+      "term": {
+        "title": "Срок гарантии на следующие товары:",
+        "list": [
+          {
+            "title": "1 год",
+            "list": [
+              "Роботы-пылесосы",
+              "Ручные пылесосы",
+              "Проекторы",
+              "Проекторы",
+              "Климатическая техника"
+            ]
+          },
+          {
+            "title": "6 месяцев",
+            "list": [
+              "Гаджеты",
+              "Колонки",
+              "Внешние аккумуляторы",
+              "Наушники"
+            ]
+          }
+        ],
+        "descr": "Сроки гарантийного обслуживания на следующие категории товаров устанавливаются в соответствии с гарантийным талоном: <br>телевизоры, пылесосы, климатическая техника. Информация на сайте носит ознакомительный характер."
+      },
+      "nonWarrantyCases": {
+        "title": "К сожалению, мы не сможем починить вашу покупку если...",
+        "list": [
+          {
+            "title": "на изделии есть механические повреждения",
+            "descr": "например, если вы уронили пылесос с балкона. Даже случайно"
+          },
+          {
+            "title": "на изделии повреждены или удалены заводские серийные номера, стикеры или пломбы",
+            "descr": "эти данные необходимы мастеру при ремонте"
+          },
+          {
+            "title": "изделие повреждено вследствие несчастного случая, пожара, стихийного бедствия или действий непреодолимой силы",
+            "descr": "если цунами унесло ваш плеер, мы не сможем его найти"
+          },
+          {
+            "title": "на изделии есть следы несанкционированного вскрытия",
+            "descr": "вряд ли мы починим то, что уже попытался отремонтировать ваш друг с «золотыми руками»"
+          },
+          {
+            "title": "изделие повреждено в результате ненадлежащих условий транспортировки и хранения",
+            "descr": "хрупкий монитор лучше везти домой в коробке, которая защищает его, например, от давки в метро"
+          },
+          {
+            "title": "дефекты возникли в результате ненадлежащих условий эксплуатации",
+            "descr": "ознакомьтесь с инструкцией! Вероятно, заряжать вашу электробритву от 380v или мыть ваш видеопроектор в посудомоечной машине нельзя"
+          },
+          {
+            "title": "дефекты возникли в результате использования некачественных или выработавших свой ресурс расходных материалов",
+            "descr": "неоригинальные или самодельные аксессуары могут существенно навредить изделиям"
+          },
+          {
+            "title": "Мы не починим оборудование, которому причинен ущерб в результате работы в сопряжении с приобретённым у нас изделием",
+            "descr": "если купленная у нас электронная отвёртка сорвала шуруп в вашем телефоне — мы не сможем заменить его)"
+          },
+          {
+            "title": "Мы не заменим товары, имеющие ограниченный срок службы",
+            "descr": "например, мы не сможем бесплатно предоставить вам новенькие шины для электросамоката, если старые стёрлись"
+          }
+        ]
+      }
+    },
+    "paymentAndDelivery": {
+      "descr": "<p>Доставка планируется вами при оформлении заказа и подтверждается нашим отделом продаж после оформления заказа. <br>Все заказы, принятые и подтверждённые нашим магазином в течение рабочего дня до 15:00, <br>будут доставлены покупателям (курьером по Москве) на следующий день в указанный интервал времени. <br>Доставка осуществляется с понедельника по субботу, с 10:00 до 15:00, c 10.00 до 18.00, с 13.00 до 18.00, с 18.00 до 21.00 (данные временные интервалы предусмотрены для доставок в пределах МКАД, за пределами МКАД (до 25км) доставка осуществлятся в едином интервале с 10:00 до 18:00). <br>Частичный выкуп заказа у курьера невозможен!</p><p>Доставка «день в день» осуществляется посредством такси в пределах МКАД, до подъезда (дома, проходной). <br>Подъем заказа до квартиры не осуществляется.</p>",
+      "cities": [
+        {
+          "name": "Москва",
+          "content": "<p>Бесплатная доставка курьером <span>Минимальная сумма заказа 1000 руб</span><p>Заказы оформленные до 15:00, с понедельника по субботу, будут доставлены курьером на следующий рабочий день в указанный интервал <span>с 10:00 до 15:00, c 10.00 до 18.00, с 13.00 до 18.00, с 18.00 до 21.00</span></p>"
+        },
+        {
+          "name": "Московская область",
+          "content": "<p>Бесплатная доставка СДЭК <span>Минимальная сумма заказа 1000 руб</span></p>Отправка заказов в Московскую область приоритетно осуществляется транспортной компанией СДЭК. Заказы оформленные до 15:00,с понедельника по пятницу, будут переданы в транспортную компанию СДЭК на следующий день.<p>Заказ передаётся в транспортную компанию после его оплаты банковской картой на сайте.</p>"
+        },
+        {
+          "name": "Россия",
+          "content": "<p>Бесплатная доставка курьером <span>Минимальная сумма заказа 1000 руб</span></p><p>Заказы оформленные до 15:00, с понедельника по субботу, будут доставлены курьером на следующий рабочий день в указанный интервал <span>с 10:00 до 15:00, c 10.00 до 18.00, с 13.00 до 18.00, с 18.00 до 21.00</span></p>"
+        }
+      ],
+      "info": [
+        {
+          "title": "Оплата банковской картой в сети Интернет",
+          "content": "<p>Наша платформа подключена к интернет-эквайрингу и вы можете оплатить товар банковской картой Visa или Mastercard. После подтверждения выбранного Товара вы будете перенаправлены на защищённую платёжную страницу ОАО «Альфа-Банк» (paymentgate.ru), где вам необходимо ввести данные вашей банковской карты. Для дополнительной аутентификации держателя карты используется протокол 3D Secure. Если ваш банк поддерживает данную технологию, вы будете перенаправлены на его сервер для дополнительной идентификации. Информацию о правилах и методах дополнительной идентификации уточняйте в банке, выдавшем вам банковскую карту.</p><p>Представленная к оплате сумма является только стоимостью товара. Стоимость услуг (таких как доставка, сборка) взимается отдельно в момент получения Товара.</p>"
+        },
+        {
+          "title": "Гарантии безопасности",
+          "content": "<p>ОАО «Альфа-Банк» защищает и обрабатывает данные вашей банковской карты по стандарту безопасности PCI DSS 2.0. Передача информации в платёжный шлюз происходит с применением технологии шифрования SSL. Дальнейшая передача информации происходит по закрытым банковским сетям, имеющим наивысший уровень надёжности. ОАО «Альфа-Банк» не передаёт данные вашей карты нам и иным третьим лицам. Для дополнительной аутентификации держателя карты используется протокол 3D Secure. В случае, если у вас есть вопросы по совершённому платежу, вы можете обратиться в службу поддержки клиентов по телефону <br>7 (495) 78–888–78 (для Москвы и МО), 8(800) 2–000–000 (для регионов)</p>"
+        },
+        {
+          "title": "Безопасность онлайн платежей",
+          "content": "<p>Предоставляемая вами персональная информация (имя, адрес, телефон, email, номер кредитной карты) является конфиденциальной и не подлежит разглашению. Данные вашей кредитной карты передаются только в зашифрованном виде и не сохраняются на нашем Web-сервере.</p><p>Безопасность обработки Интернет-платежей гарантирует ОАО «Альфа-Банк». Все операции с платёжными картами происходят в соответствии с требованиями Visa International, Mastercard и других платёжных систем. При передаче информации используется специальные технологии безопасности карточных онлайн-платежей, обработка данных ведётся на безопасном высокотехнологичном сервере процессинговой компании.</p>"
+        },
+        {
+          "title": "Конфиденциальность",
+          "content": "<p>Услуга оплаты через интернет осуществляется в соответствии с правилами международных платёжных систем на принципах соблюдения конфиденциальности и безопасности совершения платежа, для чего используются самые современные методы проверки, шифрования и передачи данных по закрытым каналам связи. Ввод данных банковской карты осуществляется на защищённой платёжной странице банка — партнёра, предоставляющего услугу.Нашим банком — партнёром является ОАО «Альфа-Банк».</p><h5>Случаи отказа в совершении платежа:</h5><p>банковская карта не предназначена для совершения платежей через интернет, о чем можно узнать, осведомившись в Вашем банке; данные банковской карты введены неверно.</p><h5>Для корректного ввода необходимо внимательно и точно, соблюдая последовательность цифр и букв, ввести данные так, как они указаны на вашей карте:</h5><p>1. Владелец карты <span>Как правило, указан на лицевой стороне банковской карты на английском языке заглавными буквами. Например, IVANOV IVAN;</span></p><p>2. Номер карты<span>Как правило, указан на лицевой стороне банковской карты и состоит из 16-и цифр. Например: 0123 4567 8901 2345;</p><p>3. Срок действия карты<span>Как правило, указан на лицевой стороне банковской карты — месяц и год, до которого действительна карта. Срок действия карты вводится цифрами. Например, 12 (вводится в поле месяца) и 13 (вводится в поле года), что означает, что карта действительна до декабря 2013 года;</span><br>CVV2 или CVC2 код карты<span>как правило, указан на обратной стороне банковской карты и состоит из 3-х цифр. Например, 123;</span></p><p>4. Истёк срок действия банковской карты.<span>Срок действия карты, как правило, указан на лицевой стороне карты (это месяц и год, до которого действительна карта).<br>Подробнее о сроке действия карты вы можете узнать, обратившись в банк, выпустивший банковскую карту;</span></p><p>5. Недостаточно средств для оплаты на банковской карте.<span>Подробнее о наличии средств на банковской карте вы можете узнать, обратившись в банк, выпустивший банковскую карту;</span></p><p>6. Превышен установленный лимит операций за день.<span>Сумма ежедневного лимита для всех операций определяется банком-партнёром.</span></p>"
+        }
+      ]
+    },
+    "termsOfSale": {
+      "content": "<p>Наша платформа подключена к интернет-эквайрингу и вы можете оплатить товар банковской картой Visa или Mastercard. После подтверждения выбранного Товара вы будете перенаправлены на защищённую платёжную страницу ОАО «Альфа-Банк» (paymentgate.ru), где вам необходимо ввести данные вашей банковской карты. Для дополнительной аутентификации держателя карты используется протокол 3D Secure. Если ваш банк поддерживает данную технологию, вы будете перенаправлены на его сервер для дополнительной идентификации. Информацию о правилах и методах дополнительной идентификации уточняйте в банке, выдавшем вам банковскую карту.</p><p>Представленная к оплате сумма является только стоимостью товара. Стоимость услуг (таких как доставка, сборка) взимается отдельно в момент получения Товара.</p>"
+    },
+    "exchange": {
+      "content": "<p>Наша платформа подключена к интернет-эквайрингу и вы можете оплатить товар банковской картой Visa или Mastercard. После подтверждения выбранного Товара вы будете перенаправлены на защищённую платёжную страницу ОАО «Альфа-Банк» (paymentgate.ru), где вам необходимо ввести данные вашей банковской карты. Для дополнительной аутентификации держателя карты используется протокол 3D Secure. Если ваш банк поддерживает данную технологию, вы будете перенаправлены на его сервер для дополнительной идентификации. Информацию о правилах и методах дополнительной идентификации уточняйте в банке, выдавшем вам банковскую карту.</p><p>Представленная к оплате сумма является только стоимостью товара. Стоимость услуг (таких как доставка, сборка) взимается отдельно в момент получения Товара.</p>"
+    },
+    "contacts": {
+      "content": [
+        "Режим работы: ежедневно с 10:00 до 21:00",
+        "Сайт: service-xiaomi.com",
+        "Телефон: 8 (495) 374-68-64",
+        "Адрес: г. Москва, Багратионовский проезд, д.7 корп.3, пав. H2-026"
+      ]
+    }
+  },
+  "global": {
+    "location": "Москва",
+    "phone": "+7 495 003 2233",
+    "logoSrc": "/img/logo.svg",
+    "logoLightSrc": "/img/logo-light.svg",
+    "header": {
+      "catalogMenu": [
+        {
+          "id": 1,
+          "url": "/catalog/roboty-pylesosy",
+          "title": "Роботы-пылесосы",
+          "symbol": "roboty-pylesosy"
+        },
+        {
+          "id": 2,
+          "url": "/catalog/aksessuary-dlya-robotov-pylesosov",
+          "title": "Аксессуары для роботов-пылесосов",
+          "symbol": "aksessuary-dlya-robotov-pylesosov"
+        },
+        {
+          "id": 3,
+          "url": "/catalog/svet",
+          "title": "Свет",
+          "symbol": "svet"
+        },
+        {
+          "id": 4,
+          "url": "/catalog/klimat",
+          "title": "Климат",
+          "symbol": "klimat"
+        },
+        {
+          "id": 5,
+          "url": "/catalog/vneshnie-akkumulyatory",
+          "title": "Внешние аккумуляторы",
+          "symbol": "vneshnie-akkumulyatory"
+        },
+        {
+          "id": 6,
+          "url": "/catalog/aksessuary-v-avto",
+          "title": "Аксессуары в авто",
+          "symbol": "aksessuary-v-avto"
+        },
+        {
+          "id": 7,
+          "url": "/catalog/begovye-dorozhki",
+          "title": "Беговые дорожки",
+          "symbol": "begovye-dorozhki"
+        }
+      ],
+      "brands": [
+        {
+          "id": 1,
+          "imgSrc": "/img/brands/1.png",
+          "symbol": "roborock",
+          "title": "Roborock",
+          "url": "/brands/roborock"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/brands/2.png",
+          "symbol": "walking-pad",
+          "title": "Walking Pad",
+          "url": "/brands/walking-pad"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/brands/3.png",
+          "symbol": "yeelight",
+          "title": "Yeelight",
+          "url": "/brands/yeelight"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/brands/4.jpg",
+          "symbol": "zomai",
+          "title": "Zomai",
+          "url": "/brands/zomai"
+        }
+      ],
+      "dropdownFooterMenu": [
+        {
+          "id": 1,
+          "url": "/magazine",
+          "title": "Журнал",
+          "symbol": "magazine"
+        },
+        {
+          "id": 2,
+          "url": "/about",
+          "title": "О нас",
+          "symbol": "about"
+        },
+        {
+          "id": 3,
+          "url": "/for-users",
+          "title": "Гарантии",
+          "symbol": "for-users"
+        },
+        {
+          "id": 4,
+          "url": "/for-users",
+          "title": "Оплата и доставка",
+          "symbol": "for-users"
+        },
+        {
+          "id": 5,
+          "url": "/for-users",
+          "title": "Условия продажи",
+          "symbol": "for-users"
+        },
+        {
+          "id": 6,
+          "url": "/for-users",
+          "title": "Обмен и возврат",
+          "symbol": "for-users"
+        },
+        {
+          "id": 7,
+          "url": "/contacts",
+          "title": "Контакты",
+          "symbol": "contacts"
+        }
+      ]
+    },
+    "footer": {
+      "contacts": "Понедельник - пятница, 10:00 — 20:00 <br>ТЦ Формула X, Москва, 27-й километр МКАД внешняя сторона <br>+7 495 003 2233, mail@lamobile.ru",
+      "firstMenu": [
+        {
+          "id": 1,
+          "title": "Каталог",
+          "url": "/catalog",
+          "symbol": "catalog"
+        },
+        {
+          "id": 2,
+          "title": "Журнал",
+          "url": "/magazine",
+          "symbol": "magazine"
+        },
+        {
+          "id": 3,
+          "title": "О нас",
+          "url": "/about",
+          "symbol": "about"
+        },
+        {
+          "id": 4,
+          "title": "Контакты",
+          "url": "/contacts",
+          "symbol": "contacts"
+        },
+        {
+          "id": 5,
+          "title": "Гарантии",
+          "url": "/for-users",
+          "symbol": "for-users"
+        },
+        {
+          "id": 6,
+          "title": "Оплата и доставка",
+          "url": "/for-users",
+          "symbol": "for-users"
+        },
+        {
+          "id": 7,
+          "title": "Условия продажи",
+          "url": "/for-users",
+          "symbol": "for-users"
+        },
+        {
+          "id": 8,
+          "title": "Обмен и возврат",
+          "url": "/for-users",
+          "symbol": "for-users"
+        }
+      ],
+      "copyright": "© 2014-2021  lamobile — Мир, в котором ты живешь"
+    },
+    "marketplaces": [
+      {
+        "title": "Яндекс.Маркет",
+        "url": "#"
+      },
+      {
+        "title": "Ozon",
+        "url": "#"
+      },
+      {
+        "title": "СберМаркет",
+        "url": "#"
+      },
+      {
+        "title": "Aliexpress",
+        "url": "#"
+      }
+    ],
+    "socList": [
+      {
+        "id": 1,
+        "title": "Instagram",
+        "url": "#"
+      },
+      {
+        "id": 2,
+        "title": "Vk",
+        "url": "#"
+      },
+      {
+        "id": 3,
+        "title": "Yandex Zen",
+        "url": "#"
+      },
+      {
+        "id": 4,
+        "title": "Youtube",
+        "url": "#"
+      }
+    ]
+  },
+  "main-banners": [
+    {
+      "id": 1,
+      "title": "Новый круглый <br>и потрясающий",
+      "videoSrc": "/video/banner-1.mp4",
+      "mobVideoSrc": "/video/banner-1-mob.mp4",
+      "descr": "Робот-пылесос Xiaomi Roborock S7 (Русская версия)",
+      "url": "#"
+    },
+    {
+      "id": 2,
+      "title": "Роботы на службе человека",
+      "videoSrc": "/video/banner-1.mp4",
+      "mobVideoSrc": "/video/banner-1-mob.mp4",
+      "descr": "Робот-пылесос Xiaomi Roborock S7 (Русская версия)",
+      "url": "#"
+    },
+    {
+      "id": 3,
+      "title": "Уборка больше <br>не головная боль ",
+      "videoSrc": "/video/banner-1.mp4",
+      "mobVideoSrc": "/video/banner-1-mob.mp4",
+      "descr": "Робот-пылесос Xiaomi Roborock S6 MaxV",
+      "url": "#"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "number": 334543,
+      "createdAt": "2021-11-23T18:25:43.511Z",
+      "products": [
+        {
+          "id": 1,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/product/4.jpg"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/catalog/product-2.png"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/product/1.jpg"
+        }
+      ],
+      "totalPrice": 85694,
+      "status": 1,
+      "checkPdf": "#"
+    },
+    {
+      "id": 2,
+      "number": 334543,
+      "createdAt": "2021-09-15T18:25:43.511Z",
+      "products": [
+        {
+          "id": 1,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/product/4.jpg"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/catalog/product-2.png"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/product/1.jpg"
+        },
+        {
+          "id": 5,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 6,
+          "imgSrc": "/img/product/4.jpg"
+        }
+      ],
+      "totalPrice": 85694,
+      "status": 2,
+      "checkPdf": "#"
+    },
+    {
+      "id": 3,
+      "number": 334543,
+      "createdAt": "2021-11-23T18:25:43.511Z",
+      "products": [
+        {
+          "id": 1,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/product/4.jpg"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/catalog/product-2.png"
+        }
+      ],
+      "totalPrice": 85694,
+      "status": 3,
+      "checkPdf": "#"
+    },
+    {
+      "id": 4,
+      "number": 334543,
+      "createdAt": "2021-11-23T18:25:43.511Z",
+      "products": [
+        {
+          "id": 1,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/product/4.jpg"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/catalog/product-2.png"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/product/1.jpg"
+        },
+        {
+          "id": 5,
+          "imgSrc": "/img/catalog/product-1.png"
+        }
+      ],
+      "totalPrice": 85694,
+      "status": 1,
+      "checkPdf": "#"
+    },
+    {
+      "id": 5,
+      "number": 334543,
+      "createdAt": "2021-11-23T18:25:43.511Z",
+      "products": [
+        {
+          "id": 1,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/product/4.jpg"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/catalog/product-2.png"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/product/1.jpg"
+        },
+        {
+          "id": 5,
+          "imgSrc": "/img/catalog/product-1.png"
+        }
+      ],
+      "totalPrice": 85694,
+      "status": 1,
+      "checkPdf": "#"
+    },
+    {
+      "id": 6,
+      "number": 334543,
+      "createdAt": "2021-11-23T18:25:43.511Z",
+      "products": [
+        {
+          "id": 1,
+          "imgSrc": "/img/catalog/product-1.png"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/product/4.jpg"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/catalog/product-2.png"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/product/1.jpg"
+        },
+        {
+          "id": 5,
+          "imgSrc": "/img/catalog/product-1.png"
+        }
+      ],
+      "totalPrice": 85694,
+      "status": 1,
+      "checkPdf": "#"
+    }
+  ],
+  "product-slider-list": [
+    {
+      "id": 1,
+      "category": "Популярное",
+      "list": [
+        {
+          "id": 1,
+          "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+          "price": 32990,
+          "colors": [
+            {
+              "id": 1,
+              "imgSrc": "/img/colors-img/1.png",
+              "background": "#ffffff",
+              "withBorder": true,
+              "quantity": 1,
+              "price": 23880
+            },
+            {
+              "id": 2,
+              "imgSrc": "/img/colors-img/2.png",
+              "background": "#403F44",
+              "quantity": 3,
+              "price": 23880
+            },
+            {
+              "id": 3,
+              "imgSrc": "/img/colors-img/3.png",
+              "background": "#00426E",
+              "quantity": 2,
+              "price": 23880
+            }
+          ],
+          "imgSrc": [
+            [
+              {
+                "id": 1,
+                "color": 1,
+                "imgSrc": "/img/product/9.jpg"
+              },
+              {
+                "id": 2,
+                "color": 2,
+                "imgSrc": "/img/product/11.jpg"
+              },
+              {
+                "id": 3,
+                "color": 3,
+                "imgSrc": "/img/product/8.jpg"
+              }
+            ],
+            [
+              {
+                "id": 4,
+                "color": 1,
+                "imgSrc": "/img/catalog/product-4.png"
+              },
+              {
+                "id": 5,
+                "color": 2,
+                "imgSrc": "/img/catalog/product-5.png"
+              },
+              {
+                "id": 6,
+                "color": 3,
+                "imgSrc": "/img/catalog/product-6.png"
+              }
+            ],
+            [
+              {
+                "id": 7,
+                "color": 1,
+                "imgSrc": "/img/product/11.jpg"
+              },
+              {
+                "id": 8,
+                "color": 2,
+                "imgSrc": "/img/product/8.jpg"
+              },
+              {
+                "id": 9,
+                "color": 3,
+                "imgSrc": "/img/product/9.jpg"
+              }
+            ]
+          ],
+          "symbol": "osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr",
+          "url": "/catalog/roboty-pylesosy/osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr"
+        },
+        {
+          "id": 2,
+          "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/product/4.jpg",
+          "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+          "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro"
+        },
+        {
+          "id": 3,
+          "title": "Робот-пылесос Xiaomi  Roborock S6 MaxV",
+          "price": 32990,
+          "tag": {
+            "title": "Новинка",
+            "color": "green"
+          },
+          "imgSrc": "/img/catalog/product-1.png",
+          "symbol": "robot-pylesos-xiaomi-roborock-s6-maxv",
+          "url": "/catalog/roboty-pylesosy/robot-pylesos-xiaomi-roborock-s6-maxv"
+        },
+        {
+          "id": 4,
+          "title": "Вертикальный пылесос Xiaomi Viomi A9 ",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/catalog/product-2.png",
+          "symbol": "vertikalnyj-pylesos-xiaomi-viomi-a9",
+          "url": "/catalog/roboty-pylesosy/vertikalnyj-pylesos-xiaomi-viomi-a9"
+        },
+        {
+          "id": 5,
+          "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/catalog/product-2.png",
+          "symbol": "akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+          "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+        },
+        {
+          "id": 6,
+          "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/catalog/product-2.png",
+          "symbol": "akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+          "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Новинки",
+      "list": [
+        {
+          "id": 1,
+          "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+          "price": 32990,
+          "colors": [
+            {
+              "id": 1,
+              "imgSrc": "/img/colors-img/1.png",
+              "background": "#ffffff",
+              "withBorder": true,
+              "quantity": 1,
+              "price": 23880
+            },
+            {
+              "id": 2,
+              "imgSrc": "/img/colors-img/2.png",
+              "background": "#403F44",
+              "quantity": 3,
+              "price": 23880
+            },
+            {
+              "id": 3,
+              "imgSrc": "/img/colors-img/3.png",
+              "background": "#00426E",
+              "quantity": 2,
+              "price": 23880
+            }
+          ],
+          "imgSrc": [
+            [
+              {
+                "id": 1,
+                "color": 1,
+                "imgSrc": "/img/product/9.jpg"
+              },
+              {
+                "id": 2,
+                "color": 2,
+                "imgSrc": "/img/product/11.jpg"
+              },
+              {
+                "id": 3,
+                "color": 3,
+                "imgSrc": "/img/product/8.jpg"
+              }
+            ],
+            [
+              {
+                "id": 4,
+                "color": 1,
+                "imgSrc": "/img/catalog/product-4.png"
+              },
+              {
+                "id": 5,
+                "color": 2,
+                "imgSrc": "/img/catalog/product-5.png"
+              },
+              {
+                "id": 6,
+                "color": 3,
+                "imgSrc": "/img/catalog/product-6.png"
+              }
+            ],
+            [
+              {
+                "id": 7,
+                "color": 1,
+                "imgSrc": "/img/product/11.jpg"
+              },
+              {
+                "id": 8,
+                "color": 2,
+                "imgSrc": "/img/product/8.jpg"
+              },
+              {
+                "id": 9,
+                "color": 3,
+                "imgSrc": "/img/product/9.jpg"
+              }
+            ]
+          ],
+          "symbol": "osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr",
+          "url": "/catalog/roboty-pylesosy/osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr"
+        },
+        {
+          "id": 2,
+          "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/product/4.jpg",
+          "symbol": "nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro",
+          "url": "/catalog/nastolnye-lampy/nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro"
+        },
+        {
+          "id": 3,
+          "title": "Робот-пылесос Xiaomi  Roborock S6 MaxV",
+          "price": 32990,
+          "tag": {
+            "title": "Новинка",
+            "color": "green"
+          },
+          "imgSrc": "/img/catalog/product-1.png",
+          "symbol": "robot-pylesos-xiaomi-roborock-s6-maxv",
+          "url": "/catalog/roboty-pylesosy/robot-pylesos-xiaomi-roborock-s6-maxv"
+        },
+        {
+          "id": 4,
+          "title": "Вертикальный пылесос Xiaomi Viomi A9 ",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/catalog/product-2.png",
+          "symbol": "vertikalnyj-pylesos-xiaomi-viomi-a9",
+          "url": "/catalog/roboty-pylesosy/vertikalnyj-pylesos-xiaomi-viomi-a9"
+        },
+        {
+          "id": 5,
+          "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/catalog/product-2.png",
+          "symbol": "akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+          "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+        },
+        {
+          "id": 6,
+          "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+          "price": 32990,
+          "tag": {
+            "title": "Рекомендуем",
+            "color": "orange"
+          },
+          "imgSrc": "/img/catalog/product-2.png",
+          "symbol": "akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+          "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+        }
+      ]
+    }
+  ],
+  "recommended-products": [
+    {
+      "id": 1,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+    },
+    {
+      "id": 2,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+    },
+    {
+      "id": 3,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Новинка",
+        "color": "green"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+    },
+    {
+      "id": 4,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+    },
+    {
+      "id": 5,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+    },
+    {
+      "id": 6,
+      "title": "Аккумуляторная батарея Roborock Handheld Vacuum Cleaner для пылесоса H6",
+      "price": 32990,
+      "tag": {
+        "title": "Рекомендуем",
+        "color": "orange"
+      },
+      "imgSrc": "/img/catalog/product-1.png",
+      "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6"
+    }
+  ],
+  "search": {
+    "products": [
+      {
+        "id": 1,
+        "title": "Пылесосы Mi",
+        "url": "/brands/mi",
+        "imgSrc": "/img/brands/5.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Пылесосы Roborock",
+        "url": "/brands/roborock",
+        "imgSrc": "/img/brands/6.jpg"
+      }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "title": "Роботы-пылесосы",
+        "url": "/catalog/roboty-pylesosy"
+      },
+      {
+        "id": 2,
+        "title": "Вертикальные пылесосы",
+        "url": "/catalog/vertikalnye-pylesosy"
+      },
+      {
+        "id": 3,
+        "title": "Запчасти для пылесосов",
+        "url": "/catalog/zapchasti-dlya-pylesosov"
+      }
+    ],
+    "accessories": [
+      {
+        "id": 1,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 3,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 4,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 5,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 6,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 7,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 8,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 9,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      },
+      {
+        "id": 10,
+        "title": "Аккумуляторная батарея Roborock Handheld  Vacuum Cleaner для пылесоса H6",
+        "url": "/catalog/roboty-pylesosy/akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6",
+        "imgSrc": "/img/products-thumb/1.png"
+      }
+    ]
+  },
+  "similar": [
+    {
+      "id": 1,
+      "tag": "Новинка",
+      "title": "Роботы на службе человека",
+      "descr": "Пылесосы нового поколения",
+      "imgSrc": "/img/magazine/1.jpg",
+      "url": "#"
+    },
+    {
+      "id": 2,
+      "tag": "Новинка",
+      "title": "Умные авто аксессурсы",
+      "descr": "Пылесосы нового поколения",
+      "imgSrc": "/img/magazine/2.jpg",
+      "url": "#"
+    },
+    {
+      "id": 3,
+      "tag": "Новинка",
+      "title": "Да будет свет!",
+      "descr": "Пылесосы нового поколения",
+      "imgSrc": "/img/magazine/3.jpg",
+      "url": "#"
+    },
+    {
+      "id": 4,
+      "tag": "Новинка",
+      "title": "Роботы на службе человека",
+      "descr": "Пылесосы нового поколения",
+      "imgSrc": "/img/magazine/1.jpg",
+      "url": "#"
+    }
+  ],
+  "subcategories": [
+    {
+      "id": 1,
+      "title": "Роботы-пылесосы",
+      "code": "roboty-pylesosy"
+    },
+    {
+      "id": 2,
+      "title": "вертикальные пылесосы",
+      "code": "roboty-pylesosy"
+    },
+    {
+      "id": 3,
+      "title": "станция самоочистки",
+      "code": "roboty-pylesosy"
+    },
+    {
+      "id": 4,
+      "title": "аксессуары к роботам-пылесосам",
+      "code": "roboty-pylesosy"
+    }
+  ],
+  "user": {
+    "name": "Владимир",
+    "phone": "79009990099",
+    "email": "mail@mail.ru",
+    "password": "123456",
+    "type": 1,
+    "basket": 5
+  },
+  "blog-post-umnye-avto-aksessursy": {
+    "banner": "/img/post/img-main.jpg",
+    "mobBanner": "/img/post/img-main-mob.jpg",
+    "createdAt": "2021-11-30T00:00:00.511Z",
+    "category": "Новинки",
+    "views": 15,
+    "title": "Уборка больше не головная боль",
+    "descr": "Посмотрите на мир в новом свете. Это не девиз, а правило. Правило компании Yeelight. Вы еще не знакомы с ней? Задавать тенденции, а не следовать им — фирменный почерк команды дизайнеров и инженеров, которые занимаются разработкой освещения.",
+    "content": {
+      "block_1": {
+        "img": "/img/post/img-1.jpg",
+        "text": "<p>Чем еще хорош этот светильник? Тем, что он портативный. В него встроен мощный аккумулятор. Он обеспечивает до 40 часов автономной работы. Все зависит от яркости. Менять ее просто – достаточно провести по сенсорной панели или подробрать нужные настройки в приложении. Доступно 5 режимов освещения. Подзаряжать прибор можно как от розетки, так и от внешнего аккумулятора.</p><p>Дизайн со светлым посылом. Yeelight Crystal Pendant Light выделяется среди ламп. Плоская форма со встроенными диодами и 14 линзами дает естественный, равномерный и яркий световой поток.</p><p>От холодных голубых до тёплых жёлтых оттенков – рукой подать. С помощью приложения можно менять настройки. 4 предустановленные сцены снимают часть задач. Yeelight Crystal Pendant Light легко крепится к потолку, за ним легко ухаживать. Внутренние элементы надежно скрыты под герметичным корпусом – насекомым и пыли там не место.</p>"
+      },
+      "img_slider": [
+        "/img/post/img-2.jpg",
+        "/img/post/img-3.jpg",
+        "/img/post/img-4.jpg",
+        "/img/post/img-5.jpg"
+      ],
+      "block_2": {
+        "title": "Yeelight Motion Sensor Night Light",
+        "text": "<p>Просто и со вкусом! Три необычных светильника для любого интерьера! <br>Удачный «выход в свет». Yeelight Motion Sensor Night Light – ночник с датчиком движения. Он работает в нескольких режимах. Достаточно нажать на тумблер — лампа будет работать постоянно или включаться автоматически. В этом случае активируется сенсор. Он распознает движения на расстоянии в 7 метров. Даже в темноте.</p>"
+      },
+      "block_3": {
+        "img": "/img/post/img-6.jpg",
+        "title": "Yeelight Motion Sensor Night Light",
+        "text": "<p>Просто и со вкусом! Три необычных светильника для любого интерьера! <br>Удачный «выход в свет». Yeelight Motion Sensor Night Light – ночник с датчиком движения. Он работает в нескольких режимах. Достаточно нажать на тумблер — лампа будет работать постоянно или включаться автоматически. В этом случае активируется сенсор. Он распознает движения на расстоянии в 7 метров. Даже в темноте.</p>"
+      }
+    },
+    "similar": [
+      {
+        "id": 1,
+        "tag": "Новинка",
+        "title": "Роботы на службе человека",
+        "descr": "Пылесосы нового поколения",
+        "imgSrc": "/img/magazine/1.jpg",
+        "url": "#"
+      },
+      {
+        "id": 2,
+        "tag": "Новинка",
+        "title": "Умные авто аксессурсы",
+        "descr": "Пылесосы нового поколения",
+        "imgSrc": "/img/magazine/2.jpg",
+        "url": "#"
+      },
+      {
+        "id": 3,
+        "tag": "Новинка",
+        "title": "Да будет свет!",
+        "descr": "Пылесосы нового поколения",
+        "imgSrc": "/img/magazine/3.jpg",
+        "url": "#"
+      },
+      {
+        "id": 4,
+        "tag": "Новинка",
+        "title": "Роботы на службе человека",
+        "descr": "Пылесосы нового поколения",
+        "imgSrc": "/img/magazine/1.jpg",
+        "url": "#"
+      }
+    ]
+  },
+  "products-akkumulyatornaya-batareya-roborock-handheld-vacuum-cleaner-dlya-pylesosa-h6": {
+    "productId": 7770002257,
+    "pageType": 1,
+    "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+    "colors": [
+      {
+        "id": 1,
+        "background": "#EEEFF3"
+      },
+      {
+        "id": 2,
+        "background": "#000000"
+      },
+      {
+        "id": 3,
+        "background": "#DDBBBB"
+      }
+    ],
+    "productImages": [
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/6.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/7.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/7.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/4.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/7.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/5.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/6.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/7.jpg"
+          }
+        ]
+      }
+    ],
+    "price": 990,
+    "giftsDescr": "Рюкзак + термос + зонт Roborock <br> в подарок при покупке пылесоса",
+    "gifts": [
+      {
+        "id": 1,
+        "title": "Рюкзак",
+        "imgSrc": "/img/gifts/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Термос",
+        "imgSrc": "/img/gifts/2.png"
+      },
+      {
+        "id": 3,
+        "title": "зонт Roborock",
+        "imgSrc": "/img/gifts/3.png"
+      }
+    ],
+    "advantages": [
+      {
+        "id": 1,
+        "title": "Мощное всасывание",
+        "wide": true,
+        "descr": "И для каждого такого робота у нас есть запчасти <br>Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/1.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Жесткий но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/2.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Жесткий но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/3.jpg"
+      }
+    ],
+    "description": "<p>Все прелести освещения. Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) – универсальная лампа, которая подстроится под любые задачи. Световой поток в 500 Люмен даёт возможность осветить даже большой стол. Настройки можно менять через приложение «Mi Home».</p><p>Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) сложится и повернётся под нужный угол — есть сегменты с шарнирами. Сенсорная панель упрощает регулировку яркости. В автоматическом режиме лампа «подскажет», достаточно ли света в помещении. Если да — индикатор загорится зелёным огоньком. Удобное крепление — надёжная фиксация на краю стола.</p>",
+    "features": [
+      {
+        "id": 1,
+        "title": "Основное",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип",
+            "value": "Робот-пылесос"
+          },
+          {
+            "id": 2,
+            "title": "Производитель",
+            "value": "Roborock"
+          },
+          {
+            "id": 3,
+            "title": "Модель",
+            "value": "S6 MaxV"
+          },
+          {
+            "id": 4,
+            "title": "Страна производитель",
+            "value": "Китай"
+          },
+          {
+            "id": 5,
+            "title": "Размеры упаковки (ш × в × д)",
+            "value": "403 x 152 x 489 мм"
+          },
+          {
+            "id": 6,
+            "title": "Вес",
+            "value": "3700 г"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип аккумулятора",
+            "value": "Литий-ионный"
+          },
+          {
+            "id": 2,
+            "title": "Ёмкость аккумулятора",
+            "value": "5200 мА·ч"
+          },
+          {
+            "id": 3,
+            "title": "Мощность",
+            "value": "66 Вт"
+          },
+          {
+            "id": 4,
+            "title": "Время зарядки",
+            "value": "6 ч"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Мощность всасывания",
+            "value": "2500 PA"
+          },
+          {
+            "id": 2,
+            "title": "Время работы",
+            "value": "180 мин"
+          },
+          {
+            "id": 3,
+            "title": "Cистема фильтрации",
+            "value": "HEPA"
+          },
+          {
+            "id": 4,
+            "title": "Ёмкость бака воды",
+            "value": "297 мл"
+          },
+          {
+            "id": 5,
+            "title": "Полный расход воды",
+            "value": "60-100 мин"
+          },
+          {
+            "id": 6,
+            "title": "Пылесборник",
+            "value": "460 мл"
+          },
+          {
+            "id": 7,
+            "title": "Шум",
+            "value": "67"
+          },
+          {
+            "id": 8,
+            "title": "Уборка",
+            "value": "Сухая, влажная"
+          },
+          {
+            "id": 9,
+            "title": "Обслуживаемая площадь",
+            "value": "до 200 м²"
+          },
+          {
+            "id": 10,
+            "title": "Навигация",
+            "value": "LDS+SLAM, двойная камера"
+          },
+          {
+            "id": 11,
+            "title": "Боковая щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 12,
+            "title": "Мягкий бампер",
+            "value": "Есть"
+          },
+          {
+            "id": 13,
+            "title": "Турбо-щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 14,
+            "title": "Преодоление препятствий",
+            "value": "2 см"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Функции",
+        "list": [
+          {
+            "id": 1,
+            "title": "Приложение",
+            "value": "Mihome, Roborock"
+          },
+          {
+            "id": 2,
+            "title": "Wi-Fi",
+            "value": "2.4 Ггц"
+          },
+          {
+            "id": 3,
+            "title": "Построение карты помещения",
+            "value": "Да"
+          },
+          {
+            "id": 4,
+            "title": "Количество сохраненных карт",
+            "value": "до 4 шт"
+          },
+          {
+            "id": 5,
+            "title": "Зоны без влажной уборки",
+            "value": "Да"
+          },
+          {
+            "id": 6,
+            "title": "Расчет времени уборки",
+            "value": "Да"
+          },
+          {
+            "id": 7,
+            "title": "Уборка по расписанию",
+            "value": "Да"
+          },
+          {
+            "id": 8,
+            "title": "Регулировка подачи воды",
+            "value": "Электронная"
+          },
+          {
+            "id": 9,
+            "title": "Алгоритм адаптивного маршрута",
+            "value": "Да"
+          },
+          {
+            "id": 10,
+            "title": "Зональная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 11,
+            "title": "Выборочная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 12,
+            "title": "Защита от падений",
+            "value": "Да"
+          },
+          {
+            "id": 13,
+            "title": "Увеличение мощности на коврах",
+            "value": "Да запретные зоны"
+          },
+          {
+            "id": 14,
+            "title": "Виртуальные стены",
+            "value": "Да"
+          },
+          {
+            "id": 15,
+            "title": "Определение местоположение",
+            "value": "Да"
+          },
+          {
+            "id": 16,
+            "title": "Режим не беспокоить",
+            "value": "Да"
+          },
+          {
+            "id": 17,
+            "title": "Установка на зарядное устройство",
+            "value": "Да"
+          }
+        ]
+      }
+    ],
+    "set": {
+      "list": [
+        "Устройство",
+        "Док-станция",
+        "Кабель питания",
+        "Кронштейн ткани для мытья пола",
+        "Влагостойкая подставка",
+        "Резервуар для воды",
+        "Ткань для мытья пола",
+        "Руководство пользователя"
+      ],
+      "instruction": "#"
+    },
+    "featuresFooterInfo": "Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.",
+    "shops": [
+      {
+        "id": 1,
+        "name": "Яндекс.Маркет",
+        "img": "/img/marketplaces/1.png",
+        "price": 1030,
+        "link":"#"
+      },
+      {
+        "id": 2,
+        "name": "Ozon",
+        "img": "/img/marketplaces/2.png",
+        "price": 1130,
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Cбер Маркет",
+        "img": "/img/marketplaces/3.png",
+        "price": 1430,
+        "link": "#"
+      }
+    ]
+  },
+  "products-dark-theme": {
+    "productId": 7770002257,
+    "pageType": 2,
+    "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+    "colors": [
+      {
+        "id": 1,
+        "background": "#EEEFF3",
+        "title": "Серый"
+      },
+      {
+        "id": 2,
+        "background": "#000000",
+        "title": "Черный"
+      },
+      {
+        "id": 3,
+        "background": "#DDBBBB",
+        "title": "Пудровый"
+      }
+    ],
+    "productImages": [
+      {
+        "wide": true,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/10.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 4,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 5,
+            "color": 2,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 6,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 7,
+            "color": 1,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 8,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 9,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      },
+      {
+        "wide": true,
+        "list": [
+          {
+            "id": 9,
+            "color": 1,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 10,
+            "color": 2,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 11,
+            "color": 3,
+            "imgSrc": "/img/product/10.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 12,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 13,
+            "color": 2,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 14,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 15,
+            "color": 1,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 16,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 17,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      }
+    ],
+    "price": 990,
+    "giftsDescr": "Рюкзак + термос + зонт Roborock <br> в подарок при покупке пылесоса",
+    "gifts": [
+      {
+        "id": 1,
+        "title": "Рюкзак",
+        "imgSrc": "/img/gifts/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Термос",
+        "imgSrc": "/img/gifts/2.png"
+      },
+      {
+        "id": 3,
+        "title": "зонт Roborock",
+        "imgSrc": "/img/gifts/3.png"
+      }
+    ],
+    "advantages": [
+      {
+        "id": 1,
+        "title": "Жесткий, но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/4.jpg"
+      },
+      {
+        "id": 2,
+        "imgSrc": "/img/product-advantages/5.jpg"
+      },
+      {
+        "id": 3,
+        "imgSrc": "/img/product-advantages/6.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Всегда под рукой",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/7.jpg"
+      }
+    ],
+    "description": "<p>Все прелести освещения. Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) – универсальная лампа, которая подстроится под любые задачи. Световой поток в 500 Люмен даёт возможность осветить даже большой стол. Настройки можно менять через приложение «Mi Home».</p><p>Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) сложится и повернётся под нужный угол — есть сегменты с шарнирами. Сенсорная панель упрощает регулировку яркости. В автоматическом режиме лампа «подскажет», достаточно ли света в помещении. Если да — индикатор загорится зелёным огоньком. Удобное крепление — надёжная фиксация на краю стола.</p>",
+    "features": [
+      {
+        "id": 1,
+        "title": "Основное",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип",
+            "value": "Робот-пылесос"
+          },
+          {
+            "id": 2,
+            "title": "Производитель",
+            "value": "Roborock"
+          },
+          {
+            "id": 3,
+            "title": "Модель",
+            "value": "S6 MaxV"
+          },
+          {
+            "id": 4,
+            "title": "Страна производитель",
+            "value": "Китай"
+          },
+          {
+            "id": 5,
+            "title": "Размеры упаковки (ш × в × д)",
+            "value": "403 x 152 x 489 мм"
+          },
+          {
+            "id": 6,
+            "title": "Вес",
+            "value": "3700 г"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип аккумулятора",
+            "value": "Литий-ионный"
+          },
+          {
+            "id": 2,
+            "title": "Ёмкость аккумулятора",
+            "value": "5200 мА·ч"
+          },
+          {
+            "id": 3,
+            "title": "Мощность",
+            "value": "66 Вт"
+          },
+          {
+            "id": 4,
+            "title": "Время зарядки",
+            "value": "6 ч"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Мощность всасывания",
+            "value": "2500 PA"
+          },
+          {
+            "id": 2,
+            "title": "Время работы",
+            "value": "180 мин"
+          },
+          {
+            "id": 3,
+            "title": "Cистема фильтрации",
+            "value": "HEPA"
+          },
+          {
+            "id": 4,
+            "title": "Ёмкость бака воды",
+            "value": "297 мл"
+          },
+          {
+            "id": 5,
+            "title": "Полный расход воды",
+            "value": "60-100 мин"
+          },
+          {
+            "id": 6,
+            "title": "Пылесборник",
+            "value": "460 мл"
+          },
+          {
+            "id": 7,
+            "title": "Шум",
+            "value": "67"
+          },
+          {
+            "id": 8,
+            "title": "Уборка",
+            "value": "Сухая, влажная"
+          },
+          {
+            "id": 9,
+            "title": "Обслуживаемая площадь",
+            "value": "до 200 м²"
+          },
+          {
+            "id": 10,
+            "title": "Навигация",
+            "value": "LDS+SLAM, двойная камера"
+          },
+          {
+            "id": 11,
+            "title": "Боковая щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 12,
+            "title": "Мягкий бампер",
+            "value": "Есть"
+          },
+          {
+            "id": 13,
+            "title": "Турбо-щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 14,
+            "title": "Преодоление препятствий",
+            "value": "2 см"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Функции",
+        "list": [
+          {
+            "id": 1,
+            "title": "Приложение",
+            "value": "Mihome, Roborock"
+          },
+          {
+            "id": 2,
+            "title": "Wi-Fi",
+            "value": "2.4 Ггц"
+          },
+          {
+            "id": 3,
+            "title": "Построение карты помещения",
+            "value": "Да"
+          },
+          {
+            "id": 4,
+            "title": "Количество сохраненных карт",
+            "value": "до 4 шт"
+          },
+          {
+            "id": 5,
+            "title": "Зоны без влажной уборки",
+            "value": "Да"
+          },
+          {
+            "id": 6,
+            "title": "Расчет времени уборки",
+            "value": "Да"
+          },
+          {
+            "id": 7,
+            "title": "Уборка по расписанию",
+            "value": "Да"
+          },
+          {
+            "id": 8,
+            "title": "Регулировка подачи воды",
+            "value": "Электронная"
+          },
+          {
+            "id": 9,
+            "title": "Алгоритм адаптивного маршрута",
+            "value": "Да"
+          },
+          {
+            "id": 10,
+            "title": "Зональная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 11,
+            "title": "Выборочная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 12,
+            "title": "Защита от падений",
+            "value": "Да"
+          },
+          {
+            "id": 13,
+            "title": "Увеличение мощности на коврах",
+            "value": "Да запретные зоны"
+          },
+          {
+            "id": 14,
+            "title": "Виртуальные стены",
+            "value": "Да"
+          },
+          {
+            "id": 15,
+            "title": "Определение местоположение",
+            "value": "Да"
+          },
+          {
+            "id": 16,
+            "title": "Режим не беспокоить",
+            "value": "Да"
+          },
+          {
+            "id": 17,
+            "title": "Установка на зарядное устройство",
+            "value": "Да"
+          }
+        ]
+      }
+    ],
+    "set": {
+      "list": [
+        "Устройство",
+        "Док-станция",
+        "Кабель питания",
+        "Кронштейн ткани для мытья пола",
+        "Влагостойкая подставка",
+        "Резервуар для воды",
+        "Ткань для мытья пола",
+        "Руководство пользователя"
+      ],
+      "instruction": "#"
+    },
+    "featuresFooterInfo": "Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.",
+    "youtubeVideo": {
+      "id": "tWp0-btZXTU",
+      "poster": "/img/video/poster.jpg"
+    },
+    "additionalAdvantages": {
+      "title": "Эй, круглый!",
+      "descr": "Автоматически подстроится под тип загрязнения и любую рабочую поверхность. Когда заряд батареи будет на исходе, робот рассчитает время, необходимое для завершения уборки, \"подпитается\" ровно для этой цели. Ждать полного восстановления не нужно.",
+      "list": [
+        {
+          "id": 1,
+          "imgSrc": "/img/advantages/1.svg",
+          "title": "Круглый как колобок, <br>проедет куда угодно"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/advantages/2.svg",
+          "title": "Сам найдёт зарядку. <br>Сам зарядится"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/advantages/3.svg",
+          "title": "Полноценный <br>пылесос"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/advantages/4.svg",
+          "title": "Моет полы лучше, <br>чем твоя мама"
+        }
+      ]
+    },
+    "operation": {
+      "title": "Едет туда, куда ты хочешь",
+      "descr": "S6 отличает вашу кухню от детской комнаты, спальню от гостиной. Его высокоточный лазерный дальномер вращается со скоростью 300 об / мин, когда он сканирует ваши комнаты. Затем данные передаются по пользовательскому алгоритму в приложение Mi Home, для получения карты плана этажа с точностью до 98%. Теперь вы можете запланировать уборку для одной комнаты, нескольких комнат, даже всего вашего дома. Уборка никогда не была такой простой.",
+      "imgSrc": "/img/plan.svg"
+    },
+    "compareSection": true,
+    "shops": [
+      {
+        "id": 1,
+        "name": "Яндекс.Маркет",
+        "img": "/img/marketplaces/1.png",
+        "price": 1030,
+        "link":"#"
+      },
+      {
+        "id": 2,
+        "name": "Ozon",
+        "img": "/img/marketplaces/2.png",
+        "price": 1130,
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Cбер Маркет",
+        "img": "/img/marketplaces/3.png",
+        "price": 1430,
+        "link": "#"
+      }
+    ],
+    "deliveryTime": "Доставим сегодня при заказе до 15:00 и оплате онлайн",
+    "deliveryGift": "Бесплатная доставка"
+  },
+  "products-nastolnaya-lampa-xiaomi-yeelight-led-vision-desk-lamp-v1-pro": {
+    "productId": 7770002257,
+    "pageType": 1,
+    "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+    "colors": [
+      {
+        "id": 1,
+        "background": "#EEEFF3",
+        "title": "Серый"
+      },
+      {
+        "id": 2,
+        "background": "#000000",
+        "title": "Черный"
+      },
+      {
+        "id": 3,
+        "background": "#DDBBBB",
+        "title": "Пудровый"
+      },
+      {
+        "id": 4,
+        "background": "#FF495F",
+        "title": "Розовый"
+      }
+    ],
+    "productImages": [
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 4,
+            "color": 4,
+            "imgSrc": "/img/product/5.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/7.jpg"
+          },
+          {
+            "id": 4,
+            "color": 4,
+            "imgSrc": "/img/product/6.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/7.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 4,
+            "color": 4,
+            "imgSrc": "/img/product/7.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/7.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 4,
+            "color": 4,
+            "imgSrc": "/img/product/4.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/4.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 4,
+            "color": 4,
+            "imgSrc": "/img/product/5.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/5.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/6.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/7.jpg"
+          },
+          {
+            "id": 4,
+            "color": 4,
+            "imgSrc": "/img/product/6.jpg"
+          }
+        ]
+      }
+    ],
+    "price": 990,
+    "giftsDescr": "Рюкзак + термос + зонт Roborock <br> в подарок при покупке пылесоса",
+    "gifts": [
+      {
+        "id": 1,
+        "title": "Рюкзак",
+        "imgSrc": "/img/gifts/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Термос",
+        "imgSrc": "/img/gifts/2.png"
+      },
+      {
+        "id": 3,
+        "title": "зонт Roborock",
+        "imgSrc": "/img/gifts/3.png"
+      }
+    ],
+    "advantages": [
+      {
+        "id": 1,
+        "title": "Мощное всасывание",
+        "wide": true,
+        "descr": "И для каждого такого робота у нас есть запчасти <br>Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/1.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Жесткий но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/2.jpg"
+      },
+      {
+        "id": 3,
+        "title": "Жесткий но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/3.jpg"
+      }
+    ],
+    "description": "<p>Все прелести освещения. Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) – универсальная лампа, которая подстроится под любые задачи. Световой поток в 500 Люмен даёт возможность осветить даже большой стол. Настройки можно менять через приложение «Mi Home».</p><p>Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) сложится и повернётся под нужный угол — есть сегменты с шарнирами. Сенсорная панель упрощает регулировку яркости. В автоматическом режиме лампа «подскажет», достаточно ли света в помещении. Если да — индикатор загорится зелёным огоньком. Удобное крепление — надёжная фиксация на краю стола.</p>",
+    "features": [
+      {
+        "id": 1,
+        "title": "Основное",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип",
+            "value": "Робот-пылесос"
+          },
+          {
+            "id": 2,
+            "title": "Производитель",
+            "value": "Roborock"
+          },
+          {
+            "id": 3,
+            "title": "Модель",
+            "value": "S6 MaxV"
+          },
+          {
+            "id": 4,
+            "title": "Страна производитель",
+            "value": "Китай"
+          },
+          {
+            "id": 5,
+            "title": "Размеры упаковки (ш × в × д)",
+            "value": "403 x 152 x 489 мм"
+          },
+          {
+            "id": 6,
+            "title": "Вес",
+            "value": "3700 г"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип аккумулятора",
+            "value": "Литий-ионный"
+          },
+          {
+            "id": 2,
+            "title": "Ёмкость аккумулятора",
+            "value": "5200 мА·ч"
+          },
+          {
+            "id": 3,
+            "title": "Мощность",
+            "value": "66 Вт"
+          },
+          {
+            "id": 4,
+            "title": "Время зарядки",
+            "value": "6 ч"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Мощность всасывания",
+            "value": "2500 PA"
+          },
+          {
+            "id": 2,
+            "title": "Время работы",
+            "value": "180 мин"
+          },
+          {
+            "id": 3,
+            "title": "Cистема фильтрации",
+            "value": "HEPA"
+          },
+          {
+            "id": 4,
+            "title": "Ёмкость бака воды",
+            "value": "297 мл"
+          },
+          {
+            "id": 5,
+            "title": "Полный расход воды",
+            "value": "60-100 мин"
+          },
+          {
+            "id": 6,
+            "title": "Пылесборник",
+            "value": "460 мл"
+          },
+          {
+            "id": 7,
+            "title": "Шум",
+            "value": "67"
+          },
+          {
+            "id": 8,
+            "title": "Уборка",
+            "value": "Сухая, влажная"
+          },
+          {
+            "id": 9,
+            "title": "Обслуживаемая площадь",
+            "value": "до 200 м²"
+          },
+          {
+            "id": 10,
+            "title": "Навигация",
+            "value": "LDS+SLAM, двойная камера"
+          },
+          {
+            "id": 11,
+            "title": "Боковая щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 12,
+            "title": "Мягкий бампер",
+            "value": "Есть"
+          },
+          {
+            "id": 13,
+            "title": "Турбо-щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 14,
+            "title": "Преодоление препятствий",
+            "value": "2 см"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Функции",
+        "list": [
+          {
+            "id": 1,
+            "title": "Приложение",
+            "value": "Mihome, Roborock"
+          },
+          {
+            "id": 2,
+            "title": "Wi-Fi",
+            "value": "2.4 Ггц"
+          },
+          {
+            "id": 3,
+            "title": "Построение карты помещения",
+            "value": "Да"
+          },
+          {
+            "id": 4,
+            "title": "Количество сохраненных карт",
+            "value": "до 4 шт"
+          },
+          {
+            "id": 5,
+            "title": "Зоны без влажной уборки",
+            "value": "Да"
+          },
+          {
+            "id": 6,
+            "title": "Расчет времени уборки",
+            "value": "Да"
+          },
+          {
+            "id": 7,
+            "title": "Уборка по расписанию",
+            "value": "Да"
+          },
+          {
+            "id": 8,
+            "title": "Регулировка подачи воды",
+            "value": "Электронная"
+          },
+          {
+            "id": 9,
+            "title": "Алгоритм адаптивного маршрута",
+            "value": "Да"
+          },
+          {
+            "id": 10,
+            "title": "Зональная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 11,
+            "title": "Выборочная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 12,
+            "title": "Защита от падений",
+            "value": "Да"
+          },
+          {
+            "id": 13,
+            "title": "Увеличение мощности на коврах",
+            "value": "Да запретные зоны"
+          },
+          {
+            "id": 14,
+            "title": "Виртуальные стены",
+            "value": "Да"
+          },
+          {
+            "id": 15,
+            "title": "Определение местоположение",
+            "value": "Да"
+          },
+          {
+            "id": 16,
+            "title": "Режим не беспокоить",
+            "value": "Да"
+          },
+          {
+            "id": 17,
+            "title": "Установка на зарядное устройство",
+            "value": "Да"
+          }
+        ]
+      }
+    ],
+    "set": {
+      "list": [
+        "Устройство",
+        "Док-станция",
+        "Кабель питания",
+        "Кронштейн ткани для мытья пола",
+        "Влагостойкая подставка",
+        "Резервуар для воды",
+        "Ткань для мытья пола",
+        "Руководство пользователя"
+      ],
+      "instruction": "#"
+    },
+    "featuresFooterInfo": "Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.",
+    "shops": [
+      {
+        "id": 1,
+        "name": "Яндекс.Маркет",
+        "img": "/img/marketplaces/1.png",
+        "link":"#"
+      },
+      {
+        "id": 2,
+        "name": "Ozon",
+        "img": "/img/marketplaces/2.png",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Cбер Маркет",
+        "img": "/img/marketplaces/3.png",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Aliexpress",
+        "img": "/img/marketplaces/4.png",
+        "link": "#"
+      }
+    ],
+    "deliveryTime": "Доставим сегодня при заказе до 15:00 и оплате онлайн",
+    "deliveryGift": "Бесплатная доставка"
+  },
+  "products-osnovnaya-shetka-roborock-main-brush-robotic-vacuum-cleaner-dlya-robota-pylesosa-s5-sdzs02rr": {
+    "productId": 7770002257,
+    "pageType": 1,
+    "title": "Основная щетка Roborock Main Brush of Robotic Vacuum Cleaner для робота-пылесоса S5 (SDZS02RR)",
+    "colors": [
+      {
+        "id": 1,
+        "background": "#EEEFF3"
+      },
+      {
+        "id": 2,
+        "background": "#000000"
+      },
+      {
+        "id": 3,
+        "background": "#DDBBBB"
+      }
+    ],
+    "productImages": [
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/1.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/2.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/3.jpg"
+          }
+        ]
+      }
+    ],
+    "price": 990,
+    "giftsDescr": "Рюкзак + термос + зонт Roborock <br> в подарок при покупке пылесоса",
+    "gifts": [
+      {
+        "id": 1,
+        "title": "Рюкзак",
+        "imgSrc": "/img/gifts/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Термос",
+        "imgSrc": "/img/gifts/2.png"
+      },
+      {
+        "id": 3,
+        "title": "зонт Roborock",
+        "imgSrc": "/img/gifts/3.png"
+      }
+    ],
+    "features": [
+      {
+        "id": 1,
+        "title": "Основное",
+        "list": [
+          {
+            "id": 1,
+            "title": "Производитель",
+            "value": "Roborock"
+          },
+          {
+            "id": 2,
+            "title": "Страна",
+            "value": "Китай"
+          },
+          {
+            "id": 3,
+            "title": "Материал",
+            "value": "Пластик"
+          },
+          {
+            "id": 4,
+            "title": "Объём",
+            "value": "297 мл"
+          },
+          {
+            "id": 5,
+            "title": "Гарантия",
+            "url": "/guarantee",
+            "value": "365 дней"
+          }
+        ]
+      }
+    ],
+    "featuresFooterInfo": "Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.",
+    "shops": [
+      {
+        "id": 1,
+        "name": "Яндекс.Маркет",
+        "img": "/img/marketplaces/1.png",
+        "price": 1030,
+        "link":"#"
+      },
+      {
+        "id": 2,
+        "name": "Ozon",
+        "img": "/img/marketplaces/2.png",
+        "price": 1130,
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Cбер Маркет",
+        "img": "/img/marketplaces/3.png",
+        "price": 1430,
+        "link": "#"
+      }
+    ]
+  },
+  "products-vertikalnyj-pylesos-xiaomi-viomi-a9": {
+    "productId": 7770002257,
+    "pageType": 2,
+    "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+    "colors": [
+      {
+        "id": 1,
+        "background": "#EEEFF3"
+      },
+      {
+        "id": 2,
+        "background": "#000000"
+      },
+      {
+        "id": 3,
+        "background": "#DDBBBB"
+      }
+    ],
+    "productImages": [
+      {
+        "wide": true,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/10.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 4,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 5,
+            "color": 2,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 6,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 7,
+            "color": 1,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 8,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 9,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      },
+      {
+        "wide": true,
+        "list": [
+          {
+            "id": 9,
+            "color": 1,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 10,
+            "color": 2,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 11,
+            "color": 3,
+            "imgSrc": "/img/product/10.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 12,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 13,
+            "color": 2,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 14,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 15,
+            "color": 1,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 16,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 17,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      }
+    ],
+    "inStock": false,
+    "advantages": [
+      {
+        "id": 1,
+        "title": "Жесткий, но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/4.jpg"
+      },
+      {
+        "id": 2,
+        "imgSrc": "/img/product-advantages/5.jpg"
+      },
+      {
+        "id": 3,
+        "imgSrc": "/img/product-advantages/6.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Всегда под рукой",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/7.jpg"
+      }
+    ],
+    "description": "<p>Все прелести освещения. Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) – универсальная лампа, которая подстроится под любые задачи. Световой поток в 500 Люмен даёт возможность осветить даже большой стол. Настройки можно менять через приложение «Mi Home».</p><p>Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) сложится и повернётся под нужный угол — есть сегменты с шарнирами. Сенсорная панель упрощает регулировку яркости. В автоматическом режиме лампа «подскажет», достаточно ли света в помещении. Если да — индикатор загорится зелёным огоньком. Удобное крепление — надёжная фиксация на краю стола.</p>",
+    "features": [
+      {
+        "id": 1,
+        "title": "Основное",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип",
+            "value": "Робот-пылесос"
+          },
+          {
+            "id": 2,
+            "title": "Производитель",
+            "value": "Roborock"
+          },
+          {
+            "id": 3,
+            "title": "Модель",
+            "value": "S6 MaxV"
+          },
+          {
+            "id": 4,
+            "title": "Страна производитель",
+            "value": "Китай"
+          },
+          {
+            "id": 5,
+            "title": "Размеры упаковки (ш × в × д)",
+            "value": "403 x 152 x 489 мм"
+          },
+          {
+            "id": 6,
+            "title": "Вес",
+            "value": "3700 г"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип аккумулятора",
+            "value": "Литий-ионный"
+          },
+          {
+            "id": 2,
+            "title": "Ёмкость аккумулятора",
+            "value": "5200 мА·ч"
+          },
+          {
+            "id": 3,
+            "title": "Мощность",
+            "value": "66 Вт"
+          },
+          {
+            "id": 4,
+            "title": "Время зарядки",
+            "value": "6 ч"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Мощность всасывания",
+            "value": "2500 PA"
+          },
+          {
+            "id": 2,
+            "title": "Время работы",
+            "value": "180 мин"
+          },
+          {
+            "id": 3,
+            "title": "Cистема фильтрации",
+            "value": "HEPA"
+          },
+          {
+            "id": 4,
+            "title": "Ёмкость бака воды",
+            "value": "297 мл"
+          },
+          {
+            "id": 5,
+            "title": "Полный расход воды",
+            "value": "60-100 мин"
+          },
+          {
+            "id": 6,
+            "title": "Пылесборник",
+            "value": "460 мл"
+          },
+          {
+            "id": 7,
+            "title": "Шум",
+            "value": "67"
+          },
+          {
+            "id": 8,
+            "title": "Уборка",
+            "value": "Сухая, влажная"
+          },
+          {
+            "id": 9,
+            "title": "Обслуживаемая площадь",
+            "value": "до 200 м²"
+          },
+          {
+            "id": 10,
+            "title": "Навигация",
+            "value": "LDS+SLAM, двойная камера"
+          },
+          {
+            "id": 11,
+            "title": "Боковая щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 12,
+            "title": "Мягкий бампер",
+            "value": "Есть"
+          },
+          {
+            "id": 13,
+            "title": "Турбо-щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 14,
+            "title": "Преодоление препятствий",
+            "value": "2 см"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Функции",
+        "list": [
+          {
+            "id": 1,
+            "title": "Приложение",
+            "value": "Mihome, Roborock"
+          },
+          {
+            "id": 2,
+            "title": "Wi-Fi",
+            "value": "2.4 Ггц"
+          },
+          {
+            "id": 3,
+            "title": "Построение карты помещения",
+            "value": "Да"
+          },
+          {
+            "id": 4,
+            "title": "Количество сохраненных карт",
+            "value": "до 4 шт"
+          },
+          {
+            "id": 5,
+            "title": "Зоны без влажной уборки",
+            "value": "Да"
+          },
+          {
+            "id": 6,
+            "title": "Расчет времени уборки",
+            "value": "Да"
+          },
+          {
+            "id": 7,
+            "title": "Уборка по расписанию",
+            "value": "Да"
+          },
+          {
+            "id": 8,
+            "title": "Регулировка подачи воды",
+            "value": "Электронная"
+          },
+          {
+            "id": 9,
+            "title": "Алгоритм адаптивного маршрута",
+            "value": "Да"
+          },
+          {
+            "id": 10,
+            "title": "Зональная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 11,
+            "title": "Выборочная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 12,
+            "title": "Защита от падений",
+            "value": "Да"
+          },
+          {
+            "id": 13,
+            "title": "Увеличение мощности на коврах",
+            "value": "Да запретные зоны"
+          },
+          {
+            "id": 14,
+            "title": "Виртуальные стены",
+            "value": "Да"
+          },
+          {
+            "id": 15,
+            "title": "Определение местоположение",
+            "value": "Да"
+          },
+          {
+            "id": 16,
+            "title": "Режим не беспокоить",
+            "value": "Да"
+          },
+          {
+            "id": 17,
+            "title": "Установка на зарядное устройство",
+            "value": "Да"
+          }
+        ]
+      }
+    ],
+    "set": {
+      "list": [
+        "Устройство",
+        "Док-станция",
+        "Кабель питания",
+        "Кронштейн ткани для мытья пола",
+        "Влагостойкая подставка",
+        "Резервуар для воды",
+        "Ткань для мытья пола",
+        "Руководство пользователя"
+      ],
+      "instruction": "#"
+    },
+    "featuresFooterInfo": "Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.",
+    "youtubeVideo": {
+      "id": "tWp0-btZXTU",
+      "poster": "/img/video/poster.jpg"
+    },
+    "additionalAdvantages": {
+      "title": "Эй, круглый!",
+      "descr": "Автоматически подстроится под тип загрязнения и любую рабочую поверхность. Когда заряд батареи будет на исходе, робот рассчитает время, необходимое для завершения уборки, \"подпитается\" ровно для этой цели. Ждать полного восстановления не нужно.",
+      "list": [
+        {
+          "id": 1,
+          "imgSrc": "/img/advantages/1.svg",
+          "title": "Круглый как колобок, <br>проедет куда угодно"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/advantages/2.svg",
+          "title": "Сам найдёт зарядку. <br>Сам зарядится"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/advantages/3.svg",
+          "title": "Полноценный <br>пылесос"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/advantages/4.svg",
+          "title": "Моет полы лучше, <br>чем твоя мама"
+        }
+      ]
+    },
+    "operation": {
+      "title": "Едет туда, куда ты хочешь",
+      "descr": "S6 отличает вашу кухню от детской комнаты, спальню от гостиной. Его высокоточный лазерный дальномер вращается со скоростью 300 об / мин, когда он сканирует ваши комнаты. Затем данные передаются по пользовательскому алгоритму в приложение Mi Home, для получения карты плана этажа с точностью до 98%. Теперь вы можете запланировать уборку для одной комнаты, нескольких комнат, даже всего вашего дома. Уборка никогда не была такой простой.",
+      "imgSrc": "/img/plan.svg"
+    },
+    "compareSection": true,
+    "shops": [
+      {
+        "id": 1,
+        "name": "Яндекс.Маркет",
+        "img": "/img/marketplaces/1.png",
+        "price": 1030,
+        "link":"#"
+      },
+      {
+        "id": 2,
+        "name": "Ozon",
+        "img": "/img/marketplaces/2.png",
+        "price": 1130,
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Cбер Маркет",
+        "img": "/img/marketplaces/3.png",
+        "price": 1430,
+        "link": "#"
+      }
+    ]
+  },
+  "products-white-theme": {
+    "productId": 7770002257,
+    "title": "Настольная лампа Xiaomi Yeelight LED Vision Desk Lamp V1 Pro",
+    "colors": [
+      {
+        "id": 1,
+        "background": "#EEEFF3",
+        "title": "Серый"
+      },
+      {
+        "id": 2,
+        "background": "#000000",
+        "title": "Черный"
+      },
+      {
+        "id": 3,
+        "background": "#DDBBBB",
+        "title": "Пудровый"
+      }
+    ],
+    "productImages": [
+      {
+        "wide": true,
+        "list": [
+          {
+            "id": 1,
+            "color": 1,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 2,
+            "color": 2,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 3,
+            "color": 3,
+            "imgSrc": "/img/product/10.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 4,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 5,
+            "color": 2,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 6,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 7,
+            "color": 1,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 8,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 9,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      },
+      {
+        "wide": true,
+        "list": [
+          {
+            "id": 9,
+            "color": 1,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 10,
+            "color": 2,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 11,
+            "color": 3,
+            "imgSrc": "/img/product/10.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 12,
+            "color": 1,
+            "imgSrc": "/img/product/9.jpg"
+          },
+          {
+            "id": 13,
+            "color": 2,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 14,
+            "color": 3,
+            "imgSrc": "/img/product/8.jpg"
+          }
+        ]
+      },
+      {
+        "wide": false,
+        "list": [
+          {
+            "id": 15,
+            "color": 1,
+            "imgSrc": "/img/product/10.jpg"
+          },
+          {
+            "id": 16,
+            "color": 2,
+            "imgSrc": "/img/product/8.jpg"
+          },
+          {
+            "id": 17,
+            "color": 3,
+            "imgSrc": "/img/product/9.jpg"
+          }
+        ]
+      }
+    ],
+    "price": 990,
+    "giftsDescr": "Рюкзак + термос + зонт Roborock <br> в подарок при покупке пылесоса",
+    "gifts": [
+      {
+        "id": 1,
+        "title": "Рюкзак",
+        "imgSrc": "/img/gifts/1.png"
+      },
+      {
+        "id": 2,
+        "title": "Термос",
+        "imgSrc": "/img/gifts/2.png"
+      },
+      {
+        "id": 3,
+        "title": "зонт Roborock",
+        "imgSrc": "/img/gifts/3.png"
+      }
+    ],
+    "advantages": [
+      {
+        "id": 1,
+        "title": "Жесткий, но нежный",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/4.jpg"
+      },
+      {
+        "id": 2,
+        "imgSrc": "/img/product-advantages/5.jpg"
+      },
+      {
+        "id": 3,
+        "imgSrc": "/img/product-advantages/6.jpg"
+      },
+      {
+        "id": 4,
+        "title": "Всегда под рукой",
+        "descr": "Мощное всасывание, которое может поднять батарейки АА, убирать грязь и шерсть домашних животных с деревянных полов так же легко, как и убирать их из ковров",
+        "imgSrc": "/img/product-advantages/7.jpg"
+      }
+    ],
+    "description": "<p>Все прелести освещения. Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) – универсальная лампа, которая подстроится под любые задачи. Световой поток в 500 Люмен даёт возможность осветить даже большой стол. Настройки можно менять через приложение «Mi Home».</p><p>Xiaomi Yeelight LED Vision Desk Lamp V1 Pro (Clamping version) сложится и повернётся под нужный угол — есть сегменты с шарнирами. Сенсорная панель упрощает регулировку яркости. В автоматическом режиме лампа «подскажет», достаточно ли света в помещении. Если да — индикатор загорится зелёным огоньком. Удобное крепление — надёжная фиксация на краю стола.</p>",
+    "features": [
+      {
+        "id": 1,
+        "title": "Основное",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип",
+            "value": "Робот-пылесос"
+          },
+          {
+            "id": 2,
+            "title": "Производитель",
+            "value": "Roborock"
+          },
+          {
+            "id": 3,
+            "title": "Модель",
+            "value": "S6 MaxV"
+          },
+          {
+            "id": 4,
+            "title": "Страна производитель",
+            "value": "Китай"
+          },
+          {
+            "id": 5,
+            "title": "Размеры упаковки (ш × в × д)",
+            "value": "403 x 152 x 489 мм"
+          },
+          {
+            "id": 6,
+            "title": "Вес",
+            "value": "3700 г"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Тип аккумулятора",
+            "value": "Литий-ионный"
+          },
+          {
+            "id": 2,
+            "title": "Ёмкость аккумулятора",
+            "value": "5200 мА·ч"
+          },
+          {
+            "id": 3,
+            "title": "Мощность",
+            "value": "66 Вт"
+          },
+          {
+            "id": 4,
+            "title": "Время зарядки",
+            "value": "6 ч"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Питание",
+        "list": [
+          {
+            "id": 1,
+            "title": "Мощность всасывания",
+            "value": "2500 PA"
+          },
+          {
+            "id": 2,
+            "title": "Время работы",
+            "value": "180 мин"
+          },
+          {
+            "id": 3,
+            "title": "Cистема фильтрации",
+            "value": "HEPA"
+          },
+          {
+            "id": 4,
+            "title": "Ёмкость бака воды",
+            "value": "297 мл"
+          },
+          {
+            "id": 5,
+            "title": "Полный расход воды",
+            "value": "60-100 мин"
+          },
+          {
+            "id": 6,
+            "title": "Пылесборник",
+            "value": "460 мл"
+          },
+          {
+            "id": 7,
+            "title": "Шум",
+            "value": "67"
+          },
+          {
+            "id": 8,
+            "title": "Уборка",
+            "value": "Сухая, влажная"
+          },
+          {
+            "id": 9,
+            "title": "Обслуживаемая площадь",
+            "value": "до 200 м²"
+          },
+          {
+            "id": 10,
+            "title": "Навигация",
+            "value": "LDS+SLAM, двойная камера"
+          },
+          {
+            "id": 11,
+            "title": "Боковая щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 12,
+            "title": "Мягкий бампер",
+            "value": "Есть"
+          },
+          {
+            "id": 13,
+            "title": "Турбо-щетка",
+            "value": "Есть"
+          },
+          {
+            "id": 14,
+            "title": "Преодоление препятствий",
+            "value": "2 см"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Функции",
+        "list": [
+          {
+            "id": 1,
+            "title": "Приложение",
+            "value": "Mihome, Roborock"
+          },
+          {
+            "id": 2,
+            "title": "Wi-Fi",
+            "value": "2.4 Ггц"
+          },
+          {
+            "id": 3,
+            "title": "Построение карты помещения",
+            "value": "Да"
+          },
+          {
+            "id": 4,
+            "title": "Количество сохраненных карт",
+            "value": "до 4 шт"
+          },
+          {
+            "id": 5,
+            "title": "Зоны без влажной уборки",
+            "value": "Да"
+          },
+          {
+            "id": 6,
+            "title": "Расчет времени уборки",
+            "value": "Да"
+          },
+          {
+            "id": 7,
+            "title": "Уборка по расписанию",
+            "value": "Да"
+          },
+          {
+            "id": 8,
+            "title": "Регулировка подачи воды",
+            "value": "Электронная"
+          },
+          {
+            "id": 9,
+            "title": "Алгоритм адаптивного маршрута",
+            "value": "Да"
+          },
+          {
+            "id": 10,
+            "title": "Зональная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 11,
+            "title": "Выборочная уборка",
+            "value": "Да"
+          },
+          {
+            "id": 12,
+            "title": "Защита от падений",
+            "value": "Да"
+          },
+          {
+            "id": 13,
+            "title": "Увеличение мощности на коврах",
+            "value": "Да запретные зоны"
+          },
+          {
+            "id": 14,
+            "title": "Виртуальные стены",
+            "value": "Да"
+          },
+          {
+            "id": 15,
+            "title": "Определение местоположение",
+            "value": "Да"
+          },
+          {
+            "id": 16,
+            "title": "Режим не беспокоить",
+            "value": "Да"
+          },
+          {
+            "id": 17,
+            "title": "Установка на зарядное устройство",
+            "value": "Да"
+          }
+        ]
+      }
+    ],
+    "set": {
+      "list": [
+        "Устройство",
+        "Док-станция",
+        "Кабель питания",
+        "Кронштейн ткани для мытья пола",
+        "Влагостойкая подставка",
+        "Резервуар для воды",
+        "Ткань для мытья пола",
+        "Руководство пользователя"
+      ],
+      "instruction": "#"
+    },
+    "featuresFooterInfo": "Информация о технических характеристиках, описании, комплекте поставки и внешнем виде носит ознакомительный характер, не является публичной офертой, определяемой положениями статьи 437 ГК РФ и может быть изменена производителем без предварительного уведомления. Информацию о товаре уточняйте у наших менеджеров.",
+    "youtubeVideo": {
+      "id": "tWp0-btZXTU",
+      "poster": "/img/video/poster.jpg"
+    },
+    "additionalAdvantages": {
+      "title": "Эй, круглый!",
+      "descr": "Автоматически подстроится под тип загрязнения и любую рабочую поверхность. Когда заряд батареи будет на исходе, робот рассчитает время, необходимое для завершения уборки, \"подпитается\" ровно для этой цели. Ждать полного восстановления не нужно.",
+      "list": [
+        {
+          "id": 1,
+          "imgSrc": "/img/advantages/1-black.svg",
+          "title": "Круглый как колобок, <br>проедет куда угодно"
+        },
+        {
+          "id": 2,
+          "imgSrc": "/img/advantages/2-black.svg",
+          "title": "Сам найдёт зарядку. <br>Сам зарядится"
+        },
+        {
+          "id": 3,
+          "imgSrc": "/img/advantages/3-black.svg",
+          "title": "Полноценный <br>пылесос"
+        },
+        {
+          "id": 4,
+          "imgSrc": "/img/advantages/4-black.svg",
+          "title": "Моет полы лучше, <br>чем твоя мама"
+        }
+      ]
+    },
+    "operation": {
+      "title": "Едет туда, куда ты хочешь",
+      "descr": "S6 отличает вашу кухню от детской комнаты, спальню от гостиной. Его высокоточный лазерный дальномер вращается со скоростью 300 об / мин, когда он сканирует ваши комнаты. Затем данные передаются по пользовательскому алгоритму в приложение Mi Home, для получения карты плана этажа с точностью до 98%. Теперь вы можете запланировать уборку для одной комнаты, нескольких комнат, даже всего вашего дома. Уборка никогда не была такой простой.",
+      "imgSrc": "/img/plan-dark.svg"
+    },
+    "compareSection": true,
+    "shops": [
+      {
+        "id": 1,
+        "name": "Яндекс.Маркет",
+        "img": "/img/marketplaces/1.png",
+        "link":"#"
+      },
+      {
+        "id": 2,
+        "name": "Ozon",
+        "img": "/img/marketplaces/2.png",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Cбер Маркет",
+        "img": "/img/marketplaces/3.png",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Aliexpress",
+        "img": "/img/marketplaces/4.png",
+        "link": "#"
+      }
+    ],
+    "deliveryTime": "Доставим сегодня при заказе до 15:00 и оплате онлайн",
+    "deliveryGift": "Бесплатная доставка",
+    "inStock": false
+  }
+}

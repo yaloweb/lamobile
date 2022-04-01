@@ -6,7 +6,9 @@
       <swiper-slide
         v-for="slide in list"
         :key="slide.id">
+
         <CatalogItem :item="slide"/>
+
       </swiper-slide>
 
     </swiper>
@@ -34,6 +36,10 @@ export default {
     index: {
       type: Number,
       default: 0
+    },
+    mobQuantity: {
+      type: Number,
+      default: 2
     }
   },
   data () {
@@ -49,7 +55,7 @@ export default {
         breakpoints: {
           0: {
             spaceBetween: 10,
-            slidesPerView: 2
+            slidesPerView: this.mobQuantity
           },
           576: {
             slidesPerView: 2,

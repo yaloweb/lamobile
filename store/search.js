@@ -16,7 +16,7 @@ export const mutations = {
 
 export const actions = {
   async getSearchResults ({ commit }) {
-    const res = await this.$axios.get('/search.json')
+    const res = await this.$axios.get('/search')
     commit('setSearchResults', res.data)
   }
 }

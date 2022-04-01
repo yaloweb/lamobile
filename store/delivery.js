@@ -30,7 +30,7 @@ export const mutations = {
 
 export const actions = {
   async getDeliveryData ({ commit }) {
-    const res = await this.$axios.get('delivery.json')
+    const res = await this.$axios.get('delivery')
     commit('setDeliveryData', res.data)
   }
 }

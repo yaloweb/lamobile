@@ -3,6 +3,20 @@
     ref="magazineList"
     class="magazine-list"
     :class="{'blog-loading': loading}">
+
+    <div class="catalog-filter">
+      <nav class="catalog-filter-nav">
+        <a
+          v-for="category in categories"
+          :key="category.id"
+          href="#"
+          :class="{'active': selectedCategory === category.id}"
+          @click.prevent="filterByCategory(category.id)">
+          {{category.title}}
+        </a>
+      </nav>
+    </div>
+
     <div
       v-masonry
       transition-duration=".4s"
@@ -30,21 +44,6 @@
 
     </div>
 
-    <div
-      class="magazine-categories"
-      :class="{'visible': visibleTags}">
-      <nav class="magazine-categories-nav">
-        <a
-          v-for="category in categories"
-          :key="category.id"
-          href="#"
-          :class="{'active': selectedCategory === category.id}"
-          @click.prevent="filterByCategory(category.id)">
-          {{category.title}}
-        </a>
-      </nav>
-    </div>
-
   </div>
 </template>
 
@@ -65,7 +64,8 @@ export default {
   data: () => ({
     loading: false,
     visibleTags: true,
-    offset: 0
+    offset: 0,
+    page: 0
   }),
   computed: {
     categories () {
@@ -77,9 +77,10 @@ export default {
   },
   methods: {
     async scrollLoadBlogList () {
-      if (this.list.length === ((this.offset + 1) * this.limit)) {
+      if (this.list.length >= ((this.page + 1) * this.limit)) {
         try {
           this.offset += this.limit
+          this.page++
           this.loading = true
           await this.$store.dispatch('blog/loadBlog', {
             offset: this.offset,
@@ -111,12 +112,20 @@ export default {
       return (rect.top + scrollTop)
     },
     async filterByCategory (categoryId) {
-      this.loading = true
-      await this.$store.dispatch('blog/filterBlogByCategory', categoryId)
-      this.$emit('changeCategory', categoryId)
-      this.blogScroll()
-      this.loading = false
-      window.scrollTo(0, 0)
+      if (this.selectedCategory !== categoryId) {
+        this.loading = true
+        this.page = 0
+        this.offset = 0
+        await this.$store.dispatch('blog/getBlogListByParams', {
+          category: categoryId,
+          limit: this.limit,
+          offset: 0
+        })
+        this.$emit('changeCategory', categoryId)
+        this.blogScroll()
+        this.loading = false
+        window.scrollTo(0, 0)
+      }
     }
   },
   mounted () {

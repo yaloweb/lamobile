@@ -14,11 +14,11 @@ export const mutations = {
 
 export const actions = {
   async getRecommended ({ commit }) {
-    const res = await this.$axios.get('/recommended-products.json')
+    const res = await this.$axios.get('/recommended-products')
     commit('setRecommended', res.data)
   },
   async getSimilar ({ commit }) {
-    const res = await this.$axios.get('/similar.json')
+    const res = await this.$axios.get('/similar')
     commit('setSimilar', res.data)
   }
 }

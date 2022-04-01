@@ -9,6 +9,15 @@
     <section class="s-product">
       <div class="container">
 
+        <div class="product-mob-header">
+          <div class="mob-back-link">
+            <a
+              href="#"
+              @click.prevent="$router.go(-1)"/>
+          </div>
+          <div class="h1">{{ title }}</div>
+        </div>
+
         <div class="product-main">
 
           <ProductInfoImages :selectedColor="selectedColor"/>
@@ -22,25 +31,43 @@
       </div>
     </section>
 
-    <SectionProductVideo v-if="youtubeVideo.id ? youtubeVideo.id.length > 0 : false"/>
+    <div class="product-body-flex">
 
-    <SectionProductAdditionalAdvantages v-if="Object.keys(additionalAdvantages).length"/>
+      <section class="s-product-information">
+        <AccordionItem
+          :opened="accordionOpened.indexOf(1) !== -1"
+          @toggle="toggle($event, 1)">
 
-    <SectionProductAdvantages v-if="advantages ? advantages.length > 0 : false"/>
+          <template #header>Информация о товаре</template>
 
-    <SectionProductOperation v-if="Object.keys(operation).length"/>
+          <template #body>
 
-    <section
-      v-if="compareSection"
-      class="s-product-compare">
-      <div class="container">
+            <SectionProductVideo v-if="youtubeVideo.id ? youtubeVideo.id.length > 0 : false"/>
 
-        <CompareTable/>
+            <SectionProductAdditionalAdvantages v-if="Object.keys(additionalAdvantages).length"/>
 
-      </div>
-    </section>
+            <SectionProductAdvantages v-if="advantages ? advantages.length > 0 : false"/>
 
-    <SectionProductFeatures ref="SectionProductFeatures"/>
+            <SectionProductOperation v-if="Object.keys(operation).length"/>
+
+          </template>
+
+        </AccordionItem>
+      </section>
+
+      <section
+        v-if="compareSection"
+        class="s-product-compare">
+        <div class="container">
+
+          <CompareTable/>
+
+        </div>
+      </section>
+
+      <SectionProductFeatures ref="SectionProductFeatures"/>
+
+    </div>
 
     <section class="s-recommended">
       <div class="container">
@@ -49,7 +76,9 @@
           <div class="h3">Рекомендуем также посмотреть</div>
         </div>
 
-        <SliderProducts :list="recommendedProducts"/>
+        <SliderProducts
+          :list="recommendedProducts"
+          :mobQuantity="1"/>
 
       </div>
     </section>
@@ -81,7 +110,9 @@ export default {
       this.$store.dispatch('product/getProductInfo', symbol),
       this.$store.dispatch('recommended/getRecommended'),
       this.$store.dispatch('recommended/getSimilar')
-    ])
+    ]).catch(() => {
+      this.$nuxt.error({ statusCode: 404 })
+    })
     return promises
   },
   name: 'ProductPage',
@@ -95,6 +126,7 @@ export default {
   computed: {
     ...mapState({
       pageType: state => state.product.pageType,
+      title: state => state.product.title,
       recommendedProducts: state => state.recommended.recommendedProducts,
       similarProducts: state => state.recommended.similarProducts,
       advantages: state => state.product.advantages,
@@ -118,10 +150,17 @@ export default {
     }
   },
   data: () => ({
-    selectedColor: 1
+    selectedColor: 1,
+    isMob: false,
+    accordionOpened: []
   }),
+  methods: {
+    toggle (bool, id) {
+      bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
+    }
+  },
   mounted () {
-    this.selectedColor = this.colors[0].id
+    this.selectedColor = this.colors[0]?.id || 1
   }
 }
 </script>

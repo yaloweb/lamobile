@@ -1,6 +1,35 @@
+.guarantee-forms
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-gap: 87px
+  position: relative
+
+.guarantee-component
+  & > div
+    padding: 45px 0
+    position: relative
+
+    &:after
+      content: ''
+      position: absolute
+      left: -44px
+      right: -50px
+      height: 1px
+      background-color: #DEDBDB
+      bottom: 0
+
+    &:first-child
+      margin-top: -50px
+
+    &:last-child
+      margin-bottom: -78px
+
+      &:after
+        display: none
+
+
 .quarantee-form
   max-width: 669px
-  margin-bottom: 60px
 
 .quarantee-form-title
   margin-bottom: 25px
@@ -12,70 +41,84 @@
   position: relative
 
   input
-    height: 50px
+    height: 60px
     padding: 0 170px 0 20px
+    border-radius: 30px
 
   button
     position: absolute
     top: 0
     right: 0
-    -webkit-border-radius: 20px
-    -moz-border-radius: 20px
-    border-radius: 20px
     padding: 0 30px
+    height: 60px
+    -webkit-border-radius: 30px
+    -moz-border-radius: 30px
+    border-radius: 30px
+    line-height: 60px
 
 .quarantee-defect
-  margin: 150px 0
-  max-width: 974px
-
   ol
     list-style-type: none
     padding: 0
-    margin: 0 0 15px
     counter-reset: counter
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -18px
+    max-width: 1075px
 
     li
       position: relative
-      padding-left: 15px
-      margin-bottom: 10px
-
-      &:last-child
-        margin-bottom: 0
+      width: 33.33333%
+      padding: 0 18px
+      margin-bottom: 40px
+      font-size: 20px
 
       &:before
         counter-increment: counter
-        content: counter(counter) '.'
-        position: absolute
-        top: 0
-        left: 0
+        content: counter(counter)
+        display: block
+        margin-bottom: 10px
+        width: 40px
+        height: 40px
+        -webkit-border-radius: 50%
+        -moz-border-radius: 50%
+        border-radius: 50%
+        border: 1px solid $accent
+        line-height: 38px
+        text-align: center
+        font-weight: bold
+        font-size: 24px
+        color: #000
 
   p
     margin: 0
     color: #7A7A7A
+    font-size: 20px
+    max-width: 974px
 
 .quarantee-terms
-  margin-bottom: 150px
-
   .h4
     margin-bottom: 25px
 
   p
     color: $muted
+    font-size: 16px
+    max-width: 974px
 
 .quarantee-terms-items
-  display: flex
-  flex-wrap: wrap
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-gap: 45px
+  margin-bottom: 35px
+  max-width: 935px
 
 .quarantee-term
-  margin-bottom: 25px
-  padding-right: 30px
+  padding: 30px
   flex-shrink: 0
-
-  &:nth-child(odd)
-    width: 60%
-
-  &:nth-child(even)
-    width: 40%
+  border: 1px solid $accent
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border-radius: 20px
 
   ul
     list-style-type: none
@@ -83,18 +126,16 @@
     margin: 0
 
     li
-      font-size: 16px
-      font-weight: bold
+      font-size: 20px
       margin-bottom: 10px
 
       &:last-child
         margin-bottom: 0
 
 .quarantee-term-title
-  margin-bottom: 20px
+  margin-bottom: 40px
   font-weight: bold
   font-size: 30px
-  color: $accent
 
 .guarantee-warranty-cases
   ul
@@ -104,18 +145,8 @@
 
     li
       position: relative
-      margin-bottom: 13px
-      padding-left: 10px
-
-      &:before
-        content: ''
-        position: absolute
-        width: 3px
-        height: 3px
-        border-radius: 50%
-        background-color: #000
-        left: 0
-        top: 16px
+      margin-bottom: 25px
+      font-size: 20px
 
       &:last-child
         margin-bottom: 0
@@ -125,3 +156,17 @@
 
         span
           color: $muted
+
+.guarantee-warranty-contacts
+  font-size: 18px
+
+  ul
+    padding: 30px 0 22px
+    display: grid
+    column-gap: 50px
+    grid-template-columns: repeat(2, 1fr)
+    margin: 0
+    list-style-type: none
+
+    li
+      max-width: 377px

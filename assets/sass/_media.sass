@@ -9,6 +9,15 @@
   .catalog-dropdown
     left: calc(50vw - 940px)
 
+  .products-slider-tabs
+    overflow: hidden
+
+  .advantages-wrapper
+    overflow: hidden
+
+  .products-slider
+    overflow: hidden
+
 @media (max-width: 1799.98px)
 
   .banner-item-title
@@ -16,6 +25,7 @@
 
   .product-main
     grid-gap: 20px
+    grid-template-columns: repeat(2, calc(50% - 10px))
 
   .gift-item
     width: 80px
@@ -80,6 +90,86 @@
   .footer-bottom
     font-size: 14px
 
+  .catalog-filter-nav
+    a
+      margin: 0 10px 10px 0
+      height: 50px
+      line-height: 48px
+      font-size: 14px
+
+  .catalog-sort
+    padding-top: 12px
+
+  .product-main-info
+    padding: 35px 40px
+
+  .product-main-id
+    margin-bottom: 7px
+    font-size: 14px
+
+  .product-title
+    margin-bottom: 24px
+
+  .product-colors-block
+    span
+      width: 25px
+      height: 25px
+      margin: 0 7px
+
+      &:after
+        border-color: #DEDBDB
+
+  .product-selected-color-title
+    margin-top: 10px
+    font-size: 12px
+
+  .product-colors
+    margin-bottom: 15px
+
+  .product-main-price
+    margin-bottom: 15px
+    font-size: 24px
+
+  .product-buy
+    .btn
+      height: 50px
+      line-height: 50px
+
+  .product-main-info-content
+    margin-bottom: 30px
+
+  .product-gifts-left
+    .h3
+      font-size: 16px
+      margin-bottom: 5px
+
+    p
+      font-size: 12px
+
+  .gift-item
+    width: 60px
+    height: 60px
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    border-radius: 5px
+
+  .product-marketplaces
+    padding: 30px
+
+  .product-marketplaces-title
+    font-size: 16px
+    margin-bottom: 20px
+
+  .product-marketplace-img
+    margin-bottom: 10px
+
+    img
+      width: 55px
+      height: 55px
+
+  .product-marketplace-title
+    font-size: 14px
+
 @media (max-width: 1599.98px)
   body
     font-size: 14px
@@ -111,10 +201,6 @@
 
   .categories-item
     margin-bottom: 30px
-
-  .catalog-filter
-    padding-left: 30px
-    padding-right: 20px
 
   .brand-label
     font-size: 14px
@@ -164,10 +250,6 @@
 
   .product-gifts-left p
     font-size: 12px
-
-  .advantages-item
-    padding: 50px
-    min-height: 42vw
 
   .advantages
     grid-gap: 30px
@@ -462,15 +544,6 @@
     font-size: 16px
     margin-bottom: 10px
 
-  .quarantee-form
-    margin-bottom: 50px
-
-  .quarantee-defect
-    margin: 50px 0
-
-  .quarantee-terms
-    margin-bottom: 50px
-
   .delivery-descr
     margin-bottom: 50px
 
@@ -534,12 +607,6 @@
   .product-marketplace-price
     font-size: 14px
 
-  .product-marketplace-link
-    margin-top: 5px
-
-    a
-      font-size: 12px
-
   .product-colors-block
     span
       width: 26px
@@ -597,6 +664,91 @@
 
   .footer-bottom-right
     width: 50%
+
+  .catalog-filter-nav
+    max-width: calc(100% - 220px)
+
+  .brands-info
+    padding: 50px
+
+  .brands-info-logo
+    margin-bottom: 30px
+
+    img
+      width: 300px
+
+  .brands-info-content
+    font-size: 16px
+    margin-bottom: 50px
+
+  .s-brands-info
+    padding: 50px 0
+
+  .product-main-delivery-info-item
+    img
+      width: 40px
+
+  .compare-item-link
+    font-size: 16px
+
+    span
+      font-size: 14px
+      margin-left: 10px
+
+  .product-description-content
+    p
+      font-size: 16px
+
+  .set-list
+    font-size: 16px
+
+  .instruction-link
+    font-size: 16px
+
+    span
+      margin-left: 8px
+      font-size: 14px
+
+  .find-about-admission-form
+    margin-top: 10px
+
+    .form-descr
+      font-size: 14px
+      margin-bottom: 10px
+
+  .s-for-users
+    .h4
+      font-size: 20px
+
+  .quarantee-defect
+    ol
+      li
+        font-size: 18px
+
+  .quarantee-defect
+    p
+      font-size: 16px
+
+  .quarantee-term-title
+    font-size: 20px
+    margin-bottom: 17px
+
+  .quarantee-term
+    ul
+      li
+        font-size: 16px
+
+  .guarantee-warranty-cases
+    ul
+      li
+        margin-bottom: 17px
+        font-size: 14px
+
+  .guarantee-warranty-contacts
+    font-size: 16px
+
+    ul
+      padding: 0
 
 @media (max-width: 1439.98px)
 
@@ -723,6 +875,9 @@
   .order-info-right
     padding-right: 40px
 
+  .product-main-info-content + .product-marketplaces
+    margin-top: 0
+
 @media (max-width: 1365.98px)
 
   .banner-item
@@ -763,10 +918,7 @@
       font-size: 20px
 
   .product-main-info
-    padding: 80px 20px 20px
-
-  .product-gifts
-    padding-top: 20px
+    padding: 20px
 
   .product-gifts-left
     .h3
@@ -780,17 +932,11 @@
     height: 60px
 
   .advantages-item
-    padding: 40px
-
     .h2
       font-size: 27px
 
     p
       font-size: 15px
-
-    &:nth-child(3n-2)
-      .advantages-item-content
-        max-width: 450px
 
   .advantages-item-content
     max-width: 330px
@@ -908,9 +1054,23 @@
     line-height: 44px
     font-size: 14px
 
-  .catalog-filter
-    margin-top: 65px
+  .product-title
+    margin-bottom: 15px
 
+  .product-marketplaces
+    padding: 20px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+
+  .product-marketplaces-title
+    line-height: 1.3
+    margin-bottom: 10px
+
+  .product-main-delivery-info-item
+    span
+      width: 150px
+      margin-left: -75px
 
 @media (max-width: 1199.98px)
 
@@ -951,53 +1111,10 @@
   .footer-bottom
     margin-top: 30px
 
-  .catalog-filter
-    position: fixed
-    top: 0
-    left: 0
-    width: 300px
-    height: 100%
-    z-index: 10
-    padding-top: 14px
-    padding-bottom: 30px
-    overflow-y: auto
-    +scrollbar
-    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%)
-    display: block !important
-    +tr4
-    transform: translateX(-120%)
-    margin: 0
-
-    &.opened
-      transform: translateX(0)
-
-    .h4
-      font-size: 18px
-      margin-bottom: 15px
-
   .select-category
     position: static
     background-color: #EEEFF3
     margin: 0 0 20px
-
-  .catalog-filter-title
-    display: block
-
-  .catalog-filter-close
-    position: absolute
-    top: 11px
-    right: 14px
-    z-index: 1
-    width: 40px
-    height: 40px
-    display: flex
-    align-items: center
-    justify-content: center
-    -webkit-border-radius: 50%
-    -moz-border-radius: 50%
-    border-radius: 50%
-    border: 1px solid #DEDBDB
-    color: #C4C4C4
 
   .catalog
     & > .row
@@ -1149,8 +1266,8 @@
     padding: 30px 20px
 
     &:after
-      left: 20px
-      right: 20px
+      left: -20px
+      right: -20px
 
   .about-advantages
     margin: 0 -10px 30px
@@ -1234,6 +1351,43 @@
 
   .products-slider-nav
     margin-bottom: 20px
+
+  .product-marketplace
+    min-width: 0
+
+  .product-marketplace-img
+    img
+      width: 44px
+      height: 44px
+
+  .s-operation
+    padding-bottom: 60px
+
+  .s-product-compare
+    padding-bottom: 35px
+
+  .guarantee-forms
+    grid-gap: 30px
+
+  .quarantee-defect
+    ol
+      li
+        font-size: 14px
+
+  .quarantee-terms-items
+    grid-gap: 30px
+
+  .quarantee-terms
+    p
+      font-size: 14px
+
+  .guarantee-component
+    & > div
+      &:last-child
+        margin-bottom: -30px
+
+  .guarantee-warranty-contacts
+    font-size: 14px
 
 @media (max-width: 991.98px)
 
@@ -1460,9 +1614,6 @@
       .s-recommended
         padding-top: 90px
 
-  .advantages-item
-    padding: 20px
-
   .operation-block
     padding: 30px
     display: block
@@ -1638,7 +1789,7 @@
 
   .post-content-category
     height: 40px
-    line-height: 38px
+    line-height: 40px
     padding: 0 30px
     font-size: 12px
 
@@ -1667,8 +1818,8 @@
 
   .catalog-dropdown-tabs-nav
     span
-      font-size: 14px
-      margin-right: 20px
+      font-size: 18px
+      margin-right: 35px
 
   .images-gallery-thumbs
     display: none
@@ -1827,6 +1978,146 @@
       width: 7px
       height: 7px
 
+  .catalog-dropdown
+    background-color: #EEEFF3
+    padding: 109px 0 0
+
+  .dropdown-footer
+    padding-top: 20px
+    position: relative
+    border-top: none
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: -33px
+      right: -33px
+      height: 1px
+      background-color: #DEDBDB
+
+  .catalog-dropdown-content
+    overflow-x: hidden
+    padding-left: 33px
+    padding-right: 33px
+
+  .dropdown-footer
+    ul
+      li
+        margin-bottom: 10px
+
+        a
+          font-size: 14px
+
+  .dropdown-footer
+    padding-bottom: 24px
+
+  .brands-item
+    margin: 0 15px 15px 0
+
+    a
+      height: 40px
+      border-radius: 20px
+      padding: 0 15px
+
+      img
+        max-width: 153px
+        max-height: 29px
+
+  .brands-list
+    margin-bottom: 25px
+
+  .catalog-filter
+    flex-direction: column
+
+  .catalog-filter-nav
+    max-width: none
+    flex-wrap: nowrap
+    padding: 0 10px
+    margin: 0 -10px
+    overflow-x: auto
+    overflow-y: visible
+    width: calc(100% + 20px)
+
+    &::-webkit-scrollbar
+      display: none
+
+    a
+      height: 40px
+      line-height: 38px
+      padding: 0 19px
+      font-size: 14px
+      margin-right: 5px
+      margin-bottom: 0
+
+      &:after
+        display: none
+
+    &:after
+      content: ''
+      width: 1px
+      height: 1px
+      flex-shrink: 0
+
+  .catalog-sort
+    padding-top: 20px
+
+  .catalog-sort-selected
+    font-size: 12px
+
+    span
+      margin-left: 8px
+
+  .catalog-sort-dropdown
+    padding: 10px 0
+
+    ul
+      li
+        font-size: 12px
+
+  .page-title-with-back-link
+    position: relative
+    padding: 0 40px
+
+    .page-back-link
+      display: block
+      position: absolute
+      top: 11px
+      left: 0
+
+      a
+        width: 30px
+        height: 30px
+        font-size: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        -webkit-border-radius: 50%
+        -moz-border-radius: 50%
+        border-radius: 50%
+        border: 1px solid #DEDBDB
+
+        span
+          font-size: 11px
+          margin: 0
+          transform: translate(-1px, 0)
+
+  .advantages-item-content
+    padding: 30px
+
+  .product-main-delivery-info-item
+    span
+      left: auto
+      right: 0
+      margin-left: 0
+
+  .guarantee-forms
+    grid-gap: 20px
+    grid-template-columns: 1fr
+
+  .quarantee-form
+    max-width: none
+
 @media (max-width: 767.98px)
 
   .style-button-prev,
@@ -1839,27 +2130,6 @@
 
   .advantages
     display: block
-
-  .advantages-item-img
-    position: static
-    margin-bottom: 25px
-
-  .advantages-item
-    padding: 0
-    margin-bottom: 25px
-
-  .advantages-item-content
-    max-width: none !important
-    color: #000
-
-  .advantages-item-content
-    .h2
-      font-size: 18px
-      margin-bottom: 9px
-
-    p
-      font-size: 14px
-      margin: 0
 
   .products-features
     ul
@@ -1999,6 +2269,46 @@
   .add-more
     padding-left: 0
 
+  .s-brands-info
+    padding: 25px 0
+
+  .brands-info
+    padding: 30px 15px 15px
+
+  .brands-info-logo
+    margin-bottom: 30px
+
+    img
+      width: 180px
+
+  .brands-info-content
+    font-size: 14px
+
+  .advantages
+    padding-right: 50px
+
+  .quarantee-defect
+    ol
+      li
+        padding: 0 10px
+        font-size: 12px
+
+    p
+      font-size: 12px
+
+  .quarantee-terms-items
+    grid-gap: 10px
+    grid-template-columns: 1fr
+
+  .quarantee-terms
+    line-height: 1.333
+
+    p
+      font-size: 12px
+
+  .guarantee-warranty-contacts
+    ul
+      display: block
 
 @media (max-width: 575.98px)
   body.dark
@@ -2012,7 +2322,7 @@
 
   .wrapper
     overflow: hidden
-    padding-top: 60px
+    padding-top: 95px
 
     &.wrapper--home,
     &.wrapper--auth
@@ -2292,8 +2602,15 @@
   .page-title
     margin-bottom: 20px
 
-  .catalog-list .row > *
-    width: 100%
+  .catalog-list
+    .row
+      margin: 0 -5px
+
+      & > *
+        padding: 0 5px
+
+    .product-item
+      height: calc(100% - 10px)
 
   .open-filter-btn
     height: 40px
@@ -2318,112 +2635,23 @@
     display: flex
     flex-direction: column
     align-items: center
-    flex-grow: 1
 
   .brands-main-window-content-left
-    margin-right: 0
     margin-bottom: 30px
     text-align: center
     flex-grow: 1
     align-items: center
+    margin-top: auto
+    margin-left: 0
 
     p
       display: none
 
-  .brands-logo-block
-    width: 107px
-    height: 57px
-    border-radius: 10px
-    margin-right: 10px
-
-  .brands-official
-    width: 107px
-    height: 57px
-    border-radius: 10px
-    padding: 4px 12px
-    font-size: 11px
-    line-height: 1.3636
-
-  .product-main-info
-    padding: 30px 10px 45px
-
-  .product-main-id
-    font-size: 12px
-    margin-bottom: 10px
-
-  .product-title
-    margin-bottom: 10px
-
-    h1
-      font-size: 16px
-
-  .product-colors
-    margin-bottom: 30px
-
-  //.product-colors-block
-  //  height: 40px
-  //  padding: 0 7px
-  //  max-width: 86px
-  //
-  //  span
-  //    width: 16px
-  //    height: 16px !important
-  //
-  //    &:after
-  //      width: 20px
-  //      height: 20px
-  //      margin-top: -10px
-  //      margin-left: -10px
-
-  .product-main-info-content
-    margin-bottom: 35px
-
-  .product-buy
-    .btn
-      height: 40px
-      line-height: 38px
-      padding: 0 57px
-      font-size: 14px
-
   .s-product
     padding-top: 10px
 
-  .product-gifts
-    border-top: none
-    padding-top: 25px
-    position: relative
-    display: block
-    text-align: center
-
-    &:after
-      content: ''
-      position: absolute
-      top: 0
-      left: -10px
-      right: -10px
-      background-color: #DEDBDB
-      height: 1px
-
-  .product-gifts-left
-    margin-bottom: 15px
-
-    .h3
-      font-size: 18px
-      margin-bottom: 8px
-
-    p
-      font-size: 12px
-
-  .gifst-list
-    justify-content: center
-
   .s-products-features
     padding-top: 20px
-
-    .h3
-      text-align: center
-      font-size: 22px
-      margin-bottom: 28px
 
   .products-features
     margin-bottom: 28px
@@ -2441,36 +2669,37 @@
 
   .section-title
     text-align: center
-    margin-bottom: 30px
+    margin-bottom: 20px
 
     .h3
-      font-size: 22px
+      font-size: 20px
 
   .similar-slider
     .categories-item
       border-radius: 0
 
   .s-similar
-    padding: 30px 0 0
+    padding: 20px 0 0
 
   .similar-slider
     .categories-item-content
-      padding: 28px 20px 30px
+      padding: 20px 35px 52px
       text-align: center
 
       &:after
         display: none
 
     .categories-item-tag
-      font-size: 14px
+      font-size: 12px
       text-align: center
 
     .categories-item-title
-      font-size: 18px
+      font-size: 16px
+      margin-bottom: 15px
+      line-height: 1.2
 
     .categories-item-descr
-      margin-top: 10px
-      font-size: 14px
+      font-size: 12px
 
     .swiper-slide-active
       .categories-item-title
@@ -2519,46 +2748,6 @@
         padding-top: 0
         grid-column: span 2
 
-  .product-main-info
-    &.visible-content
-      .product-main-id
-        max-height: 19px
-        margin-bottom: 10px
-
-        span
-          opacity: 1
-          transform: translateY(0)
-
-      .product-colors
-        max-height: 40px
-        margin-bottom: 30px
-
-      .product-colors-block
-        opacity: 1
-        transform: translateY(0)
-
-
-  .product-main-id
-    +tr
-    max-height: 0
-    margin-bottom: 0
-
-    span
-      display: block
-      opacity: 0
-      transform: translateY(-10px)
-      +tr
-
-  .product-colors
-    +tr
-    margin-bottom: 0
-    max-height: 0
-
-  .product-colors-block
-    opacity: 0
-    transform: translateY(-10px)
-    +tr
-
   .product-buy
     margin-top: 10px
 
@@ -2594,46 +2783,41 @@
 
       &.active
         span
-          border-color: #7A7A7A
+          transform: rotate(90deg)
 
           &:after
-            background-color: #7A7A7A
-
-          &:before
-            transform: rotate(90deg)
-            background-color: #7A7A7A
+            opacity: 0
 
       span
-        position: absolute
-        top: -4px
-        right: 0
-        width: 29px
-        height: 29px
+        width: 31px
+        height: 31px
         -webkit-border-radius: 50%
         -moz-border-radius: 50%
         border-radius: 50%
         border: 1px solid #DEDBDB
         +tr
+        position: relative
+        margin-left: auto
 
         &:after
           content: ''
-          width: 13px
+          width: 11px
           height: 1px
           background-color: #C4C4C4
           position: absolute
-          top: 13px
-          left: 7px
+          top: 14px
+          left: 9px
+          +tr
 
         &:before
           content: ''
           width: 1px
-          height: 13px
+          height: 11px
           background-color: #C4C4C4
           position: absolute
-          top: 7px
-          left: 13px
+          top: 9px
+          left: 14px
           +tr
-
 
   .products-features-list
     overflow: hidden
@@ -2643,23 +2827,7 @@
     ul
       padding-top: 25px
 
-  .product-set
-    padding-top: 20px
-    margin: 0 0 20px
-
-    .h3
-      text-align: left
-      margin-bottom: 15px
-
-    .btn
-      display: block
-      width: 100%
-      height: 40px
-      line-height: 38px
-      font-size: 14px
-
   .set-list
-    column-count: 1
     margin-bottom: 15px
 
     li
@@ -2690,56 +2858,11 @@
 
   .product-page
     &.dark
-      .product-main-info
-        margin-left: -10px
-        margin-right: -10px
-
-      .product-gifts
-        &:after
-          background-color: #7a7a7a
-          left: 0
-          right: 0
-
-      .advantages-item-content
-        color: #fff
-
       .additional-advantages
-        margin-left: -10px
-        margin-right: -10px
+        background-color: transparent
 
       .operation-block
-        margin-left: -10px
-        margin-right: -10px
-
-      .compare-table-block
-        margin-left: -10px
-        margin-right: -10px
-
-      .s-products-features
-        padding-bottom: 65px
-
-      .product-features
-        ul
-          li
-            span
-              &:last-child
-                color: #fff
-
-        .h5
-          &.active
-            span
-              border-color: #7A7A7A
-
-              &:after,
-              &:before
-                background-color: #7A7A7A
-
-          span
-            border-color: #404040
-
-            &:after,
-            &:before
-              background-color: #404040
+        background-color: transparent
 
   .additional-advantages
     padding: 35px 30px
@@ -2771,38 +2894,25 @@
   .additional-advantages-item-title
     font-size: 14px
 
-  .advantages-item
-    &.no-text
-      .advantages-item-img
-        margin: 0
-
   .operation-block
     padding: 35px 30px 65px
 
   .operation-content
-    margin-bottom: 70px
+    margin-bottom: 30px
 
     .h1
-      font-size: 22px
-      margin-bottom: 20px
-      text-align: center
+      font-size: 18px
+      margin-bottom: 15px
 
     p
-      font-size: 14px
+      font-size: 12px
       line-height: 1.5
 
   .compare-table-block
-    padding: 55px 19px 80px
+    padding: 0
 
   .slider-scrollbar
     margin-top: 25px
-
-  .catalog-filter
-    width: 100%
-
-  .catalog-filter-btn
-    display: block
-    margin-top: 20px
 
   .account-block
     margin-left: -10px
@@ -3416,72 +3526,6 @@
     width: 100%
     margin-bottom: 40px
 
-  .s-magazine
-    .magazine-item
-      &:nth-child(odd)
-        .categories-item-img
-          height: 255px
-
-      .categories-item
-        height: auto
-
-      .categories-item-img
-        position: relative
-        width: 100%
-        height: 420px
-
-        img
-          transform: none !important
-
-      .categories-item-tag
-        font-size: 16px
-        text-align: center
-        position: absolute
-        left: 0
-        width: 100%
-        top: -41px
-        margin: 0
-        color: #fff
-
-      .categories-item-content
-        color: #000
-        padding: 15px 0 0
-
-      .categories-item-title
-        transform: none !important
-        font-size: 20px
-        line-height: 1.3
-
-      .categories-item-descr
-        opacity: 1
-        transform: translateY(0)
-        font-size: 14px
-        margin: 15px 0 0
-
-      .magazine-row-sizer
-        width: 100%
-
-      .magazine-row-gutter
-        width: 0
-
-      .categories-item
-        > a
-          display: none
-
-      .categories-item-more
-        display: block
-
-  .s-categories
-    .magazine-item
-      margin-bottom: 25px
-
-  .magazine-categories
-    overflow-x: auto
-
-    &::-webkit-scrollbar
-      display: none
-      opacity: 0
-
   .mob-back-link
     display: block
 
@@ -3522,20 +3566,17 @@
         background-color: rgba(255, 255, 255, 0.2)
 
   .s-post-content
-    padding: 30px 0
-
-  .post-content
-    h1, .h1
-      font-size: 30px
-      margin-bottom: 20px
+    padding: 0 0 40px
 
   .post-content-created
-    font-size: 12px
+    font-size: 10px
     margin-right: 14px
+    text-align: left
 
   .post-content-views
-    font-size: 12px
+    font-size: 10px
     margin-left: 14px
+    text-align: right
 
   .post-content-info
     margin-bottom: 20px
@@ -3618,24 +3659,20 @@
   .quarantee-form-title
     font-size: 14px
     line-height: 1.7
-    margin-bottom: 15px
+    margin-bottom: 10px
 
   .quarantee-form-group
     .form-control
       height: 40px
-      -webkit-border-radius: 10px
-      -moz-border-radius: 10px
-      border-radius: 10px
-      margin-bottom: 10px
+      border-radius: 20px
+      padding-right: 110px
+      font-size: 12px
 
-    .btn
-      position: static
-      display: block
-      width: 100%
-      text-align: center
-
-  .quarantee-form
-    margin-bottom: 50px
+    button
+      height: 40px
+      line-height: 40px
+      padding: 0 14px
+      font-size: 14px
 
   .s-for-users
     .h4
@@ -3654,25 +3691,6 @@
 
     p
       font-size: 12px
-
-  .quarantee-terms
-    text-align: center
-
-    p
-      text-align: left
-      font-size: 12px
-
-  .quarantee-term
-    width: 100% !important
-    margin-bottom: 40px
-    padding: 0
-
-    ul
-      li
-        margin: 0
-
-  .quarantee-term-title
-    margin-bottom: 15px
 
   .guarantee-warranty-cases
     ul
@@ -3833,33 +3851,6 @@
 
     &:after
       font-size: 15px
-
-  .product-marketplaces-row
-    flex-direction: column
-
-  .product-marketplace
-    position: relative
-    padding-left: 65px
-    text-align: left
-    margin: 0 0 20px
-
-    &:last-child
-      margin: 0
-
-  .product-marketplace-img
-    position: absolute
-    top: 0
-    left: 0
-
-    img
-      width: 50px
-      height: 50px
-      -webkit-border-radius: 6px
-      -moz-border-radius: 6px
-      border-radius: 6px
-
-  .product-marketplaces
-    margin-top: 30px
 
   .order-success-block
     padding: 20px
@@ -4058,3 +4049,521 @@
 
   .footer-bottom-right
     margin-top: 0
+
+  .product-item-not-available-btn
+    padding-bottom: 10px
+
+    .btn
+      font-size: 12px
+
+  .breadcrumbs
+    display: none
+
+  .header
+    position: fixed !important
+    top: 0
+    left: 0
+    width: 100%
+    padding-bottom: 10px
+
+    &.fixed
+      background-color: #EEEFF3
+      box-shadow: 0 0 10px rgb(0 0 0 / 20%)
+
+  .catalog-dropdown
+    height: 100%
+    position: fixed
+
+  .s-brands-main
+    margin-top: -95px
+    min-height: 450px
+
+  .brands-main-window-content
+    margin-top: auto
+
+  .brands-logo-block
+    margin-right: 10px
+    width: 129px
+    height: 54px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    padding: 0 13px
+
+    img
+      max-width: 83px
+      max-height: 20px
+
+  .brands-more-link
+    font-size: 10px
+    margin-top: 2px
+
+  .brands-official
+    width: 129px
+    height: 54px
+    border-radius: 10px
+    font-size: 10px
+
+  .s-brands-main
+    padding-bottom: 10px
+
+  .product-mob-header
+    display: flex
+    padding: 0 47px
+    position: relative
+    text-align: center
+    margin-bottom: 23px
+
+    .mob-back-link
+      left: 0
+      top: 0
+
+    .h1
+      font-size: 14px
+      margin-bottom: 0
+
+  .product-main-img-full-btn
+    display: none
+
+  .img-full-slider-prev,
+  .img-full-slider-next
+    display: none
+
+  .img-full-slider-list-pagination
+    display: flex
+
+  .img-full-slider-list
+    .swiper-container
+      overflow: visible
+
+  .product-main-info
+    margin-left: -10px
+    margin-right: -10px
+    padding: 10px 10px 27px
+
+  .product-main-delivery-info
+    top: 38px
+    right: 10px
+
+  .product-main-info-content
+    flex-direction: row
+    flex-wrap: wrap
+    align-items: stretch
+    justify-content: stretch
+    text-align: left
+    margin-bottom: 20px
+
+  .product-main-id
+    font-size: 10px
+    margin-bottom: 27px
+    width: 100%
+    order: 1
+
+  .product-colors
+    order: 2
+    width: 100%
+    align-items: flex-start
+
+  .product-title
+    order: 3
+    padding: 0 10px 0 0
+    margin: 0
+    width: calc(100% - 113px)
+
+    h1, .h1
+      font-size: 14px
+
+  .product-main-price
+    order: 4
+    width: 113px
+    flex-shrink: 0
+    margin: auto 0 0
+    font-size: 16px
+    text-align: right
+
+  .product-buy
+    order: 5
+    width: 100%
+    margin: 20px 0 0
+
+    .btn
+      width: 100%
+      height: 40px
+      line-height: 40px
+
+  .product-colors-block
+    padding: 0
+
+  .product-gifts-left
+    margin-right: 11px
+
+    .h3
+      font-size: 14px
+      margin-bottom: 9px
+
+    p
+      font-size: 12px
+
+      br
+        display: none
+
+  .product-gifts-right
+    margin-top: auto
+
+  .gift-item
+    width: 44px
+    height: 44px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    margin-right: 22px
+
+    &:before
+      width: 9px
+      right: -16px
+      background-color: #7A7A7A
+
+    &:after
+      right: -12px
+      height: 9px
+      margin-top: -4px
+      background-color: #7A7A7A
+
+  .product-marketplaces
+    margin-top: 20px
+    padding: 18px 10px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    border: 1px solid #DEDBDB
+
+  .product-marketplaces-title
+    margin-bottom: 20px
+    font-size: 14px
+
+  .product-marketplace-img
+    margin-bottom: 5px
+
+    img
+      width: 40px
+      height: 40px
+      -webkit-border-radius: 10px
+      -moz-border-radius: 10px
+      border-radius: 10px
+
+  .product-marketplace-title
+    font-size: 10px
+
+  .s-product-information
+    padding: 0 10px
+    order: 1
+
+  .s-product
+    padding-bottom: 5px
+
+  .accordion-item
+    border-radius: 10px
+    margin-bottom: 5px !important
+    margin-left: -10px
+    margin-right: -10px
+
+  .accordion-title
+    height: 60px
+    font-size: 16px
+    padding: 0 10px
+
+  .accordion-body-content
+    padding: 20px 10px
+
+    .container
+      padding: 0
+
+  .additional-advantages
+    padding: 0
+
+  .additional-advantages-descr
+    margin-bottom: 30px
+
+    .h1
+      font-size: 18px
+      margin-bottom: 15px
+
+    p
+      font-size: 12px
+
+  .additional-advantages-list
+    grid-gap: 30px
+
+  .additional-advantages-item-img
+    height: 44px
+    width: 44px
+    margin-right: 20px
+
+  .additional-advantages-item-title
+    font-size: 12px
+
+  .s-product-advantages
+    overflow: visible
+    padding-bottom: 30px
+
+  .advantages-item-content
+    padding: 15px
+
+    .h2
+      font-size: 16px
+
+    p
+      font-size: 12px
+
+  .operation-block
+    padding: 0
+
+  .s-operation
+    padding-bottom: 30px
+
+  .product-body-flex
+    display: flex
+    flex-direction: column
+
+  .s-product-compare
+    order: 3
+
+  .s-products-features
+    order: 2
+    padding: 0
+
+    .container
+      padding: 0 10px
+
+  .products-features-block
+    padding: 0
+    background-color: transparent
+
+  .product-description
+    .h3
+      display: none
+
+  .product-description-content
+    p
+      font-size: 14px
+      margin-bottom: 1.1rem
+
+  .product-main
+    margin-bottom: 0
+
+  .product-description
+    padding-bottom: 0
+    margin-bottom: 0
+    border-bottom: none
+
+  .product-features
+    .h3
+      display: none
+
+  .products-features
+    border-radius: 10px
+    margin-bottom: 5px !important
+    margin-left: -10px
+    margin-right: -10px
+    background-color: #fff
+
+    .h5
+      height: 60px
+      font-size: 16px
+      padding: 0 10px
+      display: flex
+      align-items: center
+
+  .products-features-list
+    ul
+      padding: 20px 10px
+
+  .product-set
+    margin: 0
+    padding: 0
+    border: none !important
+
+    .h3
+      display: none
+
+  .instruction-link
+    font-size: 14px
+
+    span
+      font-size: 12px
+      margin-left: 6px
+
+  .products-features-descr
+    font-size: 12px
+    margin-top: 20px
+
+  .s-product-compare
+    padding-bottom: 0
+
+  .compare-table-title
+    display: none
+
+  .s-recommended
+    padding: 35px 0 20px
+
+    .products-slider
+      width: 280px
+      margin-left: auto
+      margin-right: auto
+
+    .products-slider-pagination
+      display: none
+
+  .similar-slider
+    width: 282px
+
+    .swiper-slide-active
+      .categories-item
+        border-radius: 10px
+
+  .categories-item
+    min-height: 416px
+
+  .categories-item-img
+    &:after
+      background-color: rgba(0, 0, 0, 0.5)
+
+  .similar-pagination
+    display: block
+
+  .product-main-info
+    &.not-available
+      .product-main-id
+        text-align: center
+        margin-bottom: 18px
+
+      .product-main-delivery-info
+        display: none
+
+      .product-title
+        display: none
+
+      .product-colors
+        display: none
+
+  .product-main-not-avaliable
+    order: 4
+    text-align: center
+    font-size: 16px
+    margin-left: auto
+    margin-right: auto
+
+  .find-about-admission-form
+    order: 5
+    margin-top: 16px
+
+    .form-descr
+      text-align: center
+      font-size: 12px
+      margin-bottom: 16px
+
+    .form-row
+      grid-template-columns: 1fr
+      grid-gap: 5px
+
+    .form-submit
+      .btn
+        width: 100%
+        height: 40px
+        line-height: 40px
+
+    .form-checkbox
+      font-size: 12px
+
+  .product-page
+    &.dark
+      .accordion-item
+        background-color: #404040
+
+      .accordion-title
+        color: #fff
+
+      .products-features
+        background-color: #404040
+
+      .compare-item-title
+        color: #fff
+
+      .compare-item-parameters
+        ul
+          li
+            color: #fff
+
+  .guarantee-component
+    & > div
+      padding: 20px 0
+
+      &:first-child
+        margin-top: -20px
+
+      &:last-child
+        margin-bottom: -20px
+
+  .quarantee-defect
+    ol
+      margin: 0 0 25px
+
+      li
+        width: 100%
+        padding: 0
+        margin-bottom: 35px
+        display: flex
+        font-size: 14px
+        line-height: 1.4
+
+        &:before
+          flex-shrink: 0
+          margin: 0 20px 0 0
+
+        &:last-child
+          margin-bottom: 0
+
+  .quarantee-defect
+    p
+      line-height: 1.333
+
+  .quarantee-term
+    padding: 20px 20px 34px
+
+  .quarantee-term-title
+    line-height: 1.333
+    font-size: 30px
+    margin-bottom: 20px
+
+  .quarantee-term
+    ul
+      li
+        font-weight: bold
+        line-height: 1.2
+
+  .quarantee-terms-items
+    margin-bottom: 20px
+
+  .guarantee-warranty-cases
+    ul
+      li
+        line-height: 1.3
+
+  .magazine-list
+    .magazine-item
+      margin-bottom: 30px
+      overflow: hidden
+
+      .categories-item
+        border-radius: 10px !important
+        min-height: 502px
+
+      .categories-item-title,
+      .categories-item-descr
+        transform: none !important
+        opacity: 1 !important
+        visibility: visible !important
+
+  .catalog-dropdown
+    &:not(.opened)
+      box-shadow: none

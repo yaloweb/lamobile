@@ -1,37 +1,12 @@
 <template>
   <div class="post-page">
 
-    <section class="s-post-banner">
-
-      <UIBreadcrumbs/>
-
-      <div class="mob-back-link">
-        <a
-          href="#"
-          @click.prevent="$router.go(-1)"/>
-      </div>
-
-      <div
-        class="post-banner"
-        :class="{'with-mob-banner': post.mobBanner}">
-        <img
-          :src="post.banner"
-          alt="">
-        <img
-          v-if="post.mobBanner"
-          class="post-banner-mob"
-          :src="post.mobBanner"
-          alt="">
-      </div>
-
-    </section>
-
     <section class="s-post-content">
       <div class="container">
 
         <div class="post-content">
 
-          <h1 v-html="post.title"/>
+          <UIPageTitle :title="post.title" />
 
           <div class="post-content-info">
             <div class="post-content-created">{{ post.createdAt | dateFormat }}</div>
@@ -121,7 +96,6 @@ export default {
     return await this.$store.dispatch('post/getPostData', id)
   },
   name: 'MagazinePost',
-  layout: 'brands',
   computed: {
     ...mapState({
       post: state => state.post

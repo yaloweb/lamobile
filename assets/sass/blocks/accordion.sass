@@ -18,7 +18,10 @@
 .accordion-item
   position: relative
   background-color: #fff
-  margin-bottom: 5px
+  margin-bottom: 15px
+  -webkit-border-radius: 20px
+  -moz-border-radius: 20px
+  border-radius: 20px
   +tr
 
   &:last-child
@@ -36,6 +39,10 @@
       &:after
         opacity: 0
 
+    .accordion-body-content
+      &:after
+        transform: scaleX(1)
+
 .accordion-title
   height: 120px
   display: flex
@@ -43,7 +50,7 @@
   justify-content: space-between
   padding: 0 50px 0 44px
   font-weight: bold
-  font-size: 24px
+  font-size: 30px
   color: #000
   line-height: 1.42
   cursor: pointer
@@ -91,7 +98,9 @@
     content: ''
     position: absolute
     top: 0
-    left: 44px
+    left: 0
     height: 1px
-    right: 50px
+    right: 0
     background-color: #DEDBDB
+    transform: scale(0)
+    +tr4

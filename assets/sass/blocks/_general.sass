@@ -9,10 +9,12 @@ body
 
     .logo
       img
-        display: none
+        opacity: 0
+        visibility: hidden
 
-      .logo-dark-theme
-        display: block !important
+      .light-logo
+        opacity: 1
+        visibility: visible
 
     .header-location
       color: #fff
@@ -138,6 +140,12 @@ h5, .h5
 .btn-block
   width: 100%
 
+.btn-lg
+  height: 60px
+  line-height: 60px
+  padding: 0 38px
+  border-radius: 30px
+
 .tabs
   &-enter-active
     transition: opacity .4s ease
@@ -252,6 +260,9 @@ h5, .h5
   text-align: center
   margin-bottom: 70px
   position: relative
+
+  .page-back-link
+    display: none
 
   h1, .h1
     margin: 0

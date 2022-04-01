@@ -15,9 +15,7 @@ export const state = () => ({
   exchange: {
     content: ''
   },
-  contacts: {
-    content: ''
-  }
+  contacts: []
 })
 
 export const mutations = {
@@ -32,7 +30,7 @@ export const mutations = {
 
 export const actions = {
   async getInfoForUsers ({ commit }) {
-    const res = await this.$axios.get('/for-users.json')
+    const res = await this.$axios.get('/for-users')
     commit('setInfoForUsers', res.data)
   }
 }

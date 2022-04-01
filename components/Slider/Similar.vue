@@ -14,6 +14,8 @@
     <div class="similar-prev style-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
     <div class="similar-next style-button-next slider-next"><span class="icon-arrow-right"></span></div>
 
+    <div class="similar-pagination"/>
+
   </div>
 </template>
 
@@ -59,6 +61,10 @@ export default {
       navigation: {
         nextEl: '.similar-next',
         prevEl: '.similar-prev'
+      },
+      pagination: {
+        el: '.similar-pagination',
+        type: 'progressbar'
       }
     }
   })

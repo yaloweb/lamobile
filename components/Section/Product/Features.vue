@@ -3,86 +3,115 @@
   <section class="s-products-features">
 
     <div class="container">
-      <div class="small-container">
 
-        <div
-          v-if="description ? description.length > 0 : false"
-          class="product-description">
+      <div class="products-features-block">
 
-          <div class="h3">Описание</div>
+        <div class="small-container">
 
           <div
-            class="product-description-content"
-            v-html="description"/>
+            v-if="description ? description.length > 0 : false"
+            class="product-description">
 
-        </div>
+            <AccordionItem
+              :opened="accordionOpened.indexOf(1) !== -1"
+              @toggle="toggle($event, 1)">
 
-        <div class="product-features">
+              <template #header>Описание</template>
 
-          <div class="h3">Характеристики</div>
+              <template #body>
 
-          <div class="row">
+                <div class="h3">Описание</div>
 
-            <div
-              v-for="(feature, index) in features"
-              :key="feature.id"
-              class="col-6">
+                <div
+                  class="product-description-content"
+                  v-html="description"/>
+
+              </template>
+
+            </AccordionItem>
+
+          </div>
+
+          <div class="product-features">
+
+            <div class="h3">Характеристики</div>
+
+            <div class="row">
+
               <div
-                ref="productsFeatures"
-                class="products-features">
+                v-for="(feature, index) in features"
+                :key="feature.id"
+                class="col-6">
                 <div
-                  class="h5"
-                  :class="{'active': index === 0}"
-                  @click="openFeature">{{ feature.title }} <span @click.stop /></div>
-                <div
-                  v-if="feature.list"
-                  class="products-features-list">
-                  <ul>
-                    <li
-                      v-for="item in feature.list"
-                      :key="item.id">
-                      <span>{{ item.title }}</span>
-                      <span>{{ item.value }}</span>
-                    </li>
-                  </ul>
+                  ref="productsFeatures"
+                  class="products-features">
+                  <div
+                    class="h5"
+                    :class="{'active': index === 0}"
+                    @click="openFeature">{{ feature.title }} <span @click.stop/></div>
+                  <div
+                    v-if="feature.list"
+                    class="products-features-list">
+                    <ul>
+                      <li
+                        v-for="item in feature.list"
+                        :key="item.id">
+                        <span>{{ item.title }}</span>
+                        <span>{{ item.value }}</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+
             </div>
 
           </div>
 
-        </div>
+          <AccordionItem
+            v-if="(set.list ? set.list.length > 0 : false) || (set.instruction ? set.instruction.length > 0 : false)"
+            :opened="accordionOpened.indexOf(2) !== -1"
+            @toggle="toggle($event, 2)">
 
-        <div
-          v-if="(set.list ? set.list.length > 0 : false) || (set.instruction ? set.instruction.length > 0 : false)"
-          class="product-set">
+            <template #header>Комплектации</template>
 
-          <div class="h3">Комплектации</div>
+            <template #body>
 
-          <ul
-            v-if="set.list ? set.list.length > 0 : false"
-            class="set-list">
-            <li
-              v-for="setItem in set.list"
-              :key="setItem.id">
-              {{ setItem }}
-            </li>
-          </ul>
+              <div class="product-set">
 
-          <a
-            v-if="set.instruction ? set.instruction.length > 0 : false"
-            :href="set.instruction"
-            class="btn btn-border">Скачать инструкцию</a>
+                <div class="h3">Комплектации</div>
 
-        </div>
+                <ul
+                  v-if="set.list ? set.list.length > 0 : false"
+                  class="set-list">
+                  <li
+                    v-for="setItem in set.list"
+                    :key="setItem.id">
+                    {{ setItem }}
+                  </li>
+                </ul>
 
-        <div class="products-features-descr">
-          <div
-            class="products-features-descr-content"
-            v-html="featuresFooterInfo"/>
+                <a
+                  v-if="set.instruction ? set.instruction.length > 0 : false"
+                  :href="set.instruction"
+                  class="instruction-link">Скачать инструкцию<span class="icon-download" /></a>
+
+              </div>
+
+              <div class="products-features-descr">
+                <div
+                  class="products-features-descr-content"
+                  v-html="featuresFooterInfo"/>
+              </div>
+
+            </template>
+
+          </AccordionItem>
+
         </div>
 
       </div>
+
     </div>
 
   </section>
@@ -106,6 +135,9 @@ export default {
       return this.$refs.productsFeatures
     }
   },
+  data: () => ({
+    accordionOpened: []
+  }),
   methods: {
     openFeature (e) {
       if (window.innerWidth < 576) {
@@ -120,6 +152,9 @@ export default {
           contentInner.style.maxHeight = `${content.offsetHeight}px`
         }
       }
+    },
+    toggle (bool, id) {
+      bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
     }
   },
   mounted () {

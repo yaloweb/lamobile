@@ -7,30 +7,36 @@
     <div
       v-if="productImages.length > 1"
       class="img-full-slider"
-      :class="{visible: fullImageScreen}">
+      :class="{visible: fullImageScreen || isMob}">
 
       <div
         class="img-full-slider-prev"
-        @click="goToSlide('prev')"/>
+        @click="goToPrevSlide"/>
 
       <div
         class="img-full-slider-next"
-        @click="goToSlide('next')"/>
+        @click="goToNextSlide"/>
 
       <div class="img-full-slider-list">
-        <div
-          v-for="(slide, index) in productImages"
-          :key="index"
-          :class="{visible: index === selectedImageIndex}"
-          class="img-full-slider-list-container"
-          @click="fullImageScreen = false">
-          <img
-            v-for="img in slide.list"
-            :key="img.id"
-            :src="img.imgSrc"
-            :class="{'visible': img.color === selectedColor}"
-            alt="">
-        </div>
+        <swiper
+          ref="imgFullSliderList"
+          :options="fullSliderOptions">
+          <swiper-slide
+            v-for="(slide, index) in productImages"
+            :key="index">
+            <div
+              :class="{visible: index === selectedImageIndex}"
+              class="img-full-slider-list-container">
+              <img
+                v-for="img in slide.list"
+                :key="img.id"
+                :src="img.imgSrc"
+                :class="{'visible': img.color === selectedColor}"
+                alt="">
+            </div>
+          </swiper-slide>
+        </swiper>
+        <div class="img-full-slider-list-pagination" />
       </div>
     </div>
 
@@ -39,8 +45,9 @@
       class="product-main-img-slider">
 
       <div
+        v-if="!isMob"
         class="product-main-img-swiper"
-        :class="{visible: !fullImageScreen}">
+        :class="{visible: !fullImageScreen || isMob}">
 
         <swiper :options="swiperOptions">
 
@@ -57,7 +64,6 @@
                 :key="img.id"
                 :class="{'visible': img.color === selectedColor}"
                 :src="img.imgSrc"
-                @click="selectIndexById(img.id)"
                 alt="">
             </div>
 
@@ -73,30 +79,7 @@
     </div>
 
     <div
-      v-else-if="productImages.length > 1 && isMob"
-      class="product-main-img-scroll"
-      :class="{'length-3': productImages.length === 3}"
-      @click="popup = true">
-
-      <div
-        v-for="(item, itemIndex) in productImages"
-        :key="itemIndex"
-        class="product-main-img-container"
-        :class="{'wide': item.wide}"
-        @click="selectedImageIndex = itemIndex">
-        <img
-          v-for="img in item.list"
-          :key="img.id"
-          :class="{'visible': img.color === selectedColor}"
-          :src="img.imgSrc"
-          @click="selectIndexById(img.id)"
-          alt="">
-      </div>
-
-    </div>
-
-    <div
-      v-else
+      v-else-if="!isMob && productImages.length === 1"
       class="product-main-img-container">
       <template v-if="productImages[0]">
         <img
@@ -106,6 +89,13 @@
           :src="img.imgSrc"
           alt="">
       </template>
+    </div>
+
+    <div
+      v-if="productImages.length > 1"
+      class="product-main-img-full-btn"
+      @click="fullImageScreen = !fullImageScreen">
+      <span class="icon-search"/>
     </div>
 
   </div>
@@ -173,11 +163,6 @@ export default {
       return res
     }
   },
-  watch: {
-    selectedImageIndex (newVal) {
-      console.log(newVal)
-    }
-  },
   data: () => ({
     swiperOptions: {
       direction: 'vertical',
@@ -200,6 +185,21 @@ export default {
         }
       }
     },
+    fullSliderOptions: {
+      slidesPerView: 1,
+      speed: 600,
+      pagination: {
+        el: '.img-full-slider-list-pagination'
+      },
+      breakpoints: {
+        0: {
+          spaceBetween: 5
+        },
+        576: {
+          spaceBetween: 0
+        }
+      }
+    },
     isMob: false,
     selectedImageIndex: 0,
     fullImageScreen: false
@@ -208,37 +208,17 @@ export default {
     checkDevice () {
       window.innerWidth < 576 ? this.isMob = true : this.isMob = false
     },
-    selectIndexById (id) {
-      this.productImages.forEach((item, index) => {
-        const hasId = item.list.filter(listItem => listItem.id === id).length > 0
-        if (hasId) {
-          this.selectedImageIndex = hasId ? index : 0
-        }
-      })
-      this.fullImageScreen = true
+    goToPrevSlide () {
+      this.$refs.imgFullSliderList.$swiper?.slidePrev()
     },
-    goToSlide (to) {
-      if (to === 'prev') {
-        if (this.selectedImageIndex !== 0) {
-          this.selectedImageIndex--
-        } else {
-          this.selectedImageIndex = this.productImages.length - 1
-        }
-      }
-      if (to === 'next') {
-        if (this.selectedImageIndex < this.productImages.length - 1) {
-          this.selectedImageIndex++
-        } else {
-          this.selectedImageIndex = 0
-        }
-      }
+    goToNextSlide () {
+      this.$refs.imgFullSliderList.$swiper?.slideNext()
     }
   },
   mounted () {
     this.checkDevice()
     window.addEventListener('resize', this.checkDevice)
     this.$on('hook:beforeDestroy', () => window.removeEventListener('resize', this.checkDevice))
-    console.log(this.productImages)
   }
 }
 </script>

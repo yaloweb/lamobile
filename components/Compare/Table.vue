@@ -2,84 +2,96 @@
 
   <div class="compare-table-block">
 
-    <div class="compare-table-title">
-      <div
-        class="h1"
-        v-html="title"/>
-    </div>
+    <AccordionItem
+      :opened="accordionOpened"
+      @toggle="accordionOpened = !accordionOpened">
 
-    <div class="compare-table">
+      <template #header>Сравните модели</template>
 
-      <div class="compare-table-parameters">
-        <ul>
-          <li ref="parameterTitle">Название модели</li>
-          <li
-            ref="parameter"
-            v-for="parameter in parameters"
-            :key="parameter.key"
-            v-html="parameter.title"/>
-        </ul>
-      </div>
+      <template #body>
 
-      <div class="compare-table-items">
-
-        <div class="compare-items-list">
-
+        <div class="compare-table-title">
           <div
-            v-for="(item, index) in compareItems"
-            :key="`${item.id}-${index}`"
-            ref="product"
-            class="compare-item">
+            class="h1"
+            v-html="title"/>
+        </div>
 
-            <div class="compare-item-select">
-              <v-select
-                label="title"
-                :options="items"
-                v-model="activeElements[index]"
-                :reduce="option => option.id"
-                :searchable="false"/>
-            </div>
+        <div class="compare-table">
 
-            <div class="compare-item-img">
-              <img
-                :src="item.imgSrc"
-                alt="">
-            </div>
-            <div
-              ref="productTitle"
-              class="compare-item-title"
-              v-html="item.title" />
-            <div class="compare-item-parameters">
-              <ul>
-                <li
-                  v-for="parameter in parameters"
-                  :key="parameter.key">
-                  <template v-if="parameter.key === 'colors'">
-                    <div class="compare-items-colors">
+          <div class="compare-table-parameters">
+            <ul>
+              <li ref="parameterTitle">Название модели</li>
+              <li
+                ref="parameter"
+                v-for="parameter in parameters"
+                :key="parameter.key"
+                v-html="parameter.title"/>
+            </ul>
+          </div>
+
+          <div class="compare-table-items">
+
+            <div class="compare-items-list">
+
+              <div
+                v-for="(item, index) in compareItems"
+                :key="`${item.id}-${index}`"
+                ref="product"
+                class="compare-item">
+
+                <div class="compare-item-select">
+                  <v-select
+                    label="title"
+                    :options="items"
+                    v-model="activeElements[index]"
+                    :reduce="option => option.id"
+                    :searchable="false"/>
+                </div>
+
+                <div class="compare-item-img">
+                  <img
+                    :src="item.imgSrc"
+                    alt="">
+                </div>
+                <div
+                  ref="productTitle"
+                  class="compare-item-title"
+                  v-html="item.title" />
+                <div class="compare-item-parameters">
+                  <ul>
+                    <li
+                      v-for="parameter in parameters"
+                      :key="parameter.key">
+                      <template v-if="parameter.key === 'colors'">
+                        <div class="compare-items-colors">
                       <span
                         v-for="(color, colorIndex) in item.parameters.colors"
                         :key="colorIndex"
                         :style="{backgroundColor: color}"/>
-                    </div>
-                  </template>
-                  <template v-else>
-                    {{ item.parameters[parameter.key] ? (item.parameters[parameter.key].length > 0 ? item.parameters[parameter.key] : '1-') : '-' }}
-                  </template>
-                </li>
-              </ul>
+                        </div>
+                      </template>
+                      <template v-else>
+                        {{ item.parameters[parameter.key] ? (item.parameters[parameter.key].length > 0 ? item.parameters[parameter.key] : '1-') : '-' }}
+                      </template>
+                    </li>
+                  </ul>
+                </div>
+                <div class="compare-item-btn">
+                  <nuxt-link
+                    :to="item.url"
+                    class="compare-item-link">Подробнее <span class="icon-angle-right-light" /></nuxt-link>
+                </div>
+              </div>
+
             </div>
-            <div class="compare-item-btn">
-              <nuxt-link
-                :to="item.url"
-                class="btn btn-border">Подробнее</nuxt-link>
-            </div>
+
           </div>
 
         </div>
 
-      </div>
+      </template>
 
-    </div>
+    </AccordionItem>
 
   </div>
 
@@ -115,7 +127,8 @@ export default {
     }
   },
   data: () => ({
-    activeElements: []
+    activeElements: [],
+    accordionOpened: false
   }),
   methods: {
     getCurrentCompareItem (id) {

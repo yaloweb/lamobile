@@ -27,11 +27,11 @@ export const mutations = {
 
 export const actions = {
   async getBasketData ({ commit }) {
-    const res = await this.$axios.get('/basket.json')
+    const res = await this.$axios.get('/basket')
     commit('setBasketData', res.data)
   },
   async deleteProduct ({ commit }, id) {
-    const res = await this.$axios.get('/basket.json')
+    const res = await this.$axios.get('/basket')
     commit('setBasketData', res.data)
   },
   addToBasket (ctx, { productId, quantity }) {

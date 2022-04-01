@@ -2,7 +2,7 @@
   <div class="contacts">
     <div class="contacts"/>
     <div
-      v-for="(contact, index) in contacts.content"
+      v-for="(contact, index) in contacts"
       :key="index"
       class="contacts-item"
       v-html="contact"/>

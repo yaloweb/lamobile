@@ -6,9 +6,7 @@
     <section class="s-for-users">
       <div class="container">
 
-        <div class="page-title">
-          <h1>Пользователям</h1>
-        </div>
+        <UIPageTitle title="Пользователям"/>
 
         <div
           class="accordion"

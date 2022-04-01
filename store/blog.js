@@ -22,7 +22,7 @@ export const mutations = {
 
 export const actions = {
   async getBlog ({ commit }) {
-    // const res = await this.$axios.get('/blog/blog-all.json')
+    // const res = await this.$axios.get('/blog/blog-all')
     const res = await this.$axios.get('http://lamobile-api.bikstart.ru/api/blog/article')
     commit('setBlog', res.data)
   },
@@ -36,12 +36,14 @@ export const actions = {
     })
     commit('setLoadedBlogItems', res.data)
   },
-  async filterBlogByCategory ({ commit }, id) {
-    const res = await this.$axios.get(`http://lamobile-api.bikstart.ru/api/blog/article?category=${id}`)
+  async getBlogListByParams ({ commit }, params) {
+    const res = await this.$axios.get('http://lamobile-api.bikstart.ru/api/blog/article', {
+      params
+    })
     commit('setBlog', res.data)
   },
   async getCategories ({ commit }) {
-    // const res = await this.$axios.get('/blog/categories.json')
+    // const res = await this.$axios.get('/blog/categories')
     const res = await this.$axios.get('http://lamobile-api.bikstart.ru/api/blog/category')
     commit('setCategories', res.data)
   }

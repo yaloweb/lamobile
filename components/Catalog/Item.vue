@@ -10,7 +10,7 @@
       :class="item.tag ? item.tag.color : ''">
 
       <template v-if="item.inStock === false">
-        <a href="#" class="goods-arrival-link">Узнать о поступлении ></a>
+        <span class="goods-arrival">Нет в наличии</span>
       </template>
 
       <template v-else>
@@ -86,7 +86,9 @@
         </nuxt-link>
       </div>
 
-      <div class="product-item-footer">
+      <div
+        v-if="item.inStock !== false"
+        class="product-item-footer">
 
         <div
           v-if="item.colors"
@@ -117,6 +119,12 @@
           </button>
         </div>
 
+      </div>
+
+      <div
+        v-else
+        class="product-item-not-available-btn">
+        <button class="btn btn-border btn-block">Узнать о поступлении</button>
       </div>
 
     </div>

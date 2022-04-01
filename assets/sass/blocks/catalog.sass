@@ -8,15 +8,13 @@
   padding: 45px 32px 20px
   display: flex
   flex-direction: column
+  +tr
 
   &.disabled
-    background-color: rgba(#fff, .5)
+    background-color: rgba(#fff, .6)
 
     .product-item-img
-      opacity: .5
-
-    .product-item-text
-      opacity: .7
+      opacity: .6
 
 .product-item-tag
   position: absolute
@@ -30,6 +28,9 @@
 
   &.green
     color: $green
+
+  .goods-arrival
+    color: #7A7A7A
 
 .product-item-img
   position: relative
@@ -106,6 +107,19 @@
 
 .catalog
   position: relative
+
+  &.catalog-loading
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 2
+
+    .product-item
+      opacity: .3
 
 .goods-arrival-link
   color: #000AFF
@@ -455,3 +469,152 @@
 
   &:last-child
     margin-right: 0
+
+.product-item-not-available-btn
+  .btn
+    height: 40px
+    line-height: 38px
+    padding: 0
+
+.catalog-filter
+  display: flex
+  margin-bottom: 20px
+  align-items: flex-start
+
+.catalog-filter-nav
+  flex-grow: 1
+  display: flex
+  align-items: center
+  white-space: nowrap
+  max-width: calc(100% - 320px)
+  flex-wrap: wrap
+
+  a
+    white-space: nowrap
+    height: 60px
+    line-height: 58px
+    background-color: #fff
+    padding: 0 40px
+    -webkit-border-radius: 30px
+    -moz-border-radius: 30px
+    border-radius: 30px
+    margin: 0 20px 20px 0
+    font-size: 20px
+    color: #000
+    +tr
+    position: relative
+    border: 1px solid #fff
+
+    &:after
+      content: '\e911'
+      font-family: icon
+      position: absolute
+      width: 32px
+      height: 32px
+      background-color: $accent
+      display: flex
+      align-items: center
+      justify-content: center
+      -webkit-border-radius: 50%
+      -moz-border-radius: 50%
+      border-radius: 50%
+      color: #fff
+      font-size: 9px
+      line-height: 1
+      font-weight: bold
+      +tr
+      top: -7px
+      right: -6px
+      transform: scale(0)
+
+    &:hover
+      border-color: #c4c4c4
+
+    &.active
+      border-color: $accent
+
+      &:hover
+        &:after
+          transform: scale(1)
+
+
+.catalog-sort
+  position: relative
+  margin-left: auto
+  padding-top: 17px
+
+  &.opened
+    .catalog-sort-selected
+      span
+        transform: rotate(180deg)
+
+    .catalog-sort-dropdown
+      opacity: 1
+      visibility: visible
+      transform: translateY(0)
+
+.catalog-sort-selected
+  position: relative
+  color: #7A7A7A
+  +tr
+  display: flex
+  align-items: center
+  cursor: pointer
+
+  &:hover
+    color: $accent
+
+    span
+      svg
+        *
+          fill: $accent
+
+  span
+    width: 8px
+    height: 8px
+    flex-shrink: 0
+    display: flex
+    margin-left: 18px
+    +tr
+
+    svg
+      width: 100%
+      height: 100%
+
+      *
+        fill: #7A7A7A
+        +tr
+
+.catalog-sort-dropdown
+  position: absolute
+  top: calc(100% + 10px)
+  right: 0
+  white-space: nowrap
+  background-color: #fff
+  z-index: 2
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%)
+  -webkit-border-radius: 8px
+  -moz-border-radius: 8px
+  border-radius: 8px
+  padding: 20px 0
+  visibility: hidden
+  opacity: 0
+  transform: translateY(-5px)
+  +tr
+
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+
+    li
+      padding: 5px 20px
+      font-size: 14px
+      +tr
+      cursor: pointer
+
+      &:hover
+        color: $accent
+
+      &.active
+        background-color: #f2f2f2

@@ -18,7 +18,7 @@ export const mutations = {
 
 export const actions = {
   async getCompareData ({ commit }) {
-    const res = await this.$axios.get('/compare.json')
+    const res = await this.$axios.get('/compare')
     commit('setCompareTitle', res.data.title)
     commit('setCompareParameters', res.data.parameters)
     commit('setCompareItems', res.data.items)

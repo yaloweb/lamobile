@@ -11,17 +11,13 @@
 
         <div class="brands-main-window-content">
 
-          <div class="brands-main-window-content-left">
-            <h1 v-html="info.title"/>
-            <p v-html="info.descr"/>
-          </div>
-
           <div class="brands-main-window-content-right">
 
             <div class="brands-logo-block">
               <img
                 :src="info.logoSrc"
                 alt="">
+              <a href="#" class="brands-more-link">Подробнее о бренде</a>
             </div>
 
             <div

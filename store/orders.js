@@ -22,11 +22,11 @@ export const mutations = {
 
 export const actions = {
   async getOrdersList ({ commit }) {
-    const res = await this.$axios.get('/orders.json')
+    const res = await this.$axios.get('/orders')
     commit('setOrdersList', res.data)
   },
   async getCurrentOrder ({ commit }, id) {
-    const res = await this.$axios.get('/current-order.json')
+    const res = await this.$axios.get('/current-order')
     commit('setCurrentOrder', res.data)
   }
 }
