@@ -30,15 +30,16 @@ export const state = () => ({
 
 export const getters = {
   categoriesFilter (state) {
-    return [...state.catalog].sort((a, b) => {
-      if (state.selectedSort.code === 'price') {
-        return a.price - b.price
-      } else if (state.selectedSort.code === 'title') {
-        return a.title.localeCompare(b.title)
-      } else {
-        return 0
-      }
-    })
+    // return [...state.catalog].sort((a, b) => {
+    //   if (state.selectedSort.code === 'price') {
+    //     return a.price - b.price
+    //   } else if (state.selectedSort.code === 'title') {
+    //     return a.title?.localeCompare(b.title)
+    //   } else {
+    //     return 0
+    //   }
+    // })
+    return state.catalog
   }
 }
 
@@ -64,7 +65,6 @@ export const mutations = {
     state.selectedSort = data
   },
   setSelectedSubcategory (state, data) {
-    console.log(data)
     state.selectedSubcategory = data
   },
   clearSelectedSubcategory (state) {

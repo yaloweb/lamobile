@@ -44,7 +44,6 @@ export const actions = {
   async getProductInfo ({ dispatch, commit }, symbol) {
     const res = await this.$axios.$get(`http://lamobile-api.bikstart.ru/api/catalog/product/${symbol}`)
     // const res = await this.$axios.$get(`/products/${symbol}`)
-    console.log(res)
     dispatch('startResetState')
     commit('setProductInfo', res)
   }

@@ -7,9 +7,19 @@
     <nuxt-link :to="'/magazine/' + item.id" />
 
     <div class="categories-item-img">
+
       <img
+        v-if="item.imgSrc"
         :src="item.imgSrc"
         alt="">
+
+      <div
+        v-else
+        class="categories-item-no-picture">
+        <img src="/img/icons/photo-camera.png" alt="">
+        <span>Нет изображения</span>
+      </div>
+
     </div>
 
     <div

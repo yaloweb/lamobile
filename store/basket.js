@@ -44,10 +44,8 @@ export const actions = {
           quantity
         }
       }).then(response => {
-        console.log(response)
         resolve()
       }).catch(error => {
-        console.log(error)
         // eslint-disable-next-line prefer-promise-reject-errors
         reject(error)
         return error

@@ -337,3 +337,53 @@ textarea.form-control
   span
     position: relative
     z-index: 1
+
+.form-quantity-input
+  display: flex
+  align-items: center
+
+  button
+    width: 32px
+    height: 32px
+    flex-shrink: 0
+    -webkit-border-radius: 50%
+    -moz-border-radius: 50%
+    border-radius: 50%
+    border: 1px solid $accent
+    background-color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #000
+    outline: none
+
+    .icon-plus
+      font-size: 11px
+
+    .icon-minus
+      font-size: 7px
+
+  input
+    min-width: 0
+    width: 62px
+    flex-shrink: 0
+    height: 32px
+    -webkit-border-radius: 16px
+    -moz-border-radius: 16px
+    border-radius: 16px
+    text-align: center
+    background-color: #E9EAEC
+    border: none
+    outline: none
+    margin: 0 5px
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    -moz-appearance: textfield
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+      margin: 0
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none

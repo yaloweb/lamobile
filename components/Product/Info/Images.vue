@@ -110,7 +110,7 @@
     </div>
 
     <div
-      v-else-if="!isMob && productImages.length === 1"
+      v-else-if="!isMob && productImages.length === 1 ? productImages[0].list.length === 1 : false"
       class="product-main-img-container">
       <template v-if="productImages[0]">
         <img
@@ -125,6 +125,15 @@
       class="product-main-img-full-btn"
       @click="fullImageScreen = !fullImageScreen">
       <span class="icon-search"/>
+    </div>
+
+    <div
+      v-if="notImage"
+      class="product-main-img-no-picture">
+      <span>
+        <img src="/img/icons/photo-camera.png" alt="">
+        Нет изображения
+      </span>
     </div>
 
   </div>
@@ -150,7 +159,10 @@ export default {
       productImages: state => state.product.productImages
     }),
     severalImages () {
-      return this.productImages.length > 1 ? true : !!this.productImages[0].list.length
+      return this.productImages.length > 1 ? true : !!this.productImages[0]?.list.length
+    },
+    notImage () {
+      return !this.productImages.filter(item => item.list.length > 0).length
     }
   },
   data: () => ({
@@ -208,7 +220,6 @@ export default {
           res[count].push(item)
         }
       })
-      console.log(res)
       return res
     },
     getProductImagesSwiperOptions (idx) {
