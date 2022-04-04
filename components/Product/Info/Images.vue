@@ -2,10 +2,10 @@
 
   <div
     class="product-main-img"
-    :class="{'only-one': productImages.length === 1}">
+    :class="{'only-one': productImages.length === 1 ? productImages[0].list.length === 1 : false}">
 
     <div
-      v-if="productImages.length > 1"
+      v-if="severalImages"
       class="img-full-slider"
       :class="{visible: fullImageScreen || isMob}">
 
@@ -13,7 +13,7 @@
         v-for="(productImagesGroup, idx) in productImages"
         :key="idx"
         class="img-full-slider-list"
-        :class="{'visible': productImagesGroup.colorId === selectedColor}">
+        :class="{'visible': productImagesGroup.color === selectedColor}">
 
         <swiper
           :ref="`imgFullSliderList${idx}`"
@@ -49,7 +49,7 @@
     </div>
 
     <div
-      v-if="productImages.length > 1 && !isMob"
+      v-if="severalImages && !isMob"
       class="product-main-img-slider">
 
       <div
@@ -61,7 +61,7 @@
           v-for="(productImagesGroup, idx) in productImages"
           :key="idx"
           class="product-main-img-swiper-block"
-          :class="{'visible': productImagesGroup.colorId === selectedColor}">
+          :class="{'visible': productImagesGroup.color === selectedColor}">
 
           <swiper
             v-if="productImagesGroup.list.length > 1"
@@ -121,7 +121,7 @@
     </div>
 
     <div
-      v-if="productImages.length > 1"
+      v-if="severalImages"
       class="product-main-img-full-btn"
       @click="fullImageScreen = !fullImageScreen">
       <span class="icon-search"/>
@@ -148,7 +148,10 @@ export default {
   computed: {
     ...mapState({
       productImages: state => state.product.productImages
-    })
+    }),
+    severalImages () {
+      return this.productImages.length > 1 ? true : !!this.productImages[0].list.length
+    }
   },
   data: () => ({
     isMob: false,
@@ -205,6 +208,7 @@ export default {
           res[count].push(item)
         }
       })
+      console.log(res)
       return res
     },
     getProductImagesSwiperOptions (idx) {
