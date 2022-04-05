@@ -167,6 +167,23 @@
   .product-marketplace-title
     font-size: 14px
 
+  .catalog-list-item-total
+    width: 110px
+
+  .catalog-list-item
+    padding: 20px
+
+  .catalog-list-item-img
+    width: 140px
+    margin-right: 20px
+
+  .catalog-list-item-info
+    font-size: 14px
+
+  .catalog-list-item-quantity-item-color
+    font-size: 14px
+    width: 113px
+
 @media (max-width: 1599.98px)
   body
     font-size: 14px
@@ -747,6 +764,66 @@
     ul
       padding: 0
 
+  .basket-total
+    width: 370px
+
+  .basket-total-block
+    padding: 20px
+
+    .h3
+      font-size: 24px
+      margin-bottom: 20px
+
+  .basket-total-prices
+    ul
+      li
+        font-size: 14px
+        margin-bottom: 7px
+
+        span
+          &:last-child
+            font-size: 18px
+
+  .basket-total-promocode
+    input
+      height: 40px
+      padding: 0 50px 0 15px
+      font-size: 14px
+
+    button
+      width: 40px
+      height: 40px
+      font-size: 16px
+
+  .basket-total-price
+    span
+      &:last-child
+        font-size: 20px
+
+  .basket-total-links
+    margin-top: 20px
+    padding-left: 20px
+
+  .basket-main
+    margin-right: 30px
+    max-width: calc(100% - 400px)
+
+  .catalog-list-item
+    margin-bottom: 30px
+
+  .basket-gifts-block
+    width: 100%
+
+  .catalog-list-item-clear
+    a
+      font-size: 14px
+
+  .catalog-list-item-total-value
+    font-size: 16px
+
+    span
+      font-size: 20px
+
 @media (max-width: 1439.98px)
 
   .container
@@ -1069,6 +1146,46 @@
       width: 150px
       margin-left: -75px
 
+  .basket-total
+    width: 280px
+
+  .basket-main
+    margin-right: 20px
+    max-width: calc(100% - 300px)
+
+  .basket-gifts-block
+    padding: 20px
+
+  .basket-gifts-block-text
+    .h5
+      font-size: 21px
+
+    p
+      font-size: 14px
+
+  .basket-gifts-block-item
+    width: 70px
+    height: 70px
+    -webkit-border-radius: 8px
+    -moz-border-radius: 8px
+    border-radius: 8px
+    margin-right: 35px
+
+    &:after
+      font-size: 13px
+      right: -25px
+      top: calc(50% - 6.5px)
+
+  .s-basket-recommended
+    margin-bottom: 70px
+
+    .h2, h2
+      font-size: 30px
+
+  .delivery-payment-type-item
+    font-size: 16px
+
+
 @media (max-width: 1199.98px)
 
   .logo
@@ -1310,13 +1427,6 @@
   .thumbs-nav-next
     bottom: -20px
 
-  .popup-close
-    top: 30px
-    right: 20px
-    width: 43px
-    height: 43px
-    font-size: 15px
-
   .order-info-left
     padding-left: 0
 
@@ -1385,6 +1495,25 @@
 
   .guarantee-warranty-contacts
     font-size: 14px
+
+  .basket-row
+    flex-direction: column-reverse
+
+  .basket-total
+    margin: 0 0 20px
+    width: 100%
+    position: static
+
+  .basket-total-links
+    display: none
+
+  .basket-main
+    max-width: none
+    width: 100%
+
+  .basket-page-body
+    .wrapper
+      overflow: visible
 
 @media (max-width: 991.98px)
 
@@ -1658,10 +1787,6 @@
 
   .product-list-view-delete
     margin-top: auto
-
-
-  .basket-row
-    display: block
 
 
   .basket-main
@@ -2115,6 +2240,13 @@
   .quarantee-form
     max-width: none
 
+  .catalog-list-item-img
+    width: 50px
+    margin-right: 10px
+
+  .catalog-list-item-info
+    font-size: 12px
+
 @media (max-width: 767.98px)
 
   .style-button-prev,
@@ -2306,6 +2438,137 @@
   .guarantee-warranty-contacts
     ul
       display: block
+
+  .catalog-list-item
+    flex-wrap: wrap
+    padding: 16px 15px
+
+  .catalog-list-item-content
+    width: 100%
+    margin-bottom: 11px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+    flex-direction: row-reverse
+
+  .catalog-list-item-id
+    margin-bottom: 20px
+
+  .catalog-list-item-info
+    margin-right: 24px
+
+  .catalog-list-item-title
+    line-height: 1.25
+
+  .catalog-list-item-img
+    margin: 0
+    width: 126px
+    padding-top: 20px
+
+  .catalog-list-item-form-container
+    display: block
+
+  .catalog-list-item-quantity
+    margin: 0 0 17px
+
+  .catalog-list-item-form
+    width: 100%
+
+  .catalog-list-item-quantity-item
+    margin-bottom: 20px
+
+  .catalog-list-item-quantity-item-color
+    margin-right: auto
+    font-size: 12px
+
+    span
+      width: 25px
+      height: 25px
+      border: none
+      box-shadow: inset 0 1.55568px 2.33352px rgba(0, 0, 0, 0.25)
+      margin-right: 10px
+
+  .form-quantity-input
+    button
+      width: 25px
+      height: 25px
+
+      .icon-plus
+        font-size: 9px
+
+    input
+      height: 25px
+      width: 76px
+      font-size: 12px
+      margin: 0 3px
+
+  .catalog-list-item-total
+    width: 100%
+    flex-direction: row
+    align-items: center
+
+  .catalog-list-item-clear
+    margin: 0
+
+    a
+      font-size: 12px
+
+  .catalog-list-item-total-value
+    font-weight: bold
+    font-size: 12px
+
+    span
+      font-size: 12px
+      display: inline
+      margin: 0
+
+  .catalog-list-item
+    margin-bottom: 20px
+
+  .basket-gifts-block
+    display: flex
+    padding: 16px 7px 16px 15px
+    -webkit-border-radius: 10px
+    -moz-border-radius: 10px
+    border-radius: 10px
+
+  .basket-gifts-block-text
+    .h5
+      font-size: 14px
+      margin: 0 0 10px
+
+    p
+      font-size: 12px
+
+  .basket-gifts-block-item
+    width: 40px
+    height: 40px
+    margin-right: 20px
+
+    &:after
+      font-size: 7px
+      top: calc(50% - 3.5px)
+      right: -14px
+
+  .basket-gifts-block-text
+    margin: 0
+
+  .s-basket-recommended
+    .h2
+      font-size: 20px
+
+  .basket-recommended-slider
+    padding-right: 50px
+
+    .swiper-container
+      overflow: visible
+
+  .basket-page-body
+    .wrapper
+      overflow: hidden
+
+  .s-basket-recommended
+    margin-bottom: 20px
 
 @media (max-width: 575.98px)
   body.dark
@@ -3209,35 +3472,12 @@
 
 
   .basket-list
-    margin-bottom: 60px
-
-
-  .basket-gifts-block
-    padding: 15px 18px 19px
-    -webkit-border-radius: 10px
-    -moz-border-radius: 10px
-    border-radius: 10px
-
-
-  .basket-gifts-block-item
-    width: 66px
-    height: 66px
-    flex-shrink: 0
-    margin-right: 49px
-    -webkit-border-radius: 7px
-    -moz-border-radius: 7px
-    border-radius: 7px
-
-    &:after
-      font-size: 9px
-      right: -29px
-      top: calc(50% - 4.5px)
-
+    margin-bottom: 40px
 
   .ordering
     margin-left: -10px
     margin-right: -10px
-    padding: 35px
+    padding: 25px
 
 
   .ordering-title
@@ -3293,8 +3533,12 @@
 
     ul
       li
-        margin-bottom: 10px
-        font-size: 16px
+        margin-bottom: 5px
+        font-size: 12px
+
+        span
+          &:last-child
+            font-size: 12px
 
   .basket-total-promocode
     margin-bottom: 17px
@@ -3800,16 +4044,6 @@
     height: 40px
     margin-top: -20px
     font-size: 16px
-
-  .popup-close
-    width: 40px
-    height: 40px
-    font-size: 14px
-    border-color: #DEDBDB
-    color: #C4C4C4
-    background-color: rgba(#fff, .2)
-    top: 22px
-    right: 12px
 
   .images-gallery-component
     padding: 83px 0 20px
@@ -4578,3 +4812,85 @@
 
     img
       width: 50px
+
+  .basket-recommended-slider
+    width: 165px
+    margin-left: auto
+    margin-right: auto
+    padding: 0
+
+  .basket-total-block
+    padding: 23px 15px 15px
+
+    .h3
+      display: none
+
+  .basket-total-promocode
+    margin-bottom: 25px
+
+  .basket-total-price
+    font-size: 12px
+
+    span
+      &:last-child
+        font-size: 20px
+
+  .basket-total-submit
+    display: none
+
+  .header-acc-dropdown
+    padding: 26px
+    width: calc(100vw - 20px)
+    white-space: nowrap
+    top: calc(100% + 16px)
+    text-align: center
+
+  .opt-site-link
+    font-size: 16px
+    justify-content: center
+
+    span
+      font-size: 22px
+      margin-right: 17px
+
+  .popup-flex
+    padding: 0
+
+  .popup-block
+    margin-bottom: 0
+    width: 100%
+
+  .popup-close
+    width: 30px
+    height: 30px
+    font-size: 10px
+    top: 17px
+    right: 17px
+
+  .popup-content
+    padding: 21px 26px 43px
+
+  .callback-form
+    max-width: none
+
+    .form-title
+      margin-bottom: 38px
+      text-align: left
+
+    p
+      text-align: left
+      font-size: 14px
+      margin-bottom: 10px
+
+    .form-group-checkbox
+      margin-top: 10px !important
+
+    .form-submit
+      margin-top: 40px
+
+      .btn
+        font-size: 14px
+
+    .form-footer-link
+      font-size: 14px
+      margin-top: 16px

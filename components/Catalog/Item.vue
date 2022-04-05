@@ -140,7 +140,12 @@
       <div
         v-else
         class="product-item-not-available-btn">
-        <button class="btn btn-border btn-block">Узнать о поступлении</button>
+        <nuxt-link
+          class="btn btn-border btn-block"
+          :to="item.url"
+        >
+          Узнать о поступлении
+        </nuxt-link>
       </div>
 
     </div>

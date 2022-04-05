@@ -84,6 +84,7 @@
                 :class="{'active': selectedColor === color.id}"
                 @click="selectedColor = color.id"
               />
+              {{ color.title }}
             </div>
 
           </div>
@@ -100,8 +101,7 @@
 
     <div
       class="catalog-list-item-form"
-      :class="{'opened': fullCard}"
-      :style="{maxHeight: isMob ? (maxHeight || 0) + 'px' : 'auto'}">
+      :class="{'opened': fullCard}">
       <div
         class="catalog-list-item-form-container"
         ref="formContainer">
@@ -271,7 +271,6 @@ export default {
       selectedItemsOnlyOne: 0,
       tweenedTotal: 0,
       isMob: false,
-      maxHeight: 0,
       fullCard: false
     }
   },
@@ -287,15 +286,8 @@ export default {
       this.setSelectedItems()
       this.selectedItemsOnlyOne = 0
     },
-    checkMob () {
-      this.isMob = window.innerWidth < 992
-      if (this.isMob) {
-        this.maxHeight = this.$refs.formContainer.offsetHeight
-      }
-    },
     toggleFull () {
       this.fullCard = !this.fullCard
-      this.checkMob()
     }
   },
   mounted () {

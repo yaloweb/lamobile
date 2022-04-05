@@ -11,7 +11,8 @@ export const state = () => ({
     },
     delivery: 0,
     discount: 0
-  }
+  },
+  recommended: []
 })
 
 export const mutations = {
@@ -22,6 +23,7 @@ export const mutations = {
     state.total.products = data.total.products
     state.total.delivery = data.total.delivery
     state.total.discount = data.total.discount
+    state.recommended = data.recommended
   }
 }
 

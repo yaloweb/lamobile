@@ -163,10 +163,9 @@
 
       <div class="h4">Оплата</div>
 
-      <FormCheckbox
-        v-model="paymentOnAccount">
-        <span class="checkbox-with-img"><img src="/img/icons/file.svg" alt="">Онлайн-оплата</span>
-      </FormCheckbox>
+      <div class="delivery-payment-type-item">
+        <img src="/img/icons/card.svg" alt="">Онлайн-оплата
+      </div>
 
       <div class="delivery-captcha">
         <p>Подтвердите, что вы не робот *</p>

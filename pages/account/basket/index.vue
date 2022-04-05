@@ -4,10 +4,8 @@
 
     <UIBreadcrumbs/>
 
-    <div class="page-title">
-      <div class="container">
-        <h1>Корзина</h1>
-      </div>
+    <div class="container">
+      <UIPageTitle title="Корзина" />
     </div>
 
     <section class="s-basket">
@@ -55,6 +53,11 @@
 
             </div>
 
+            <BasketRecommended
+              v-if="recommended"
+              :list="recommended"
+            />
+
             <BasketOrdering
               :loading="updateBasket"/>
 
@@ -86,9 +89,15 @@ export default {
     await this.$store.dispatch('basket/getBasketData')
   },
   name: 'Basket',
+  head: {
+    bodyAttrs: {
+      class: 'basket-page-body'
+    }
+  },
   computed: {
     ...mapState({
       products: state => state.basket.products,
+      recommended: state => state.basket.recommended,
       gifts: state => state.basket.gifts
     }),
     getProductsTotal () {

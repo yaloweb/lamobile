@@ -67,7 +67,8 @@
                 class="header-account-link">
                 <a
                   href="#"
-                  class="header-account-btn">
+                  class="header-account-btn"
+                  @click.prevent="openCallbackPopup">
                   <span class="icon-phone"></span>
                 </a>
               </div>
@@ -90,33 +91,7 @@
                   <span class="icon-user"></span>
                 </a>
                 <div class="header-acc-dropdown">
-                  <div class="header-acc-dropdown-header">
-                    <div class="header-acc-dropdown-user">
-                      Здравствуйте, {{ user.name }}
-                    </div>
-                    <div class="header-acc-dropdown-exit">
-                      <a href="#">Выйти</a>
-                    </div>
-                  </div>
-                  <nav class="header-acc-dropdown-links">
-                    <ul>
-                      <li @click="accountDropdown = false">
-                        <router-link to="/account">
-                          <span class="icon-user"></span> Личный кабинет
-                        </router-link>
-                      </li>
-                      <li @click="accountDropdown = false">
-                        <router-link to="/account/orders">
-                          <span class="icon-orders"></span> Мои заказы
-                        </router-link>
-                      </li>
-                      <li @click="accountDropdown = false">
-                        <router-link to="/for-users">
-                          <span class="icon-attention"></span> Пользователям
-                        </router-link>
-                      </li>
-                    </ul>
-                  </nav>
+                  <a href="https://lamobile-opt.bikdev.ru/" class="opt-site-link"><span class="icon-arrow-right-circle" /> Вход для оптовых клиентов</a>
                 </div>
               </div>
               <nuxt-link
@@ -401,6 +376,9 @@ export default {
     },
     checkMob () {
       this.isMob = window.innerWidth < 768
+    },
+    openCallbackPopup () {
+      this.$store.commit('callback/openCallbackPopup')
     }
   },
   mounted () {

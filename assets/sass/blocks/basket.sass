@@ -31,6 +31,7 @@
 .basket-main
   flex-grow: 1
   margin-right: 49px
+  max-width: calc(100% - 487px)
 
 .basket-total
   width: 438px
@@ -172,24 +173,26 @@
       background-color: rgba(#EEEFF3, .85)
 
 .basket-gifts-block
-  display: flex
-  background-color: #fff
+  display: inline-flex
+  background-color: #F7F7F7
   -webkit-border-radius: 20px
   -moz-border-radius: 20px
   border-radius: 20px
-  padding: 28px 133px 28px 36px
+  padding: 37px 46px 36px 36px
 
 .basket-gifts-block-text
   flex-grow: 1
-  margin-right: 20px
+  margin-right: 75px
 
   .h5
-    margin-bottom: 5px
-    line-height: 2.2222
+    margin-bottom: 10px
+    line-height: 1.5
+    font-size: 24px
 
   p
     margin: 0
-    font-size: 12px
+    font-size: 16px
+    max-width: 256px
 
 .basket-gifts-block-items
   display: flex
@@ -197,16 +200,14 @@
 
 .basket-gifts-block-item
   position: relative
-  width: 95px
-  height: 95px
-  -webkit-border-radius: 10px
-  -moz-border-radius: 10px
-  border-radius: 10px
-  background-color: #EEEFF3
+  width: 120px
+  height: 120px
+  border-radius: 20px
+  background-color: #E9EAEC
   display: flex
   align-items: center
   justify-content: center
-  margin-right: 71px
+  margin-right: 45px
 
   &:last-child
     margin-right: 0
@@ -225,11 +226,11 @@
     font-family: icon
     font-weight: normal
     line-height: 1
-    font-size: 13px
-    color: #7A7A7A
+    font-size: 19px
+    color: #000
     position: absolute
-    right: -42px
-    top: calc(50% - 6.5px)
+    right: -33px
+    top: calc(50% - 8.5px)
 
 .basket-total-mob
   display: none
@@ -272,3 +273,10 @@
   .h3
     font-size: 32px
     margin-bottom: 38px
+
+.s-basket-recommended
+  margin-bottom: 120px
+
+.basket-page-body
+  .wrapper
+    overflow: visible

@@ -571,12 +571,12 @@
 .header-acc-dropdown
   position: absolute
   top: calc(100% + 20px)
-  right: -110px
+  right: -79px
   background-color: #fff
-  width: 382px
+  width: 389px
   z-index: 3
-  padding: 24px 21px 29px
-  box-shadow: 0px 0px 10px rgb(0 0 0 / 20%)
+  padding: 22px 26px
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%)
   transform: translateY(-10px)
   opacity: 0
   visibility: hidden
@@ -593,7 +593,7 @@
     height: 22px
     border: 11px solid transparent
     border-bottom-color: #fff
-    right: 120px
+    right: 88px
 
 .header-acc-dropdown-header
   border-bottom: 1px solid #DEDBDB
@@ -654,3 +654,18 @@
 
     &:last-child
       margin-bottom: 0
+
+.opt-site-link
+  display: flex
+  align-items: center
+  color: #000
+  +tr
+  font-size: 16px
+  font-weight: bold
+
+  &:hover
+    color: $accent
+
+  span
+    font-size: 22px
+    margin: 0 13px 0 0
