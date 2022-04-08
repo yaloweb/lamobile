@@ -15,8 +15,12 @@ export const mutations = {
 }
 
 export const actions = {
-  async getSearchResults ({ commit }) {
-    const res = await this.$axios.get('/search')
+  async getSearchResults ({ commit }, query) {
+    const res = await this.$axios.get('http://lamobile-api.bikstart.ru/api/catalog/search', {
+      params: {
+        query
+      }
+    })
     commit('setSearchResults', res.data)
   }
 }

@@ -2,7 +2,16 @@
 
   <div
     ref="category"
-    class="categories-item">
+    class="categories-item"
+    @mousemove="hoverMove"
+    @mouseenter="hoverIconVisible = true"
+    @mouseleave="hoverIconVisible = false"
+  >
+
+    <div
+      class="categories-item-arrow-hover"
+      :class="{'visible': hoverIconVisible}"
+      :style="{transform: `translate(${hoverX}px, ${hoverY}px)`}"/>
 
     <nuxt-link :to="'/magazine/' + item.id" />
 
@@ -58,6 +67,11 @@ export default {
       default: false
     }
   },
+  data: () => ({
+    hoverX: 0,
+    hoverY: 0,
+    hoverIconVisible: false
+  }),
   methods: {
     transformTitle () {
       const item = this.$refs.category
@@ -68,6 +82,10 @@ export default {
         const margin = parseFloat(window.getComputedStyle(descr, null).marginTop)
         title.style.transform = `translateY(${descrH + margin}px)`
       }
+    },
+    hoverMove (event) {
+      this.hoverX = event.offsetX - 30
+      this.hoverY = event.offsetY - 30
     }
   },
   mounted () {

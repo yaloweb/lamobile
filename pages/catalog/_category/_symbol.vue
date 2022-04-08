@@ -90,7 +90,7 @@
           <div class="h3">Похожее в журнале</div>
         </div>
 
-        <SliderSimilar :list="similarProducts"/>
+        <SliderSimilar :list="similarArticles"/>
 
       </div>
     </section>
@@ -106,13 +106,13 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     const symbol = this.$route.params.symbol
-    const promises = await Promise.all([
-      this.$store.dispatch('product/getProductInfo', symbol),
-      this.$store.dispatch('recommended/getRecommended'),
-      this.$store.dispatch('recommended/getSimilar')
-    ]).catch(() => {
+    await this.$store.dispatch('product/getProductInfo', symbol).catch(() => {
       this.$nuxt.error({ statusCode: 404 })
     })
+    const promises = await Promise.all([
+      this.$store.dispatch('recommended/getRecommended', this.productId),
+      this.$store.dispatch('recommended/getSimilarArticles')
+    ])
     return promises
   },
   name: 'ProductPage',
@@ -125,10 +125,11 @@ export default {
   },
   computed: {
     ...mapState({
+      productId: state => state.product.id,
       pageType: state => state.product.pageType,
       title: state => state.product.title,
       recommendedProducts: state => state.recommended.recommendedProducts,
-      similarProducts: state => state.recommended.similarProducts,
+      similarArticles: state => state.recommended.similarArticles,
       advantages: state => state.product.advantages,
       youtubeVideo: state => state.product.youtubeVideo,
       additionalAdvantages: state => state.product.additionalAdvantages,

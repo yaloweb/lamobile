@@ -24,6 +24,8 @@
 
     </div>
 
+    <PopupError/>
+
   </div>
 
 </template>

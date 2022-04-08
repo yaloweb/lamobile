@@ -1,10 +1,12 @@
-<template>
+ <template>
   <div
     ref="magazineList"
     class="magazine-list"
     :class="{'blog-loading': loading}">
 
-    <div class="catalog-filter">
+    <div
+      v-if="filterVisible"
+      class="catalog-filter">
       <nav class="catalog-filter-nav">
         <a
           v-for="category in categories"
@@ -54,7 +56,11 @@ export default {
     list: Array,
     scrollAutoLoad: Boolean,
     selectedCategory: Number,
-    limit: Number
+    limit: Number,
+    filterVisible: {
+      type: Boolean,
+      default: false
+    }
   },
   watch: {
     selectedCategory () {

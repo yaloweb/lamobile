@@ -7,10 +7,8 @@
     <input
       ref="input"
       type="number"
-      v-model="val"
-      @input="setValue"
-      @focus="val === 0 ? val = null : false"
-      @blur="inputBlur">
+      :value="value"
+      readonly>
     <button
       @click="plusValue">
       <span class="icon-plus" />
@@ -27,56 +25,16 @@ export default {
     event: ['change']
   },
   props: {
-    value: Number,
-    max: Number
-  },
-  watch: {
-    value (newVal) {
-      this.val = newVal
-    }
-  },
-  data () {
-    return {
-      val: this.value
-    }
+    value: Number
   },
   methods: {
-    change () {
-      if (this.val === '') {
-        this.val = null
-      }
-      this.$emit('change', parseInt(this.val || 0))
-    },
-    setValue () {
-      if (this.val < 0) {
-        this.val = 0
-      }
-      if (this.val >= this.max) {
-        this.val = this.max
-      }
-      this.change()
-    },
     minusValue () {
       if (this.val > 0) {
-        this.val--
-        this.change()
+        this.$emit('change-quantity', this.value - 1)
       }
     },
     plusValue () {
-      let val = this.val + 1
-      if (val >= this.max) {
-        this.val = this.max
-      } else {
-        this.val++
-      }
-      this.change()
-    },
-    inputBlur () {
-      if (this.val === null) {
-        this.val = 0
-      }
-      this.val = parseInt(this.val)
-      this.change()
+      this.$emit('change-quantity', this.value + 1)
     }
   },
   mounted () {

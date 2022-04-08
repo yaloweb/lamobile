@@ -73,7 +73,7 @@
         </div>
 
         <div class="main-window-logo">
-          <img :src="logo" alt="">
+          <img src="/img/logo-light.svg" alt="">
         </div>
 
       </div>

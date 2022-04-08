@@ -16,12 +16,30 @@ export const state = () => ({
   times: []
 })
 
+export const getters = {
+  getCities (state) {
+    return state.cities.map(item => {
+      item.value = item.name
+      return item
+    })
+  },
+  getTimes (state) {
+    return state.times.map(item => {
+      item.value = item.name
+      return item
+    })
+  },
+  getDates (state) {
+    return state.dates
+  }
+}
+
 export const mutations = {
   setDeliveryData (state, data) {
     state.cities = data.cities
     state.dates = data.dates
     state.dates.forEach(date => {
-      const dateMoment = moment(date.value).locale('ru')
+      const dateMoment = moment(date.name).locale('ru')
       date.value = `${weekDay[dateMoment.isoWeekday()]}, ${dateMoment.format('DD MMMM')}`
     })
     state.times = data.times
@@ -30,7 +48,7 @@ export const mutations = {
 
 export const actions = {
   async getDeliveryData ({ commit }) {
-    const res = await this.$axios.get('delivery')
-    commit('setDeliveryData', res.data)
+    const res = await this.$axios.$get('https://lamobile-api.bikstart.ru/api/delivery')
+    commit('setDeliveryData', res)
   }
 }

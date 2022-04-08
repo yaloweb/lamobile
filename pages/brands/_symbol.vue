@@ -58,7 +58,9 @@ export default {
   async fetch () {
     const symbol = this.$route.params.symbol
     return await Promise.all([
-      this.$store.dispatch('catalog/getCatalog', symbol),
+      this.$store.dispatch('catalog/getCatalog', {
+        brandCode: symbol
+      }),
       this.$store.dispatch('catalog/getBrandsMainInfo', symbol)
     ])
   },

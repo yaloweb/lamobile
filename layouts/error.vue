@@ -22,7 +22,7 @@
               <nuxt-link to="/about">О нас</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/contacts">Контакты</nuxt-link>
+              <nuxt-link to="/for-users">Контакты</nuxt-link>
             </li>
           </ul>
         </nav>

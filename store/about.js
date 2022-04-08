@@ -18,7 +18,8 @@ export const mutations = {
 
 export const actions = {
   async getAboutData ({ commit }) {
-    const res = await this.$axios.get('/about')
+    const res = await this.$axios.get('https://lamobile-api.bikstart.ru/api/page/about')
+    // const res = await this.$axios.get('/about')
     commit('setAboutData', res.data)
   }
 }

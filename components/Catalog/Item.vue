@@ -2,7 +2,8 @@
 
   <div
     class="product-item"
-    :class="{'disabled': item.inStock === false}">
+    :class="{'disabled': item.inStock === false}"
+  >
 
     <div
       v-if="item.tag || item.inStock === false"
@@ -26,13 +27,18 @@
       <div
         v-if="checkImg"
         class="product-item-img-container">
+
         <template v-if="Array.isArray(item.imgSrc)">
 
           <div
             v-for="(imgList, index) in item.imgSrc"
             :key="index"
             class="product-item-img-slider"
-            :class="{'visible': imgList.color === selectedColor}">
+            :class="{'visible': imgList.color === selectedColor}"
+            @mousemove="hoverMove"
+            @mouseenter="hoverIconVisible = true"
+            @mouseleave="hoverIconVisible = false"
+          >
 
             <swiper
               ref="gallerySlider"
@@ -54,16 +60,30 @@
 
             <button
               class="product-img-slider-prev"
-              :data-slider="index"/>
+              :data-slider-id="`${item.id}-${index}`"
+              @mouseenter="rightDirection = false"
+            />
 
             <button
               class="product-img-slider-next"
-              :data-slider="index"/>
+              :data-slider-id="`${item.id}-${index}`"
+              @mouseenter="rightDirection = true"
+            />
 
             <div
               class="product-img-pagination"
-              :data-slider="index"
+              :data-slider-id="`${item.id}-${index}`"
               slot="pagination"/>
+
+            <div
+              class="product-item-arrow-hover"
+              :class="{
+                'visible': hoverIconVisible,
+                'right-direction': rightDirection
+              }"
+              :style="{transform: `translate(${hoverX}px, ${hoverY}px)`}">
+              <span />
+            </div>
 
           </div>
 
@@ -187,7 +207,11 @@ export default {
   },
   data: () => ({
     selectedColor: 0,
-    addToCardLoading: false
+    addToCardLoading: false,
+    hoverIconVisible: false,
+    hoverX: 0,
+    hoverY: 0,
+    rightDirection: false
   }),
   methods: {
     slidePrev () {
@@ -215,16 +239,20 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         speed: 600,
+        navigation: {
+          prevEl: `.product-img-slider-prev[data-slider-id="${this.item.id}-${index}"]`,
+          nextEl: `.product-img-slider-next[data-slider-id="${this.item.id}-${index}"]`
+        },
         pagination: {
-          el: `.product-img-pagination[data-slider="${index}"]`,
+          el: `.product-img-pagination[data-slider-id="${this.item.id}-${index}"]`,
           type: 'bullets',
           clickable: true
-        },
-        navigation: {
-          prevEl: `.product-img-slider-prev[data-slider="${index}"]`,
-          nextEl: `.product-img-slider-next[data-slider="${index}"]`
         }
       }
+    },
+    hoverMove (event) {
+      this.hoverX = event.offsetX - 30
+      this.hoverY = event.offsetY - 30
     }
   },
   mounted () {

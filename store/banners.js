@@ -10,7 +10,7 @@ export const mutations = {
 
 export const actions = {
   async getBanners ({ commit }) {
-    const res = await this.$axios.get('/main-banners')
+    const res = await this.$axios.get('http://lamobile-api.bikstart.ru/api/banner/main')
     commit('setBanners', res.data)
   }
 }

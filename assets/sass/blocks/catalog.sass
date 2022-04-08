@@ -343,6 +343,7 @@
   z-index: -1
   opacity: 0
   +tr4
+  cursor: none
 
   &.visible
     opacity: 1
@@ -389,16 +390,15 @@
   opacity: 0
   padding: 0
   outline: none
+  cursor: none !important
 
 .product-img-slider-prev
   left: 0
   width: 50%
-  cursor: url(/img/icons/arrow-left.png), pointer !important
 
 .product-img-slider-next
   right: 0
   width: 50%
-  cursor: url(/img/icons/arrow-right.png), pointer !important
 
 .product-img-pagination
   display: flex
@@ -430,10 +430,15 @@
       left: 0
       width: 100%
       height: 100%
-      transform-origin: top left
+      transform-origin: top right
+      background-color: $accent
+      transform: scaleX(0)
+      transition: transform .4s ease
 
   .swiper-pagination-bullet-active
-    background-color: $accent
+    &:after
+      transform-origin: top left
+      transform: scaleX(1)
 
 .product-img-thumbs-block
   display: flex
@@ -627,3 +632,44 @@
 
       &.active
         background-color: #f2f2f2
+
+
+.catalog-list-empty
+  text-align: center
+  margin: 50px 0
+  font-size: 30px
+  font-weight: bold
+  color: #7A7A7A
+
+.product-item-arrow-hover
+  position: absolute
+  z-index: 1
+  transition: opacity .3s ease
+  top: 0
+  left: 0
+
+  &:not(.visible)
+    opacity: 0
+
+  span
+    width: 60px
+    height: 60px
+    background-image: url(/img/icons/angle-left.svg)
+    -webkit-background-size: contain
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    +tr
+    display: block
+
+  &:not(.visible)
+    opacity: 0
+
+  &.right-direction
+    left: 50%
+
+    span
+      transform: rotate(180deg)
+
+.swiper-pagination-bullet:first-child:last-child
+  display: none !important

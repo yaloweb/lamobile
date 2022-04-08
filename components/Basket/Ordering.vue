@@ -200,7 +200,7 @@
 <script>
 
 import { required, minLength, email } from 'vuelidate/lib/validators'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   async fetch () {
@@ -220,10 +220,10 @@ export default {
     phone: { required, minLength: minLength(18) }
   },
   computed: {
-    ...mapState({
-      cities: state => state.delivery.cities,
-      dates: state => state.delivery.dates,
-      times: state => state.delivery.times
+    ...mapGetters({
+      cities: 'delivery/getCities',
+      times: 'delivery/getTimes',
+      dates: 'delivery/getDates'
     }),
     canOrder () {
       let can = true

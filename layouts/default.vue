@@ -8,6 +8,8 @@
 
     <LayoutsFooter/>
 
+    <PopupError />
+
   </div>
 
 </template>

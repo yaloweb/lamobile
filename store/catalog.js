@@ -46,8 +46,21 @@ export const mutations = {
   setCatalogCategories (state, array) {
     state.categories = array
   },
-  setSliderProducts (state, array) {
-    state.sliderProducts = array
+  setSliderProducts (state, { newRes, popularRes }) {
+    if (newRes && newRes.length) {
+      state.sliderProducts.push({
+        id: 1,
+        category: 'Новинки',
+        list: newRes
+      })
+    }
+    if (popularRes && popularRes.length) {
+      state.sliderProducts.push({
+        id: 2,
+        category: 'Популярное',
+        list: popularRes
+      })
+    }
   },
   setCatalog (state, array) {
     state.catalog = array
@@ -80,20 +93,32 @@ export const actions = {
     }
   },
   async getSliderProducts ({ commit }) {
-    const res = await this.$axios.get('/product-slider-list')
-    commit('setSliderProducts', res.data)
+    let newRes = []
+    let popularRes = []
+    const newResPromise = this.$axios.get('http://lamobile-api.bikstart.ru/api/catalog/product?new=y').then(resp => {
+      newRes = resp.data
+    })
+    const popularResPromise = this.$axios.get('http://lamobile-api.bikstart.ru/api/catalog/product?popular=y').then(resp => {
+      popularRes = resp.data
+    })
+    await Promise.all([
+      newResPromise,
+      popularResPromise
+    ])
+    commit('setSliderProducts', {
+      newRes,
+      popularRes
+    })
   },
-  async getCatalog ({ commit }, category) {
+  async getCatalog ({ commit }, params) {
     const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/catalog/product', {
-      params: {
-        categoryCode: category
-      }
+      params
     })
     // const res = await this.$axios.$get('/catalog')
     commit('setCatalog', res)
   },
   async getBrandsMainInfo ({ commit }, symbol) {
-    const res = await this.$axios.$get('/brand-catalog-main')
+    const res = await this.$axios.$get(`http://lamobile-api.bikstart.ru/api/catalog/brand/${symbol}`)
     commit('setBrandsMainInfo', res)
   },
   async getCatalogFilterByCategories ({ commit }, category) {

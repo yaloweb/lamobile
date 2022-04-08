@@ -1,24 +1,25 @@
 export const state = () => ({
   recommendedProducts: [],
-  similarProducts: []
+  similarArticles: []
 })
 
 export const mutations = {
   setRecommended (state, array) {
     state.recommendedProducts = array
   },
-  setSimilar (state, array) {
-    state.similarProducts = array
+  setSimilarArticles (state, array) {
+    state.similarArticles = array
   }
 }
 
 export const actions = {
-  async getRecommended ({ commit }) {
-    const res = await this.$axios.get('/recommended-products')
+  async getRecommended ({ commit }, productId) {
+    const res = await this.$axios.get(`http://lamobile-api.bikstart.ru/api/catalog/similar/${productId}`)
     commit('setRecommended', res.data)
+    console.log(res.data)
   },
-  async getSimilar ({ commit }) {
+  async getSimilarArticles ({ commit }) {
     const res = await this.$axios.get('/similar')
-    commit('setSimilar', res.data)
+    commit('setSimilarArticles', res.data)
   }
 }

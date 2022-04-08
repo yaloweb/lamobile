@@ -31,6 +31,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/axios.js',
     '~plugins/filters.js',
     '~plugins/directives.js',
     '~plugins/vuelidate.js',
@@ -77,7 +78,8 @@ export default {
         siteKey: '6LesVlMdAAAAABTs5N78L1UMDKBYi_jAfm76o2_w',
         version: 3
       }
-    ]
+    ],
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

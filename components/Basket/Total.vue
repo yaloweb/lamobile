@@ -14,13 +14,11 @@
             <span>{{ productLength }} {{ productLength | declensionNumbers(['товар', 'товара', 'товаров']) }}</span>
             <span>{{ tweenedTotal.toFixed(0) | priceFilter }} ₽</span>
           </li>
-          <li v-if="delivery">
+          <li>
             <span>Доставка</span>
             <span>{{ delivery | priceFilter }} ₽</span>
           </li>
-          <li
-            v-if="discount"
-            class="discount">
+          <li class="discount">
             <span>Скидка</span>
             <span>-{{ discount | priceFilter }} ₽</span>
           </li>

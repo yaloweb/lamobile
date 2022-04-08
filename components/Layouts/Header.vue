@@ -34,8 +34,7 @@
                   type="text"
                   class="search-input"
                   placeholder="Поиск"
-                  v-model="search"
-                  @input="searchHandler">
+                  v-model="search">
                 <span class="icon-search"/>
                 <span
                   class="icon-close"
@@ -51,11 +50,11 @@
             class="header-logo">
             <nuxt-link to="/" class="logo">
               <img
-                :src="global.logoLightSrc"
+                src="/img/logo-light.svg"
                 class="light-logo"
                 alt="">
               <img
-                :src="global.logoSrc"
+                src="/img/logo.svg"
                 alt="">
             </nuxt-link>
           </div>
@@ -74,12 +73,11 @@
               </div>
               <div
                 class="header-account-link">
-                <a
-                  href="#"
-                  class="header-account-btn"
-                  @click="accountDropdown = true">
+                <nuxt-link
+                  to="/for-users"
+                  class="header-account-btn">
                   <span class="icon-exclamation"></span>
-                </a>
+                </nuxt-link>
               </div>
               <div
                 class="header-account-link"
@@ -100,8 +98,8 @@
                 :class="{'active': user.basket > 0}">
                 <span class="icon-bag"></span>
                 <span
-                  v-if="user.basket > 0"
-                  class="basket-quantity">{{ user.basket }}</span>
+                  v-if="basketProducts.length > 0"
+                  class="basket-quantity">{{ basketProducts.length }}</span>
               </nuxt-link>
             </div>
 
@@ -178,14 +176,18 @@
                     <div
                       class="brands-list">
                       <div
-                        v-for="brand in global.header.brands"
+                        v-for="brand in brands"
                         :key="brand.id"
                         class="brands-item">
                         <nuxt-link
                           :to="brand.url">
                           <img
+                            v-if="brand.imgSrc"
                             :src="brand.imgSrc"
                             alt="">
+                          <span v-else>
+                            {{ brand.title }}
+                          </span>
                         </nuxt-link>
                       </div>
                     </div>
@@ -225,9 +227,13 @@
             v-show="activeTab === 2"
             class="catalog-dropdown-content-tab">
 
-            <div class="search-results-main">
+            <div
+              v-if="searchResults.accessories.length || searchResults.categories.length || searchResults.products.length"
+              class="search-results-main">
 
-              <div class="search-catalog">
+              <div
+                v-if="searchResults.products.length"
+                class="search-catalog">
 
                 <div
                   v-for="link in searchResults.products"
@@ -238,24 +244,28 @@
                     <img
                       :src="link.imgSrc"
                       alt="">
-                    <span>{{ link.title }}</span>
+                    <span v-html="link.title" />
                   </nuxt-link>
                 </div>
               </div>
 
-              <div class="search-categories">
+              <div
+                v-if="searchResults.categories.length"
+                class="search-categories">
                 <div
                   v-for="link in searchResults.categories"
                   :key="link.id"
                   class="search-catalog-item"
                   @click="closeCatalog">
-                  <nuxt-link :to="link.url">
-                    {{ link.title }}
-                  </nuxt-link>
+                  <nuxt-link
+                    :to="link.url"
+                    v-html="link.title" />
                 </div>
               </div>
 
-              <div class="search-details">
+              <div
+                v-if="searchResults.accessories.length"
+                class="search-details">
 
                 <div
                   v-for="link in searchResults.accessories"
@@ -266,12 +276,18 @@
                     <img
                       :src="link.imgSrc"
                       alt="">
-                    <span>{{ link.title }}</span>
+                    <span v-html="link.title" />
                   </nuxt-link>
                 </div>
 
               </div>
 
+            </div>
+
+            <div
+              v-else
+              class="search-results-empty">
+              Нет результатов
             </div>
 
           </div>
@@ -288,6 +304,7 @@
 <script>
 
 import { mapState } from 'vuex'
+import { debounce } from '@/helpers/debounce'
 
 export default {
   name: 'LayoutsHeader',
@@ -310,11 +327,26 @@ export default {
       global: state => state.global,
       user: state => state.user,
       searchResults: state => state.search.results,
-      categories: state => state.catalog.categories
+      categories: state => state.catalog.categories,
+      brands: state => state.brands.brands,
+      basketProducts: state => state.basket.products
     }),
     isLight () {
       return this.isMob ? (this.catalog ? false : this.light) : this.light
     }
+  },
+  watch: {
+    search: debounce(function (newVal) {
+      this.$store.dispatch('search/getSearchResults', newVal).then(() => {
+        if (this.searchLoading) {
+          this.searchLoading = false
+        }
+        if (newVal.length > 1) {
+          this.openSearch()
+        }
+      })
+      this.searchLoading = true
+    }, 200)
   },
   data: () => ({
     activeTab: 1,
@@ -354,17 +386,6 @@ export default {
         this.catalog = false
       }
       this.search = ''
-    },
-    searchHandler () {
-      if (this.search.length > 1) {
-        this.$store.dispatch('search/getSearchResults').then(() => {
-          this.openSearch()
-          if (this.searchLoading) {
-            this.searchLoading = false
-          }
-        })
-        this.searchLoading = true
-      }
     },
     pageScrollEvent () {
       if (window.innerWidth < 576) {

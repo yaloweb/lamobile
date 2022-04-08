@@ -1,5 +1,7 @@
 <template>
-  <div class="catalog-list-item">
+  <div
+    class="catalog-list-item"
+    :class="{'loading': loading}">
 
     <div class="catalog-list-item-content">
 
@@ -21,7 +23,7 @@
                 <img
                   v-for="(img, idx2) in imgArr"
                   :key="idx2"
-                  :class="{'active': item.colors ? (img.color === selectedColor) : true}"
+                  :class="{'active': img.color === selectedColor}"
                   :src="img.imgSrc"
                   alt="">
 
@@ -64,7 +66,7 @@
         </div>
 
         <div class="product-item-price">
-          <span>{{ item.price | priceFilter }} ₽</span>
+          <span>{{ currentColor.price  | priceFilter }} ₽</span>
         </div>
 
       </div>
@@ -99,56 +101,36 @@
 
     </div>
 
-    <div
-      class="catalog-list-item-form"
-      :class="{'opened': fullCard}">
+    <div class="catalog-list-item-form">
       <div
         class="catalog-list-item-form-container"
         ref="formContainer">
 
         <div class="catalog-list-item-quantity">
 
-          <template v-if="item.colors">
+          <div
+            v-for="(color, idx) in item.colors"
+            :key="idx"
+            class="catalog-list-item-quantity-item">
 
-            <div
-              v-for="(color, idx) in item.colors"
-              :key="idx"
-              class="catalog-list-item-quantity-item">
-
-              <div class="catalog-list-item-quantity-item-color">
-                <span
-                  :style="{backgroundColor: color.background}"
-                  :class="{'active': selectedColor === color.id}"
-                  @click="selectedColor = color.id"
-                />
-                {{ color.title }}
-              </div>
-
-              <div class="catalog-list-item-quantity-input">
-
-                <FormQuantityInput
-                  v-model="selectedItems[idx]"
-                  :max="color.quantity"/>
-
-              </div>
-
+            <div class="catalog-list-item-quantity-item-color">
+              <span
+                :style="{backgroundColor: color.background}"
+                :class="{'active': selectedColor === color.id}"
+                @click="selectedColor = color.id"
+              />
+              {{ color.title }}
             </div>
-
-          </template>
-
-          <template v-else>
-
-            <div class="catalog-list-item-quantity-item-color" />
 
             <div class="catalog-list-item-quantity-input">
 
               <FormQuantityInput
-                v-model="selectedItemsOnlyOne"
-                :max="item.quantity"/>
+                :value="color.quantity"
+                @change-quantity="changeQuantity(color.productId, $event)"/>
 
             </div>
 
-          </template>
+          </div>
 
         </div>
 
@@ -156,18 +138,11 @@
 
           <div class="catalog-list-item-clear">
             <a
-              v-if="deleteButton"
               href="#"
-              @click.prevent="$emit('delete')"
+              @click.prevent="deleteItem"
             >
               Удалить
             </a>
-            <a
-              v-else
-              href="#"
-              @click.prevent="clearSelected"
-              class="reset"
-            >Сбросить</a>
           </div>
 
           <div class="catalog-list-item-total-info">Минимальная сумма заказа <br>составляет 100 000₽.</div>
@@ -180,13 +155,6 @@
         </div>
 
       </div>
-    </div>
-
-    <div
-      class="catalog-list-item-more-btn"
-      :class="{'active': fullCard}"
-      @click="toggleFull">
-      <span class="icon-arrow-down" />
     </div>
 
   </div>
@@ -206,10 +174,6 @@ export default {
   props: {
     item: Object,
     index: Number,
-    deleteButton: {
-      type: Boolean,
-      default: false
-    },
     totalInfo: {
       type: Boolean,
       default: false
@@ -219,38 +183,27 @@ export default {
     imgIsArray () {
       return Array.isArray(this.item.imgSrc)
     },
-    getTotalPrice () {
-      let res = 0
-      if (this.item.colors) {
-        this.selectedItems.forEach((item, index) => {
-          res += item * this.item.colors[index].price
-        })
-      } else {
-        res = this.item.price * this.selectedItemsOnlyOne
-      }
-      return res
-    },
     currentColor () {
       const res = this.item.colors.filter(item => item.id === this.selectedColor)[0]
       return res || {}
+    },
+    getTotalPrice () {
+      let res = 0
+      this.item.colors.forEach(color => {
+        res += color.quantity * color.price
+      })
+      return res
     }
   },
   watch: {
-    // item: {
-    //   handler () {
-    //     if (this.item.colors) {
-    //       this.selectedColor = this.item.colors[0].id
-    //       this.setSelectedItems()
-    //     }
-    //   },
-    //   deep: true
-    // },
-    getTotalPrice (newVal) {
-      gsap.to(this.$data, { duration: 0.5, tweenedTotal: newVal })
-      this.$emit('change-selected-items', {
-        selectedItems: this.selectedItems,
-        selectedItemsOnlyOne: this.selectedItemsOnlyOne
-      })
+    getTotalPrice: {
+      handler (newVal) {
+        gsap.to(this.$data, {
+          duration: 0.5,
+          tweenedTotal: newVal
+        })
+      },
+      immediate: true
     }
   },
   data () {
@@ -267,36 +220,41 @@ export default {
       },
       selectedColor: 0,
       sliderIsReady: false,
-      selectedItems: [],
-      selectedItemsOnlyOne: 0,
       tweenedTotal: 0,
       isMob: false,
-      fullCard: false
+      loading: false
     }
   },
   methods: {
-    setSelectedItems () {
-      if (this.item.colors) {
-        this.item.colors.forEach(color => {
-          this.selectedItems.push(color.inBasket || 0)
-        })
+    async changeQuantity (productId, quantity) {
+      this.loading = true
+      try {
+        if (quantity) {
+          await this.$store.dispatch('basket/updateBasket', {
+            productId,
+            quantity
+          })
+        } else {
+          await this.$store.dispatch('basket/deleteItem', productId)
+        }
+      } finally {
+        this.loading = false
       }
     },
-    clearSelected () {
-      this.setSelectedItems()
-      this.selectedItemsOnlyOne = 0
-    },
-    toggleFull () {
-      this.fullCard = !this.fullCard
+    async deleteItem () {
+      const promises = []
+      this.loading = true
+      this.item.colors.forEach(color => {
+        promises.push(
+          this.$store.dispatch('basket/deleteItem', color.productId)
+        )
+      })
+      await Promise.all(promises)
+      this.loading = false
     }
   },
   mounted () {
-    if (this.item.colors) {
-      this.selectedColor = this.item.colors[0].id
-      this.setSelectedItems()
-    } else {
-      this.selectedItemsOnlyOne = 0
-    }
+    this.selectedColor = this.item.colors[0].id
   }
 }
 </script>

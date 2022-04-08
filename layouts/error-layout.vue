@@ -8,6 +8,9 @@
     <Nuxt/>
 
     <LayoutsFooter :light="true"/>
+
+    <PopupError />
+
   </div>
 </template>
 

@@ -11,7 +11,9 @@
     <section class="s-categories">
       <div class="container">
 
-        <BlogList :list="blog"/>
+        <BlogList
+          :list="blog"
+          :filterVisible="false"/>
 
       </div>
     </section>
@@ -60,7 +62,7 @@ import { mapState } from 'vuex'
 export default {
   async fetch () {
     let promises = []
-    if (this.$store.state.catalog.categories.length === 0) {
+    if (this.$store.state.blog.blogMain.length === 0) {
       promises.push(this.$store.dispatch('blog/getBlogMain'))
     }
     if (this.$store.state.catalog.sliderProducts.length === 0) {

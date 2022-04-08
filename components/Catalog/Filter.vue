@@ -47,9 +47,19 @@ export default {
       selectedSort: state => state.catalog.selectedSort,
       selectedSubcategory: state => state.catalog.selectedSubcategory
     }),
+    isBrandPage () {
+      return this.$route.name === 'brands-symbol'
+    },
     filterSubcategories () {
-      const parentCategory = this.$route.params.category
-      return this.subcategories.filter(item => item.parentCode === parentCategory)
+      let res = []
+      if (this.isBrandPage) {
+        // const brand = this.$route.params.symbol
+        console.log(this.subcategories)
+      } else {
+        const parentCategory = this.$route.params.category
+        res = this.subcategories.filter(item => item.parentCode === parentCategory)
+      }
+      return res
     }
   },
   data: () => ({
@@ -65,11 +75,15 @@ export default {
 
       if (this.selectedSubcategory !== id) {
         this.$store.commit('catalog/setSelectedSubcategory', id)
-        await this.$store.dispatch('catalog/getCatalogFilterByCategories', id)
+        await this.$store.dispatch('catalog/getCatalog', {
+          category: id
+        })
       } else {
         const category = this.$route.params.category
         this.$store.commit('catalog/setSelectedSubcategory', null)
-        this.$store.dispatch('catalog/getCatalog', category)
+        this.$store.dispatch('catalog/getCatalog', {
+          categoryCode: category
+        })
       }
 
       this.$emit('loading', false)

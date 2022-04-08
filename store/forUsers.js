@@ -24,13 +24,14 @@ export const mutations = {
     state.paymentAndDelivery = data.paymentAndDelivery
     state.termsOfSale = data.termsOfSale
     state.exchange = data.exchange
-    state.contacts = data.contacts
+    state.contacts = data.contacts.content
   }
 }
 
 export const actions = {
   async getInfoForUsers ({ commit }) {
-    const res = await this.$axios.get('/for-users')
+    // const res = await this.$axios.get('/for-users')
+    const res = await this.$axios.get('https://lamobile-api.bikstart.ru/api/page/for_user')
     commit('setInfoForUsers', res.data)
   }
 }

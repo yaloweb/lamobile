@@ -15,12 +15,17 @@
 
             <div class="brands-logo-block">
               <img
+                v-if="info.logoSrc.length"
                 :src="info.logoSrc"
                 alt="">
+              <span v-else>
+                {{ info.title }}
+              </span>
               <a href="#" class="brands-more-link">Подробнее о бренде</a>
             </div>
 
             <div
+              v-if="info.advantage.length"
               class="brands-official"
               v-html="info.advantage" />
 

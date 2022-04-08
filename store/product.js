@@ -1,5 +1,5 @@
 const getDefaultState = () => ({
-  productId: 0,
+  id: 0,
   pageType: 0,
   title: '',
   colors: [],

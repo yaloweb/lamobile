@@ -306,6 +306,12 @@
     visibility: visible
     transform: scale(1)
 
+  &.loading
+    &:after
+      height: auto
+      top: 77px
+      bottom: 0
+
 .catalog-dropdown-content
   flex-grow: 1
   display: flex
@@ -405,9 +411,14 @@
     border: 1px solid #DEDBDB
     padding: 0 21px
     +tr
+    font-size: 20px
+    font-weight: bold
+    text-transform: uppercase
+    color: #656768
 
     &:hover
       border-color: $accent
+      color: $accent
 
     img
       max-width: 168px
@@ -434,12 +445,12 @@
 
   a
     display: flex
-    align-items: center
     margin-bottom: 10px
     font-weight: bold
     font-size: 16px
     +tr
     color: #000
+    align-items: flex-start
 
     &:hover
       color: $accent
@@ -449,8 +460,16 @@
 
     img
       width: 40px
+      height: 40px
+      object-fit: contain
       flex-shrink: 0
       margin-right: 35px
+
+  b
+    color: $accent
+
+  span
+    margin: auto 0
 
 .search-categories
   display: flex
@@ -481,7 +500,7 @@
   border-top: 1px solid #DEDBDB
 
 .search-details-item
-  margin: 19px 0 31px
+  margin: 10px 0
 
   a
     display: flex
@@ -501,6 +520,9 @@
       margin-right: 30px
       width: 45px
       flex-shrink: 0
+
+    b
+      color: $accent
 
 .catalog-dropdown-close
   display: none
@@ -669,3 +691,7 @@
   span
     font-size: 22px
     margin: 0 13px 0 0
+
+.search-results-empty
+  text-align: center
+  font-size: 16px

@@ -22,7 +22,9 @@
             <div class="col-12">
               <div class="catalog-list">
 
-                <div class="row">
+                <div
+                  v-if="categoriesFilter.length"
+                  class="row">
 
                   <div
                     v-for="item in categoriesFilter"
@@ -32,6 +34,12 @@
                       :item="item"/>
                   </div>
 
+                </div>
+
+                <div
+                  v-else
+                  class="catalog-list-empty">
+                  Товары отсуствуют
                 </div>
 
               </div>
@@ -56,7 +64,9 @@ export default {
   async fetch () {
     const category = this.$route.params.category
     return await Promise.all([
-      this.$store.dispatch('catalog/getCatalog', category)
+      this.$store.dispatch('catalog/getCatalog', {
+        categoryCode: category
+      })
     ])
   },
   name: 'CatalogPage',

@@ -29,23 +29,41 @@ export const mutations = {
 
 export const actions = {
   async getBasketData ({ commit }) {
-    const res = await this.$axios.get('/basket')
-    commit('setBasketData', res.data)
+    const fUserId = this.$cookies.get('fUserId')
+    if (fUserId) {
+      const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/basket', {
+        params: {
+          fUserId
+        }
+      })
+      commit('setBasketData', res)
+    }
   },
   async deleteProduct ({ commit }, id) {
     const res = await this.$axios.get('/basket')
     commit('setBasketData', res.data)
   },
-  addToBasket (ctx, { productId, quantity }) {
+  addToBasket ({ dispatch }, { productId, quantity }) {
+    const fUserId = this.$cookies.get('fUserId')
+    let data = {
+      productId,
+      quantity
+    }
+    if (fUserId) {
+      data.fUserId = fUserId
+    }
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
         url: 'http://lamobile-api.bikstart.ru/api/basket/add',
-        data: {
-          productId,
-          quantity
-        }
+        data
       }).then(response => {
+        if (response.data.result === 'success') {
+          if (!fUserId) {
+            this.$cookies.set('fUserId', response.data.fUserId)
+          }
+          dispatch('getBasketData')
+        }
         resolve()
       }).catch(error => {
         // eslint-disable-next-line prefer-promise-reject-errors
@@ -53,5 +71,51 @@ export const actions = {
         return error
       })
     })
+  },
+  updateBasket ({ dispatch }, { productId, quantity }) {
+    const fUserId = this.$cookies.get('fUserId')
+    let data = {
+      productId,
+      quantity
+    }
+    if (fUserId) {
+      data.fUserId = fUserId
+    }
+    return new Promise((resolve, reject) => {
+      this.$axios({
+        method: 'post',
+        url: 'http://lamobile-api.bikstart.ru/api/basket/update',
+        data
+      }).then(response => {
+        if (response.data.result === 'success') {
+          if (!fUserId) {
+            this.$cookies.set('fUserId', response.data.fUserId)
+          }
+          dispatch('getBasketData')
+        }
+        resolve()
+      }).catch(error => {
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject(error)
+        return error
+      })
+    })
+  },
+  async deleteItem ({ dispatch }, productId) {
+    const fUserId = this.$cookies.get('fUserId')
+    if (fUserId) {
+      await this.$axios({
+        method: 'post',
+        url: 'http://lamobile-api.bikstart.ru/api/basket/delete',
+        data: {
+          productId,
+          fUserId
+        }
+      }).then(response => {
+        if (response.data.result === 'success') {
+          dispatch('getBasketData')
+        }
+      })
+    }
   }
 }

@@ -8,7 +8,9 @@
       <UIPageTitle title="Корзина" />
     </div>
 
-    <section class="s-basket">
+    <section
+      v-if="products.length"
+      class="s-basket">
       <div class="container">
 
         <div class="basket-row">
@@ -25,12 +27,11 @@
                 ref="product"
                 :item="product"
                 :index="product.id"
-                :deleteButton="true"
                 @delete="deleteFromBasket(product.id)"
                 @change-selected-items="changeSelectedProducts(product, $event)"/>
 
               <div
-                v-if="gifts.list.length > 0"
+                v-if="gifts.length ? gifts.list.length > 0 : false"
                 class="basket-gifts-block">
 
                 <div class="basket-gifts-block-text">
@@ -65,15 +66,43 @@
 
           <BasketTotal
             :loading="updateBasket"
-            :productLength="getProductsTotal.quantity"
-            :delivery="500"
-            :discount="490"
-            :total="getProductsTotal.price"
+            :productLength="total.products.quantity"
+            :delivery="total.products.delivery"
+            :discount="total.products.discount"
+            :total="total.products.price"
           />
 
         </div>
 
       </div>
+    </section>
+
+    <section
+      v-else
+      class="basket-empty">
+
+      <div class="error">
+
+        <div class="h2">Корзина пуста</div>
+
+        <img
+          src="/img/logo-lion.svg"
+          alt="">
+
+        <nav class="error-nav">
+          <div class="h4">Посмотрите предложения на главной странице, воспользуйтесь каталогом или поиском</div>
+          <ul>
+            <li>
+              <nuxt-link to="/catalog">Главная</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/magazine">Каталог</nuxt-link>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
     </section>
 
   </div>
@@ -85,9 +114,6 @@
 import { mapState } from 'vuex'
 
 export default {
-  async fetch () {
-    await this.$store.dispatch('basket/getBasketData')
-  },
   name: 'Basket',
   head: {
     bodyAttrs: {
@@ -97,30 +123,10 @@ export default {
   computed: {
     ...mapState({
       products: state => state.basket.products,
+      total: state => state.basket.total,
       recommended: state => state.basket.recommended,
       gifts: state => state.basket.gifts
-    }),
-    getProductsTotal () {
-      let price = 0
-      let quantity = 0
-
-      this.selectedProducts.forEach(item => {
-        if (item.colors) {
-          item.colors.forEach(color => {
-            price += color.inBasket * color.price
-            quantity += color.inBasket
-          })
-        } else {
-          price += item.inBasket * item.price
-          quantity += item.inBasket
-        }
-      })
-
-      return {
-        price,
-        quantity
-      }
-    }
+    })
   },
   watch: {
     products () {
