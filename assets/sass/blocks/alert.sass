@@ -1,0 +1,44 @@
+.alert-block
+  color: #fff
+  -webkit-border-radius: 8px
+  -moz-border-radius: 8px
+  border-radius: 8px
+  padding: 8px 30px 8px 20px
+  font-size: 16px
+  background-color: #62cb62
+  max-width: 450px
+  line-height: 1.4
+  transform: translateX(20px)
+  opacity: 0
+  visibility: hidden
+  +tr4
+  margin-bottom: 10px
+  position: fixed
+  top: 20px
+  right: 20px
+  z-index: 5
+
+  &:last-child
+    margin-bottom: 0
+
+  &.opened
+    opacity: 1
+    transform: none
+    visibility: visible
+
+.alert-block-close
+  position: absolute
+  top: 7px
+  right: 8px
+  font-size: 11px
+  cursor: pointer
+  +tr
+
+  &:before
+    content: '\e911'
+    line-height: 1
+    font-weight: normal
+    font-family: icon
+
+  &:hover
+    transform: rotate(90deg)

@@ -18,14 +18,16 @@
               muted
               autoplay
               loop
-              preload="none"/>
+              preload="none"
+              @ended="videoEnded"/>
             <video
               v-else
               :src="slide.videoSrc"
               muted
               autoplay
               loop
-              preload="none"/>
+              preload="none"
+              @ended="videoEnded"/>
           </div>
           <div
             class="banners-slider-img-item"

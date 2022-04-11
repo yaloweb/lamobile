@@ -178,7 +178,8 @@
                       <div
                         v-for="brand in brands"
                         :key="brand.id"
-                        class="brands-item">
+                        class="brands-item"
+                        @click="closeCatalog">
                         <nuxt-link
                           :to="brand.url">
                           <img

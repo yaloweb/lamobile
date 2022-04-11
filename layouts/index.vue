@@ -13,6 +13,8 @@
 
     <PopupError />
 
+    <UIAlert/>
+
   </div>
 
 </template>

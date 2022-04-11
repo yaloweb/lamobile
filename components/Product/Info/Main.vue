@@ -81,7 +81,11 @@
         <div
           v-if="inStock"
           class="product-buy">
-          <button class="btn btn-lg">Добавить в корзину</button>
+          <button
+            class="btn btn-lg"
+            :class="{'loading': addToCardLoading}"
+            :disabled="addToCardLoading"
+            @click="addToBasket">Добавить в корзину</button>
         </div>
 
         <FormAdmission v-if="!inStock" />
@@ -185,20 +189,23 @@ export default {
       const res = this.colors.filter(item => item.id === this.selectedColor)[0]
       return res || {}
     }
+  },
+  data: () => ({
+    addToCardLoading: false
+  }),
+  methods: {
+    async addToBasket () {
+      const data = {
+        productId: this.colors ? this.selectedColorObject.productId : this.item.productId,
+        quantity: 1
+      }
+      this.addToCardLoading = true
+      try {
+        await this.$store.dispatch('basket/addToBasket', data)
+      } finally {
+        this.addToCardLoading = false
+      }
+    }
   }
 }
 </script>
-
-<style scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-    opacity: 0;
-    -webkit-transform: translateY(10px);
-    -moz-transform: translateY(10px);
-    -ms-transform: translateY(10px);
-    -o-transform: translateY(10px);
-    transform: translateY(10px);
-  }
-</style>

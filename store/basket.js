@@ -62,6 +62,7 @@ export const actions = {
           if (!fUserId) {
             this.$cookies.set('fUserId', response.data.fUserId)
           }
+          dispatch('alert/openAlert', 'Товар успешно добавлен в корзину!', { root: true })
           dispatch('getBasketData')
         }
         resolve()

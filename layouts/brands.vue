@@ -10,7 +10,9 @@
 
     <LayoutsFooter/>
 
-    <PopupError />
+    <PopupError/>
+
+    <UIAlert/>
 
   </div>
 

@@ -93,10 +93,10 @@
           <div class="h4">Посмотрите предложения на главной странице, воспользуйтесь каталогом или поиском</div>
           <ul>
             <li>
-              <nuxt-link to="/catalog">Главная</nuxt-link>
+              <nuxt-link to="/">Главная</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/magazine">Каталог</nuxt-link>
+              <nuxt-link to="/catalog">Каталог</nuxt-link>
             </li>
           </ul>
         </nav>

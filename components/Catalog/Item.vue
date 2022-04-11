@@ -228,8 +228,6 @@ export default {
       this.addToCardLoading = true
       try {
         await this.$store.dispatch('basket/addToBasket', data)
-      } catch (e) {
-        alert(e)
       } finally {
         this.addToCardLoading = false
       }
