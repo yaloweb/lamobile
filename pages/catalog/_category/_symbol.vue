@@ -31,9 +31,14 @@
       </div>
     </section>
 
+    <ProductContentNav />
+
     <div class="product-body-flex">
 
-      <section class="s-product-information">
+      <section
+        v-if="sections && sections.length"
+        class="s-product-information"
+      >
         <AccordionItem
           :opened="accordionOpened.indexOf(1) !== -1"
           @toggle="toggle($event, 1)">
@@ -42,13 +47,20 @@
 
           <template #body>
 
-            <SectionProductVideo v-if="youtubeVideo.id ? youtubeVideo.id.length > 0 : false"/>
+            <section class="s-product-sections">
 
-            <SectionProductAdditionalAdvantages v-if="Object.keys(additionalAdvantages).length"/>
+              <div class="container">
 
-            <SectionProductAdvantages v-if="advantages ? advantages.length > 0 : false"/>
+                <components
+                  v-for="section in sections"
+                  :key="section.id"
+                  :is="'SectionProduct' + section.component"
+                  :info="section.data"
+                />
 
-            <SectionProductOperation v-if="Object.keys(operation).length"/>
+              </div>
+
+            </section>
 
           </template>
 
@@ -57,10 +69,16 @@
 
       <section
         v-if="compareSection"
-        class="s-product-compare">
+        class="s-product-compare"
+        id="s-compare"
+      >
         <div class="container">
 
-          <CompareTable/>
+          <CompareTable
+            :title="compare.title"
+            :parameters="compare.parameters"
+            :items="compare.items"
+          />
 
         </div>
       </section>
@@ -135,7 +153,9 @@ export default {
       additionalAdvantages: state => state.product.additionalAdvantages,
       operation: state => state.product.operation,
       compareSection: state => state.product.compareSection,
-      colors: state => state.product.colors
+      colors: state => state.product.colors,
+      compare: state => state.product.compare,
+      sections: state => state.product.sections
     }),
     darkTheme () {
       return this.pageType === 2 ? 'dark' : ''

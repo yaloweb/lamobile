@@ -64,14 +64,14 @@
                       :key="parameter.key">
                       <template v-if="parameter.key === 'colors'">
                         <div class="compare-items-colors">
-                      <span
-                        v-for="(color, colorIndex) in item.parameters.colors"
-                        :key="colorIndex"
-                        :style="{backgroundColor: color}"/>
+                          <span
+                            v-for="(color, colorIndex) in item.parameters.colors"
+                            :key="colorIndex"
+                            :style="{backgroundColor: color}"/>
                         </div>
                       </template>
                       <template v-else>
-                        {{ item.parameters[parameter.key] ? (item.parameters[parameter.key].length > 0 ? item.parameters[parameter.key] : '1-') : '-' }}
+                        {{ getParameter(parameter, item) }}
                       </template>
                     </li>
                   </ul>
@@ -98,25 +98,14 @@
 </template>
 
 <script>
-
-import { mapState } from 'vuex'
-
 export default {
-  async fetch () {
-    await this.$store.dispatch('compare/getCompareData').then(() => {
-      this.activeElements.push(this.items[0].id)
-      this.activeElements.push(this.items[1].id)
-      this.activeElements.push(this.items[2].id)
-      this.eqHeight()
-    })
-  },
   name: 'Table',
+  props: {
+    title: String,
+    parameters: [],
+    items: []
+  },
   computed: {
-    ...mapState({
-      title: state => state.compare.title,
-      parameters: state => state.compare.parameters,
-      items: state => state.compare.items
-    }),
     compareItems () {
       let arr = []
       this.activeElements.forEach(id => {
@@ -133,6 +122,18 @@ export default {
   methods: {
     getCurrentCompareItem (id) {
       return Object.assign({}, this.items.filter(item => item.id === id)[0])
+    },
+    getParameter (parameter, item) {
+      if (item) {
+        const param = item.parameters[parameter.key]
+        if (param) {
+          return param ? (param.length > 0 ? param : '1-') : '-'
+        } else {
+          return '-'
+        }
+      } else {
+        return '-'
+      }
     },
     eqHeight () {
       this.$nextTick(() => {
@@ -184,6 +185,9 @@ export default {
     }
   },
   mounted () {
+    this.activeElements.push(this.items[0].id)
+    this.activeElements.push(this.items[1].id)
+    this.activeElements.push(this.items[2].id)
     this.eqHeight()
     window.addEventListener('resize', this.eqHeight)
     this.$on('hook:beforeDestroy', () => window.removeEventListener('resize', this.eqHeight))

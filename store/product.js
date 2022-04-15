@@ -18,7 +18,13 @@ const getDefaultState = () => ({
   operation: {},
   compareSection: false,
   deliveryTime: null,
-  deliveryGift: null
+  deliveryGift: null,
+  compare: {
+    title: '',
+    parameters: [],
+    items: []
+  },
+  sections: []
 })
 
 export const state = getDefaultState()
@@ -42,8 +48,8 @@ export const actions = {
     commit('resetState')
   },
   async getProductInfo ({ dispatch, commit }, symbol) {
-    const res = await this.$axios.$get(`http://lamobile-api.bikstart.ru/api/catalog/product/${symbol}`)
-    // const res = await this.$axios.$get(`/products/${symbol}`)
+    // const res = await this.$axios.$get(`http://lamobile-api.bikstart.ru/api/catalog/product/${symbol}`)
+    const res = await this.$axios.$get('https://api-lamobile.bikdev.ru/products/with-cnstructor')
     dispatch('startResetState')
     commit('setProductInfo', res)
   }

@@ -90,7 +90,7 @@
   .catalog-filter-nav
     a
       margin: 0 10px 10px 0
-      height: 50px
+      height: 50px !important
       line-height: 48px
       font-size: 14px
 
@@ -115,6 +115,13 @@
 
       &:after
         border-color: #DEDBDB
+        width: auto
+        height: auto
+        top: -3px
+        left: -3px
+        right: -3px
+        bottom: -3px
+        margin: 0
 
   .product-selected-color-title
     margin-top: 10px
@@ -183,6 +190,82 @@
   .catalog-list-item-quantity-item-color
     font-size: 14px
     width: 113px
+
+  .s-product-sections
+    .container
+      & > div
+        margin-bottom: 60px
+
+    .h2
+      font-size: 40px
+      margin-bottom: 15px
+
+    p
+      font-size: 18px
+
+  .section-block-title
+    margin-bottom: 25px
+
+  .chess-img-with-text-item-text
+    padding: 40px 90px
+
+  .gallery-img-with-text-slider
+    .swiper-slide
+      width: 575px
+
+    &.wide
+      .swiper-slide
+        width: 750px
+
+  .gallery-img-with-text-slider-item
+    .h3
+      font-size: 30px
+      left: 30px
+      bottom: 30px
+
+  .block-numbers
+    padding: 120px 80px
+
+    .h2
+      margin-bottom: 60px
+
+  .block-numbers-item-value
+    font-size: 40px
+    margin-bottom: 15px
+
+  .block-numbers-item-title
+    font-size: 16px
+
+  .icons-with-text
+    .h2
+      margin-bottom: 70px
+
+  .icons-with-text-row
+    grid-gap: 80px 40px
+
+  .icons-with-text-img
+    width: 110px
+    height: 110px
+    margin-bottom: 20px
+
+  .icons-with-text-title
+    font-size: 18px
+
+  .img-with-text-block
+    p
+      top: 60px
+
+  .products-content-nav
+    a
+      font-size: 14px
+      height: 44px
+      padding: 0 20px
+      margin-right: 10px
+
+      &:after
+        font-size: 12px
+        margin-left: 5px
+        margin-top: 3px
 
 @media (max-width: 1599.98px)
   body
@@ -382,11 +465,6 @@
         width: 14px
         height: 14px
         margin: 0 3px
-
-        &:after
-          margin: -10px 0 0 -10px
-          width: 20px
-          height: 20px
 
   .product-list-view-qnt
     span
@@ -627,11 +705,6 @@
       height: 26px
       margin: 0 5px
 
-      &:after
-        width: 32px
-        height: 32px
-        margin: -16px 0 0 -16px
-
   .header-account-btn
     font-size: 25px
 
@@ -680,7 +753,7 @@
     width: 50%
 
   .catalog-filter-nav
-    max-width: calc(100% - 220px)
+    max-width: calc(100% - 300px)
 
   .brands-info
     padding: 50px
@@ -823,6 +896,10 @@
 
     span
       font-size: 20px
+
+  .compare-item-select
+    .vs__selected-options
+      max-width: calc(100% - 32px)
 
 @media (max-width: 1439.98px)
 
@@ -1185,9 +1262,23 @@
   .delivery-payment-type-item
     font-size: 16px
 
+  .s-product-sections
+    .h2
+      font-size: 30px
+
+    p
+      font-size: 15px
+
+  .chess-img-with-text-item-text
+    padding: 30px 70px
+
+  .operation-content
+    padding-right: 40px
+
+  .operation-img
+    padding-left: 40px
 
 @media (max-width: 1199.98px)
-
   .logo
     img
       width: 141px
@@ -1467,9 +1558,6 @@
       width: 44px
       height: 44px
 
-  .s-operation
-    padding-bottom: 60px
-
   .s-product-compare
     padding-bottom: 35px
 
@@ -1514,6 +1602,60 @@
   .basket-page-body
     .wrapper
       overflow: visible
+
+  .gallery-img-with-text-slider
+    .swiper-slide
+      width: 400px
+
+  .gallery-img-with-text-slider-item
+    .h3
+      font-size: 24px
+
+  .chess-img-with-text-item-text
+    padding: 30px 40px
+
+  .chess-img-with-text-item
+    margin-bottom: 20px
+
+  .block-numbers-item-value
+    font-size: 30px
+
+    span
+      font-size: 18px
+
+  .block-numbers-row
+    grid-gap: 30px
+
+  .block-numbers-item-title
+    font-size: 12px
+    line-height: 1.4
+
+  .block-numbers
+    padding: 50px
+
+    .h2
+      margin-bottom: 40px
+
+  .icons-with-text
+    padding: 50px
+
+  .icons-with-text-row
+    grid-gap: 30px
+
+  .icons-with-text-img
+    width: 60px
+    height: 60px
+    margin-bottom: 20px
+
+  .icons-with-text-title
+    font-size: 12px
+
+  .photo-gallery-slider-swiper
+    margin-bottom: 5px
+
+  .photo-gallery-thumbs-swiper
+    .swiper-slide
+      width: 180px
 
 @media (max-width: 991.98px)
 
@@ -2165,7 +2307,7 @@
       display: none
 
     a
-      height: 40px
+      height: 40px !important
       line-height: 38px
       padding: 0 19px
       font-size: 14px
@@ -2254,6 +2396,29 @@
   .header-search
     .icon-close
       top: 7px
+
+  .chess-img-with-text-item-text
+    padding: 30px
+
+    .h2
+      font-size: 20px
+
+    p
+      font-size: 12px
+
+  .gallery-img-with-text-slider-item
+    .h3
+      font-size: 18px
+
+  .img-with-text-block
+    p
+      top: 30px
+
+  .operation-img
+    padding-left: 0
+
+  .block-numbers
+    padding: 30px
 
 @media (max-width: 767.98px)
 
@@ -2577,6 +2742,17 @@
 
   .s-basket-recommended
     margin-bottom: 20px
+
+  .block-numbers-row
+    grid-gap: 20px
+    grid-template-columns: repeat(3, 1fr)
+
+  .icons-with-text
+    padding: 30px
+
+  .icons-with-text-row
+    grid-gap: 30px
+    grid-template-columns: repeat(3, 1fr)
 
 @media (max-width: 575.98px)
   body.dark
@@ -4044,7 +4220,7 @@
     padding-right: 0
 
   .product-item-img
-    margin: -50px -15px 15px
+    margin: -50px -16px 15px
 
   .product-img-slider-prev,
   .product-img-slider-next
@@ -4190,7 +4366,7 @@
     padding: 7px 10px
 
   .product-item-img
-    margin: -7px -10px 17px
+    margin: -7px -11px 17px
 
   .product-img-pagination
     bottom: 5px
@@ -4563,9 +4739,6 @@
   .operation-block
     padding: 0
 
-  .s-operation
-    padding-bottom: 30px
-
   .product-body-flex
     display: flex
     flex-direction: column
@@ -4918,3 +5091,96 @@
     img
       width: 45px
       margin: 0 0 5px
+
+  .catalog-filter
+    margin-bottom: 20px
+
+  .s-product-sections
+    padding-top: 40px
+
+    .h2
+      font-size: 24px
+
+    p
+      font-size: 12px
+
+    .section-block-title
+      margin-bottom: 15px
+
+    .container > div
+      margin-bottom: 30px
+
+  .chess-img-with-text-item
+    display: block
+    margin-bottom: 10px
+
+  .chess-img-with-text-item-img
+    width: 100%
+
+  .chess-img-with-text-item-text
+    width: 100%
+    padding: 20px 15px
+
+  .gallery-img-with-text-slider
+    .swiper-slide
+      width: calc(100vw - 40px) !important
+
+  .img-with-text-block
+    p
+      top: 20px
+      left: 10px
+      right: 10px
+
+  .operation-block
+    padding: 20px 15px
+
+  .block-numbers
+    padding: 20px 15px
+
+    .h2
+      margin-bottom: 20px
+
+  .block-numbers-row
+    grid-template-columns: 1fr 1fr
+
+  .icons-with-text
+    padding: 20px 15px
+
+    .h2
+      margin-bottom: 20px
+
+  .block-numbers-item-value
+    font-size: 21px
+    margin-bottom: 10px
+
+    span
+      font-size: 12px
+
+  .icons-with-text-row
+    grid-gap: 20px
+    grid-template-columns: 1fr 1fr
+
+  .photo-gallery-slider-nav
+    display: none
+
+  .photo-gallery-thumbs-swiper
+    .swiper-slide
+      width: 80px
+
+  .s-products-content-nav
+    margin: 20px 0
+
+  .products-content-nav
+    margin-left: -10px
+    margin-right: -10px
+    padding: 0 10px
+    overflow-x: auto
+
+    &::-webkit-scrollbar
+      display: none
+
+    &:after
+      content: ''
+      width: 1px
+      height: 10px
+      flex-shrink: 0

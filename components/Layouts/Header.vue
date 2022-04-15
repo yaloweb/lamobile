@@ -23,13 +23,13 @@
 
               <button
                 class="header-catalog-btn"
-                :class="{'active': catalog && this.activeTab === 1}"
+                :class="{'active': catalog && activeTab === 1}"
                 @click="toggleCatalog"><span></span>Каталог
               </button>
 
               <div
                 class="header-search"
-                :class="{'active': catalog && this.activeTab === 2}">
+                :class="{'active': catalog && activeTab === 2}">
                 <input
                   type="text"
                   class="search-input"

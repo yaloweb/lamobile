@@ -61,7 +61,8 @@ export default {
       this.$store.dispatch('catalog/getCatalog', {
         brandCode: symbol
       }),
-      this.$store.dispatch('catalog/getBrandsMainInfo', symbol)
+      this.$store.dispatch('catalog/getBrandsMainInfo', symbol),
+      this.$store.dispatch('catalog/getBrandsCategories', symbol)
     ])
   },
   data: () => ({

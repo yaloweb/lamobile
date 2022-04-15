@@ -149,6 +149,15 @@
   .swiper-container
     overflow: visible
 
+  .swiper-slide
+    perspective: 1000px
+
+    .brands-row-item-card
+      +tr4
+
+      &:hover
+        transform: rotateX(-8deg)
+
 .brands-row-item-card-link
   position: absolute
   top: 0

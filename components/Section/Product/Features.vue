@@ -10,7 +10,9 @@
 
           <div
             v-if="description ? description.length > 0 : false"
-            class="product-description">
+            class="product-description"
+            id="s-description"
+          >
 
             <AccordionItem
               :opened="accordionOpened.indexOf(1) !== -1"
@@ -32,7 +34,10 @@
 
           </div>
 
-          <div class="product-features">
+          <div
+            class="product-features"
+            id="s-characteristics"
+          >
 
             <div class="h3">Характеристики</div>
 

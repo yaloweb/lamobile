@@ -100,8 +100,25 @@
   padding: 0 15px
 
 .compare-item-select
-  max-width: 260px
   margin: 0 auto 20px
+
+  input
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+  .vs__selected
+    max-width: 100%
+    overflow: hidden
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    display: block
+
+  .vs__selected-options
+    align-items: center
+    max-width: calc(100% - 44px)
 
 .compare-item-link
   display: inline-flex

@@ -25,7 +25,8 @@ export const state = () => ({
     code: 'price',
     title: 'по цене'
   },
-  selectedSubcategory: null
+  selectedSubcategory: null,
+  brandsSubcategories: []
 })
 
 export const getters = {
@@ -81,6 +82,9 @@ export const mutations = {
   },
   clearSelectedSubcategory (state) {
     state.selectedSubcategory = null
+  },
+  setBrandsSubcategories (state, data) {
+    state.brandsSubcategories = data
   }
 }
 
@@ -128,5 +132,14 @@ export const actions = {
       }
     })
     commit('setCatalog', res)
+  },
+  async getBrandsCategories ({ commit }, brandCode) {
+    const res = await this.$axios.$get('https://lamobile-api.bikstart.ru/api/catalog/category',
+      {
+        params: {
+          brandCode
+        }
+      })
+    commit('setBrandsSubcategories', res.filter(item => item.level === '2'))
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="brands-row-item-card">
 
-    <a :href="item.url" class="brands-row-item-card-link" />
+    <NuxtLink :to="item.url" class="brands-row-item-card-link" />
 
     <div class="brands-row-item-card-img">
 

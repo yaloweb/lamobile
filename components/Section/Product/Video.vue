@@ -1,25 +1,20 @@
 <template>
-  <section class="s-product-video">
+  <div class="s-product-video">
     <div class="container">
 
       <UIVideo
-        :id="youtubeVideo.id"
-        :poster="youtubeVideo.poster"/>
+        :id="info.youtubeVideoId"
+        :poster="info.poster"/>
 
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
-
-import { mapState } from 'vuex'
-
 export default {
   name: 'SectionProductVideo',
-  computed: {
-    ...mapState({
-      youtubeVideo: state => state.product.youtubeVideo
-    })
+  props: {
+    info: Object
   }
 }
 </script>

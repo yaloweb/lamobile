@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'icon';
-  src: url('/fonts/icons/icon.ttf?4voq2o') format('truetype'),
-  url('/fonts/icons/icon.woff?4voq2o') format('woff'),
-  url('/fonts/icons/icon.svg?4voq2o#icon') format('svg');
+  src: url('/fonts/icons/icon.ttf?324ox4') format('truetype'),
+  url('/fonts/icons/icon.woff?324ox4') format('woff'),
+  url('/fonts/icons/icon.svg?324ox4#icon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -21,6 +21,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-angle-down:before {
+  content: "\e922";
 }
 
 .icon-arrow-right-circle:before {

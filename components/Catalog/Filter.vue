@@ -4,14 +4,24 @@
     <nav
       v-if="filterSubcategories.length"
       class="catalog-filter-nav">
-      <a
-        v-for="category in filterSubcategories"
-        :key="category.id"
-        href="#"
-        :class="{'active': selectedSubcategory === category.id}"
-        @click.prevent="setSelectedSubcategory(category.id)">
-        {{ category.title }}
-      </a>
+
+      <swiper
+        :options="swiperOptions"
+      >
+        <swiper-slide
+          v-for="category in filterSubcategories"
+          :key="category.id"
+        >
+          <a
+            href="#"
+            ref="category"
+            :class="{'active': selectedSubcategory === category.id}"
+            @click.prevent="setSelectedSubcategory(category.id)">
+            {{ category.title }}
+          </a>
+        </swiper-slide>
+      </swiper>
+
     </nav>
 
     <div
@@ -38,14 +48,20 @@
 
 <script>
 import { mapState } from 'vuex'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 export default {
   name: 'CatalogFilter',
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   computed: {
     ...mapState({
       subcategories: state => state.catalog.subcategories,
       sortList: state => state.catalog.sortList,
       selectedSort: state => state.catalog.selectedSort,
-      selectedSubcategory: state => state.catalog.selectedSubcategory
+      selectedSubcategory: state => state.catalog.selectedSubcategory,
+      brandsSubcategories: state => state.catalog.brandsSubcategories
     }),
     isBrandPage () {
       return this.$route.name === 'brands-symbol'
@@ -53,8 +69,7 @@ export default {
     filterSubcategories () {
       let res = []
       if (this.isBrandPage) {
-        // const brand = this.$route.params.symbol
-        console.log(this.subcategories)
+        res = this.brandsSubcategories
       } else {
         const parentCategory = this.$route.params.category
         res = this.subcategories.filter(item => item.parentCode === parentCategory)
@@ -63,7 +78,10 @@ export default {
     }
   },
   data: () => ({
-    sortOpened: false
+    sortOpened: false,
+    swiperOptions: {
+      slidesPerView: 'auto'
+    }
   }),
   methods: {
     selectSort (data) {
@@ -92,11 +110,25 @@ export default {
       if (!e.target.closest('.catalog-sort')) {
         this.sortOpened = false
       }
+    },
+    observerFirstLastChild () {
+      if (Array.isArray(this.$refs.category) && this.$refs.category.length) {
+        const firstChild = this.$refs.category[0]
+        // const lastChild = this.$refs.category[this.$refs.category.length - 1]
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            console.log(entry.intersectionRatio)
+          })
+        })
+        observer.observe(firstChild)
+        // observer.observe(lastChild)
+      }
     }
   },
   mounted () {
     this.$store.commit('catalog/clearSelectedSubcategory')
     document.addEventListener('click', this.clickOutsideSort)
+    this.observerFirstLastChild()
   },
   beforeDestroy () {
     document.removeEventListener('click', this.clickOutsideSort)
