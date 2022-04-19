@@ -95,7 +95,7 @@
               <nuxt-link
                 to="/account/basket"
                 class="header-account-btn header-account-basket"
-                :class="{'active': user.basket > 0}">
+                :class="{'active': basketProducts.length > 0}">
                 <span class="icon-bag"></span>
                 <span
                   v-if="basketProducts.length > 0"

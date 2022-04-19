@@ -84,19 +84,15 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL,
+    baseURL: 'https://lamobile-api.bikstart.ru/api/',
     proxyHeaders: false,
-    credentials: true,
+    credentials: false,
     init (axios) {
-      axios.defaults.withCredentials = true
+      axios.defaults.withCredentials = false
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  },
-
-  env: {
-    apiUrl: process.env.BIK_API_URL
   }
 }

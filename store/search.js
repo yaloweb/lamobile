@@ -23,7 +23,7 @@ export const actions = {
   async getSearchResults ({ commit }, query) {
     commit('clearSearchResults')
     if (query.length > 1) {
-      const res = await this.$axios.get('http://lamobile-api.bikstart.ru/api/catalog/search', {
+      const res = await this.$axios.get('/natural/catalog/search', {
         params: {
           query
         }

@@ -54,6 +54,8 @@
 
             </div>
 
+            <div id="forpvz"></div>
+
             <BasketRecommended
               v-if="recommended"
               :list="recommended"
@@ -118,7 +120,14 @@ export default {
   head: {
     bodyAttrs: {
       class: 'basket-page-body'
-    }
+    },
+    script: [
+      {
+        id: 'ISDEKscript',
+        type: 'text/javascript',
+        src: 'https://widget.cdek.ru/widget/widjet.js'
+      }
+    ]
   },
   computed: {
     ...mapState({
@@ -186,6 +195,17 @@ export default {
   },
   mounted () {
     this.setSelectedProducts()
+
+    if (window.ISDEKWidjet) {
+      const cdek = window.ISDEKWidjet({
+        defaultCity: 'Новосибирск',
+        cityFrom: 'Омск',
+        country: 'Россия',
+        link: 'forpvz'
+      })
+
+      console.log(cdek)
+    }
   }
 }
 </script>

@@ -151,6 +151,10 @@
 
   .swiper-slide
     perspective: 1000px
+    transition: opacity .4s ease
+
+    &:not(.swiper-slide-visible)
+      opacity: 0
 
     .brands-row-item-card
       +tr4

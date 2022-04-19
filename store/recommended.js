@@ -14,7 +14,7 @@ export const mutations = {
 
 export const actions = {
   async getRecommended ({ commit }, productId) {
-    const res = await this.$axios.get(`http://lamobile-api.bikstart.ru/api/catalog/similar/${productId}`)
+    const res = await this.$axios.get(`/natural/catalog/similar/${productId}`)
     commit('setRecommended', res.data)
   },
   async getSimilarArticles ({ commit }) {

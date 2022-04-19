@@ -31,17 +31,13 @@ export const actions = {
   async getBasketData ({ commit }) {
     const fUserId = this.$cookies.get('fUserId')
     if (fUserId) {
-      const res = await this.$axios.$get('http://lamobile-api.bikstart.ru/api/basket', {
+      const res = await this.$axios.$get('/legal/basket', {
         params: {
           fUserId
         }
       })
       commit('setBasketData', res)
     }
-  },
-  async deleteProduct ({ commit }, id) {
-    const res = await this.$axios.get('/basket')
-    commit('setBasketData', res.data)
   },
   addToBasket ({ dispatch }, { productId, quantity }) {
     const fUserId = this.$cookies.get('fUserId')
@@ -55,7 +51,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
-        url: 'http://lamobile-api.bikstart.ru/api/basket/add',
+        url: '/legal/basket/add',
         data
       }).then(response => {
         if (response.data.result === 'success') {
@@ -85,7 +81,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
-        url: 'http://lamobile-api.bikstart.ru/api/basket/update',
+        url: '/legal/basket/update',
         data
       }).then(response => {
         if (response.data.result === 'success') {
@@ -107,7 +103,7 @@ export const actions = {
     if (fUserId) {
       await this.$axios({
         method: 'post',
-        url: 'http://lamobile-api.bikstart.ru/api/basket/delete',
+        url: '/legal/basket/delete',
         data: {
           productId,
           fUserId
