@@ -142,9 +142,10 @@
                   <div
                     v-if="categories"
                     class="catalog-dropdown-products">
+
                     <ul>
                       <li
-                        v-for="link in categories"
+                        v-for="link in global.header.catalogMenu"
                         :key="link.id"
                         @click="closeCatalog"
                       >
@@ -153,6 +154,7 @@
                         </nuxt-link>
                       </li>
                     </ul>
+
                     <div
                       class="catalog-dropdown-all"
                       @click="closeCatalog">
@@ -161,6 +163,7 @@
                         class="btn">Все товары
                       </nuxt-link>
                     </div>
+
                   </div>
 
                 </div>
@@ -176,7 +179,7 @@
                     <div
                       class="brands-list">
                       <div
-                        v-for="brand in brands"
+                        v-for="brand in global.header.brands"
                         :key="brand.id"
                         class="brands-item"
                         @click="closeCatalog">

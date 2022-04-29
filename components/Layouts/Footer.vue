@@ -21,9 +21,19 @@
 
           <div class="footer-col col-3">
             <nav class="footer-nav footer-nav-menu">
-              <ul>
+              <ul v-if="global.footer.firstMenu && global.footer.firstMenu.length">
                 <li
-                  v-for="link in footerMenu"
+                  v-for="link in global.footer.firstMenu"
+                  :key="link.id">
+                  <nuxt-link
+                    :to="link.url">
+                    {{ link.title }}
+                  </nuxt-link>
+                </li>
+              </ul>
+              <ul v-if="global.footer.secondMenu && global.footer.secondMenu.length">
+                <li
+                  v-for="link in global.footer.secondMenu"
                   :key="link.id">
                   <nuxt-link
                     :to="link.url">
@@ -142,17 +152,7 @@ export default {
     })
   },
   data: () => ({
-    scrollUpVisible: false,
-    footerMenu: [
-      { id: 1, url: '/catalog', title: 'Каталог' },
-      { id: 2, url: '/magazine', title: 'Журнал' },
-      { id: 3, url: '/about', title: 'О нас' },
-      { id: 4, url: '/for-users', title: 'Контакты' },
-      { id: 5, url: '/for-users', title: 'Гарантии' },
-      { id: 6, url: '/for-users', title: 'Оплата и доставка' },
-      { id: 7, url: '/for-users', title: 'Условия продажи' },
-      { id: 8, url: '/for-users', title: 'Обмен и возврат' }
-    ]
+    scrollUpVisible: false
   }),
   methods: {
     scrollUp () {

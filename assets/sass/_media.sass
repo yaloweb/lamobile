@@ -18,6 +18,13 @@
   .products-slider
     overflow: hidden
 
+  .img-gallery
+    .swiper-slide
+      transition: opacity .4s ease
+
+      &:not(.swiper-slide-visible)
+        opacity: 0
+
 @media (max-width: 1799.98px)
 
   .banner-item-title

@@ -116,10 +116,10 @@ export default {
     tweenedTotal: 0,
     tweenedFullTotal: 0,
     totalNavMenu: [
-      { title: 'Условия продажи', url: '/information' },
-      { title: 'Обмен и возврат товара', url: '/information' },
-      { title: 'Доставка и оплата', url: '/information' },
-      { title: 'Гарантии', url: '/information' }
+      { title: 'Условия продажи', url: '/for-users' },
+      { title: 'Обмен и возврат товара', url: '/for-users' },
+      { title: 'Доставка и оплата', url: '/for-users' },
+      { title: 'Гарантии', url: '/for-users' }
     ]
   }),
   methods: {

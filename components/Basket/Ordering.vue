@@ -21,10 +21,10 @@
 
       <FormInput
         label="Фамилия *"
-        name="surname"
+        name="lastName"
         placeholder="Ваша фамилия"
-        :invalid="$v.surname.$error ? !$v.surname.required : false"
-        v-model="surname"/>
+        :invalid="$v.lastName.$error ? !$v.lastName.required : false"
+        v-model="lastName"/>
 
       <FormInput
         label="Почта *"
@@ -91,7 +91,8 @@
             label="value"
             :options="cities"
             :searchable="false"
-            v-model="city"/>
+            :reduce="city => city.id"
+            v-model="locationCode"/>
         </div>
       </div>
 
@@ -187,8 +188,12 @@
       <div class="delivery-confirm">
         <button
           class="btn"
-          :disabled="canOrder"
-          @click="submitOrder">Заказать</button>
+          :disabled="canOrder || submitLoading"
+          :class="{'loading': submitLoading}"
+          @click="submitOrder"
+        >
+          Заказать
+        </button>
       </div>
 
     </div>
@@ -203,22 +208,36 @@ import { required, minLength, email } from 'vuelidate/lib/validators'
 import { mapGetters } from 'vuex'
 
 export default {
-  async fetch () {
-    await this.$store.dispatch('delivery/getDeliveryData')
-    this.city = this.cities[0]
-    this.date = this.dates[0]
-    this.time = this.times[0]
-  },
   name: 'BasketOrdering',
   props: {
     loading: Boolean
   },
   validations: {
     name: { required },
-    surname: { required },
+    lastName: { required },
     email: { required, email },
     phone: { required, minLength: minLength(18) }
   },
+  data: () => ({
+    name: 'Олег',
+    lastName: 'Олегов',
+    email: 'oleg@mail.ru',
+    phone: '(999) 999-99-99',
+    callMeBack: false,
+    deliveryType: 'free',
+    locationCode: '',
+    street: '',
+    housing: '',
+    home: '',
+    apartment: '',
+    date: '',
+    time: '',
+    message: '',
+    paymentOnAccount: false,
+    paymentOnline: false,
+    privacyPolicy: false,
+    submitLoading: false
+  }),
   computed: {
     ...mapGetters({
       cities: 'delivery/getCities',
@@ -233,33 +252,32 @@ export default {
       return !can
     }
   },
-  data: () => ({
-    name: '',
-    surname: '',
-    email: '',
-    phone: '',
-    callMeBack: false,
-    deliveryType: 'free',
-    city: '',
-    street: '',
-    housing: '',
-    home: '',
-    apartment: '',
-    date: '',
-    time: '',
-    message: '',
-    paymentOnAccount: false,
-    paymentOnline: false,
-    privacyPolicy: false
-  }),
   methods: {
-    submitOrder () {
+    async submitOrder () {
       if (this.$v.$invalid) {
         this.$v.$touch()
         return false
       }
-      this.$router.push('/account/basket/success')
+      const sendData = {
+        send: 'y',
+        name: this.name,
+        lastName: this.lastName,
+        email: this.email,
+        phone: this.phone,
+        locationCode: Number(this.locationCode)
+      }
+      console.log(sendData)
+      this.submitLoading = true
+      await this.$store.dispatch('order/submitOrder', sendData)
+      this.submitLoading = false
+      // this.$router.push('/account/basket/success')
     }
+  },
+  async mounted () {
+    await this.$store.dispatch('delivery/getDeliveryData')
+    this.locationCode = this.cities[0]?.id
+    this.date = this.dates[0]
+    this.time = this.times[0]
   }
 }
 </script>

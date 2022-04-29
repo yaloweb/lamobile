@@ -20,27 +20,27 @@
             class="post-content-descr"
             v-html="post.descr"/>
 
-          <template v-for="(type, key) in post.content">
+          <template v-for="block in post.content">
 
             <PostImgText
-              v-if="key === 'block_1'"
-              :key="key"
-              :content="type"/>
+              v-if="block.template === 'block_1'"
+              :key="block.id"
+              :content="block.data"/>
 
             <PostImgSlider
-              v-if="key === 'img_slider'"
-              :key="key"
-              :list="type"/>
+              v-if="block.template === 'img_slider'"
+              :key="block.id"
+              :list="block.data"/>
 
             <PostTitleText
-              v-if="key === 'block_2'"
-              :key="key"
-              :content="type"/>
+              v-if="block.template === 'block_2'"
+              :key="block.id"
+              :content="block.data"/>
 
             <PostImgTitleText
-              v-if="key === 'block_3'"
-              :key="key"
-              :content="type"/>
+              v-if="block.template === 'block_3'"
+              :key="block.id"
+              :content="block.data"/>
 
           </template>
 

@@ -18,7 +18,7 @@ export const actions = {
     commit('setRecommended', res.data)
   },
   async getSimilarArticles ({ commit }) {
-    const res = await this.$axios.get('/similar')
+    const res = await this.$axios.get('https://api-lamobile.bikdev.ru/similar')
     commit('setSimilarArticles', res.data)
   }
 }

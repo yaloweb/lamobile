@@ -156,11 +156,13 @@
       filter: grayscale(0)
 
 .footer-nav-menu
+  flex-direction: row
+  margin: 0 -10px
+
   ul
     list-style-type: none
-    padding: 0
+    padding: 0 10px
     margin: 0
-    column-count: 2
     display: block
     width: 100%
 
@@ -168,9 +170,6 @@
       page-break-inside: avoid
       break-inside: avoid
       margin-bottom: 7px
-
-      &:last-child
-        margin-bottom: 0
 
 .footer-nav-marketplaces-logo
   display: none

@@ -7,7 +7,7 @@
         v-for="(slide, index) in list"
         :key="index">
         <img
-          :src="slide"
+          :src="slide.img"
           alt="">
       </swiper-slide>
 
@@ -35,6 +35,7 @@ export default {
       spaceBetween: 50,
       speed: 600,
       loop: true,
+      watchSlidesVisibility: true,
       breakpoints: {
         0: {
           spaceBetween: 10,
