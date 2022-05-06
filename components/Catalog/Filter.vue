@@ -69,10 +69,31 @@ export default {
     filterSubcategories () {
       let res = []
       if (this.isBrandPage) {
-        res = this.brandsSubcategories
+        this.brandsSubcategories.forEach(brandSubCatItem => {
+          res.push(brandSubCatItem)
+          if (brandSubCatItem.tags && brandSubCatItem.tags.length) {
+            brandSubCatItem.tags.forEach(brandSubCatItemTag => {
+              if (brandSubCatItemTag && brandSubCatItemTag.title) {
+                res.push(brandSubCatItemTag)
+              }
+            })
+          }
+        })
       } else {
         const parentCategory = this.$route.params.category
-        res = this.subcategories.filter(item => item.parentCode === parentCategory)
+        const subcatRes = this.subcategories.filter(item => {
+          return item.parentCode === parentCategory
+        })
+        subcatRes.forEach(subcatResItem => {
+          res.push(subcatResItem)
+          if (subcatResItem.tags && subcatResItem.tags.length) {
+            subcatResItem.tags.forEach(subcatResItemTag => {
+              if (subcatResItemTag && subcatResItemTag.title) {
+                res.push(subcatResItemTag)
+              }
+            })
+          }
+        })
       }
       return res
     }

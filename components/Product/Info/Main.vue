@@ -14,7 +14,7 @@
           class="product-main-delivery-info-item">
 
           <img
-            v-if="pageType === 2"
+            v-if="pageType === '2'"
             src="/img/icons/delivery-car-time-dark.svg"
             alt="">
 
@@ -32,7 +32,7 @@
           class="product-main-delivery-info-item">
 
           <img
-            v-if="pageType === 2"
+            v-if="pageType === '2'"
             src="/img/icons/delivery-car-gift-dark.svg"
             alt="">
 

@@ -2,7 +2,7 @@
 
   <div
     class="product-page"
-    :class="{'dark': pageType === 2}">
+    :class="{'dark': pageType === '2'}">
 
     <UIBreadcrumbs/>
 
@@ -158,7 +158,7 @@ export default {
       sections: state => state.product.sections
     }),
     darkTheme () {
-      return this.pageType === 2 ? 'dark' : ''
+      return this.pageType === '2' ? 'dark' : ''
     }
   },
   watch: {
