@@ -68,13 +68,14 @@ export default {
     },
     filterSubcategories () {
       let res = []
+      let tags = []
       if (this.isBrandPage) {
         this.brandsSubcategories.forEach(brandSubCatItem => {
           res.push(brandSubCatItem)
           if (brandSubCatItem.tags && brandSubCatItem.tags.length) {
             brandSubCatItem.tags.forEach(brandSubCatItemTag => {
               if (brandSubCatItemTag && brandSubCatItemTag.title) {
-                res.push(brandSubCatItemTag)
+                tags.push(brandSubCatItemTag)
               }
             })
           }
@@ -89,12 +90,14 @@ export default {
           if (subcatResItem.tags && subcatResItem.tags.length) {
             subcatResItem.tags.forEach(subcatResItemTag => {
               if (subcatResItemTag && subcatResItemTag.title) {
-                res.push(subcatResItemTag)
+                tags.push(subcatResItemTag)
               }
             })
           }
         })
       }
+      console.log(tags)
+      res.push(...tags)
       return res
     }
   },

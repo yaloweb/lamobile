@@ -34,7 +34,7 @@
           v-html="info.title"/>
         <div
           class="delivery-info-item-content"
-          v-html="info.content"/>
+          v-html="info.descr"/>
       </div>
 
     </div>
