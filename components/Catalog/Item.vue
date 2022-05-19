@@ -22,7 +22,8 @@
 
     <div
       class="product-item-img"
-      :class="{'is-slider': Array.isArray(item.imgSrc)}">
+      :class="{'is-slider': Array.isArray(item.imgSrc)}"
+    >
 
       <div
         v-if="checkImg"
@@ -35,56 +36,25 @@
             :key="index"
             class="product-item-img-slider"
             :class="{'visible': imgList.color === selectedColor}"
-            @mousemove="hoverMove"
-            @mouseenter="hoverIconVisible = true"
-            @mouseleave="hoverIconVisible = false"
           >
-
-            <swiper
-              ref="gallerySlider"
-              :options="getSwiperOptions(index)">
-
-              <swiper-slide
-                v-for="(imgItem, idx) in imgList.list"
-                :key="`${index}-${idx}`"
-              >
-                <div class="product-item-img-slider-img">
-                  <img
-                    :src="imgItem"
-                    class="active"
-                    alt="">
-                </div>
-              </swiper-slide>
-
-            </swiper>
-
-            <button
-              class="product-img-slider-prev"
-              :data-slider-id="`${item.id}-${index}`"
-              @mouseenter="rightDirection = false"
-            />
-
-            <button
-              class="product-img-slider-next"
-              :data-slider-id="`${item.id}-${index}`"
-              @mouseenter="rightDirection = true"
-            />
-
-            <div
-              class="product-img-pagination"
-              :data-slider-id="`${item.id}-${index}`"
-              slot="pagination"/>
-
-            <div
-              class="product-item-arrow-hover"
-              :class="{
-                'visible': hoverIconVisible,
-                'right-direction': rightDirection
-              }"
-              :style="{transform: `translate(${hoverX}px, ${hoverY}px)`}">
-              <span />
+            <div class="product-item-img-slider-img-hover">
+              <a
+                v-for="(i, idx) in imgList.list"
+                :key="`${index}-1-${idx}`"
+                :href="item.url"
+                @mouseenter="hoverImg = idx"
+                @click.prevent="$router.push(item.url)"
+              />
             </div>
-
+            <div class="product-item-img-slider-img">
+              <img
+                v-for="(imgItem, idx) in imgList.list"
+                :key="`${index}-2-${idx}`"
+                :src="imgItem"
+                :class="{'active': hoverImg === idx}"
+                alt=""
+              />
+            </div>
           </div>
 
         </template>
@@ -175,14 +145,8 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-
 export default {
   name: 'CatalogItem',
-  components: {
-    Swiper,
-    SwiperSlide
-  },
   props: {
     item: Object
   },
@@ -211,18 +175,9 @@ export default {
   data: () => ({
     selectedColor: 0,
     addToCardLoading: false,
-    hoverIconVisible: false,
-    hoverX: 0,
-    hoverY: 0,
-    rightDirection: false
+    hoverImg: 0
   }),
   methods: {
-    slidePrev () {
-      this.$refs.gallerySlider.$swiper.slidePrev()
-    },
-    slideNext () {
-      this.$refs.gallerySlider.$swiper.slideNext()
-    },
     async addToBasket () {
       const data = {
         productId: this.haveColors ? this.currentColor.productId : this.item.productId,
@@ -234,26 +189,6 @@ export default {
       } finally {
         this.addToCardLoading = false
       }
-    },
-    getSwiperOptions (index) {
-      return {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        speed: 600,
-        navigation: {
-          prevEl: `.product-img-slider-prev[data-slider-id="${this.item.id}-${index}"]`,
-          nextEl: `.product-img-slider-next[data-slider-id="${this.item.id}-${index}"]`
-        },
-        pagination: {
-          el: `.product-img-pagination[data-slider-id="${this.item.id}-${index}"]`,
-          type: 'bullets',
-          clickable: true
-        }
-      }
-    },
-    hoverMove (event) {
-      this.hoverX = event.offsetX - 30
-      this.hoverY = event.offsetY - 30
     }
   },
   mounted () {

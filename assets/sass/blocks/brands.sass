@@ -114,6 +114,10 @@
   -webkit-border-radius: 20px
   -moz-border-radius: 20px
   border-radius: 20px
+  transition: box-shadow .4s ease
+
+  &:hover
+    box-shadow: 0 0 29px 5px rgba(#000, .15)
 
 .brands-row-item-card-img
   padding-bottom: 62.25%
@@ -149,18 +153,18 @@
   .swiper-container
     overflow: visible
 
-  .swiper-slide
-    perspective: 1000px
-    transition: opacity .4s ease
-
-    &:not(.swiper-slide-visible)
-      opacity: 0
-
-    .brands-row-item-card
-      +tr4
-
-      &:hover
-        transform: rotateX(-8deg)
+  //.swiper-slide
+  //  perspective: 1000px
+  //  transition: opacity .4s ease
+  //
+  //  &:not(.swiper-slide-visible)
+  //    opacity: 0
+  //
+  //  .brands-row-item-card
+  //    +tr4
+  //
+  //    &:hover
+  //      transform: rotateX(-8deg)
 
 .brands-row-item-card-link
   position: absolute

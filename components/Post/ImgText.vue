@@ -13,9 +13,15 @@
         alt="">
     </template>
 
+    <h3
+      v-if="content.title"
+      v-html="content.title"
+    />
+
     <div
       v-if="content.text"
-      v-html="content.text"/>
+      v-html="content.text"
+    />
   </div>
 </template>
 

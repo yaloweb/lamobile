@@ -1,5 +1,16 @@
 <template>
   <div class="text-block">
+    <template v-if="content.img">
+      <video
+        v-if="isVideo"
+        :src="content.img"
+        controls
+      />
+      <img
+        v-else
+        :src="content.img"
+        alt="">
+    </template>
     <h3
       v-if="content.title"
       v-html="content.title"/>
