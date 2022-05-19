@@ -1,7 +1,7 @@
 <template>
   <section
-
-    class="s-brands-info">
+    class="s-brands-info"
+  >
     <div class="container">
 
       <div class="brands-info">

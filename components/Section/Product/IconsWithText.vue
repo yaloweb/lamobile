@@ -18,7 +18,7 @@
         </div>
         <div
           class="icons-with-text-title"
-          v-html="element.title"
+          v-html="element.name"
         />
       </div>
 

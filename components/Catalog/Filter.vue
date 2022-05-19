@@ -96,7 +96,6 @@ export default {
           }
         })
       }
-      console.log(tags)
       res.push(...tags)
       return res
     }
@@ -118,7 +117,7 @@ export default {
       if (this.selectedSubcategory !== id) {
         this.$store.commit('catalog/setSelectedSubcategory', id)
         await this.$store.dispatch('catalog/getCatalog', {
-          category: id
+          category: [id]
         })
       } else {
         const category = this.$route.params.category

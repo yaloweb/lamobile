@@ -57,9 +57,12 @@
                   class="banner-item-title"
                   v-html="slide.title"/>
                 <p v-html="slide.descr"/>
-                <a
-                  :href="slide.url"
-                  class="btn">Подробнее</a>
+
+                <UIButton
+                  v-if="slide.link"
+                  :url="slide.link"
+                  title="Подробнее"
+                />
 
               </div>
 

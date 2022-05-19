@@ -21,7 +21,12 @@
               <span v-else>
                 {{ info.title }}
               </span>
-              <a href="#" class="brands-more-link">Подробнее о бренде</a>
+              <a
+                href="#"
+                class="brands-more-link"
+                @click.prevent="scrollToInfo"
+              >Подробнее о бренде
+              </a>
             </div>
 
             <div
@@ -50,6 +55,18 @@ export default {
     ...mapState({
       info: state => state.catalog.brandsMainInfo
     })
+  },
+  methods: {
+    scrollToInfo () {
+      const block = document.querySelector('.s-brands-info')
+      if (block) {
+        window.scrollTo({
+          top: block.getBoundingClientRect().top + window.pageYOffset,
+          left: 0,
+          behavior: 'smooth'
+        })
+      }
+    }
   }
 }
 </script>

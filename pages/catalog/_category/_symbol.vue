@@ -188,6 +188,11 @@ export default {
   },
   mounted () {
     this.setDefaultColor()
+  },
+  beforeDestroy () {
+    setTimeout(() => {
+      this.$store.commit('product/resetState')
+    }, 300)
   }
 }
 </script>

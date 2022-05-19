@@ -6,12 +6,18 @@
       <swiper-slide
         v-for="(slide, index) in list"
         :key="index">
+        <video
+          v-if="isVideo(slide.img)"
+          :src="slide.img"
+          controls
+        />
         <img
+          v-else
           :src="slide.img"
           alt="">
       </swiper-slide>
-
-    </swiper>
+`
+    </swiper>`
   </div>
 
 </template>
@@ -54,7 +60,12 @@ export default {
         prevEl: '.similar-prev'
       }
     }
-  })
+  }),
+  methods: {
+    isVideo (src) {
+      return src.includes('mp4')
+    }
+  }
 }
 </script>
 

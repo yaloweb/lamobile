@@ -55,7 +55,7 @@
     height: 100%
     object-fit: cover
     opacity: 0
-    +tr
+    transition: opacity .3s ease, visibility .3s ease
     visibility: hidden
 
     &.visible
@@ -913,7 +913,7 @@
 .product-main-img-swiper
   position: relative
   height: 100%
-  +tr4
+  transition: opacity .4s ease, visibility .4s ease
 
   &:not(.visible)
     opacity: 0
@@ -1122,7 +1122,7 @@
   right: 20px
   z-index: 10
   cursor: pointer
-  +tr
+  transition: border-color .3s ease, color .3s ease
 
   &:hover
     border-color: $accent

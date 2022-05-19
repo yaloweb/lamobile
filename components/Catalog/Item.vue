@@ -92,7 +92,7 @@
         <template v-else>
 
           <nuxt-link
-            :to="item.url"
+            :to="getUrl"
             :event="item.inStock === false ? '' : 'click'">
             <img
               :src="item.imgSrc"
@@ -116,7 +116,7 @@
       <div class="product-item-title">
 
         <nuxt-link
-          :to="item.url"
+          :to="getUrl"
           :event="item.inStock === false ? '' : 'click'">
           {{ item.title }}
         </nuxt-link>
@@ -162,7 +162,7 @@
         class="product-item-not-available-btn">
         <nuxt-link
           class="btn btn-border btn-block"
-          :to="item.url"
+          :to="getUrl"
         >
           Узнать о поступлении
         </nuxt-link>
@@ -203,6 +203,9 @@ export default {
         can = true
       }
       return can
+    },
+    getUrl () {
+      return this.item.url ? this.item.url : '#'
     }
   },
   data: () => ({

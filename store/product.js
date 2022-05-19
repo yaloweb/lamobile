@@ -31,7 +31,9 @@ export const state = getDefaultState()
 
 export const mutations = {
   resetState (state) {
-    Object.assign(state, getDefaultState())
+    for (let key in state) {
+      state[key] = getDefaultState()[key]
+    }
   },
   setProductInfo (state, data) {
     for (const key in data) {
@@ -44,13 +46,9 @@ export const mutations = {
 }
 
 export const actions = {
-  startResetState ({ commit }) {
-    commit('resetState')
-  },
   async getProductInfo ({ dispatch, commit }, symbol) {
     const res = await this.$axios.$get(`/natural/catalog/product/${symbol}`)
     // const res = await this.$axios.$get('https://api-lamobile.bikdev.ru/products/with-cnstructor')
-    dispatch('startResetState')
     commit('setProductInfo', res)
   }
 }

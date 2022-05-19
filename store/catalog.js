@@ -13,6 +13,10 @@ export const state = () => ({
   subcategories: [],
   sortList: [
     {
+      code: 'default',
+      title: 'по умолчанию'
+    },
+    {
       code: 'price',
       title: 'по цене'
     },
@@ -22,8 +26,8 @@ export const state = () => ({
     }
   ],
   selectedSort: {
-    code: 'price',
-    title: 'по цене'
+    code: 'default',
+    title: 'по умолчанию'
   },
   selectedSubcategory: null,
   brandsSubcategories: []
@@ -47,7 +51,7 @@ export const mutations = {
   setCatalogCategories (state, array) {
     state.categories = array
   },
-  setSliderProducts (state, { newRes, popularRes }) {
+  setSliderProducts (state, { newRes, popularRes, recommendedRes }) {
     if (newRes && newRes.length) {
       state.sliderProducts.push({
         id: 1,
@@ -60,6 +64,13 @@ export const mutations = {
         id: 2,
         category: 'Популярное',
         list: popularRes
+      })
+    }
+    if (recommendedRes && recommendedRes.length) {
+      state.sliderProducts.push({
+        id: 3,
+        category: 'Рекомендованные',
+        list: recommendedRes
       })
     }
   },
@@ -99,19 +110,25 @@ export const actions = {
   async getSliderProducts ({ commit }) {
     let newRes = []
     let popularRes = []
+    let recommendedRes = []
     const newResPromise = this.$axios.get('/natural/catalog/product?new=y').then(resp => {
       newRes = resp.data
     })
     const popularResPromise = this.$axios.get('/natural/catalog/product?popular=y').then(resp => {
       popularRes = resp.data
     })
+    const recommendedResPromise = this.$axios.get('/natural/catalog/product?recommended=y').then(resp => {
+      recommendedRes = resp.data
+    })
     await Promise.all([
       newResPromise,
-      popularResPromise
+      popularResPromise,
+      recommendedResPromise
     ])
     commit('setSliderProducts', {
       newRes,
-      popularRes
+      popularRes,
+      recommendedRes
     })
   },
   async getCatalog ({ commit }, params) {

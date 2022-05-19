@@ -1,9 +1,18 @@
 <template>
   <div class="text-block">
-    <img
-      v-if="content.img"
-      :src="content.img"
-      alt="">
+
+    <template v-if="content.img">
+      <video
+        v-if="isVideo"
+        :src="content.img"
+        controls
+      />
+      <img
+        v-else
+        :src="content.img"
+        alt="">
+    </template>
+
     <div
       v-if="content.text"
       v-html="content.text"/>
@@ -15,6 +24,11 @@ export default {
   name: 'PostImgText',
   props: {
     content: Object
+  },
+  computed: {
+    isVideo () {
+      return this.content.img.includes('mp4')
+    }
   }
 }
 </script>
