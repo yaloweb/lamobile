@@ -20,6 +20,12 @@
             class="post-content-descr"
             v-html="post.descr"/>
 
+          <UIVideo
+            v-if="post.video"
+            :id="post.video.youtubeVideoId"
+            :poster="post.video.poster"
+          />
+
           <template v-for="block in post.content">
 
             <PostImgText
@@ -91,11 +97,11 @@
 import { mapState } from 'vuex'
 
 export default {
+  name: 'MagazinePost',
   async fetch () {
     const id = this.$route.params.id
     return await this.$store.dispatch('post/getPostData', id)
   },
-  name: 'MagazinePost',
   computed: {
     ...mapState({
       post: state => state.post

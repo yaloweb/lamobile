@@ -50,7 +50,7 @@
               <nav class="footer-nav">
                 <div class="h6">Мы на маркетплейсах</div>
                 <a
-                  v-for="(marketplace, idx) in global.marketplaces"
+                  v-for="(marketplace, idx) in marketplaces"
                   :key="idx"
                   :href="marketplace.url"
                   target="_blank">
@@ -152,7 +152,25 @@ export default {
     })
   },
   data: () => ({
-    scrollUpVisible: false
+    scrollUpVisible: false,
+    marketplaces: [
+      {
+        title: 'Яндекс.Маркет',
+        url: 'https://market.yandex.ru/shop--lamobile/411462'
+      },
+      {
+        title: 'Ozon',
+        url: 'https://www.ozon.ru/seller/lamobile-9034/?miniapp=seller_9034'
+      },
+      {
+        title: 'СберМаркет',
+        url: 'https://sbermegamarket.ru/shop/lamobile-store/'
+      },
+      {
+        title: 'Aliexpress',
+        url: 'https://lamobile.aliexpress.ru/store/910365125'
+      }
+    ]
   }),
   methods: {
     scrollUp () {

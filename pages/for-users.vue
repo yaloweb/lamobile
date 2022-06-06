@@ -66,13 +66,21 @@
 </template>
 
 <script>
+import breadcrumbs from '@/mixins/breadcrumbs'
+
 export default {
+  name: 'ForUsers',
+  mixins: [breadcrumbs],
   async fetch () {
     return await this.$store.dispatch('forUsers/getInfoForUsers')
   },
-  name: 'ForUsers',
   data: () => ({
-    accordionOpened: []
+    accordionOpened: [],
+    breadcrumbs: [
+      {
+        title: 'Пользователям'
+      }
+    ]
   }),
   methods: {
     toggle (bool, id) {

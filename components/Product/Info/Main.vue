@@ -62,8 +62,8 @@
               v-for="color in colors"
               :key="color.id"
               :style="{backgroundColor: color.background}"
-              :class="{'active': color.id === selectedColor}"
-              @click="$emit('select-color', color.id)"/>
+              :class="{'active': color.productId === selectedColor}"
+              @click="$emit('select-color', color.productId)"/>
           </div>
           <div class="product-selected-color-title">
             {{ selectedColorObject.title }}
@@ -109,47 +109,18 @@
               class="gift-item">
               <img
                 :src="gift.imgSrc"
-                alt="">
+                alt=""
+              >
             </div>
           </div>
         </div>
 
       </div>
 
-      <div
-        v-if="shops ? shops.length : false"
-        class="product-marketplaces">
-
-        <div class="product-marketplaces-title">Или купить на другой площадке</div>
-
-        <div class="product-marketplaces-row">
-
-          <div
-            v-for="shop in shops"
-            :key="shop.id"
-            class="product-marketplace">
-
-            <a
-              :href="shop.link"
-              class="product-marketplace-link"
-              target="_blank"
-            />
-
-            <div class="product-marketplace-img">
-              <img
-                :src="shop.img"
-                alt="">
-            </div>
-
-            <div class="product-marketplace-title">
-              {{ shop.name }}
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      <ProductMarketplaces
+        v-if="selectedColorObject.marketplace"
+        :marketplaces="selectedColorObject.marketplace"
+      />
 
     </div>
 
@@ -169,25 +140,26 @@ export default {
     ...mapState({
       pageType: state => state.product.pageType,
       title: state => state.product.title,
-      inStock: state => state.product.inStock,
       colors: state => state.product.colors,
       giftsDescr: state => state.product.giftsDescr,
       gifts: state => state.product.gifts,
-      shops: state => state.product.shops,
       deliveryTime: state => state.product.deliveryTime,
       deliveryGift: state => state.product.deliveryGift,
       price: state => state.product.price
     }),
     productMainInfo () {
-      const selectedColor = this.colors.filter(item => item.id === this.selectedColor)[0]
+      const selectedColor = this.colors.filter(item => item.productId === this.selectedColor)[0]
       return {
         productId: selectedColor?.productId,
         price: selectedColor?.price
       }
     },
     selectedColorObject () {
-      const res = this.colors.filter(item => item.id === this.selectedColor)[0]
+      const res = this.colors.filter(item => item.productId === this.selectedColor)[0]
       return res || {}
+    },
+    inStock () {
+      return this.selectedColorObject.inStock
     }
   },
   data: () => ({

@@ -88,8 +88,11 @@
 </template>
 
 <script>
+import breadcrumbs from '@/mixins/breadcrumbs'
+
 export default {
   name: 'user',
+  mixins: [breadcrumbs],
   data: () => ({
     login: '',
     phone: '',
@@ -97,7 +100,12 @@ export default {
     description: '',
     currentPassword: '',
     newPassword: '',
-    repeatPassword: ''
+    repeatPassword: '',
+    breadcrumbs: [
+      {
+        title: 'Личный кабинет'
+      }
+    ]
   })
 }
 </script>

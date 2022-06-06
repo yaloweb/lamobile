@@ -4,7 +4,8 @@
 
       <UIVideo
         :id="info.youtubeVideoId"
-        :poster="info.poster"/>
+        :poster="info.poster"
+      />
 
     </div>
   </div>

@@ -114,6 +114,7 @@
 <script>
 
 import { mapState } from 'vuex'
+import breadcrumbs from '@/mixins/breadcrumbs'
 
 export default {
   name: 'Basket',
@@ -129,6 +130,7 @@ export default {
       }
     ]
   },
+  mixins: [breadcrumbs],
   computed: {
     ...mapState({
       products: state => state.basket.products,
@@ -144,7 +146,12 @@ export default {
   },
   data: () => ({
     updateBasket: false,
-    selectedProducts: []
+    selectedProducts: [],
+    breadcrumbs: [
+      {
+        title: 'Корзина'
+      }
+    ]
   }),
   methods: {
     async deleteFromBasket (id) {
@@ -196,16 +203,16 @@ export default {
   mounted () {
     this.setSelectedProducts()
 
-    if (window.ISDEKWidjet) {
-      const cdek = window.ISDEKWidjet({
-        defaultCity: 'Новосибирск',
-        cityFrom: 'Омск',
-        country: 'Россия',
-        link: 'forpvz'
-      })
-
-      console.log(cdek)
-    }
+    // if (window.ISDEKWidjet) {
+    //   const cdek = window.ISDEKWidjet({
+    //     defaultCity: 'Новосибирск',
+    //     cityFrom: 'Омск',
+    //     country: 'Россия',
+    //     link: 'forpvz'
+    //   })
+    //
+    //   console.log(cdek)
+    // }
   }
 }
 </script>

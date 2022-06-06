@@ -24,6 +24,7 @@
 
           <ProductInfoMain
             :selectedColor="selectedColor"
+            :class="{'loading': loading}"
             @select-color="selectedColor = $event"/>
 
         </div>
@@ -120,10 +121,15 @@
 <script>
 
 import { mapState } from 'vuex'
+import breadcrumbs from '@/mixins/breadcrumbs'
 
 export default {
+  name: 'ProductPage',
+  mixins: [breadcrumbs],
   async fetch () {
     const symbol = this.$route.params.symbol
+    this.loading = true
+
     await this.$store.dispatch('product/getProductInfo', symbol).catch(() => {
       this.$nuxt.error({ statusCode: 404 })
     })
@@ -131,9 +137,31 @@ export default {
       this.$store.dispatch('recommended/getRecommended', this.productId),
       this.$store.dispatch('recommended/getSimilarArticles')
     ])
+    this.loading = false
+    this.setDefaultColor()
+
+    let category = this.categories.filter(item => {
+      return item.code === this.$route.params.category
+    })[0]
+
+    if (!category) {
+      category = this.subcategories.filter(item => {
+        return item.code === this.$route.params.category
+      })[0]
+    }
+
+    if (category) {
+      this.breadcrumbs.push({
+        title: category.title,
+        link: `/catalog/${category.code}`
+      })
+      this.breadcrumbs.push({
+        title: this.title
+      })
+    }
+
     return promises
   },
-  name: 'ProductPage',
   head () {
     return {
       bodyAttrs: {
@@ -155,7 +183,9 @@ export default {
       compareSection: state => state.product.compareSection,
       colors: state => state.product.colors,
       compare: state => state.product.compare,
-      sections: state => state.product.sections
+      sections: state => state.product.sections,
+      categories: state => state.catalog.categories,
+      subcategories: state => state.catalog.subcategories
     }),
     darkTheme () {
       return this.pageType === '2' ? 'dark' : ''
@@ -176,14 +206,21 @@ export default {
   data: () => ({
     selectedColor: 1,
     isMob: false,
-    accordionOpened: []
+    accordionOpened: [],
+    loading: false,
+    breadcrumbs: [
+      {
+        title: 'Каталог',
+        link: '/catalog'
+      }
+    ]
   }),
   methods: {
     toggle (bool, id) {
       bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
     },
     setDefaultColor () {
-      this.selectedColor = this.colors[0]?.id || 1
+      this.selectedColor = this.colors[0]?.productId || 0
     }
   },
   mounted () {

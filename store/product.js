@@ -48,7 +48,6 @@ export const mutations = {
 export const actions = {
   async getProductInfo ({ dispatch, commit }, symbol) {
     const res = await this.$axios.$get(`/natural/catalog/product/${symbol}`)
-    // const res = await this.$axios.$get('https://api-lamobile.bikdev.ru/products/with-cnstructor')
     commit('setProductInfo', res)
   }
 }

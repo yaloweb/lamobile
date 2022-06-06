@@ -36,8 +36,10 @@
 <script>
 
 import { mapState } from 'vuex'
+import breadcrumbs from '@/mixins/breadcrumbs'
 export default {
   name: 'Magazine',
+  mixins: [breadcrumbs],
   async fetch () {
     await this.$store.dispatch('blog/getCategories')
     this.selectedCategory = this.categories[0].id
@@ -58,7 +60,12 @@ export default {
   data: () => ({
     selectedCategory: 0,
     pageLoad: false,
-    limit: 12
+    limit: 12,
+    breadcrumbs: [
+      {
+        title: 'Журнал'
+      }
+    ]
   })
 }
 </script>

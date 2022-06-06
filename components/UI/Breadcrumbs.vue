@@ -3,10 +3,25 @@
   <nav class="breadcrumbs">
     <div class="container">
       <ul>
-        <li><a href="#"><span class="icon-lion"></span></a></li>
-        <li><a href="#">Каталог</a></li>
-        <li>Роботы-пылесосы</li>
+        <li>
+          <nuxt-link to="/"><span class="icon-lion"/></nuxt-link>
+        </li>
+        <li
+          v-for="(breadcrumb, idx) in breadcrumbs"
+          :key="idx"
+        >
+          <nuxt-link
+            v-if="breadcrumb.link"
+            :to="breadcrumb.link"
+          >
+            {{ breadcrumb.title }}
+          </nuxt-link>
+          <span v-else>
+            {{ breadcrumb.title }}
+          </span>
+        </li>
       </ul>
+
     </div>
   </nav>
 
@@ -14,7 +29,12 @@
 
 <script>
 export default {
-  name: 'UIBreadcrumbs'
+  name: 'UIBreadcrumbs',
+  computed: {
+    breadcrumbs () {
+      return this.$store.state.breadcrumbs.list
+    }
+  }
 }
 </script>
 

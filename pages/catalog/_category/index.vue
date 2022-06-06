@@ -59,21 +59,33 @@
 <script>
 
 import { mapState } from 'vuex'
+import breadcrumbs from '@/mixins/breadcrumbs'
 
 export default {
+  name: 'CatalogPage',
+  mixins: [breadcrumbs],
   async fetch () {
     const category = this.$route.params.category
-    return await Promise.all([
+    const promises = await Promise.all([
       this.$store.dispatch('catalog/getCatalog', {
         categoryCode: category
       })
     ])
+    this.breadcrumbs.push({
+      title: this.currentCategory.title
+    })
+    return promises
   },
-  name: 'CatalogPage',
   data: () => ({
     sortType: '',
     selectedSubcategory: null,
-    loading: false
+    loading: false,
+    breadcrumbs: [
+      {
+        title: 'Каталог',
+        link: '/catalog'
+      }
+    ]
   }),
   computed: {
     ...mapState({

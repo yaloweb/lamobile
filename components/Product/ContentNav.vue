@@ -4,12 +4,25 @@
 
       <nav class="products-content-nav">
         <a
-          v-for="(link, idx) in links"
-          :key="idx"
-          :href="link.href"
-          @click.prevent="scrollTo(link.href)"
+          v-if="description"
+          href="#s-description"
+          @click.prevent="scrollTo('#s-description')"
         >
-          {{ link.title }}
+          Описание
+        </a>
+        <a
+          v-if="features"
+          href="#s-characteristics"
+          @click.prevent="scrollTo('#s-characteristics')"
+        >
+          Характеристики
+        </a>
+        <a
+          v-if="compareSection"
+          href="#s-compare"
+          @click.prevent="scrollTo('#s-compare')"
+        >
+          Сравните модели
         </a>
       </nav>
 
@@ -18,24 +31,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'ProductContentNav',
-  data: () => ({
-    links: [
-      {
-        href: '#s-description',
-        title: 'Описание'
-      },
-      {
-        href: '#s-characteristics',
-        title: 'Характеристики'
-      },
-      {
-        href: '#s-compare',
-        title: 'Сравните модели'
-      }
-    ]
-  }),
+  computed: {
+    ...mapState({
+      description: state => state.product.description,
+      features: state => state.product.features,
+      compareSection: state => state.product.compareSection
+    })
+  },
   methods: {
     scrollTo (id) {
       const DOMElement = document.querySelector(id)
