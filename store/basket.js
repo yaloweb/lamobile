@@ -4,14 +4,6 @@ export const state = () => ({
     descr: '',
     list: []
   },
-  total: {
-    products: {
-      quantity: 0,
-      price: 0
-    },
-    delivery: 0,
-    discount: 0
-  },
   recommended: []
 })
 
@@ -20,9 +12,6 @@ export const mutations = {
     state.products = data.products
     state.gifts.descr = data.gifts.descr
     state.gifts.list = data.gifts.list
-    state.total.products = data.total.products
-    state.total.delivery = data.total.delivery
-    state.total.discount = data.total.discount
     state.recommended = data.recommended
   }
 }
@@ -31,7 +20,7 @@ export const actions = {
   async getBasketData ({ commit }) {
     const fUserId = this.$cookies.get('fUserId')
     if (fUserId) {
-      const res = await this.$axios.$get('/legal/basket', {
+      const res = await this.$axios.$get('/natural/basket', {
         params: {
           fUserId
         }
@@ -51,7 +40,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
-        url: '/legal/basket/add',
+        url: '/natural/basket/add',
         data
       }).then(response => {
         if (response.data.result === 'success') {
@@ -81,7 +70,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
-        url: '/legal/basket/update',
+        url: '/natural/basket/update',
         data
       }).then(response => {
         if (response.data.result === 'success') {
@@ -103,7 +92,7 @@ export const actions = {
     if (fUserId) {
       await this.$axios({
         method: 'post',
-        url: '/legal/basket/delete',
+        url: '/natural/basket/delete',
         data: {
           productId,
           fUserId

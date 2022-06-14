@@ -29,9 +29,12 @@
 
 .delivery-type
   display: flex
+  flex-wrap: wrap
+  margin-bottom: -40px
 
   .form-group
-    margin: 0 88px 0 0
+    margin: 0 88px 40px 0
+    max-width: 280px
 
     &:last-child
       margin: 0
@@ -60,3 +63,66 @@
     width: 57px
     flex-shrink: 0
     margin-right: 20px
+
+.cdek-map
+  height: 660px
+  width: 100%
+  background-color: #EEEFF3
+  position: relative
+  z-index: 1
+
+.cdek-map-wrapper
+  position: relative
+
+.ordering-form-select-popup
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 5
+  background-color: rgba(#EEEFF3, .75)
+  backdrop-filter: blur(10px)
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: visibility .4s ease, opacity .4s ease
+
+  &:not(.opened)
+    visibility: hidden
+    opacity: 0
+
+    .ordering-form-select-popup-block
+      opacity: 0
+      transform: scale(1.1)
+
+.ordering-form-select-popup-block
+  position: relative
+  background-color: #fff
+  width: 450px
+  height: 450px
+  padding: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  transition: transform .4s ease, opacity .4s ease
+  max-width: calc(100% - 20px)
+  max-height: calc(100% - 20px)
+
+  .popup-close
+    top: 20px
+    right: 20px
+    width: 36px
+    height: 36px
+    font-size: 16px
+
+.ordering-form-select-popup-content
+  .h5
+    margin: 0 0 15px
+
+  p
+    font-size: 14px
+    margin: 0
+
+

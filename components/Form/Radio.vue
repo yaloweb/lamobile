@@ -10,7 +10,7 @@
           :checked="isChecked"
           :value="value"
           @change="$emit('change', $event.target.value)">
-        <span><slot/></span>
+        <span><slot /></span>
       </label>
     </div>
   </div>

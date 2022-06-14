@@ -5,7 +5,7 @@
       <div class="order-success-block">
 
         <div class="back-circle-link">
-          <nuxt-link to="/account/orders">
+          <nuxt-link to="/">
             <span class="icon-angle-left-light-2"></span>
           </nuxt-link>
         </div>
@@ -14,11 +14,11 @@
 
           <h1>Спасибо, <br>ваш заказ оформлен!</h1>
 
-          <p>Номер отслеживания заказа: 838470</p>
+          <p>Номер отслеживания заказа: {{ successData.id }}</p>
 
           <a href="#" class="btn">Перейти к оплате</a>
 
-          <div class="order-success-email">Также ссылка для оплаты отправлена на вашу почту {{ user.email }}</div>
+          <div class="order-success-email">Также ссылка для оплаты отправлена на вашу почту {{ successData.email }}</div>
 
           <div class="order-success-footer">
             <span>Обращаем ваше внимание, что заказы оформленные в регионы России мы отправляем после полной оплаты.</span>
@@ -41,7 +41,7 @@ export default {
   name: 'OrderSuccess',
   computed: {
     ...mapState({
-      user: state => state.user
+      successData: state => state.order.successData
     })
   }
 }

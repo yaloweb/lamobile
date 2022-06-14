@@ -4,6 +4,8 @@
     class="product-main-img"
     :class="{'only-one': productImages.length === 1 ? productImages[0].list.length === 1 : false}">
 
+    {{ selectedColor }}
+
     <div
       v-if="severalImages"
       class="img-full-slider"
@@ -13,9 +15,10 @@
         v-for="(productImagesGroup, idx) in productImages"
         :key="idx"
         class="img-full-slider-list"
-        :class="{'visible': productImagesGroup.color === selectedColor}">
+        :class="{'visible': productImagesGroup.productId === selectedColor}">
 
         <swiper
+          v-if="productImagesGroup.list.length"
           :ref="`imgFullSliderList${idx}`"
           :options="getFullSliderOptions(idx)">
           <swiper-slide
@@ -32,15 +35,20 @@
           </swiper-slide>
         </swiper>
 
+        <ProductNoPicture v-else />
+
         <div
+          v-show="productImagesGroup.list.length"
           class="img-full-slider-prev"
           :data-slider="idx"/>
 
         <div
+          v-show="productImagesGroup.list.length"
           class="img-full-slider-next"
           :data-slider="idx"/>
 
         <div
+          v-show="productImagesGroup.list.length"
           class="img-full-slider-list-pagination"
           :data-slider="idx"/>
 
@@ -61,7 +69,7 @@
           v-for="(productImagesGroup, idx) in productImages"
           :key="idx"
           class="product-main-img-swiper-block"
-          :class="{'visible': productImagesGroup.color === selectedColor}">
+          :class="{'visible': productImagesGroup.productId === selectedColor}">
 
           <swiper
             v-if="productImagesGroup.list.length > 1"
@@ -84,6 +92,8 @@
             </swiper-slide>
 
           </swiper>
+
+          <ProductNoPicture v-else-if="productImagesGroup.list.length === 0" />
 
           <div
             v-else
@@ -127,14 +137,7 @@
       <span class="icon-search"/>
     </div>
 
-    <div
-      v-if="notImage"
-      class="product-main-img-no-picture">
-      <span>
-        <img src="/img/icons/photo-camera.png" alt="">
-        Нет изображения
-      </span>
-    </div>
+    <ProductNoPicture v-if="notImage" />
 
   </div>
 

@@ -14,18 +14,18 @@
           <div class="banners-slider-img-item">
             <video
               v-if="mob"
-              :src="slide.mobVideoSrc || slide.videoSrc"
+              :src="(slide.mobVideoSrc || slide.videoSrc) + '#t=0.1'"
               muted
               autoplay
               loop
-              preload="none"/>
+              preload="metadata"/>
             <video
               v-else
-              :src="slide.videoSrc"
+              :src="slide.videoSrc + '#t=0.1'"
               muted
               autoplay
               loop
-              preload="none"/>
+              preload="metadata"/>
           </div>
           <div
             class="banners-slider-img-item"

@@ -2,7 +2,7 @@
 
   <div
     class="ordering"
-    v-loading="loading">
+    v-loading="loading || updating">
 
     <div class="ordering-title">
       <div class="h3">Оформление заказа</div>
@@ -16,21 +16,21 @@
         label="Имя *"
         name="name"
         placeholder="Ваше имя"
-        :invalid="$v.name.$error ? !$v.name.required : false"
+        :invalid="$v.$error ? !$v.name.required : false"
         v-model="name"/>
 
       <FormInput
         label="Фамилия *"
         name="lastName"
         placeholder="Ваша фамилия"
-        :invalid="$v.lastName.$error ? !$v.lastName.required : false"
+        :invalid="$v.$error ? !$v.lastName.required : false"
         v-model="lastName"/>
 
       <FormInput
         label="Почта *"
         name="email"
         placeholder="name@mail.ru"
-        :invalid="$v.email.$error ? (!$v.email.required || $v.email.required) : false"
+        :invalid="$v.$error ? !($v.email.required && $v.email.email) : false"
         v-model="email"/>
 
       <FormInput
@@ -38,7 +38,7 @@
         name="phone"
         placeholder="+ 7(___) ___-__-__"
         v-model="phone"
-        :invalid="$v.phone.$error ? (!$v.phone.required || $v.phone.minLength) : false"
+        :invalid="$v.$error ? !($v.phone.required && $v.phone.minLength) : false"
         mask="+ 7(###) ###-##-##"/>
 
       <FormCheckbox
@@ -56,31 +56,30 @@
       <div class="delivery-type">
 
         <FormRadio
-          value="free"
-          v-model="deliveryType">
-          СДЭК
-          <small>бесплатно, 23 июля</small>
-        </FormRadio>
-
-        <FormRadio
-          value="courier"
-          v-model="deliveryType">
-          Курьером (по Москве)
-          <small>бесплатно, послезавтра</small>
-        </FormRadio>
-
-        <FormRadio
-          value="express"
-          v-model="deliveryType">
-          Экспресс доставка
-          <small>от 500 ₽</small>
+          v-for="deliveryServiceItem in deliveryServices"
+          :key="deliveryServiceItem.id"
+          v-model="deliveryId"
+          :value="deliveryServiceItem.id"
+          name="deliveryServices"
+        >
+          {{ deliveryServiceItem.name.toUpperCase() }}
+          <small v-html="deliveryServiceItem.description" />
         </FormRadio>
 
       </div>
 
     </div>
 
-    <div class="delivery-address ordering-form">
+    <MapCdek
+      v-show="cdekVisible"
+      :load="cdekVisible"
+      @select="selectCdekPoint"
+    />
+
+    <div
+      v-if="!cdekVisible"
+      class="delivery-address ordering-form"
+    >
 
       <div class="h4">Адрес доставки</div>
 
@@ -104,6 +103,7 @@
               type="text"
               class="form-control"
               placeholder="Улица"
+              :class="{'invalid': $v.$error ? !$v.street.required : false}"
               v-model="street">
           </div>
           <div class="form-row-item">
@@ -111,20 +111,22 @@
               type="text"
               class="form-control"
               placeholder="Дом"
-              v-model="home">
+              :class="{'invalid': $v.$error ? !$v.house.required : false}"
+              v-model="house">
           </div>
           <div class="form-row-item">
             <input
               type="text"
               class="form-control"
               placeholder="Корп./стр."
-              v-model="housing">
+              v-model="building">
           </div>
           <div class="form-row-item">
             <input
               type="text"
               class="form-control"
               placeholder="Квартира"
+              :class="{'invalid': $v.$error ? !$v.apartment.required : false}"
               v-model="apartment">
           </div>
         </div>
@@ -137,7 +139,8 @@
             label="value"
             :options="dates"
             :searchable="false"
-            v-model="date"/>
+            :reduce="item => item.id"
+            v-model="deliveryDate"/>
         </div>
       </div>
 
@@ -148,7 +151,8 @@
             label="value"
             :options="times"
             :searchable="false"
-            v-model="time"/>
+            :reduce="item => item.id"
+            v-model="deliveryTime"/>
         </div>
       </div>
 
@@ -156,7 +160,7 @@
         label="Комментарий"
         name="message"
         placeholder="Ваш комментарий"
-        v-model="message"/>
+        v-model="comment"/>
 
     </div>
 
@@ -205,40 +209,58 @@
 <script>
 
 import { required, minLength, email } from 'vuelidate/lib/validators'
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'BasketOrdering',
   props: {
     loading: Boolean
   },
-  validations: {
-    name: { required },
-    lastName: { required },
-    email: { required, email },
-    phone: { required, minLength: minLength(18) }
+  validations () {
+    if (this.cdekVisible) {
+      return {
+        name: { required },
+        lastName: { required },
+        email: {
+          required,
+          email
+        },
+        phone: {
+          required,
+          minLength: minLength(18)
+        }
+      }
+    } else {
+      return {
+        name: { required },
+        lastName: { required },
+        email: {
+          required,
+          email
+        },
+        phone: {
+          required,
+          minLength: minLength(18)
+        },
+        street: { required },
+        house: { required },
+        apartment: { required }
+      }
+    }
   },
-  data: () => ({
-    name: 'Олег',
-    lastName: 'Олегов',
-    email: 'oleg@mail.ru',
-    phone: '(999) 999-99-99',
-    callMeBack: false,
-    deliveryType: 'free',
-    locationCode: '',
-    street: '',
-    housing: '',
-    home: '',
-    apartment: '',
-    date: '',
-    time: '',
-    message: '',
-    paymentOnAccount: false,
-    paymentOnline: false,
-    privacyPolicy: false,
-    submitLoading: false
-  }),
+  watch: {
+    deliveryId (value) {
+      this.sendOrder({
+        send: 'n',
+        deliveryId: value
+      })
+    }
+  },
   computed: {
+    ...mapState({
+      deliveryServices: state => state.order.deliveryServices,
+      paymentServices: state => state.order.paymentServices
+    }),
     ...mapGetters({
       cities: 'delivery/getCities',
       times: 'delivery/getTimes',
@@ -250,9 +272,43 @@ export default {
         can = false
       }
       return !can
+    },
+    cdekVisible () {
+      return this.deliveryServices.filter(delivery => delivery.id === this.deliveryId)[0]?.isSdek
     }
   },
+  data: () => ({
+    name: 'Равиль',
+    lastName: 'Нагаев',
+    email: 'mail@mail.ru',
+    phone: '+ 7(919) 634-01-19',
+    callMeBack: false,
+    deliveryId: null,
+    locationCode: null,
+    cdekLocationCode: null,
+    storeCode: null,
+    street: null,
+    house: null,
+    building: null,
+    apartment: null,
+    deliveryDate: null,
+    deliveryTime: null,
+    comment: null,
+    privacyPolicy: false,
+    submitLoading: false,
+    updating: false
+  }),
   methods: {
+    async sendOrder (params) {
+      // this.updating = true
+      await this.$store.dispatch('order/sendOrder', params ? { ...params } : {})
+      // this.updating = false
+    },
+    setDefaultDeliveryService () {
+      if (this.deliveryServices && this.deliveryServices.length) {
+        this.deliveryId = this.deliveryServices[0].id
+      }
+    },
     async submitOrder () {
       if (this.$v.$invalid) {
         this.$v.$touch()
@@ -264,20 +320,51 @@ export default {
         lastName: this.lastName,
         email: this.email,
         phone: this.phone,
-        locationCode: Number(this.locationCode)
+        deliveryId: this.deliveryId,
+        paySystemId: this.paymentServices[0].id
       }
-      console.log(sendData)
+
+      if (this.cdekVisible) {
+        if (!this.cdekLocationCode) {
+          this.$store.commit('error/setErrorText', 'Вы не выбрали пункт самовывоза.')
+          this.$store.commit('error/openErrorModal')
+          return false
+        }
+        sendData.locationCode = Number(this.cdekLocationCode)
+        sendData.storeCode = this.storeCode
+      } else {
+        sendData.locationCode = Number(this.locationCode)
+        sendData.street = this.street
+        sendData.house = this.house
+        sendData.building = this.building
+        sendData.apartment = this.apartment
+        sendData.deliveryDate = this.deliveryDate
+        sendData.deliveryTime = this.deliveryTime
+        sendData.comment = this.comment
+      }
+
       this.submitLoading = true
-      await this.$store.dispatch('order/submitOrder', sendData)
+      await this.$store.dispatch('order/submitOrder', sendData).then(data => {
+        this.$store.commit('order/setOrderSuccessData', {
+          id: data.id,
+          email: sendData.email
+        })
+      })
       this.submitLoading = false
-      // this.$router.push('/account/basket/success')
+      this.$router.push('/account/basket/success')
+    },
+    selectCdekPoint (location) {
+      this.cdekLocationCode = location.city
+      this.storeCode = location.id
     }
   },
   async mounted () {
+    await this.sendOrder()
+    this.setDefaultDeliveryService()
     await this.$store.dispatch('delivery/getDeliveryData')
     this.locationCode = this.cities[0]?.id
-    this.date = this.dates[0]
-    this.time = this.times[0]
+    this.deliveryDate = this.dates[0]
+    this.deliveryTime = this.times[0]
   }
 }
 </script>

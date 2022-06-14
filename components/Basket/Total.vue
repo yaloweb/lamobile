@@ -108,6 +108,9 @@ export default {
     },
     getFullTotal (val) {
       gsap.to(this.$data, { duration: 0.5, tweenedFullTotal: val })
+    },
+    delivery (val) {
+      gsap.to(this.$data, { duration: 0.5, tweenedDelivery: val })
     }
   },
   data: () => ({
@@ -115,6 +118,7 @@ export default {
     basketTotalMob: false,
     tweenedTotal: 0,
     tweenedFullTotal: 0,
+    tweenedDelivery: 0,
     totalNavMenu: [
       { title: 'Условия продажи', url: '/for-users' },
       { title: 'Обмен и возврат товара', url: '/for-users' },

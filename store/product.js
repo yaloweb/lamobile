@@ -27,7 +27,7 @@ const getDefaultState = () => ({
   sections: []
 })
 
-export const state = getDefaultState()
+export const state = getDefaultState
 
 export const mutations = {
   resetState (state) {

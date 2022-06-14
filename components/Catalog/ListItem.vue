@@ -239,6 +239,7 @@ export default {
         }
       } finally {
         this.loading = false
+        this.$emit('update')
       }
     },
     async deleteItem () {
@@ -250,6 +251,7 @@ export default {
         )
       })
       await Promise.all(promises)
+      this.$emit('delete')
       this.loading = false
     }
   },

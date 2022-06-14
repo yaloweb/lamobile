@@ -27,8 +27,9 @@
                 ref="product"
                 :item="product"
                 :index="product.id"
-                @delete="deleteFromBasket(product.id)"
-                @change-selected-items="changeSelectedProducts(product, $event)"/>
+                @delete="sendOrder"
+                @update="sendOrder"
+              />
 
               <div
                 v-if="gifts.length ? gifts.list.length > 0 : false"
@@ -54,23 +55,22 @@
 
             </div>
 
-            <div id="forpvz"></div>
-
             <BasketRecommended
               v-if="recommended"
               :list="recommended"
             />
 
             <BasketOrdering
-              :loading="updateBasket"/>
+              :loading="updateBasket || orderLoad"
+            />
 
           </div>
 
           <BasketTotal
             :loading="updateBasket"
             :productLength="total.products.quantity"
-            :delivery="total.products.delivery"
-            :discount="total.products.discount"
+            :delivery="total.delivery"
+            :discount="total.discount"
             :total="total.products.price"
           />
 
@@ -134,7 +134,7 @@ export default {
   computed: {
     ...mapState({
       products: state => state.basket.products,
-      total: state => state.basket.total,
+      total: state => state.order.total,
       recommended: state => state.basket.recommended,
       gifts: state => state.basket.gifts
     })
@@ -151,26 +151,14 @@ export default {
       {
         title: 'Корзина'
       }
-    ]
+    ],
+    orderLoad: false
   }),
   methods: {
-    async deleteFromBasket (id) {
-      this.updateBasket = true
-      await this.$store.dispatch('basket/deleteProduct')
-      this.updateBasket = false
-    },
-    changeSelectedProducts (product, data) {
-      this.selectedProducts.forEach(item => {
-        if (item.id === product.id) {
-          if (product.colors) {
-            data.selectedItems?.forEach((selItem, selIndex) => {
-              item.colors[selIndex].inBasket = selItem
-            })
-          } else {
-            item.inBasket = data.selectedItemsOnlyOne
-          }
-        }
-      })
+    async sendOrder () {
+      this.orderLoad = true
+      await this.$store.dispatch('order/sendOrder')
+      this.orderLoad = false
     },
     setSelectedProducts () {
       this.products.forEach(product => {
@@ -202,17 +190,6 @@ export default {
   },
   mounted () {
     this.setSelectedProducts()
-
-    // if (window.ISDEKWidjet) {
-    //   const cdek = window.ISDEKWidjet({
-    //     defaultCity: 'Новосибирск',
-    //     cityFrom: 'Омск',
-    //     country: 'Россия',
-    //     link: 'forpvz'
-    //   })
-    //
-    //   console.log(cdek)
-    // }
   }
 }
 </script>

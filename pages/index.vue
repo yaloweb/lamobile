@@ -11,9 +11,16 @@
     <section class="s-categories">
       <div class="container">
 
-        <BlogList
+        <SliderSimilar
+          v-if="isMob"
           :list="blog"
-          :filterVisible="false"/>
+        />
+
+        <BlogList
+          v-else
+          :list="blog"
+          :filterVisible="false"
+        />
 
       </div>
     </section>
@@ -61,17 +68,11 @@ import { mapState } from 'vuex'
 
 export default {
   async fetch () {
-    let promises = []
-    if (this.$store.state.blog.blogMain.length === 0) {
-      promises.push(this.$store.dispatch('blog/getBlogMain'))
-    }
-    if (this.$store.state.catalog.sliderProducts.length === 0) {
-      promises.push(this.$store.dispatch('catalog/getSliderProducts'))
-    }
-    if (this.$store.state.banners.banners.length === 0) {
-      promises.push(this.$store.dispatch('banners/getBanners'))
-    }
-    return await Promise.all(promises)
+    return await Promise.all([
+      this.$store.dispatch('blog/getBlogMain'),
+      this.$store.dispatch('catalog/getSliderProducts'),
+      this.$store.dispatch('banners/getBanners')
+    ])
   },
   layout: 'index',
   computed: {
@@ -82,7 +83,20 @@ export default {
     })
   },
   data: () => ({
-    selectedProductsSlider: 0
-  })
+    selectedProductsSlider: 0,
+    isMob: false
+  }),
+  methods: {
+    checkMob () {
+      this.isMob = window.innerWidth < 576
+    }
+  },
+  mounted () {
+    this.checkMob()
+    window.addEventListener('resize', this.checkMob)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.checkMob)
+  }
 }
 </script>
