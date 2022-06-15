@@ -13,9 +13,10 @@
 
         <div class="error-modal-title">Ошибка!</div>
 
-        <div class="error-modal-text">
-          {{ errorText }}
-        </div>
+        <div
+          class="error-modal-text"
+          v-html="errorText"
+        />
 
       </div>
 

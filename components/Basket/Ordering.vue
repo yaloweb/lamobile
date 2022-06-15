@@ -73,6 +73,7 @@
     <MapCdek
       v-show="cdekVisible"
       :load="cdekVisible"
+      :cities="cities"
       @select="selectCdekPoint"
     />
 
@@ -87,11 +88,12 @@
         <label class="form-label">Город</label>
         <div class="form-input">
           <v-select
+            v-model="locationCode"
             label="value"
             :options="cities"
             :searchable="false"
-            :reduce="city => city.id"
-            v-model="locationCode"/>
+            :reduce="city => city.code"
+          />
         </div>
       </div>
 
@@ -330,10 +332,10 @@ export default {
           this.$store.commit('error/openErrorModal')
           return false
         }
-        sendData.locationCode = Number(this.cdekLocationCode)
+        sendData.locationCode = this.cdekLocationCode
         sendData.storeCode = this.storeCode
       } else {
-        sendData.locationCode = Number(this.locationCode)
+        sendData.locationCode = this.locationCode
         sendData.street = this.street
         sendData.house = this.house
         sendData.building = this.building
@@ -344,17 +346,28 @@ export default {
       }
 
       this.submitLoading = true
-      await this.$store.dispatch('order/submitOrder', sendData).then(data => {
-        this.$store.commit('order/setOrderSuccessData', {
-          id: data.id,
-          email: sendData.email
+
+      try {
+        await this.$store.dispatch('order/submitOrder', sendData).then(data => {
+          console.log(data.result)
+          if (data.result === 'success') {
+            this.$store.commit('order/setOrderSuccessData', {
+              id: data.id,
+              email: sendData.email
+            })
+            this.submitLoading = false
+            this.$router.push('/account/basket/success')
+          }
         })
-      })
+      } catch (e) {
+        this.$store.commit('error/setErrorDefault')
+        this.$store.commit('error/openErrorModal')
+      }
+
       this.submitLoading = false
-      this.$router.push('/account/basket/success')
     },
     selectCdekPoint (location) {
-      this.cdekLocationCode = location.city
+      this.cdekLocationCode = location.code
       this.storeCode = location.id
     }
   },
@@ -362,7 +375,7 @@ export default {
     await this.sendOrder()
     this.setDefaultDeliveryService()
     await this.$store.dispatch('delivery/getDeliveryData')
-    this.locationCode = this.cities[0]?.id
+    this.locationCode = this.cities[0]?.code
     this.deliveryDate = this.dates[0]
     this.deliveryTime = this.times[0]
   }

@@ -58,13 +58,15 @@ export const actions = {
     }
   },
   submitOrder ({ dispatch }, params) {
+    const fUserId = this.$cookies.get('fUserId')
     return new Promise((resolve) => {
       this.$axios.$post('/natural/order/send', null, {
-        params
-      }).then(response => {
-        if (response.result === 'success') {
-          resolve(response)
+        params: {
+          fUserId,
+          ...params
         }
+      }).then(response => {
+        resolve(response)
       })
     })
   }

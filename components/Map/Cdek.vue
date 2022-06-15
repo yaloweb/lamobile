@@ -23,7 +23,7 @@
             class="ordering-form-select-popup-content"
           >
             <div class="h5">Выбран пункт выдачи заказа:</div>
-            <p>№ {{ selectedPoint.id }} в городе {{ selectedPoint.cityName }} (код: {{ selectedPoint.city }})</p>
+            <p>№ {{ selectedPoint.id }} в городе {{ selectedPoint.cityName }}</p>
           </div>
 
         </div>
@@ -37,7 +37,8 @@
 export default {
   name: 'MapCdek',
   props: {
-    load: Boolean
+    load: Boolean,
+    cities: Array
   },
   watch: {
     load (val) {
@@ -72,9 +73,19 @@ export default {
       }
     },
     onChoose (event) {
-      this.selectedPoint = event
-      this.selectedPopup = true
-      this.$emit('select', event)
+      const currentCity = this.cities.filter(item => item.name === event.cityName)[0]
+      if (currentCity) {
+        this.selectedPoint = event
+        this.selectedPopup = true
+        this.$emit('select', {
+          id: event.id,
+          code: currentCity.code
+        })
+      } else {
+        const errorText = `Пожалуйста выберите город из списка доступных: <br>${this.cities.map(city => city.name).join(', ')}.`
+        this.$store.commit('error/setErrorText', errorText)
+        this.$store.commit('error/openErrorModal')
+      }
     }
   }
 }

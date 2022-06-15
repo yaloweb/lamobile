@@ -6,7 +6,11 @@ export default function ({ $axios, store }) {
   $axios.onResponse(response => {
     if (response.data.result === 'error') {
       if (response.data.code === -1) {
-        store.commit('error/setErrorDefault')
+        if (response.data.message && response.data.message.length) {
+          store.commit('error/setErrorText', response.data.message)
+        } else {
+          store.commit('error/setErrorDefault')
+        }
       } else {
         store.commit('error/setErrorText', response.data.message)
       }
