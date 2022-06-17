@@ -10,8 +10,7 @@ export const state = () => ({
       quantity: 0
     },
     weight: 0
-  },
-  successData: {}
+  }
 })
 
 export const mutations = {
@@ -19,9 +18,6 @@ export const mutations = {
     for (let key in data) {
       state[key] = data[key]
     }
-  },
-  setOrderSuccessData (state, data) {
-    state.successData = data
   }
 }
 
@@ -39,7 +35,7 @@ export const actions = {
   } = {}) {
     const fUserId = this.$cookies.get('fUserId')
     if (fUserId) {
-      await this.$axios.$post('/api/natural/order/send', null, {
+      await this.$axios.$post('/natural/order/send', null, {
         params: {
           fUserId,
           send,
@@ -59,7 +55,7 @@ export const actions = {
   },
   submitOrder ({ dispatch }, params) {
     const fUserId = this.$cookies.get('fUserId')
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       this.$axios.$post('/natural/order/send', null, {
         params: {
           fUserId,
@@ -67,7 +63,15 @@ export const actions = {
         }
       }).then(response => {
         resolve(response)
-      })
+        // eslint-disable-next-line no-undef
+      }).catch(reject)
+    })
+  },
+  paymentCheckout (ctx, { id, hash }) {
+    return this.$axios.$get(`/natural/order/${id}`, {
+      params: {
+        hash
+      }
     })
   }
 }

@@ -16,7 +16,7 @@
           </li>
           <li>
             <span>Доставка</span>
-            <span>{{ delivery | priceFilter }} ₽</span>
+            <span>{{ tweenedDelivery.toFixed(0) | priceFilter }} ₽</span>
           </li>
           <li class="discount">
             <span>Скидка</span>

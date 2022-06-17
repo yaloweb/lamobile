@@ -43,7 +43,7 @@
 
       <FormCheckbox
         label=""
-        v-model="callMeBack">
+        v-model="callback">
         Перезвоните мне
       </FormCheckbox>
 
@@ -280,11 +280,11 @@ export default {
     }
   },
   data: () => ({
-    name: 'Равиль',
-    lastName: 'Нагаев',
-    email: 'mail@mail.ru',
-    phone: '+ 7(919) 634-01-19',
-    callMeBack: false,
+    name: null,
+    lastName: null,
+    email: null,
+    phone: null,
+    callback: false,
     deliveryId: null,
     locationCode: null,
     cdekLocationCode: null,
@@ -322,6 +322,7 @@ export default {
         lastName: this.lastName,
         email: this.email,
         phone: this.phone,
+        callback: this.callback,
         deliveryId: this.deliveryId,
         paySystemId: this.paymentServices[0].id
       }
@@ -349,14 +350,16 @@ export default {
 
       try {
         await this.$store.dispatch('order/submitOrder', sendData).then(data => {
-          console.log(data.result)
-          if (data.result === 'success') {
-            this.$store.commit('order/setOrderSuccessData', {
-              id: data.id,
-              email: sendData.email
-            })
+          if (data.result !== 'error') {
             this.submitLoading = false
-            this.$router.push('/account/basket/success')
+            this.$router.push({
+              path: '/account/basket/success',
+              query: {
+                id: data.orderId,
+                email: sendData.email,
+                hash: data.orderHash
+              }
+            })
           }
         })
       } catch (e) {

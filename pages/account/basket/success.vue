@@ -14,35 +14,79 @@
 
           <h1>Спасибо, <br>ваш заказ оформлен!</h1>
 
-          <p>Номер отслеживания заказа: {{ successData.id }}</p>
+          <p>Номер отслеживания заказа: {{ id }}</p>
 
-          <a href="#" class="btn">Перейти к оплате</a>
+          <button
+            class="btn"
+            :class="{'loading': paymentLoading}"
+            :disabled="paymentLoading"
+            @click.prevent="checkout"
+          >Перейти к оплате
+          </button>
 
-          <div class="order-success-email">Также ссылка для оплаты отправлена на вашу почту {{ successData.email }}</div>
+          <div class="order-success-email">Также ссылка для оплаты отправлена на вашу почту {{ email }}</div>
 
           <div class="order-success-footer">
             <span>Обращаем ваше внимание, что заказы оформленные в регионы России мы отправляем после полной оплаты.</span>
-            В ближайшее время (в рабочие часы магазина) мы свяжемся с вами по указанному контактному телефону для подтверждения вашего заказа.
+            В ближайшее время (в рабочие часы магазина) мы свяжемся с вами по указанному контактному телефону для
+            подтверждения вашего заказа.
           </div>
 
         </div>
 
       </div>
 
+      <Popup
+        :show="paymentPopup"
+        @close="paymentPopup = false"
+        class="payment-popup"
+      >
+        <div
+          class="payment-output"
+          v-html="bufferedOutput"
+        />
+      </Popup>
+
     </div>
   </div>
 </template>
 
 <script>
-
-import { mapState } from 'vuex'
-
 export default {
   name: 'OrderSuccess',
   computed: {
-    ...mapState({
-      successData: state => state.order.successData
-    })
+    id () {
+      return this.$route.query.id
+    },
+    email () {
+      return this.$route.query.email
+    },
+    hash () {
+      return this.$route.query.hash
+    }
+  },
+  data: () => ({
+    paymentLoading: false,
+    bufferedOutput: null,
+    paymentPopup: false
+  }),
+  methods: {
+    async checkout () {
+      this.paymentLoading = true
+      await this.$store.dispatch('order/paymentCheckout', {
+        id: this.id,
+        hash: this.hash
+      }).then(resp => {
+        if (resp.result === 'success') {
+          this.bufferedOutput = resp.item.paymentAction.bufferedOutput
+          this.paymentPopup = true
+        }
+      }).catch(() => {
+        this.$store.commit('error/setErrorDefault')
+        this.$store.commit('error/openErrorModal')
+      })
+      this.paymentLoading = false
+    }
   }
 }
 </script>

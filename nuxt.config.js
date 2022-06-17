@@ -98,7 +98,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://lamobile-api.bikstart.ru/api/',
+    baseURL: process.env.API_URL,
     proxyHeaders: false,
     credentials: false,
     init (axios) {
