@@ -24,7 +24,8 @@ const getDefaultState = () => ({
     parameters: [],
     items: []
   },
-  sections: []
+  sections: [],
+  similarArticles: []
 })
 
 export const state = getDefaultState

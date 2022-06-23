@@ -20,24 +20,12 @@
           </li>
           <li class="discount">
             <span>Скидка</span>
-            <span>-{{ discount | priceFilter }} ₽</span>
+            <span>{{ getDiscount }} ₽</span>
           </li>
         </ul>
       </div>
 
-      <form
-        class="basket-total-promocode"
-        @submit.prevent>
-        <input
-          type="text"
-          v-model="promocode"
-          placeholder="Введите промокод">
-        <button
-          type="submit"
-          :disabled="promocode.trim().length <= 2">
-          <span class="icon-angle-right-light"></span>
-        </button>
-      </form>
+      <FormPromocode />
 
       <div class="basket-total-price">
         <span>Итого:</span>
@@ -100,6 +88,12 @@ export default {
     },
     getFullTotal () {
       return this.total + (this.delivery || 0) - (this.discount || 0)
+    },
+    getDiscount () {
+      if (!this.discount) {
+        return 0
+      }
+      return '-' + this.$options.filters.priceFilter(this.discount)
     }
   },
   watch: {

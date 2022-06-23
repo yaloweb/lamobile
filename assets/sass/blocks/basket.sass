@@ -75,9 +75,10 @@
           font-weight: bold
           white-space: nowrap
 
+.basket-total-promocode-block
+  margin-bottom: 26px
 
 .basket-total-promocode
-  margin-bottom: 26px
   position: relative
 
   input
@@ -85,13 +86,17 @@
     display: block
     height: 60px
     background-color: #fff
-    border: none
     -webkit-border-radius: 30px
     -moz-border-radius: 30px
     border-radius: 30px
     outline: none
     padding: 0 75px 0 25px
     font-size: 16px
+    border: 1px solid transparent
+    +tr
+
+    &.success
+      border-color: #00e100
 
     &::placeholder
       color: #c4c4c4
@@ -114,6 +119,7 @@
     color: #fff
     font-size: 24px
     background-color: $accent
+    overflow: hidden
 
     &[disabled]
       background-color: #C4C4C4
@@ -122,9 +128,44 @@
 
     span
       transform: translateX(2px)
+      position: relative
+
+      &:before
+        display: block
+        +tr
+
+      &:after
+        content: '\e91c'
+        position: absolute
+        top: 0
+        left: 0
+        opacity: 0
+        transform: scale(0)
+        +tr
 
     &:hover:not([disabled])
       background-color: #ff7b4a
+
+    &.clear
+      &:not([disabled])
+        background-color: $red
+
+      span
+        &:after
+          opacity: 1
+          transform: scale(1)
+
+        &:before
+          opacity: 0
+          transform: scale(0)
+
+      &:hover:not([disabled])
+        background-color: #bd2c3a
+
+.basket-total-promocode-success
+  color: $green
+  font-size: 12px
+  margin-top: 10px
 
 .basket-total-price
   margin-bottom: 45px

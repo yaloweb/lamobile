@@ -69,7 +69,7 @@
       </section>
 
       <section
-        v-if="compareSection"
+        v-if="compareSection && compare.items && compare.items.length"
         class="s-product-compare"
         id="s-compare"
       >
@@ -88,7 +88,10 @@
 
     </div>
 
-    <section class="s-recommended">
+    <section
+      v-if="recommendedProducts && recommendedProducts.length"
+      class="s-recommended"
+    >
       <div class="container">
 
         <div class="section-title">
@@ -102,7 +105,10 @@
       </div>
     </section>
 
-    <section class="s-similar">
+    <section
+      v-if="similarArticles && similarArticles.length"
+      class="s-similar"
+    >
       <div class="container">
 
         <div class="section-title">
@@ -134,8 +140,7 @@ export default {
       this.$nuxt.error({ statusCode: 404 })
     })
     const promises = await Promise.all([
-      this.$store.dispatch('recommended/getRecommended', this.productId),
-      this.$store.dispatch('recommended/getSimilarArticles')
+      this.$store.dispatch('recommended/getRecommended', this.productId)
     ])
     this.loading = false
     this.setDefaultColor()
@@ -175,7 +180,7 @@ export default {
       pageType: state => state.product.pageType,
       title: state => state.product.title,
       recommendedProducts: state => state.recommended.recommendedProducts,
-      similarArticles: state => state.recommended.similarArticles,
+      similarArticles: state => state.product.similarArticles,
       advantages: state => state.product.advantages,
       youtubeVideo: state => state.product.youtubeVideo,
       additionalAdvantages: state => state.product.additionalAdvantages,

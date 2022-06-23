@@ -185,9 +185,7 @@ export default {
     }
   },
   mounted () {
-    this.activeElements.push(this.items[0].id)
-    this.activeElements.push(this.items[1].id)
-    this.activeElements.push(this.items[2].id)
+    this.activeElements = this.items.map(item => item.id)
     this.eqHeight()
     window.addEventListener('resize', this.eqHeight)
     this.$on('hook:beforeDestroy', () => window.removeEventListener('resize', this.eqHeight))

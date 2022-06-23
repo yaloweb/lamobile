@@ -4,8 +4,6 @@
     class="product-main-img"
     :class="{'only-one': productImages.length === 1 ? productImages[0].list.length === 1 : false}">
 
-    {{ selectedColor }}
-
     <div
       v-if="severalImages"
       class="img-full-slider"
@@ -69,7 +67,8 @@
           v-for="(productImagesGroup, idx) in productImages"
           :key="idx"
           class="product-main-img-swiper-block"
-          :class="{'visible': productImagesGroup.productId === selectedColor}">
+          :class="{'visible': productImagesGroup.productId === selectedColor}"
+        >
 
           <swiper
             v-if="productImagesGroup.list.length > 1"

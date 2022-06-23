@@ -21,7 +21,6 @@ export const mutations = {
 export const actions = {
   async getPostData ({ commit }, id) {
     const res = await this.$axios.get(`/natural/blog/article/${id}`)
-    // const res = await this.$axios.get('/blog/post/umnye-avto-aksessursy')
     commit('setPostData', res.data)
   }
 }

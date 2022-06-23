@@ -18,7 +18,7 @@
           Характеристики
         </a>
         <a
-          v-if="compareSection"
+          v-if="compareSection && compare.items && compare.items.length"
           href="#s-compare"
           @click.prevent="scrollTo('#s-compare')"
         >
@@ -38,7 +38,8 @@ export default {
     ...mapState({
       description: state => state.product.description,
       features: state => state.product.features,
-      compareSection: state => state.product.compareSection
+      compareSection: state => state.product.compareSection,
+      compare: state => state.product.compare
     })
   },
   methods: {

@@ -60,9 +60,7 @@
               :list="recommended"
             />
 
-            <BasketOrdering
-              :loading="updateBasket || orderLoad"
-            />
+            <BasketOrdering :loading="updateBasket || orderLoad"/>
 
           </div>
 

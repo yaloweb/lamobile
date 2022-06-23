@@ -10,46 +10,30 @@ export const state = () => ({
       quantity: 0
     },
     weight: 0
-  }
+  },
+  promocode: null
 })
 
 export const mutations = {
   setOrderData (state, data) {
-    for (let key in data) {
+    for (let key in state) {
       state[key] = data[key]
     }
   }
 }
 
 export const actions = {
-  async sendOrder ({ commit }, {
-    send,
-    name,
-    lastName,
-    email,
-    phone,
-    locationCode,
-    cityQuery,
-    deliveryId,
-    paySystemId
-  } = {}) {
+  async sendOrder ({ commit }, params = {}) {
     const fUserId = this.$cookies.get('fUserId')
     if (fUserId) {
       await this.$axios.$post('/natural/order/send', null, {
         params: {
           fUserId,
-          send,
-          name,
-          lastName,
-          email,
-          phone,
-          locationCode,
-          cityQuery,
-          deliveryId,
-          paySystemId
+          ...params
         }
       }).then(resp => {
         commit('setOrderData', resp)
+        return resp
       })
     }
   },

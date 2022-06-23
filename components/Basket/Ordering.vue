@@ -252,16 +252,32 @@ export default {
   },
   watch: {
     deliveryId (value) {
-      this.sendOrder({
+      let params = {
         send: 'n',
         deliveryId: value
+      }
+      if (this.usedPromocode) {
+        params.promocode = this.usedPromocode
+      }
+      this.sendOrder(params)
+    },
+    async verificationPromocode (value) {
+      this.$store.commit('promocode/setPromocodeLoading', true)
+      this.$store.commit('promocode/setPromocodeApplied', false)
+      await this.sendOrder({
+        send: 'n',
+        promocode: value
       })
+      this.$store.commit('promocode/setPromocodeApplied', !!this.usedPromocode)
+      this.$store.commit('promocode/setPromocodeLoading', false)
     }
   },
   computed: {
     ...mapState({
       deliveryServices: state => state.order.deliveryServices,
-      paymentServices: state => state.order.paymentServices
+      paymentServices: state => state.order.paymentServices,
+      verificationPromocode: state => state.promocode.promocode,
+      usedPromocode: state => state.order.promocode
     }),
     ...mapGetters({
       cities: 'delivery/getCities',
@@ -289,6 +305,7 @@ export default {
     locationCode: null,
     cdekLocationCode: null,
     storeCode: null,
+    storeAddress: null,
     street: null,
     house: null,
     building: null,
@@ -335,6 +352,7 @@ export default {
         }
         sendData.locationCode = this.cdekLocationCode
         sendData.storeCode = this.storeCode
+        sendData.storeAddress = this.storeAddress
       } else {
         sendData.locationCode = this.locationCode
         sendData.street = this.street
@@ -344,6 +362,10 @@ export default {
         sendData.deliveryDate = this.deliveryDate
         sendData.deliveryTime = this.deliveryTime
         sendData.comment = this.comment
+      }
+
+      if (this.usedPromocode) {
+        sendData.promocode = this.usedPromocode
       }
 
       this.submitLoading = true
@@ -372,6 +394,7 @@ export default {
     selectCdekPoint (location) {
       this.cdekLocationCode = location.code
       this.storeCode = location.id
+      this.storeAddress = location.address
     }
   },
   async mounted () {

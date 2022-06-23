@@ -77,9 +77,11 @@ export default {
       if (currentCity) {
         this.selectedPoint = event
         this.selectedPopup = true
+        console.log(event)
         this.$emit('select', {
           id: event.id,
-          code: currentCity.code
+          code: currentCity.code,
+          address: event.PVZ.Address
         })
       } else {
         const errorText = `Пожалуйста выберите город из списка доступных: <br>${this.cities.map(city => city.name).join(', ')}.`

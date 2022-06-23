@@ -52,6 +52,7 @@ export const mutations = {
     state.categories = array
   },
   setSliderProducts (state, { newRes, popularRes, recommendedRes }) {
+    state.sliderProducts = []
     if (newRes && newRes.length) {
       state.sliderProducts.push({
         id: 1,
