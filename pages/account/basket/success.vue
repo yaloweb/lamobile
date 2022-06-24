@@ -17,14 +17,34 @@
           <p>Номер отслеживания заказа: {{ id }}</p>
 
           <button
+            v-if="!isPaid"
             class="btn"
             :class="{'loading': paymentLoading}"
             :disabled="paymentLoading"
-            @click.prevent="checkout"
+            @click.prevent="openPaymentModal"
           >Перейти к оплате
           </button>
 
-          <div class="order-success-email">Также ссылка для оплаты отправлена на вашу почту {{ email }}</div>
+          <div
+            v-else
+            class="order-success-payment"
+          >
+            <div class="order-success-payment-icon">
+              <span class="icon-checkmark" />
+            </div>
+            <span
+              class="order-success-payment-text"
+            >
+              Заказ успешно оплачен!
+            </span>
+          </div>
+
+          <div
+            v-if="!isPaid"
+            class="order-success-email"
+          >
+            Также ссылка для оплаты отправлена на вашу почту {{ email }}
+          </div>
 
           <div class="order-success-footer">
             <span>Обращаем ваше внимание, что заказы оформленные в регионы России мы отправляем после полной оплаты.</span>
@@ -68,10 +88,11 @@ export default {
   data: () => ({
     paymentLoading: false,
     bufferedOutput: null,
-    paymentPopup: false
+    paymentPopup: false,
+    isPaid: false
   }),
   methods: {
-    async checkout () {
+    async getOrderData () {
       this.paymentLoading = true
       await this.$store.dispatch('order/paymentCheckout', {
         id: this.id,
@@ -79,14 +100,20 @@ export default {
       }).then(resp => {
         if (resp.result === 'success') {
           this.bufferedOutput = resp.item.paymentAction.bufferedOutput
-          this.paymentPopup = true
+          this.isPaid = resp.item.paymentAction.isPaid
         }
       }).catch(() => {
         this.$store.commit('error/setErrorDefault')
         this.$store.commit('error/openErrorModal')
       })
       this.paymentLoading = false
+    },
+    openPaymentModal () {
+      this.paymentPopup = true
     }
+  },
+  async mounted () {
+    await this.getOrderData()
   }
 }
 </script>
