@@ -23,24 +23,42 @@
               <div class="catalog-list">
 
                 <div
-                  v-if="categoriesFilter.length"
-                  class="row">
+                  v-if="loading"
+                  class="row"
+                >
 
                   <div
-                    v-for="item in categoriesFilter"
-                    :key="item.id"
+                    v-for="item in 4"
+                    :key="item"
                     class="col-3">
-                    <CatalogItem
-                      :item="item"/>
+
+                    <CatalogPreloadCard/>
+
                   </div>
 
                 </div>
 
-                <div
-                  v-else
-                  class="catalog-list-empty">
-                  Товары отсуствуют
-                </div>
+                <template v-else>
+                  <div
+                    v-if="categoriesFilter.length"
+                    class="row">
+
+                    <div
+                      v-for="item in categoriesFilter"
+                      :key="item.id"
+                      class="col-3">
+                      <CatalogItem
+                        :item="item"/>
+                    </div>
+
+                  </div>
+
+                  <div
+                    v-else
+                    class="catalog-list-empty">
+                    Товары отсуствуют
+                  </div>
+                </template>
 
               </div>
             </div>
@@ -64,18 +82,6 @@ import breadcrumbs from '@/mixins/breadcrumbs'
 export default {
   name: 'CatalogPage',
   mixins: [breadcrumbs],
-  async fetch () {
-    const category = this.$route.params.category
-    const promises = await Promise.all([
-      this.$store.dispatch('catalog/getCatalog', {
-        categoryCode: category
-      })
-    ])
-    this.breadcrumbs.push({
-      title: this.currentCategory.title
-    })
-    return promises
-  },
   data: () => ({
     sortType: '',
     selectedSubcategory: null,
@@ -98,6 +104,20 @@ export default {
       const category = this.$route.params.category
       return this.categories.filter(item => item.code === category)[0]
     }
+  },
+  async fetch () {
+    const category = this.$route.params.category
+    this.loading = true
+    const promises = await Promise.all([
+      this.$store.dispatch('catalog/getCatalog', {
+        categoryCode: category
+      })
+    ])
+    this.breadcrumbs.push({
+      title: this.currentCategory.title
+    })
+    this.loading = false
+    return promises
   }
 }
 </script>
