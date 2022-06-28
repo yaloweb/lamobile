@@ -1,6 +1,7 @@
 export default {
   methods: {
     setBreadcrumbs () {
+      console.log(this.breadcrumbs)
       if (this.breadcrumbs) {
         this.$store.commit('breadcrumbs/setBreadcrumbs', JSON.parse(JSON.stringify(this.breadcrumbs)))
       }
@@ -11,7 +12,7 @@ export default {
       this.setBreadcrumbs()
     }
   },
-  mounted () {
+  created () {
     this.setBreadcrumbs()
   }
 }

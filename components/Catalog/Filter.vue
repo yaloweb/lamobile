@@ -3,10 +3,15 @@
 
     <nav
       v-if="filterSubcategories.length"
-      class="catalog-filter-nav">
+      class="catalog-filter-nav"
+      :class="position"
+    >
 
       <swiper
+        ref="slider"
         :options="swiperOptions"
+        @reach-beginning="reachBeginning"
+        @transition-start="beforeSlideChangeStart"
       >
         <swiper-slide
           v-for="category in filterSubcategories"
@@ -98,13 +103,25 @@ export default {
       }
       res.push(...tags)
       return res
+    },
+    sliderPosition () {
+      if (this.sliderEnd) {
+        return 'end'
+      }
+      if (this.sliderActiveIndex === 0) {
+        return 'start'
+      }
+      return 'middle'
     }
   },
   data: () => ({
     sortOpened: false,
     swiperOptions: {
       slidesPerView: 'auto'
-    }
+    },
+    position: 'start',
+    sliderActiveIndex: 0,
+    sliderEnd: false
   }),
   methods: {
     selectSort (data) {
@@ -140,12 +157,20 @@ export default {
         // const lastChild = this.$refs.category[this.$refs.category.length - 1]
         const observer = new IntersectionObserver(entries => {
           entries.forEach(entry => {
-            console.log(entry.intersectionRatio)
+            // console.log(entry.intersectionRatio)
           })
         })
         observer.observe(firstChild)
         // observer.observe(lastChild)
       }
+    },
+    reachBeginning () {
+      setTimeout(() => {
+        this.position = 'start'
+      }, 100)
+    },
+    beforeSlideChangeStart () {
+      this.position = 'middle'
     }
   },
   mounted () {

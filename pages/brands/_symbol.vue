@@ -51,10 +51,12 @@
 <script>
 
 import { mapState } from 'vuex'
+import breadcrumbs from '@/mixins/breadcrumbs'
 
 export default {
   name: 'CatalogPage',
   layout: 'brands',
+  mixins: [breadcrumbs],
   async fetch () {
     const symbol = this.$route.params.symbol
     return await Promise.all([
@@ -72,10 +74,22 @@ export default {
   }),
   computed: {
     ...mapState({
-      categories: state => state.catalog.categories
+      categories: state => state.catalog.categories,
+      info: state => state.catalog.brandsMainInfo
     }),
     categoriesFilter () {
       return this.$store.getters['catalog/categoriesFilter']
+    },
+    breadcrumbs () {
+      return [
+        {
+          title: 'Бренды',
+          link: '/brands'
+        },
+        {
+          title: this.info.title
+        }
+      ]
     }
   }
 }

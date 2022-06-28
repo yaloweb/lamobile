@@ -52,12 +52,11 @@
 <script>
 
 import { mapState } from 'vuex'
+import breadcrumbs from '@/mixins/breadcrumbs'
 
 export default {
-  async fetch () {
-    return await this.$store.dispatch('about/getAboutData')
-  },
   name: 'about',
+  mixins: [breadcrumbs],
   computed: {
     ...mapState({
       title: state => state.about.title,
@@ -66,6 +65,14 @@ export default {
       advantages: state => state.about.advantages,
       blockquote: state => state.about.blockquote
     })
+  },
+  data: () => ({
+    breadcrumbs: [
+      { title: 'О нас' }
+    ]
+  }),
+  async fetch () {
+    return await this.$store.dispatch('about/getAboutData')
   }
 }
 </script>

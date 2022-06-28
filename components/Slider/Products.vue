@@ -1,17 +1,28 @@
 <template>
   <div class="products-slider">
 
-    <swiper :options="swiperOptions">
+    <div
+      class="products-slider-swiper"
+      @mouseenter="setWheelMove"
+      @mouseleave="removeWheelMove"
+    >
 
-      <swiper-slide
-        v-for="slide in list"
-        :key="slide.id">
+      <swiper
+        ref="slider"
+        :options="swiperOptions"
+      >
 
-        <CatalogItem :item="slide"/>
+        <swiper-slide
+          v-for="slide in list"
+          :key="slide.id">
 
-      </swiper-slide>
+          <CatalogItem :item="slide"/>
 
-    </swiper>
+        </swiper-slide>
+
+      </swiper>
+
+    </div>
 
     <div
       class="products-slider-pagination"
@@ -76,6 +87,30 @@ export default {
             spaceBetween: 50
           }
         }
+      }
+    }
+  },
+  methods: {
+    wheelListener (e) {
+      e.preventDefault()
+      const slider = this.$refs.slider?.$swiper
+      if (slider) {
+        const index = slider.activeIndex
+        if (e.deltaY > 0) {
+          slider.slideTo(index + 1)
+        } else {
+          slider.slideTo(index - 1)
+        }
+      }
+    },
+    setWheelMove () {
+      if (window.innerWidth > 992) {
+        document.addEventListener('wheel', this.wheelListener, { passive: false })
+      }
+    },
+    removeWheelMove () {
+      if (window.innerWidth > 992) {
+        document.removeEventListener('wheel', this.wheelListener, { passive: false })
       }
     }
   }

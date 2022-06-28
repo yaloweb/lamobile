@@ -32,7 +32,8 @@
             <div
               v-if="info.advantage.length"
               class="brands-official"
-              v-html="info.advantage" />
+              v-html="info.advantage"
+            />
 
           </div>
 

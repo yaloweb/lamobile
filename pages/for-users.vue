@@ -13,47 +13,19 @@
           :class="{'active': accordionOpened.length !== 0}">
 
           <AccordionItem
-            :opened="accordionOpened.indexOf(1) !== -1"
-            @toggle="toggle($event, 1)">
-            <template #header>Гарантии</template>
-            <template #body>
-              <InfoGuarantee/>
+            v-for="infoItem in infoList"
+            :key="infoItem.key"
+            :ref="infoItem.key"
+            :opened="accordionOpened.indexOf(infoItem.key) !== -1"
+            @toggle="toggle($event, infoItem.key)"
+          >
+            <template #header>
+              {{ infoItem.title }}
             </template>
-          </AccordionItem>
-
-          <AccordionItem
-            :opened="accordionOpened.indexOf(2) !== -1"
-            @toggle="toggle($event, 2)">
-            <template #header>Оплата и доставка</template>
             <template #body>
-              <InfoPaymentAndDelivery />
-            </template>
-          </AccordionItem>
-
-          <AccordionItem
-            :opened="accordionOpened.indexOf(3) !== -1"
-            @toggle="toggle($event, 3)">
-            <template #header>Условия продажи</template>
-            <template #body>
-              <InfoTermsOfSale />
-            </template>
-          </AccordionItem>
-
-          <AccordionItem
-            :opened="accordionOpened.indexOf(4) !== -1"
-            @toggle="toggle($event, 4)">
-            <template #header>Обмен и возврат товара</template>
-            <template #body>
-              <InfoExchange />
-            </template>
-          </AccordionItem>
-
-          <AccordionItem
-            :opened="accordionOpened.indexOf(5) !== -1"
-            @toggle="toggle($event, 5)">
-            <template #header>Контакты</template>
-            <template #body>
-              <InfoContacts />
+              <div class="for-users-accordion-content">
+                <component :is="infoItem.componentName"/>
+              </div>
             </template>
           </AccordionItem>
 
@@ -74,17 +46,71 @@ export default {
   async fetch () {
     return await this.$store.dispatch('forUsers/getInfoForUsers')
   },
+  watch: {
+    '$route.query.page' (val) {
+      this.accordionOpened = [val]
+      this.scrollTo(val)
+    }
+  },
   data: () => ({
     accordionOpened: [],
     breadcrumbs: [
       {
         title: 'Пользователям'
       }
+    ],
+    infoList: [
+      {
+        key: 'warranty',
+        title: 'Гарантии',
+        componentName: 'InfoGuarantee'
+      },
+      {
+        key: 'payment-and-delivery',
+        title: 'Оплата и доставка',
+        componentName: 'InfoPaymentAndDelivery'
+      },
+      {
+        key: 'terms-of-sale',
+        title: 'Условия продажи',
+        componentName: 'InfoTermsOfSale'
+      },
+      {
+        key: 'purchase-returns',
+        title: 'Обмен и возврат товара',
+        componentName: 'InfoExchange'
+      },
+      {
+        key: 'contacts',
+        title: 'Контакты',
+        componentName: 'InfoContacts'
+      }
     ]
   }),
   methods: {
     toggle (bool, id) {
       bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
+    },
+    scrollTo (val) {
+      const item = this.$refs[val]
+      if (item && item[0]) {
+        const DOMEl = item[0].$el
+        console.log(DOMEl)
+        if (DOMEl) {
+          window.scrollTo({
+            top: DOMEl.getBoundingClientRect().top + window.pageYOffset - 30,
+            left: 0,
+            behavior: 'smooth'
+          })
+        }
+      }
+    }
+  },
+  mounted () {
+    const page = this.$route.query.page
+    if (page) {
+      this.accordionOpened.push(page)
+      this.scrollTo(page)
     }
   }
 }

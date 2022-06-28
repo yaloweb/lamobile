@@ -20,6 +20,7 @@ module.exports = {
       { SwitchCase: 1 }
     ],
     'prefer-const': 'off',
-    'arrow-parens': 'off'
+    'arrow-parens': 'off',
+    'quote-props': 'off'
   }
 }

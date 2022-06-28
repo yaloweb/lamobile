@@ -93,7 +93,8 @@ export default {
       if (!this.discount) {
         return 0
       }
-      return '-' + this.$options.filters.priceFilter(this.discount)
+      const res = parseFloat(this.discount.toFixed(2))
+      return '-' + this.$options.filters.priceFilter(res)
     }
   },
   watch: {

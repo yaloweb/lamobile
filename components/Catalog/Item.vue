@@ -1,20 +1,13 @@
 <template>
 
-  <div
-    class="product-item"
-    :class="{'disabled': item.inStock === false}"
-  >
+  <div class="product-item">
 
     <div
-      v-if="item.tag || item.inStock === false"
+      v-if="item.tag"
       class="product-item-tag"
       :class="item.tag ? item.tag.color : ''">
 
-      <template v-if="item.inStock === false">
-        <span class="goods-arrival">Нет в наличии</span>
-      </template>
-
-      <template v-else>
+      <template>
         {{item.tag.title}}
       </template>
 
@@ -23,6 +16,7 @@
     <div
       class="product-item-img"
       :class="{'is-slider': Array.isArray(item.imgSrc)}"
+      @mouseleave="hoverImg = 0"
     >
 
       <div
@@ -61,9 +55,7 @@
 
         <template v-else>
 
-          <nuxt-link
-            :to="getUrl"
-            :event="item.inStock === false ? '' : 'click'">
+          <nuxt-link :to="getUrl">
             <img
               :src="item.imgSrc"
               alt="">
