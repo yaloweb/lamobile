@@ -89,11 +89,15 @@ export default {
     // '@nuxtjs/auth',
     ['@nuxtjs/recaptcha',
       {
-        siteKey: '6LesVlMdAAAAABTs5N78L1UMDKBYi_jAfm76o2_w',
-        version: 3
+        siteKey: '6LdrzqsgAAAAAO8Da90Ojv3cpOSOdmhMpcEMZNl_',
+        version: 3,
+        mode: 'enterprise'
       }
     ],
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    ['nuxt-lazy-load', {
+      defaultImage: '/img/lazy-load-preview.jpg'
+    }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
