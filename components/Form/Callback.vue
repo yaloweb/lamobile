@@ -37,19 +37,10 @@
       <router-link to="/for-users">Контакты</router-link>
     </div>
 
-    <div
-      class="form-success"
-      :class="{'visible': success}">
-      <div class="form-success-content">
-
-        <img src="/img/logo-lion.svg" alt="">
-
-        <div class="h5">Успешно!</div>
-
-        <p>Мы свяжемся с Вами в ближайшее время.</p>
-
-      </div>
-    </div>
+    <FormSuccess
+      :opened="success"
+      text="мы оповестим вас, когда товар появится в наличии"
+    />
 
   </form>
 </template>
