@@ -20,12 +20,16 @@
 
           <div class="compare-table-parameters">
             <ul>
-              <li ref="parameterTitle">Название модели</li>
+              <li :style="{'height': titleSize ? `${titleSize}px` : 'auto'}">
+                <div ref="parameterTitle">Название модели</div>
+              </li>
               <li
+                v-for="(parameter, idx) in parameters"
                 ref="parameter"
-                v-for="parameter in parameters"
                 :key="parameter.key"
-                v-html="parameter.title"/>
+                :style="{'height': sizes[idx] ? `${sizes[idx]}px` : 'auto'}"
+                v-html="parameter.title"
+              />
             </ul>
           </div>
 
@@ -37,15 +41,17 @@
                 v-for="(item, index) in compareItems"
                 :key="`${item.id}-${index}`"
                 ref="product"
-                class="compare-item">
+                class="compare-item"
+              >
 
                 <div class="compare-item-select">
                   <v-select
+                    v-model="activeElements[index]"
                     label="title"
                     :options="items"
-                    v-model="activeElements[index]"
                     :reduce="option => option.id"
-                    :searchable="false"/>
+                    :searchable="false"
+                  />
                 </div>
 
                 <div class="compare-item-img">
@@ -54,25 +60,38 @@
                     alt="">
                 </div>
                 <div
-                  ref="productTitle"
                   class="compare-item-title"
-                  v-html="item.title" />
+                  :style="{'height': titleSize ? `${titleSize}px` : 'auto'}"
+                >
+                  <div ref="productTitle">
+                    {{ item.title }}
+                  </div>
+                </div>
                 <div class="compare-item-parameters">
                   <ul>
                     <li
-                      v-for="parameter in parameters"
-                      :key="parameter.key">
-                      <template v-if="parameter.key === 'colors'">
-                        <div class="compare-items-colors">
-                          <span
-                            v-for="(color, colorIndex) in item.parameters.colors"
-                            :key="colorIndex"
-                            :style="{backgroundColor: color}"/>
-                        </div>
-                      </template>
-                      <template v-else>
-                        {{ getParameter(parameter, item) }}
-                      </template>
+                      v-for="(parameter, idx) in parameters"
+                      :key="parameter.key"
+                      :style="{'height': sizes[idx] ? `${sizes[idx]}px` : 'auto'}"
+                    >
+                      <div
+                        class="compare-item-parameter"
+                        ref="parametersValue"
+                        :data-title="parameter.title"
+                      >
+                        <template v-if="parameter.key === 'colors'">
+                          <div class="compare-items-colors">
+                            <span
+                              v-for="(color, colorIndex) in item.parameters.colors"
+                              :key="colorIndex"
+                              :style="{backgroundColor: color}"
+                            />
+                          </div>
+                        </template>
+                        <template v-else>
+                          {{ getParameter(parameter, item) }}
+                        </template>
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -117,7 +136,9 @@ export default {
   },
   data: () => ({
     activeElements: [],
-    accordionOpened: false
+    accordionOpened: false,
+    titleSize: null,
+    sizes: []
   }),
   methods: {
     getCurrentCompareItem (id) {
@@ -137,47 +158,36 @@ export default {
     },
     eqHeight () {
       this.$nextTick(() => {
+        this.sizes = []
+        this.titleSize = null
+        const parametrElements = this.$refs.parameter
+        const parametersValueElements = this.$refs.parametersValue
         const parameterTitle = this.$refs.parameterTitle
         const productTitle = this.$refs.productTitle
 
-        if (productTitle) {
-          productTitle.forEach(item => {
-            item.style.removeProperty('height')
+        if (parametrElements) {
+          parametrElements.forEach(parametr => {
+            this.sizes.push(parametr.offsetHeight)
           })
         }
 
-        const parameter = this.$refs.parameter
-        const product = this.$refs.product
-        let titleHeight = 0
-
-        if (productTitle) {
-          productTitle.forEach(item => {
-            if (item.offsetHeight > titleHeight) {
-              titleHeight = item.offsetHeight
+        if (parametersValueElements) {
+          parametersValueElements.forEach((parametr, idx) => {
+            const h = parametr.offsetHeight
+            if (h > this.sizes[idx]) {
+              this.$set(this.sizes, idx, h)
             }
           })
         }
 
         if (parameterTitle) {
-          parameterTitle.style.height = `${titleHeight}px`
+          this.titleSize = parameterTitle.offsetHeight
         }
 
         if (productTitle) {
-          productTitle.forEach(item => {
-            item.style.height = `${titleHeight}px`
-          })
-        }
-
-        if (parameter) {
-          parameter.forEach((item, index) => {
-            if (product) {
-              product.forEach(group => {
-                group.querySelectorAll('.compare-item-parameters li').forEach((prodItem, prodIndex) => {
-                  if (prodIndex === index) {
-                    prodItem.style.height = `${item.clientHeight}px`
-                  }
-                })
-              })
+          productTitle.forEach(productTitleEl => {
+            if (productTitleEl.offsetHeight > this.titleSize) {
+              this.titleSize = productTitleEl.offsetHeight
             }
           })
         }

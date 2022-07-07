@@ -7,24 +7,29 @@
       появится в наличии
     </div>
 
+    <FormSuccess
+      :opened="success"
+      text="мы оповестим вас, когда товар появится в наличии"
+    />
+
     <div class="form-row">
 
       <FormInput
         name="login"
         placeholder="Имя"
-        :invalid="$v.userData.name.$error ? !$v.userData.name.required : false"
-        v-model="userData.name"/>
+        :invalid="$v.$error ? !$v.name.required : false"
+        v-model="name"/>
 
       <FormInput
         name="login"
         placeholder="Email"
-        :invalid="$v.userData.email.$error ? (!$v.userData.email.required || !$v.userData.email.email) : false"
-        v-model="userData.email"/>
+        :invalid="$v.$error ? (!$v.email.required || !$v.email.email) : false"
+        v-model="email"/>
 
     </div>
 
     <FormCheckbox
-      v-model="userData.privacyPolicy"
+      v-model="privacyPolicy"
       classes="square"
     >
       Я согласен с <a href="#">политикой обработки персональных данных</a>
@@ -34,7 +39,7 @@
       <button
         type="submit"
         class="btn"
-        :disabled="!userData.privacyPolicy">Узнать о поступлении</button>
+        :disabled="!privacyPolicy">Узнать о поступлении</button>
     </div>
 
   </form>
@@ -46,17 +51,17 @@ import { required, email } from 'vuelidate/lib/validators'
 export default {
   name: 'FormAdmission',
   validations: {
-    userData: {
-      name: { required },
-      email: { required, email }
-    }
+    name: { required },
+    email: { required, email }
+  },
+  props: {
+    productId: Number
   },
   data: () => ({
-    userData: {
-      name: '',
-      email: '',
-      privacyPolicy: true
-    }
+    name: '',
+    email: '',
+    privacyPolicy: true,
+    success: false
   }),
   methods: {
     sendAdmissionForm () {
@@ -64,6 +69,19 @@ export default {
         this.$v.$touch()
         return false
       }
+      this.$store.dispatch('product/productAdmission', {
+        id: this.productId,
+        name: this.name,
+        email: this.email
+      }).then(() => {
+        this.success = true
+        setTimeout(() => {
+          this.name = ''
+          this.email = ''
+          this.success = false
+          this.$v.$reset()
+        }, 3000)
+      })
     }
   }
 }

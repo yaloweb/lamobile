@@ -88,7 +88,10 @@
             @click="addToBasket">Добавить в корзину</button>
         </div>
 
-        <FormAdmission v-if="!inStock" />
+        <FormAdmission
+          v-if="!inStock"
+          :productId="selectedColor"
+        />
 
       </div>
 
@@ -123,6 +126,12 @@
       />
 
     </div>
+
+    <ProductMobileFooter
+      :title="title"
+      :loading="addToCardLoading"
+      @add-to-basket="addToBasket"
+    />
 
   </div>
 </template>

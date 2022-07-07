@@ -68,6 +68,8 @@
         </AccordionItem>
       </section>
 
+      <SectionProductFeatures ref="SectionProductFeatures"/>
+
       <section
         v-if="compareSection && compare.items && compare.items.length"
         class="s-product-compare"
@@ -84,8 +86,6 @@
         </div>
       </section>
 
-      <SectionProductFeatures ref="SectionProductFeatures"/>
-
     </div>
 
     <section
@@ -100,7 +100,8 @@
 
         <SliderProducts
           :list="recommendedProducts"
-          :mobQuantity="1"/>
+          :mobQuantity="1"
+        />
 
       </div>
     </section>
@@ -112,7 +113,7 @@
       <div class="container">
 
         <div class="section-title">
-          <div class="h3">Похожее в журнале</div>
+          <div class="h3">Статьи по теме</div>
         </div>
 
         <SliderSimilar :list="similarArticles"/>

@@ -126,7 +126,8 @@
       <div
         class="up-btn"
         :class="{'visible': scrollUpVisible}"
-        @click="scrollUp"/>
+        @click="scrollUp"
+      />
 
     </footer>
 

@@ -414,7 +414,7 @@
         font-size: 16px
         margin-bottom: 20px
 
-        &:first-child
+        &:first-child > div
           padding-top: 4px
 
   .compare-item-img
@@ -934,6 +934,9 @@
   .catalog-preload-card-price
     margin-right: 15px
     height: 20px
+
+  .s-products-features
+    padding-bottom: 60px
 
 @media (max-width: 1439.98px)
 
@@ -3795,7 +3798,8 @@
   .basket-total-price
     line-height: 1.375
     font-size: 16px
-    margin-bottom: 20px
+    margin-bottom: 0
+    align-items: flex-end
 
     br
       display: none
@@ -4881,7 +4885,7 @@
     padding: 35px 0 20px
 
     .products-slider
-      width: 280px
+      width: 165px
       margin-left: auto
       margin-right: auto
 
@@ -5222,6 +5226,7 @@
 
   .s-products-content-nav
     margin: 20px 0
+    display: none
 
   .products-content-nav
     margin-left: -10px
@@ -5295,3 +5300,102 @@
 
   .catalog-preload-card-footer
     padding-bottom: 10px
+
+  .main-page
+    display: flex
+    flex-direction: column
+
+    .s-main-window
+      order: 1
+
+    .s-categories
+      order: 2
+      padding: 20px 0
+
+    .s-products-slider
+      order: 3
+
+    .s-brands
+      order: 4
+      padding-bottom: 0
+
+  .product-mobile-footer
+    display: flex
+
+  .product-page ~ .page-footer
+    .up-btn
+      bottom: 57px
+
+  .alert-block
+    right: 10px
+    top: 100px
+    left: 10px
+    width: auto
+    padding: 6px 30px 6px 10px
+    font-size: 11px
+
+  .compare-item-parameters
+    ul
+      li
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        margin-bottom: 20px
+
+  .compare-item
+    &:first-child
+      .compare-item-parameter
+        &:first-child
+          &:after
+            display: none
+
+        &:before
+          content: attr(data-title)
+          display: block
+          width: calc(100vw - 20px)
+          font-weight: 500
+          font-size: 12px
+          color: $accent
+          line-height: 1.5
+          text-align: center
+          padding: 0 calc(50vw - 125px) 10px
+
+  .compare-table-parameters
+    display: none
+
+  .s-products-features
+    padding-top: 35px
+
+  .product-main-info
+    &.not-available
+      .product-main-id
+        text-align: center
+
+      .product-colors
+        align-items: center
+
+  .up-btn
+    right: 10px
+
+  .catalog-list-item
+    .product-item-price
+      span
+        font-size: 20px
+
+  .basket-total-promocode
+    button
+      span
+        -webkit-transform: none
+        -moz-transform: none
+        -ms-transform: none
+        -o-transform: none
+        transform: none
+
+  .form-success
+    img
+      width: 70px
+      margin-bottom: 20px
+
+  .form-success-content
+    .h5
+      font-size: 18px

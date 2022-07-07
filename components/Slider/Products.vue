@@ -13,7 +13,7 @@
       >
 
         <swiper-slide
-          v-for="slide in list"
+          v-for="slide in items"
           :key="slide.id">
 
           <CatalogItem :item="slide"/>
@@ -63,14 +63,17 @@ export default {
           el: `.products-slider-pagination-${this.index}`,
           clickable: true
         },
+        loop: false,
         breakpoints: {
           0: {
             spaceBetween: 10,
-            slidesPerView: this.mobQuantity
+            slidesPerView: this.mobQuantity,
+            loop: true
           },
           576: {
             slidesPerView: 2,
-            spaceBetween: 20
+            spaceBetween: 20,
+            loop: false
           },
           992: {
             slidesPerView: 3,
@@ -88,6 +91,24 @@ export default {
           }
         }
       }
+    }
+  },
+  computed: {
+    items () {
+      if (process.browser && window.innerWidth < 576 && this.list.length <= 4) {
+        const items = []
+        const checkItems = () => {
+          if (items.length <= 4) {
+            items.push(...this.list)
+            checkItems()
+          } else {
+            return false
+          }
+        }
+        checkItems()
+        return items
+      }
+      return this.list
     }
   },
   methods: {
