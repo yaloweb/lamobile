@@ -114,6 +114,7 @@ export default {
   },
   async mounted () {
     await this.getOrderData()
+    this.$store.dispatch('basket/getBasketData')
   }
 }
 </script>

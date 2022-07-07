@@ -1,5 +1,12 @@
 export const state = () => ({
-  global: {}
+  global: {
+    header: {
+      catalogMenu: []
+    },
+    footer: {
+      contacts: ''
+    }
+  }
 })
 
 export const mutations = {
