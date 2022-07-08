@@ -89,7 +89,7 @@
                   <span class="icon-user"></span>
                 </a>
                 <div class="header-acc-dropdown">
-                  <a href="https://lamobile-opt.bikdev.ru/" class="opt-site-link"><span class="icon-arrow-right-circle" /> Вход для оптовых клиентов</a>
+                  <a href="http://lamobile-opt.bikdev.ru/" class="opt-site-link"><span class="icon-arrow-right-circle" /> Вход для оптовых клиентов</a>
                 </div>
               </div>
               <nuxt-link
