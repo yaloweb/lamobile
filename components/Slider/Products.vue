@@ -114,6 +114,7 @@ export default {
   methods: {
     wheelListener (e) {
       e.preventDefault()
+      console.log(e)
       const slider = this.$refs.slider?.$swiper
       if (slider) {
         const index = slider.activeIndex

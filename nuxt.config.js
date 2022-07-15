@@ -94,15 +94,12 @@ export default {
         mode: 'enterprise'
       }
     ],
-    'cookie-universal-nuxt',
-    ['nuxt-lazy-load', {
-      defaultImage: '/img/lazy-load-preview.jpg'
-    }]
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.API_URL,
+    baseURL: 'http://natural.lamobile.ru/api',
     proxyHeaders: false,
     credentials: false,
     init (axios) {

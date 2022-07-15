@@ -1881,16 +1881,22 @@
 
 .product-mobile-footer
   position: fixed
-  bottom: 0
+  top: 90px
   left: 0
   width: 100%
   z-index: 5
   background-color: #fff
   border-top: 1px solid #DEDBDB
+  border-bottom: 1px solid #DEDBDB
   align-items: center
   justify-content: space-between
   padding: 8px 10px
   display: none
+  +tr4
+
+  &:not(.visible)
+    opacity: 0
+    visibility: hidden
 
 .product-mobile-footer-title
   font-size: 10px

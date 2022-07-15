@@ -1,5 +1,8 @@
 <template>
-  <div class="product-mobile-footer">
+  <div
+    class="product-mobile-footer"
+    :class="{'visible': visible}"
+  >
     <div class="product-mobile-footer-title">
       {{ title }}
     </div>
@@ -22,6 +25,9 @@ export default {
     title: String,
     loading: Boolean
   },
+  data: () => ({
+    visible: false
+  }),
   methods: {
     async addToBasket () {
       const data = {
@@ -34,7 +40,17 @@ export default {
       } finally {
         this.addToCardLoading = false
       }
+    },
+    scrollTop () {
+      this.visible = window?.pageYOffset > 150
     }
+  },
+  mounted () {
+    window.addEventListener('scroll', this.scrollTop)
+    this.scrollTop()
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.scrollTop)
   }
 }
 </script>

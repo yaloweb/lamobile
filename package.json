@@ -22,7 +22,6 @@
     "moment": "^2.29.3",
     "moment-timezone": "^0.5.33",
     "nuxt": "^2.13.3",
-    "nuxt-lazy-load": "^1.2.9",
     "swiper": "5.x",
     "v-mask": "^2.3.0",
     "v-tooltip": "^2.1.3",
