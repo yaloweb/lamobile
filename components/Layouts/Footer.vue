@@ -60,9 +60,6 @@
 
               <div class="footer-nav-marketplaces-logo">
                 <nuxt-link to="/">
-<!--                  <img-->
-<!--                    :src="`/img/logo-illustration${light ? '-light': ''}.svg`"-->
-<!--                    alt="">-->
                   <img src="/img/logo-footer.gif" alt="">
                 </nuxt-link>
               </div>
@@ -72,7 +69,7 @@
 
           <div class="footer-col col-2">
             <nav class="footer-nav soc-nav">
-              <div class="h6">Ищите нас по хештегу #lamobile</div>
+              <div class="h6">Ищите нас по хештегу <span>#lamobile</span></div>
               <div class="soc-list">
                 <a
                   v-for="soc in global.socList"
@@ -110,9 +107,6 @@
 
             <div class="footer-logo">
               <nuxt-link to="/">
-<!--                <img-->
-<!--                  :src="`/img/logo-illustration${light ? '-light': ''}.svg`"-->
-<!--                  alt="">-->
                 <img src="/img/logo-footer.gif" alt="">
               </nuxt-link>
             </div>

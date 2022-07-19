@@ -90,7 +90,8 @@ export default {
             spaceBetween: 50
           }
         }
-      }
+      },
+      wheelPrevent: false
     }
   },
   computed: {
@@ -114,15 +115,20 @@ export default {
   methods: {
     wheelListener (e) {
       e.preventDefault()
-      console.log(e)
-      const slider = this.$refs.slider?.$swiper
-      if (slider) {
-        const index = slider.activeIndex
-        if (e.deltaY > 0) {
-          slider.slideTo(index + 1)
-        } else {
-          slider.slideTo(index - 1)
+      if (!this.wheelPrevent) {
+        const slider = this.$refs.slider?.$swiper
+        if (slider) {
+          const index = slider.activeIndex
+          if (e.deltaY > 0) {
+            slider.slideTo(index + 1)
+          } else {
+            slider.slideTo(index - 1)
+          }
         }
+        this.wheelPrevent = true
+        setTimeout(() => {
+          this.wheelPrevent = false
+        }, 300)
       }
     },
     setWheelMove () {
@@ -135,6 +141,9 @@ export default {
         document.removeEventListener('wheel', this.wheelListener, { passive: false })
       }
     }
+  },
+  mounted () {
+    console.log(this.items)
   }
 }
 </script>
