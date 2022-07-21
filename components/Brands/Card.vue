@@ -5,10 +5,19 @@
 
     <div class="brands-row-item-card-img">
 
-      <img
-        v-if="item.card.imgSrc"
-        :src="item.card.imgSrc"
-        alt="">
+      <template v-if="item.card.imgSrc">
+        <video
+          v-if="isVideo"
+          :src="item.card.imgSrc"
+          muted="muted"
+          autoplay="autoplay"
+          loop
+        />
+        <img
+          v-else
+          :src="item.card.imgSrc"
+          alt="">
+      </template>
 
       <div
         v-else
@@ -46,6 +55,11 @@ export default {
   name: 'Card',
   props: {
     item: Object
+  },
+  computed: {
+    isVideo () {
+      return this.item.card?.imgSrc.endsWith('.mp4')
+    }
   }
 }
 </script>
