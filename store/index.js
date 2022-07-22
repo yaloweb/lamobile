@@ -25,7 +25,7 @@ export const actions = {
     ])
   },
   async getGlobal ({ commit }) {
-    const res = await this.$axios.$get('/natural/main')
+    const res = await this.$axios.$get('/main')
     commit('setGlobal', res)
   }
 }

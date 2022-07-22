@@ -22,7 +22,7 @@
 
           <UIVideo
             v-if="post.video"
-            :id="post.video.youtubeVideoId"
+            :id="post.video"
             :poster="post.video.poster"
           />
 

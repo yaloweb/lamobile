@@ -102,7 +102,7 @@ export const mutations = {
 
 export const actions = {
   async getCatalogCategories ({ commit }) {
-    const res = await this.$axios.$get('/natural/catalog/category')
+    const res = await this.$axios.$get('/catalog/category')
     if (Array.isArray(res)) {
       commit('setCatalogCategories', res.filter(item => item.level === '1'))
       commit('setSubcategories', res.filter(item => item.level === '2'))
@@ -112,13 +112,13 @@ export const actions = {
     let newRes = []
     let popularRes = []
     let recommendedRes = []
-    const newResPromise = this.$axios.get('/natural/catalog/product?new=y').then(resp => {
+    const newResPromise = this.$axios.get('/catalog/product?new=y').then(resp => {
       newRes = resp.data
     })
-    const popularResPromise = this.$axios.get('/natural/catalog/product?popular=y').then(resp => {
+    const popularResPromise = this.$axios.get('/catalog/product?popular=y').then(resp => {
       popularRes = resp.data
     })
-    const recommendedResPromise = this.$axios.get('/natural/catalog/product?recommended=y').then(resp => {
+    const recommendedResPromise = this.$axios.get('/catalog/product?recommended=y').then(resp => {
       recommendedRes = resp.data
     })
     await Promise.all([
@@ -133,18 +133,18 @@ export const actions = {
     })
   },
   async getCatalog ({ commit }, params) {
-    const res = await this.$axios.$get('/natural/catalog/product', {
+    const res = await this.$axios.$get('/catalog/product', {
       params
     })
     // const res = await this.$axios.$get('/catalog')
     commit('setCatalog', res)
   },
   async getBrandsMainInfo ({ commit }, symbol) {
-    const res = await this.$axios.$get(`/natural/catalog/brand/${symbol}`)
+    const res = await this.$axios.$get(`/catalog/brand/${symbol}`)
     commit('setBrandsMainInfo', res)
   },
   async getCatalogFilterByCategories ({ commit }, category) {
-    const res = await this.$axios.$get('/natural/catalog/product', {
+    const res = await this.$axios.$get('/catalog/product', {
       params: {
         category
       }
@@ -152,7 +152,7 @@ export const actions = {
     commit('setCatalog', res)
   },
   async getBrandsCategories ({ commit }, brandCode) {
-    const res = await this.$axios.$get('/natural/catalog/category',
+    const res = await this.$axios.$get('/catalog/category',
       {
         params: {
           brandCode

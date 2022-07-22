@@ -6,17 +6,19 @@
 
     <div
       v-if="filterVisible"
-      class="catalog-filter">
-      <nav class="catalog-filter-nav">
-        <a
-          v-for="category in categories"
-          :key="category.id"
-          href="#"
-          :class="{'active': selectedCategory === category.id}"
-          @click.prevent="filterByCategory(category.id)">
-          {{category.title}}
-        </a>
-      </nav>
+      class="catalog-filter"
+    >
+      <SliderFilterNav
+        :filters="categories"
+        :selected="selectedCategory"
+        @select="setSelectedCategory($event)"
+      />
+
+      <UISort
+        :selected="selectedSort"
+        :list="sortList"
+        @select="selectSort($event)"
+      />
     </div>
 
     <div
@@ -65,14 +67,25 @@ export default {
   watch: {
     selectedCategory () {
       this.offset = 0
+      this.filterByCategory()
+    },
+    selectedSort () {
+      this.filterByCategory()
     }
   },
-  data: () => ({
-    loading: false,
-    visibleTags: true,
-    offset: 0,
-    page: 0
-  }),
+  data () {
+    return {
+      loading: false,
+      visibleTags: true,
+      offset: 0,
+      page: 0,
+      sortList: [
+        { code: 'date_asc', title: 'Сначала новые' },
+        { code: 'date_desc', title: 'Сначала старые' }
+      ],
+      selectedSort: null
+    }
+  },
   computed: {
     categories () {
       return this.$store.state.blog.categories
@@ -102,37 +115,47 @@ export default {
     blogScroll () {
       const group = this.$refs.magazineItem
       const item = Array.isArray(group) ? group[group.length - 1] : group
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            obs.unobserve(entry.target)
-            this.scrollLoadBlogList()
-          }
+      if (item) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              obs.unobserve(entry.target)
+              this.scrollLoadBlogList()
+            }
+          })
         })
-      })
-      observer.observe(item)
+        observer.observe(item)
+      }
     },
     elementOffset (el) {
       const rect = el.getBoundingClientRect()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       return (rect.top + scrollTop)
     },
-    async filterByCategory (categoryId) {
-      if (this.selectedCategory !== categoryId) {
-        this.loading = true
-        this.page = 0
-        this.offset = 0
-        await this.$store.dispatch('blog/getBlogListByParams', {
-          category: categoryId,
-          limit: this.limit,
-          offset: 0
-        })
-        this.$emit('changeCategory', categoryId)
-        this.blogScroll()
-        this.loading = false
-        window.scrollTo(0, 0)
-      }
+    setSelectedCategory (event) {
+      this.$emit('changeCategory', event)
+    },
+    async filterByCategory () {
+      this.loading = true
+      this.page = 0
+      this.offset = 0
+      await this.$store.dispatch('blog/getBlogListByParams', {
+        category: this.selectedCategory,
+        limit: this.limit,
+        offset: 0,
+        sort: this.selectedSort.code
+      })
+      this.$emit('changeCategory', this.selectedCategory)
+      this.blogScroll()
+      this.loading = false
+      window.scrollTo(0, 0)
+    },
+    selectSort (item) {
+      this.selectedSort = item
     }
+  },
+  created () {
+    this.selectedSort = this.sortList[0]
   },
   mounted () {
     if (this.scrollAutoLoad) {

@@ -21,6 +21,7 @@
             :scrollAutoLoad="true"
             :selectedCategory="selectedCategory"
             :limit="limit"
+            :filterVisible="true"
             @changeCategory="selectedCategory = $event"
           />
 

@@ -55,6 +55,9 @@ export default {
   },
   mounted () {
     this.getContentHeight()
+    setTimeout(() => {
+      this.getContentHeight()
+    }, 300)
     window.addEventListener('resize', this.getContentHeight)
     this.$on('hook:beforeDestroy', () => window.removeEventListener('resize', this.getContentHeight))
   }

@@ -13,8 +13,9 @@
       >
 
         <swiper-slide
-          v-for="slide in items"
-          :key="slide.id">
+          v-for="(slide, idx) in list"
+          :key="idx"
+        >
 
           <CatalogItem :item="slide"/>
 
@@ -49,7 +50,7 @@ export default {
       default: 0
     },
     mobQuantity: {
-      type: Number,
+      type: [Number, String],
       default: 2
     }
   },
@@ -63,17 +64,14 @@ export default {
           el: `.products-slider-pagination-${this.index}`,
           clickable: true
         },
-        loop: false,
         breakpoints: {
           0: {
             spaceBetween: 10,
-            slidesPerView: this.mobQuantity,
-            loop: true
+            slidesPerView: this.mobQuantity
           },
           576: {
             slidesPerView: 2,
-            spaceBetween: 20,
-            loop: false
+            spaceBetween: 20
           },
           992: {
             slidesPerView: 3,
@@ -94,24 +92,27 @@ export default {
       wheelPrevent: false
     }
   },
-  computed: {
-    items () {
-      if (process.browser && window.innerWidth < 576 && this.list.length <= 4) {
-        const items = []
-        const checkItems = () => {
-          if (items.length <= 4) {
-            items.push(...this.list)
-            checkItems()
-          } else {
-            return false
-          }
-        }
-        checkItems()
-        return items
-      }
-      return this.list
-    }
-  },
+  // computed: {
+  //   items () {
+  //     if (this.list.length === 1) {
+  //       return this.list
+  //     }
+  //     if (process.browser && window.innerWidth < 576 && this.list.length <= 4) {
+  //       const items = []
+  //       const checkItems = () => {
+  //         if (items.length <= 4) {
+  //           items.push(...this.list)
+  //           checkItems()
+  //         } else {
+  //           return false
+  //         }
+  //       }
+  //       checkItems()
+  //       return items
+  //     }
+  //     return this.list
+  //   }
+  // },
   methods: {
     wheelListener (e) {
       e.preventDefault()
@@ -141,10 +142,13 @@ export default {
         document.removeEventListener('wheel', this.wheelListener, { passive: false })
       }
     }
-  },
-  mounted () {
-    console.log(this.items)
   }
+  // mounted () {
+  //   if (this.list.length === 1) {
+  //     this.swiperOptions.breakpoints[0].loop = false
+  //     this.key = 'reinit'
+  //   }
+  // }
 }
 </script>
 

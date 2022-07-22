@@ -37,14 +37,17 @@ export default {
       slidesPerView: 3,
       spaceBetween: 50,
       speed: 600,
+      loop: false,
       breakpoints: {
         0: {
           spaceBetween: 10,
-          slidesPerView: 1
+          slidesPerView: 'auto',
+          loop: true
         },
         576: {
           spaceBetween: 20,
-          slidesPerView: 2
+          slidesPerView: 2,
+          loop: false
         },
         992: {
           spaceBetween: 20,

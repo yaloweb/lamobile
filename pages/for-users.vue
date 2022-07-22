@@ -95,7 +95,6 @@ export default {
       const item = this.$refs[val]
       if (item && item[0]) {
         const DOMEl = item[0].$el
-        console.log(DOMEl)
         if (DOMEl) {
           window.scrollTo({
             top: DOMEl.getBoundingClientRect().top + window.pageYOffset - 30,

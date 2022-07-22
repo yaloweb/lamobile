@@ -18,14 +18,18 @@
               muted
               autoplay
               loop
-              preload="metadata"/>
+              preload="metadata"
+              playsinline
+            />
             <video
               v-else
               :src="slide.videoSrc + '#t=0.1'"
               muted
               autoplay
               loop
-              preload="metadata"/>
+              preload="metadata"
+              playsinline
+            />
           </div>
           <div
             class="banners-slider-img-item"

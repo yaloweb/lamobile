@@ -26,7 +26,7 @@ export const actions = {
   async sendOrder ({ commit }, params = {}) {
     const fUserId = this.$cookies.get('fUserId')
     if (fUserId) {
-      await this.$axios.$post('/natural/order/send', null, {
+      await this.$axios.$post('/order/send', null, {
         params: {
           fUserId,
           ...params
@@ -40,7 +40,7 @@ export const actions = {
   submitOrder ({ dispatch }, params) {
     const fUserId = this.$cookies.get('fUserId')
     return new Promise((resolve, reject) => {
-      this.$axios.$post('/natural/order/send', null, {
+      this.$axios.$post('/order/send', null, {
         params: {
           fUserId,
           ...params
@@ -52,7 +52,7 @@ export const actions = {
     })
   },
   paymentCheckout (ctx, { id, hash }) {
-    return this.$axios.$get(`/natural/order/${id}`, {
+    return this.$axios.$get(`/order/${id}`, {
       params: {
         hash
       }

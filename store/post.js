@@ -20,7 +20,7 @@ export const mutations = {
 
 export const actions = {
   async getPostData ({ commit }, id) {
-    const res = await this.$axios.get(`/natural/blog/article/${id}`)
+    const res = await this.$axios.get(`/blog/article/${id}`)
     commit('setPostData', res.data)
   }
 }

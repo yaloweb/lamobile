@@ -23,7 +23,7 @@ export const actions = {
   async getSearchResults ({ commit }, query) {
     commit('clearSearchResults')
     if (query.length > 1) {
-      const res = await this.$axios.get('/natural/catalog/search', {
+      const res = await this.$axios.get('/catalog/search', {
         params: {
           query
         }

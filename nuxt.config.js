@@ -99,7 +99,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://natural.lamobile.ru/api',
+    baseURL: 'http://natural.lamobile.ru/api/natural',
     proxyHeaders: false,
     credentials: false,
     init (axios) {

@@ -3,14 +3,14 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setRecommended (state, array) {
-    state.recommendedProducts = array
+  setRecommended (state, data) {
+    state.recommendedProducts = data
   }
 }
 
 export const actions = {
   async getRecommended ({ commit }, productId) {
-    const res = await this.$axios.get(`/natural/catalog/similar/${productId}`)
+    const res = await this.$axios.get(`/catalog/similar/${productId}`)
     commit('setRecommended', res.data)
   }
 }

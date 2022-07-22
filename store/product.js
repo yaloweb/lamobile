@@ -48,12 +48,12 @@ export const mutations = {
 
 export const actions = {
   async getProductInfo ({ dispatch, commit }, symbol) {
-    const res = await this.$axios.$get(`/natural/catalog/product/${symbol}`)
+    const res = await this.$axios.$get(`/catalog/product/${symbol}`)
     commit('setProductInfo', res)
   },
   productAdmission (ctx, { id, email, name }) {
     return new Promise((resolve, reject) => {
-      this.$axios.$get(`/natural/catalog/subscribe/${id}`, {
+      this.$axios.$get(`/catalog/subscribe/${id}`, {
         params: {
           id,
           email,

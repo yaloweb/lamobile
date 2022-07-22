@@ -140,6 +140,11 @@ export default {
     titleSize: null,
     sizes: []
   }),
+  watch: {
+    activeElements () {
+      this.$nextTick().then(this.eqHeight)
+    }
+  },
   methods: {
     getCurrentCompareItem (id) {
       return Object.assign({}, this.items.filter(item => item.id === id)[0])
@@ -160,37 +165,40 @@ export default {
       this.$nextTick(() => {
         this.sizes = []
         this.titleSize = null
-        const parametrElements = this.$refs.parameter
-        const parametersValueElements = this.$refs.parametersValue
-        const parameterTitle = this.$refs.parameterTitle
-        const productTitle = this.$refs.productTitle
 
-        if (parametrElements) {
-          parametrElements.forEach(parametr => {
-            this.sizes.push(parametr.offsetHeight)
-          })
-        }
+        setTimeout(() => {
+          const parametrElements = this.$refs.parameter
+          const parametersValueElements = this.$refs.parametersValue
+          const parameterTitle = this.$refs.parameterTitle
+          const productTitle = this.$refs.productTitle
 
-        if (parametersValueElements) {
-          parametersValueElements.forEach((parametr, idx) => {
-            const h = parametr.offsetHeight
-            if (h > this.sizes[idx]) {
-              this.$set(this.sizes, idx, h)
-            }
-          })
-        }
+          if (parametrElements) {
+            parametrElements.forEach(parametr => {
+              this.sizes.push(parametr.offsetHeight)
+            })
+          }
 
-        if (parameterTitle) {
-          this.titleSize = parameterTitle.offsetHeight
-        }
+          if (parametersValueElements) {
+            parametersValueElements.forEach((parametr, idx) => {
+              const h = parametr.offsetHeight
+              if (h > this.sizes[idx]) {
+                this.$set(this.sizes, idx, h)
+              }
+            })
+          }
 
-        if (productTitle) {
-          productTitle.forEach(productTitleEl => {
-            if (productTitleEl.offsetHeight > this.titleSize) {
-              this.titleSize = productTitleEl.offsetHeight
-            }
-          })
-        }
+          if (parameterTitle) {
+            this.titleSize = parameterTitle.offsetHeight
+          }
+
+          if (productTitle) {
+            productTitle.forEach(productTitleEl => {
+              if (productTitleEl.offsetHeight > this.titleSize) {
+                this.titleSize = productTitleEl.offsetHeight
+              }
+            })
+          }
+        }, 1000)
       })
     }
   },

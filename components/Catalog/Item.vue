@@ -28,13 +28,14 @@
               class="product-item-img-slider"
               :class="{'visible': imgList.productId === selectedColor}"
             >
-              <div class="product-item-img-slider-img-hover">
-                <a
+              <div
+                class="product-item-img-slider-img-hover"
+                @click.prevent="$router.push(item.url)"
+              >
+                <span
                   v-for="(i, idx) in imgList.list"
                   :key="`${index}-1-${idx}`"
-                  :href="item.url"
                   @mouseenter="hoverImg = idx"
-                  @click.prevent="$router.push(item.url)"
                 />
               </div>
               <div class="product-item-img-slider-img">
@@ -54,13 +55,14 @@
 
           <template v-else>
             <div class="product-item-img-slider visible">
-              <div class="product-item-img-slider-img-hover">
-                <a
+              <div
+                class="product-item-img-slider-img-hover"
+                @click.prevent="$router.push(item.url)"
+              >
+                <span
                   v-for="(i, idx) in item.imgSrc"
                   :key="`1-${idx}`"
-                  :href="item.url"
                   @mouseenter="hoverImg = idx"
-                  @click.prevent="$router.push(item.url)"
                 />
               </div>
               <div class="product-item-img-slider-img">
@@ -116,7 +118,7 @@
           <div class="product-img-thumbs">
             <div
               v-for="color in item.colors"
-              :key="color.id"
+              :key="color.productId"
               class="product-img-thumb"
               :class="{active: selectedColor === color.productId}"
               @click="selectedColor = color.productId"

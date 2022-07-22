@@ -10,7 +10,7 @@ export const mutations = {
 
 export const actions = {
   async getBanners ({ commit }) {
-    const res = await this.$axios.get('/natural/banner/main')
+    const res = await this.$axios.get('/banner/main')
     commit('setBanners', res.data)
   }
 }

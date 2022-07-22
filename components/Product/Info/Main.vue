@@ -89,6 +89,7 @@
         </div>
 
         <FormAdmission
+          ref="formAdmission"
           v-if="!inStock"
           :productId="selectedColor"
         />
@@ -176,15 +177,27 @@ export default {
   }),
   methods: {
     async addToBasket () {
-      const data = {
-        productId: this.colors ? this.selectedColorObject.productId : this.item.productId,
-        quantity: 1
-      }
-      this.addToCardLoading = true
-      try {
-        await this.$store.dispatch('basket/addToBasket', data)
-      } finally {
-        this.addToCardLoading = false
+      if (this.inStock) {
+        const data = {
+          productId: this.colors ? this.selectedColor : this.item.productId,
+          quantity: 1
+        }
+        this.addToCardLoading = true
+        try {
+          await this.$store.dispatch('basket/addToBasket', data)
+        } finally {
+          this.addToCardLoading = false
+        }
+      } else {
+        const formAdmission = this.$refs.formAdmission?.$el
+        if (formAdmission) {
+          const top = formAdmission.getBoundingClientRect().top
+          window.scrollTo({
+            top: top + window.pageYOffset - 200,
+            left: 0,
+            behavior: 'smooth'
+          })
+        }
       }
     }
   }

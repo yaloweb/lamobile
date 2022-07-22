@@ -31,7 +31,7 @@ export const mutations = {
 export const actions = {
   async getInfoForUsers ({ commit }) {
     // const res = await this.$axios.get('/for-users')
-    const res = await this.$axios.get('/natural/page/for_user')
+    const res = await this.$axios.get('/page/for_user')
     commit('setInfoForUsers', res.data)
   }
 }

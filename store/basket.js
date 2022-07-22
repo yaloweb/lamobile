@@ -20,7 +20,7 @@ export const actions = {
   async getBasketData ({ commit }) {
     const fUserId = this.$cookies.get('fUserId')
     if (fUserId) {
-      const res = await this.$axios.$get('/natural/basket', {
+      const res = await this.$axios.$get('/basket', {
         params: {
           fUserId
         }
@@ -40,7 +40,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
-        url: '/natural/basket/add',
+        url: '/basket/add',
         data
       }).then(response => {
         if (response.data.result === 'success') {
@@ -70,7 +70,7 @@ export const actions = {
     return new Promise((resolve, reject) => {
       this.$axios({
         method: 'post',
-        url: '/natural/basket/update',
+        url: '/basket/update',
         data
       }).then(response => {
         if (response.data.result === 'success') {
@@ -92,7 +92,7 @@ export const actions = {
     if (fUserId) {
       await this.$axios({
         method: 'post',
-        url: '/natural/basket/delete',
+        url: '/basket/delete',
         data: {
           productId,
           fUserId

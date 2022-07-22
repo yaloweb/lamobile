@@ -100,7 +100,7 @@
 
         <SliderProducts
           :list="recommendedProducts"
-          :mobQuantity="1"
+          mobQuantity="auto"
         />
 
       </div>
@@ -235,6 +235,7 @@ export default {
   beforeDestroy () {
     setTimeout(() => {
       this.$store.commit('product/resetState')
+      this.$store.commit('recommended/setRecommended', [])
     }, 300)
   }
 }
