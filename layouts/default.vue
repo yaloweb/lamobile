@@ -4,6 +4,10 @@
 
     <LayoutsHeader/>
 
+    <LayoutsHeader
+      :sticky="true"
+    />
+
     <Nuxt/>
 
     <LayoutsFooter/>

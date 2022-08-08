@@ -53,8 +53,8 @@
               <div class="container">
 
                 <components
-                  v-for="section in sections"
-                  :key="section.id"
+                  v-for="(section, idx) in sections"
+                  :key="idx"
                   :is="'SectionProduct' + section.component"
                   :info="section.data"
                 />

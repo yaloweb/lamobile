@@ -4,7 +4,12 @@
 
     <LayoutsHeader
       :light="true"
-      :positionAbsolute="true"/>
+      :positionAbsolute="true"
+    />
+
+    <LayoutsHeader
+      :sticky="true"
+    />
 
     <Nuxt/>
 

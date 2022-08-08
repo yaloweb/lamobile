@@ -10,6 +10,7 @@
   min-height: 630px
   display: flex
   flex-direction: column
+  position: relative
 
   .breadcrumbs
     margin-top: 0
@@ -18,11 +19,22 @@
     flex-grow: 1
     display: flex
     flex-direction: column
+    position: relative
+    z-index: 1
 
   .breadcrumbs
     ul
       li
         color: #C4C4C4
+
+  &.loading
+    .brands-logo-block-img
+      img
+        opacity: 0
+
+      &:after
+        opacity: 1
+        visibility: visible
 
 .container
   .container
@@ -71,7 +83,6 @@
   flex-direction: column
   padding: 0 22px
   font-size: 18px
-  text-transform: uppercase
   color: #000
   font-weight: bold
 
@@ -85,6 +96,24 @@
     object-fit: contain
     object-position: center left
     flex-shrink: 0
+
+.brands-logo-block-img
+  position: relative
+
+  &:after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: #EEEFF3
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    animation: blinking 1s linear infinite
+    visibility: hidden
+    opacity: 0
 
 .brands-official
   display: flex
@@ -180,7 +209,7 @@
 
 .brands-more-link
   margin-top: 9px
-  font-size: 12px
+  font-size: 13px
   color: #7a7a7a
   +tr
 

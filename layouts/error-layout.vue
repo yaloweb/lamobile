@@ -3,7 +3,12 @@
     <LayoutsHeader
       :logo="false"
       :positionAbsolute="true"
-      :light="true"/>
+      :light="true"
+    />
+
+    <LayoutsHeader
+      :sticky="true"
+    />
 
     <Nuxt/>
 

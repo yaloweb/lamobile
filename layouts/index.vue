@@ -7,6 +7,10 @@
       :positionAbsolute="true"
       :light="true"/>
 
+    <LayoutsHeader
+      :sticky="true"
+    />
+
     <Nuxt/>
 
     <LayoutsFooter/>

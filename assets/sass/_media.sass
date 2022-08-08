@@ -26,7 +26,6 @@
         opacity: 0
 
 @media (max-width: 1799.98px)
-
   .banner-item-title
     font-size: 50px
 
@@ -938,6 +937,14 @@
   .s-products-features
     padding-bottom: 60px
 
+  .header-component
+    &.sticky
+      .header
+        height: 81px
+
+        .logo img
+          width: 161px
+
 @media (max-width: 1439.98px)
 
   .container
@@ -1067,9 +1074,14 @@
     margin-top: 0
 
   .for-users-accordion-content
-    p,
     .contacts
       font-size: 16px
+
+  .payment-and-delivery
+    font-size: 16px
+
+  .for-users-accordion-content
+    font-size: 16px
 
 @media (max-width: 1365.98px)
 
@@ -1320,8 +1332,13 @@
   .operation-img
     padding-left: 40px
 
+  .payment-and-delivery
+    font-size: 14px
+
   .for-users-accordion-content
-    p,
+    font-size: 14px
+
+  .for-users-accordion-content
     .contacts
       font-size: 14px
 
@@ -1423,9 +1440,6 @@
     .compare-item
       width: 50%
       padding: 0 10px
-
-      &:last-child
-        display: none !important
 
   .basket-total
     width: 260px
@@ -1735,13 +1749,13 @@
     left: 0
     width: 100%
     height: 100vh
-    transform: translate(-105%)
-    opacity: 1
-    visibility: visible
-    padding-bottom: 15px
+    opacity: 0
+    visibility: hidden
+    transform: none !important
 
     &.opened
-      transform: translate(0)
+      opacity: 1
+      visibility: visible
 
   .header-catalog-btn
     width: 30px
@@ -1861,7 +1875,7 @@
     font-size: 16px
 
   .categories-item-descr
-    font-size: 12px
+    font-size: 14px
 
   .products-slider
     margin-top: 20px
@@ -2257,7 +2271,7 @@
     p
       max-width: 206px
       margin: 0 0 40px
-      font-size: 12px
+      font-size: 14px
 
     .btn
       height: 40px
@@ -2266,7 +2280,7 @@
       font-size: 14px
 
   .banner-item-title
-    font-size: 16px
+    font-size: 20px
     margin: 0 0 15px
 
     br
@@ -2298,7 +2312,7 @@
 
   .catalog-dropdown
     background-color: #EEEFF3
-    padding: 109px 0 0
+    padding: 89px 0 0
 
   .dropdown-footer
     padding-top: 20px
@@ -2313,6 +2327,12 @@
       right: -33px
       height: 1px
       background-color: #DEDBDB
+
+  .search-results-empty
+    padding-top: 20px
+
+  .catalog-dropdown-tabs-nav
+    padding-top: 20px
 
   .catalog-dropdown-content
     overflow-x: hidden
@@ -2480,6 +2500,66 @@
 
   .block-numbers
     padding: 30px
+
+  .header-component.sticky
+    display: none !important
+
+  .banners-slider-img
+    .swiper-slide
+      display: flex
+      flex-direction: column
+
+    .banners-slider-img-item
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+
+    .banner-item
+      position: relative
+      z-index: 1
+      height: auto !important
+      opacity: 1
+      margin-top: auto
+      padding: 0 24px 19px
+
+    .banners-button-prev,
+    .banners-button-next
+      display: flex
+      bottom: 19px
+
+    .banners-button-next
+      right: 24px
+
+    .banners-button-prev
+      right: 69px
+
+  .search-results-main
+    position: relative
+    z-index: 1
+    padding-top: 20px
+    padding-bottom: 20px
+    margin-left: -23px
+    margin-right: -23px
+
+    &:before
+      content: ''
+      position: absolute
+      left: -33px
+      top: 0
+      right: -33px
+      bottom: 0
+      background-color: #fff
+      z-index: -1
+
+  .search-catalog-item a
+    font-size: 12px
+
+  .search-details
+    margin-top: 10px
+
+  .search-details-item a img
+    margin-right: 12px
 
 @media (max-width: 767.98px)
 
@@ -2725,6 +2805,7 @@
   .form-quantity-input
     button
       width: 25px
+      max-width: 25px
       height: 25px
 
       .icon-plus
@@ -2814,6 +2895,46 @@
   .icons-with-text-row
     grid-gap: 30px
     grid-template-columns: repeat(3, 1fr)
+
+  .compare-item-parameters
+    ul
+      li
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        margin-bottom: 20px
+
+  .compare-item
+    &:first-child
+      .compare-item-parameter
+        height: 100%
+
+        &:first-child
+          &:after
+            display: none
+
+        &:before
+          content: attr(data-title)
+          display: block
+          width: calc(100vw - 80px)
+          font-weight: 500
+          font-size: 12px
+          color: $accent
+          line-height: 1.5
+          text-align: center
+          padding: 0 calc(50vw - 125px) 10px
+
+  .compare-table-parameters
+    display: none
+
+  .basket-page
+    &.empty
+      .basket-page-content
+        min-height: 0
+        display: block
+
+      .error img
+        margin-bottom: 20px
 
 @media (max-width: 575.98px)
   body.dark
@@ -3204,11 +3325,12 @@
 
     .categories-item-title
       font-size: 16px
-      margin-bottom: 15px
+      margin-bottom: 8px
       line-height: 1.2
 
     .categories-item-descr
-      font-size: 12px
+      font-size: 14px
+      line-height: 1.4
 
     .swiper-slide-active
       .categories-item-title
@@ -4356,7 +4478,8 @@
     padding: 20px 0
 
   .brands-row
-    margin-right: 58px
+    .swiper-slide
+      width: calc(100vw - 78px)
 
   .brands-row-item-card
     -webkit-border-radius: 0
@@ -4426,9 +4549,9 @@
   .products-slider-nav-link
     height: 40px
     line-height: 38px
-    padding: 0 30px
+    padding: 0 20px
     font-size: 20px
-    margin-right: 20px
+    margin-right: 10px
 
   .products-slider
     padding-right: 0
@@ -4911,7 +5034,7 @@
 
   .categories-item-img
     &:after
-      background-color: rgba(0, 0, 0, 0.35)
+      background: linear-gradient(180deg, rgba(#000, 0) 0%,rgba(#000, 0) 50%, rgba(#000, .75) 100%)
 
   .similar-pagination
     display: block
@@ -5045,10 +5168,6 @@
         transform: none !important
         opacity: 1 !important
         visibility: visible !important
-
-      .categories-item-img
-        &:after
-          display: none
 
   .catalog-dropdown
     &:not(.opened)
@@ -5348,38 +5467,6 @@
     font-size: 11px
     max-width: none
 
-  .compare-item-parameters
-    ul
-      li
-        display: flex
-        flex-direction: column
-        justify-content: flex-end
-        margin-bottom: 20px
-
-  .compare-item
-    &:first-child
-      .compare-item-parameter
-        height: 100%
-
-        &:first-child
-          &:after
-            display: none
-
-        &:before
-          content: attr(data-title)
-          display: block
-          width: calc(100vw - 20px)
-          font-weight: 500
-          font-size: 12px
-          color: $accent
-          line-height: 1.5
-          text-align: center
-          padding: 0 calc(50vw - 125px) 10px
-
-
-  .compare-table-parameters
-    display: none
-
   .s-products-features
     padding-top: 35px
 
@@ -5435,3 +5522,24 @@
 
   .categories-item-descr
     margin-top: 10px
+
+  .compare-item
+    &:first-child
+      .compare-item-parameter
+        &:before
+          width: calc(100vw - 20px)
+
+  .products-slider-pagination
+    padding-left: 135px
+
+  .products-features-list
+    position: relative
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 1px
+      background-color: #DEDBDB

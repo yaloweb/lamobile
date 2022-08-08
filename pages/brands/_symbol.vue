@@ -2,7 +2,9 @@
 
   <div class="brands-page">
 
-    <SectionBrandsMain />
+    <SectionBrandsMain
+      :loading="loading"
+    />
 
     <section class="s-catalog s-brands-catalog">
       <div class="container">
@@ -59,18 +61,20 @@ export default {
   mixins: [breadcrumbs],
   async fetch () {
     const symbol = this.$route.params.symbol
-    return await Promise.all([
+    const res = await Promise.all([
       this.$store.dispatch('catalog/getCatalog', {
         brandCode: symbol
       }),
       this.$store.dispatch('catalog/getBrandsMainInfo', symbol),
       this.$store.dispatch('catalog/getBrandsCategories', symbol)
     ])
+    this.loading = false
+    return res
   },
   data: () => ({
     sortType: '',
     selectedSubcategory: null,
-    loading: false
+    loading: true
   }),
   computed: {
     ...mapState({

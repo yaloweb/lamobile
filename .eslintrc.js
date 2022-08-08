@@ -21,6 +21,7 @@ module.exports = {
     ],
     'prefer-const': 'off',
     'arrow-parens': 'off',
-    'quote-props': 'off'
+    'quote-props': 'off',
+    'vue/attribute-hyphenation': 'off'
   }
 }

@@ -24,7 +24,9 @@
             :key="index">
             <div
               :class="{visible: index === selectedImageIndex}"
-              class="img-full-slider-list-container">
+              class="img-full-slider-list-container"
+              @click="fullImageScreen = false"
+            >
               <img
                 :src="slide.imgSrc"
                 class="visible"
@@ -56,7 +58,8 @@
 
     <div
       v-if="severalImages && !isMob"
-      class="product-main-img-slider">
+      class="product-main-img-slider"
+    >
 
       <div
         v-if="!isMob"
@@ -81,7 +84,9 @@
               <div
                 v-for="(item, itemIndex) in slide"
                 :key="itemIndex"
-                class="product-main-img-container">
+                class="product-main-img-container"
+                @click="openFullGallery(item, idx)"
+              >
                 <img
                   class="visible"
                   :src="item.imgSrc"
@@ -267,6 +272,18 @@ export default {
           }
         }
       }
+    },
+    openFullGallery (image, index) {
+      const galleryFull = this.$refs[`imgFullSliderList${index}`]
+      const imgGroup = this.productImages.filter(item => item.productId === this.selectedColor)[0]
+      let slideIndex = 0
+      imgGroup?.list.forEach((imgGroupItem, imgGroupItemIndex) => {
+        if (image.imgSrc === imgGroupItem.imgSrc) {
+          slideIndex = imgGroupItemIndex
+        }
+      })
+      galleryFull?.[0]?.$swiper.slideTo(slideIndex, 0)
+      this.fullImageScreen = true
     }
   },
   mounted () {

@@ -16,7 +16,6 @@
         <div class="container">
 
           <BlogList
-            ref="blogList"
             :list="blog"
             :scrollAutoLoad="true"
             :selectedCategory="selectedCategory"

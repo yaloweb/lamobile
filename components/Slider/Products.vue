@@ -62,7 +62,8 @@ export default {
         speed: 600,
         pagination: {
           el: `.products-slider-pagination-${this.index}`,
-          clickable: true
+          clickable: true,
+          dynamicBullets: true
         },
         breakpoints: {
           0: {
@@ -142,6 +143,10 @@ export default {
         document.removeEventListener('wheel', this.wheelListener, { passive: false })
       }
     }
+  },
+
+  beforeDestroy () {
+    this.removeWheelMove()
   }
   // mounted () {
   //   if (this.list.length === 1) {

@@ -2,7 +2,9 @@
 
   <section
     class="s-brands-main"
-    :style="{backgroundImage: `url(${info.bannerImgSrc})`}">
+    :class="{'loading': loading}"
+    :style="{backgroundImage: `url(${info.bannerImgSrc})`}"
+  >
     <div class="container">
 
       <div class="brands-main-window">
@@ -14,10 +16,15 @@
           <div class="brands-main-window-content-right">
 
             <div class="brands-logo-block">
-              <img
+              <div
                 v-if="info.logoSrc.length"
-                :src="info.logoSrc"
-                alt="">
+                class="brands-logo-block-img"
+              >
+                <img
+                  :src="info.logoSrc"
+                  alt=""
+                >
+              </div>
               <span v-else>
                 {{ info.title }}
               </span>
@@ -52,6 +59,9 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'BrandsMain',
+  props: {
+    loading: Boolean
+  },
   computed: {
     ...mapState({
       info: state => state.catalog.brandsMainInfo

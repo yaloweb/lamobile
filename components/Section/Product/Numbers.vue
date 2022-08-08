@@ -10,8 +10,8 @@
       class="block-numbers-row">
 
       <div
-        v-for="element in info.elements"
-        :key="element"
+        v-for="(element, idx) in info.elements"
+        :key="idx"
         class="block-numbers-item">
 
         <div class="block-numbers-item-value">

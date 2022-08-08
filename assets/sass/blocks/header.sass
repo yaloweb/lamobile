@@ -414,8 +414,11 @@
     color: #656768
 
     &:hover
-      border-color: $accent
+      border-color: #c4c4c4
       color: $accent
+
+    &:active
+      border-color: $accent
 
     img
       max-width: 168px
@@ -438,16 +441,16 @@
   align-items: flex-start
 
 .search-catalog-item
-  margin-bottom: 10px
+  margin-bottom: 15px
 
   a
     display: flex
     margin-bottom: 10px
-    font-weight: bold
-    font-size: 16px
+    font-weight: 500
+    font-size: 13px
+    align-items: flex-start
     +tr
     color: #000
-    align-items: flex-start
 
     &:hover
       color: $accent
@@ -502,7 +505,7 @@
   a
     display: flex
     align-items: center
-    font-size: 14px
+    font-size: 13px
     color: #000
     line-height: 1.86
     +tr
@@ -692,3 +695,27 @@
 .search-results-empty
   text-align: center
   font-size: 16px
+
+.header-component
+  &.sticky
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 100
+    transition: transform .4s ease
+
+    &:not(.sticky-visible)
+      transform: translateY(-100%)
+
+    .header
+      background-color: rgba(255, 255, 255, 0.8)
+      border-bottom: 1px solid #F7F7F7
+      padding: 0
+      height: 111px
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+    .header-catalog-block
+      background-color: #f6f6f6

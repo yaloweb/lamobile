@@ -8,7 +8,7 @@
         <div class="container">
 
           <div class="back-to-main-link">
-            <nuxt-link to="/"></nuxt-link>
+            <nuxt-link to="/" />
           </div>
 
           <div class="header-logo">

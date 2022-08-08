@@ -70,17 +70,7 @@
           <div class="footer-col col-2">
             <nav class="footer-nav soc-nav">
               <div class="h6">Ищите нас по хештегу <span>#lamobile</span></div>
-              <div class="soc-list">
-                <a
-                  v-for="soc in global.socList"
-                  :key="soc.id"
-                  :href="soc.url"
-                  target="_blank">
-                  <img
-                    :src="`/img/icons/footer-soc/${soc.title}.svg`"
-                    alt="">
-                </a>
-              </div>
+              <UISocList :list="global.socList" />
             </nav>
           </div>
 
@@ -92,7 +82,9 @@
 
             <div class="footer-copyright">{{ global.footer.copyright }}</div>
 
-            <div class="footer-dev">Дизайн — SUPREMATIKA</div>
+            <div class="footer-dev">
+              <a href="https://suprematika.ru/" target="_blank">Дизайн — SUPREMATIKA</a>
+            </div>
 
           </div>
 

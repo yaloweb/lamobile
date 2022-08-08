@@ -9,38 +9,58 @@
         :options="swiperOptions">
 
         <swiper-slide
-          v-for="slide in slides"
-          :key="slide.id">
-          <div class="banners-slider-img-item">
+          v-for="(slide, index) in slides"
+          :key="slide.id"
+        >
+          <div
+            ref="bannerVideoSlide"
+            class="banners-slider-img-item"
+          >
             <video
               v-if="mob"
+              ref="videoMob"
               :src="(slide.mobVideoSrc || slide.videoSrc) + '#t=0.1'"
+              class="banners-slider-video-mob"
               muted
-              autoplay
-              loop
               preload="metadata"
               playsinline
+              autoplay
+              @ended="videoEnded($event, index)"
             />
             <video
               v-else
+              ref="video"
               :src="slide.videoSrc + '#t=0.1'"
+              class="banners-slider-video"
               muted
-              autoplay
-              loop
               preload="metadata"
               playsinline
+              autoplay
+              @ended="videoEnded($event, index)"
             />
           </div>
           <div
             class="banners-slider-img-item"
             :style="{backgroundImage: `url(${slide.imgSrc})`}"/>
+          <BannerTextContent
+            v-if="mob"
+            :title="slide.title"
+            :descr="slide.descr"
+            :link="slide.link"
+          />
         </swiper-slide>
 
       </swiper>
 
+      <div class="banners-button-prev slider-prev"><span class="icon-arrow-left"></span></div>
+      <div class="banners-button-next slider-next"><span class="icon-arrow-right"></span></div>
+
     </div>
 
-    <div class="main-window-content">
+    <div
+      v-if="!mob"
+      class="main-window-content"
+    >
 
       <div class="container">
 
@@ -49,26 +69,17 @@
           <swiper
             ref="bannersTextSwiper"
             :options="swiperOptions"
-            @slideChange="sliderTextChanged($event)">
+            @slideChange="sliderTextChanged">
 
             <swiper-slide
               v-for="slide in slides"
               :key="slide.id">
-              <div
-                class="banner-item">
 
-                <div
-                  class="banner-item-title"
-                  v-html="slide.title"/>
-                <p v-html="slide.descr"/>
-
-                <UIButton
-                  v-if="slide.link"
-                  :url="slide.link"
-                  title="Подробнее"
-                />
-
-              </div>
+              <BannerTextContent
+                :title="slide.title"
+                :descr="slide.descr"
+                :link="slide.link"
+              />
 
             </swiper-slide>
 
@@ -107,13 +118,7 @@ export default {
   computed: {
     ...mapState({
       logo: state => state.global.logoLightSrc
-    }),
-    bannersImgSwiper () {
-      return this.$refs.bannersImgSwiper.$swiper
-    },
-    bannersTextSwiper () {
-      return this.$refs.bannersTextSwiper.$swiper
-    }
+    })
   },
   data: () => ({
     swiperOptions: {
@@ -139,15 +144,53 @@ export default {
   }),
   methods: {
     sliderImgToSlide (i) {
-      this.bannersImgSwiper.slideTo(i)
+      this.$refs.bannersImgSwiper.$swiper.slideTo(i)
+      this.startVideoByIndex(i)
     },
     sliderTextChanged () {
-      let i = this.bannersTextSwiper.realIndex
+      let i = this.$refs.bannersTextSwiper.$swiper.realIndex
       this.sliderImgToSlide(i)
+    },
+    stopAllVideo () {
+      const videos = this.$refs.video
+      const mobVideos = this.$refs.videoMob
+      if (this.mob && mobVideos) {
+        mobVideos.forEach(video => {
+          video.pause()
+          video.currentTime = 0
+        })
+        return false
+      }
+      if (videos) {
+        videos.forEach(video => {
+          video.pause()
+          video.currentTime = 0
+        })
+      }
+    },
+    startVideoByIndex (index) {
+      const slide = this.$refs.bannerVideoSlide?.[index]
+      if (slide) {
+        const video = slide.querySelector('.banners-slider-video')
+        const videoMob = slide.querySelector('.banners-slider-video-mob')
+        this.stopAllVideo()
+        if (this.mob) {
+          videoMob?.play()
+          return false
+        }
+        video?.play()
+      }
+    },
+    videoEnded (e, index) {
+      const video = e.target
+      const nextIndex = index === (this.slides.length - 1) ? 0 : index + 1
+      video?.play()
+      this.sliderImgToSlide(nextIndex)
+      this.startVideoByIndex(nextIndex)
     }
   },
   mounted () {
-    this.mob = window.innerWidth < 576
+    this.mob = window.innerWidth < 992
   }
 }
 </script>

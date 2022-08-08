@@ -62,7 +62,7 @@
           :value="deliveryServiceItem.id"
           name="deliveryServices"
         >
-          {{ deliveryServiceItem.name.toUpperCase() }}
+          {{ deliveryServiceItem.name }}
           <small v-html="deliveryServiceItem.description" />
         </FormRadio>
 

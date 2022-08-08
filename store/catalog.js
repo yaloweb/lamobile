@@ -14,20 +14,20 @@ export const state = () => ({
   sortList: [
     {
       code: 'default',
-      title: 'по умолчанию'
+      title: 'По умолчанию'
     },
     {
       code: 'price',
-      title: 'по цене'
+      title: 'По цене'
     },
     {
       code: 'title',
-      title: 'по названию'
+      title: 'По названию'
     }
   ],
   selectedSort: {
     code: 'default',
-    title: 'по умолчанию'
+    title: 'По умолчанию'
   },
   selectedSubcategory: null,
   brandsSubcategories: []

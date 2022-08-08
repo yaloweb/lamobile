@@ -1,6 +1,12 @@
 <template>
 
-  <div class="header-component">
+  <div
+    class="header-component"
+    :class="{
+      'sticky': sticky,
+      'sticky-visible': stickyVisible
+    }"
+  >
 
     <header
       class="header"
@@ -85,7 +91,7 @@
                 <a
                   href="#"
                   class="header-account-btn"
-                  @click="accountDropdown = true">
+                  @click.prevent="accountDropdown = true">
                   <span class="icon-user"></span>
                 </a>
                 <div class="header-acc-dropdown">
@@ -324,6 +330,10 @@ export default {
     light: {
       type: Boolean,
       default: false
+    },
+    sticky: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -350,7 +360,12 @@ export default {
         }
       })
       this.searchLoading = true
-    }, 200)
+    }, 200),
+    stickyVisible (val) {
+      if (!val) {
+        this.catalog = false
+      }
+    }
   },
   data: () => ({
     activeTab: 1,
@@ -363,7 +378,8 @@ export default {
     fixed: false,
     visible: false,
     accountDropdown: false,
-    isMob: false
+    isMob: false,
+    stickyVisible: false
   }),
   methods: {
     toggleCatalog () {
@@ -392,12 +408,15 @@ export default {
       this.search = ''
     },
     pageScrollEvent () {
+      const t = window.pageYOffset
       if (window.innerWidth < 576) {
-        const t = window.pageYOffset
         this.fixed = t > 0
         this.visible = this.pageScroll > t
-        this.pageScroll = t
       }
+      if (this.sticky) {
+        this.stickyVisible = t > 300 && t < this.pageScroll
+      }
+      this.pageScroll = t
     },
     checkMob () {
       this.isMob = window.innerWidth < 768

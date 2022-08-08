@@ -1,109 +1,112 @@
 <template>
 
-  <div class="basket-page">
+  <div
+    class="basket-page"
+    :class="{'empty': !products.length}"
+  >
 
     <UIBreadcrumbs/>
 
-    <div class="container">
-      <UIPageTitle title="Корзина" />
-    </div>
+    <div class="basket-page-content">
 
-    <section
-      v-if="products.length"
-      class="s-basket">
       <div class="container">
+        <UIPageTitle :title="products.length ? 'Корзина' : 'Корзина пуста' "/>
+      </div>
 
-        <div class="basket-row">
+      <section
+        v-if="products.length"
+        class="s-basket">
+        <div class="container">
 
-          <div class="basket-main">
+          <div class="basket-row">
 
-            <div
-              class="basket-list"
-              v-loading="updateBasket">
-
-              <CatalogListItem
-                v-for="product in products"
-                :key="product.id"
-                ref="product"
-                :item="product"
-                :index="product.id"
-                @delete="sendOrder"
-                @update="sendOrder"
-              />
+            <div class="basket-main">
 
               <div
-                v-if="gifts.length ? gifts.list.length > 0 : false"
-                class="basket-gifts-block">
+                class="basket-list"
+                v-loading="updateBasket">
 
-                <div class="basket-gifts-block-text">
-                  <div class="h5">Подарок</div>
-                  <p v-html="gifts.descr"/>
-                </div>
+                <CatalogListItem
+                  v-for="product in products"
+                  :key="product.id"
+                  ref="product"
+                  :item="product"
+                  :index="product.id"
+                  @delete="sendOrder"
+                  @update="sendOrder"
+                />
 
-                <div class="basket-gifts-block-items">
-                  <div
-                    v-for="item in gifts.list"
-                    :key="item.id"
-                    class="basket-gifts-block-item">
-                    <img
-                      :src="item.imgSrc"
-                      alt="">
+                <div
+                  v-if="gifts.length ? gifts.list.length > 0 : false"
+                  class="basket-gifts-block">
+
+                  <div class="basket-gifts-block-text">
+                    <div class="h5">Подарок</div>
+                    <p v-html="gifts.descr"/>
                   </div>
+
+                  <div class="basket-gifts-block-items">
+                    <div
+                      v-for="item in gifts.list"
+                      :key="item.id"
+                      class="basket-gifts-block-item">
+                      <img
+                        :src="item.imgSrc"
+                        alt="">
+                    </div>
+                  </div>
+
                 </div>
 
               </div>
 
+              <BasketRecommended
+                v-if="recommended"
+                :list="recommended"
+              />
+
+              <BasketOrdering :loading="updateBasket || orderLoad"/>
+
             </div>
 
-            <BasketRecommended
-              v-if="recommended"
-              :list="recommended"
+            <BasketTotal
+              :loading="updateBasket"
+              :productLength="total.products.quantity"
+              :delivery="total.delivery"
+              :discount="total.discount"
+              :total="total.products.price"
             />
-
-            <BasketOrdering :loading="updateBasket || orderLoad"/>
 
           </div>
 
-          <BasketTotal
-            :loading="updateBasket"
-            :productLength="total.products.quantity"
-            :delivery="total.delivery"
-            :discount="total.discount"
-            :total="total.products.price"
-          />
+        </div>
+      </section>
+
+      <section
+        v-else
+        class="basket-empty">
+
+        <div class="error">
+
+          <img
+            src="/img/logo-lion.svg"
+            alt="">
+
+          <nav class="error-nav">
+            <div class="h4">Вот несколько ссылок,<br>которые могут быть вас заинтересовать </div>
+            <ul>
+              <li><nuxt-link to="/">Главная</nuxt-link></li>
+              <li><nuxt-link to="/magazine">Журнал</nuxt-link></li>
+              <li><nuxt-link to="/about">О нас</nuxt-link></li>
+              <li><nuxt-link to="/for-users?page=contacts">Контакты</nuxt-link></li>
+            </ul>
+          </nav>
 
         </div>
 
-      </div>
-    </section>
+      </section>
 
-    <section
-      v-else
-      class="basket-empty">
-
-      <div class="error">
-
-        <div class="h2">Корзина пуста</div>
-
-        <img
-          src="/img/logo-lion.svg"
-          alt="">
-
-        <nav class="error-nav">
-          <div class="h4">Посмотрите предложения на главной странице, воспользуйтесь каталогом или поиском</div>
-          <ul>
-            <li>
-              <nuxt-link to="/">Главная</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link to="/catalog">Каталог</nuxt-link>
-            </li>
-          </ul>
-        </nav>
-
-      </div>
-
-    </section>
+    </div>
 
   </div>
 
@@ -116,17 +119,19 @@ import breadcrumbs from '@/mixins/breadcrumbs'
 
 export default {
   name: 'Basket',
-  head: {
-    bodyAttrs: {
-      class: 'basket-page-body'
-    },
-    script: [
-      {
-        id: 'ISDEKscript',
-        type: 'text/javascript',
-        src: 'https://widget.cdek.ru/widget/widjet.js'
-      }
-    ]
+  head () {
+    return {
+      bodyAttrs: {
+        class: ['basket-page-body', !this.products.length ? 'backet-page-empty' : '']
+      },
+      script: [
+        {
+          id: 'ISDEKscript',
+          type: 'text/javascript',
+          src: 'https://widget.cdek.ru/widget/widjet.js'
+        }
+      ]
+    }
   },
   mixins: [breadcrumbs],
   computed: {

@@ -80,8 +80,8 @@ export default {
       offset: 0,
       page: 0,
       sortList: [
-        { code: 'date_asc', title: 'Сначала новые' },
-        { code: 'date_desc', title: 'Сначала старые' }
+        { code: 'date_asc', title: 'По новизне' },
+        { code: 'brand_asc', title: 'По брендам' }
       ],
       selectedSort: null
     }

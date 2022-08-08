@@ -3,10 +3,10 @@
   <div class="product-item">
 
     <div
-      v-if="item.tag"
+      v-if="item.isNew"
       class="product-item-tag"
-      :class="item.tag ? item.tag.color : ''">
-      {{item.tag.title}}
+    >
+      Новинка
     </div>
 
     <div

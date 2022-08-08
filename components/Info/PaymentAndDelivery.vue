@@ -15,10 +15,10 @@
         class="delivery-cities-item">
         <div
           class="h4"
-          v-html="city.name"/>
+          v-html="city.title"/>
         <div
           class="delivery-cities-item-content"
-          v-html="city.content"/>
+          v-html="city.descr"/>
       </div>
 
     </div>

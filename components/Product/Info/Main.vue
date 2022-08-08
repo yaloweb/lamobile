@@ -66,7 +66,7 @@
               @click="$emit('select-color', color.productId)"/>
           </div>
           <div class="product-selected-color-title">
-            {{ selectedColorObject.title }}
+            {{ selectedColorObject.name }}
           </div>
         </div>
 

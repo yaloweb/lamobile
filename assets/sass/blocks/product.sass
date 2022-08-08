@@ -33,6 +33,8 @@
     overflow: hidden
 
     .product-main-img-container
+      cursor: pointer
+
       &:first-child:last-child
         grid-column: span 2
         padding-bottom: calc(50% - 12.5px)
@@ -66,6 +68,12 @@
     &.visible
       opacity: 1
       visibility: visible
+
+.product-img-nav-prev,
+.product-img-nav-next
+  &:hover
+    background-color: #fff
+    color: #7A7A7A
 
 .product-img-nav-prev
   position: absolute
@@ -288,7 +296,7 @@
 
 .products-features-descr
   padding-top: 25px
-  border-top: 1px solid #7a7a7a
+  border-top: 1px solid #DEDBDB
 
 .products-features-descr-content
   max-width: 1015px
@@ -371,7 +379,7 @@
 .product-description
   margin-bottom: 50px
   padding-bottom: 60px
-  border-bottom: 1px solid #7A7A7A
+  border-bottom: 1px solid #DEDBDB
 
   .h3
     margin-bottom: 30px
@@ -391,7 +399,7 @@
   margin-bottom: 60px
   padding-top: 50px
   margin-top: 40px
-  border-top: 1px solid #7a7a7a
+  border-top: 1px solid #DEDBDB
 
 .set-list
   list-style-type: none
@@ -867,6 +875,7 @@
   width: 100%
   height: 100%
   z-index: 3
+  cursor: pointer
   +tr4
 
   img
@@ -902,6 +911,11 @@
   align-items: center
   justify-content: center
   cursor: pointer
+  +tr
+
+  &.swiper-button-disabled
+    opacity: 0
+    visibility: hidden
 
   &:after
     font-family: icon
@@ -909,6 +923,10 @@
     color: #C4C4C4
     font-weight: normal
     line-height: 1
+
+  &:hover
+    background-color: #fff
+    color: #7A7A7A
 
 .img-full-slider-prev
   left: 20px
@@ -1076,14 +1094,33 @@
   display: flex
   align-items: center
   justify-content: center
+  margin-left: auto
+  margin-right: auto
+  width: 100% !important
+  padding-left: 120px
 
   .swiper-pagination-bullet
     width: 10px
     height: 10px
-    margin: 0 16px
+    flex-shrink: 0
+    margin: 0 5px
     background-color: #C4C4C4
     +tr
     opacity: 1
+
+  .swiper-pagination-bullet
+    transform: scale(0)
+
+  .swiper-pagination-bullet-active-prev-prev,
+  .swiper-pagination-bullet-active-next-next
+    transform: scale(0.33)
+
+  .swiper-pagination-bullet-active-prev,
+  .swiper-pagination-bullet-active-next
+    transform: scale(0.66)
+
+  .swiper-pagination-bullet-active-main
+    transform: scale(1)
 
   .swiper-pagination-bullet-active
     background-color: $accent
@@ -1139,8 +1176,8 @@
   transition: border-color .3s ease, color .3s ease
 
   &:hover
-    border-color: $accent
-    color: $accent
+    background-color: #fff
+    color: #7A7A7A
 
 .product-main-delivery-info
   display: flex
@@ -1203,6 +1240,7 @@
 .product-selected-color-title
   margin-top: 13px
   color: #7a7a7a
+  text-transform: capitalize
 
 .product-main-price
   margin-bottom: 25px
@@ -1696,6 +1734,7 @@
   font-weight: bold
   margin-bottom: 54px
   line-height: 1.167
+  white-space: nowrap
 
   span
     font-size: 20px
@@ -1845,10 +1884,15 @@
     font-size: 20px
     font-weight: bold
     color: #000
+    border: 1px solid #fff
     +tr
 
     &:hover
-      color: $accent
+      border-color: #c4c4c4
+
+    &.active,
+    &:active
+      border-color: $accent
 
     &:after
       content: '\e922'
@@ -1864,7 +1908,7 @@
   top: 90px
   left: 0
   width: 100%
-  z-index: 5
+  z-index: 12
   background-color: #fff
   border-top: 1px solid #DEDBDB
   border-bottom: 1px solid #DEDBDB

@@ -10,7 +10,7 @@
         :key="element.id"
         class="chess-img-with-text-item"
         :class="element.imgPosition"
-        :style="{backgroundColor: element.background}">
+        :style="{backgroundColor: colorFixDoubleHash(element.background)}">
         <div class="chess-img-with-text-item-img">
           <img
             v-if="element.img"
@@ -20,7 +20,8 @@
         </div>
         <div
           class="chess-img-with-text-item-text"
-          :color="element.textColor">
+          :color="colorFixDoubleHash(element.textColor)">
+          {{ colorFixDoubleHash(element.background) }}
           <div
             v-if="element.title"
             class="h2"
@@ -43,6 +44,14 @@ export default {
   name: 'ChessImgWithText',
   props: {
     info: Object
+  },
+  methods: {
+    colorFixDoubleHash (color) {
+      // Иногда с бэка прилетают по несколько хэшей
+      if (typeof color === 'string') {
+        return color.replace('##', '#')
+      }
+    }
   }
 }
 </script>

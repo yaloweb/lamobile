@@ -10,13 +10,13 @@
 
         <div
           class="accordion"
-          :class="{'active': accordionOpened.length !== 0}">
+          :class="{'active': activeAccordion !== 0}">
 
           <AccordionItem
             v-for="infoItem in infoList"
             :key="infoItem.key"
             :ref="infoItem.key"
-            :opened="accordionOpened.indexOf(infoItem.key) !== -1"
+            :opened="activeAccordion === infoItem.key"
             @toggle="toggle($event, infoItem.key)"
           >
             <template #header>
@@ -48,12 +48,11 @@ export default {
   },
   watch: {
     '$route.query.page' (val) {
-      this.accordionOpened = [val]
+      this.activeAccordion = val
       this.scrollTo(val)
     }
   },
   data: () => ({
-    accordionOpened: [],
     breadcrumbs: [
       {
         title: 'Пользователям'
@@ -85,11 +84,12 @@ export default {
         title: 'Контакты',
         componentName: 'InfoContacts'
       }
-    ]
+    ],
+    activeAccordion: 0
   }),
   methods: {
     toggle (bool, id) {
-      bool ? this.accordionOpened = this.accordionOpened.filter(item => item !== id) : this.accordionOpened.push(id)
+      this.activeAccordion = bool ? 0 : id
     },
     scrollTo (val) {
       const item = this.$refs[val]
@@ -108,7 +108,7 @@ export default {
   mounted () {
     const page = this.$route.query.page
     if (page) {
-      this.accordionOpened.push(page)
+      this.activeAccordion = page
       this.scrollTo(page)
     }
   }
