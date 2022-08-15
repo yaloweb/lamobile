@@ -23,7 +23,8 @@
           <div
             class="header-catalog"
             ref="headerCatalog"
-            :class="{'active': catalog}">
+            :class="{'active': catalog}"
+          >
 
             <div class="header-catalog-block">
 
@@ -95,7 +96,7 @@
                   <span class="icon-user"></span>
                 </a>
                 <div class="header-acc-dropdown">
-                  <a href="http://lamobile-opt.bikdev.ru/login" class="opt-site-link"><span class="icon-arrow-right-circle" /> Вход для оптовых клиентов</a>
+                  <a href="http://dev-opt.lamobile.ru/login" class="opt-site-link"><span class="icon-arrow-right-circle" /> Вход для оптовых клиентов</a>
                 </div>
               </div>
               <nuxt-link
@@ -117,9 +118,11 @@
     </header>
 
     <div
+      ref="catalogDropdown"
       class="catalog-dropdown"
       :class="{'opened': catalog}"
-      v-loading="searchLoading">
+      v-loading="searchLoading"
+    >
 
       <div class="catalog-dropdown-content">
 
@@ -235,11 +238,14 @@
 
           <div
             v-show="activeTab === 2"
-            class="catalog-dropdown-content-tab">
+            class="catalog-dropdown-content-tab"
+          >
 
             <div
               v-if="searchResults.accessories.length || searchResults.categories.length || searchResults.products.length"
-              class="search-results-main">
+              class="search-results-main"
+              @touchmove.stop
+            >
 
               <div
                 v-if="searchResults.products.length"
@@ -316,6 +322,10 @@
 import { mapState } from 'vuex'
 import { debounce } from '@/helpers/debounce'
 
+const touchPrevent = e => {
+  e.preventDefault()
+}
+
 export default {
   name: 'LayoutsHeader',
   props: {
@@ -364,6 +374,17 @@ export default {
     stickyVisible (val) {
       if (!val) {
         this.catalog = false
+      }
+    },
+    catalog (val) {
+      if (this.isMob) {
+        if (val) {
+          document.querySelector('html').classList.add('no-scroll')
+          document.addEventListener('touchmove', touchPrevent, { passive: false })
+        } else {
+          document.querySelector('html').classList.remove('no-scroll')
+          document.removeEventListener('touchmove', touchPrevent)
+        }
       }
     }
   },
