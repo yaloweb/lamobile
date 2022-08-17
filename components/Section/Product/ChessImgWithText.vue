@@ -20,8 +20,7 @@
         </div>
         <div
           class="chess-img-with-text-item-text"
-          :color="colorFixDoubleHash(element.textColor)">
-          {{ colorFixDoubleHash(element.background) }}
+          :style="{'color': colorFixDoubleHash(element.textColor)}">
           <div
             v-if="element.title"
             class="h2"

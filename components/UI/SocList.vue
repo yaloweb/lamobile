@@ -4,6 +4,7 @@
       v-for="soc in list"
       :key="soc.id"
       :href="soc.url"
+      :class="soc.title"
       target="_blank">
       <img
         :src="getImg(soc.title)"

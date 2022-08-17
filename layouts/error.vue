@@ -10,7 +10,7 @@
           alt="">
 
         <nav class="error-nav">
-          <div class="h4">Вот несколько ссылок,<br>которые могут быть вас заинтересовать</div>
+          <div class="h4">Вот несколько ссылок,<br>которые могут вас заинтересовать</div>
           <ul>
             <li>
               <nuxt-link to="/catalog">Каталог</nuxt-link>

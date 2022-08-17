@@ -34,7 +34,11 @@
     </div>
 
     <div class="form-footer-link">
-      <router-link to="/for-users">Контакты</router-link>
+      <a
+        href="/for-users?page=contacts"
+        @click.prevent="goToContactPage"
+      >Контакты
+      </a>
     </div>
 
     <FormSuccess
@@ -86,6 +90,10 @@ export default {
           alert('Ошибка!')
         }
       }
+    },
+    goToContactPage () {
+      this.$router.push('/for-users?page=contacts')
+      this.$emit('close-modal')
     }
   }
 }

@@ -3,7 +3,9 @@
     :show="callbackPopup"
     @close="closeCallbackPopup"
   >
-    <FormCallback />
+    <FormCallback
+      @close-modal="closeCallbackPopup"
+    />
   </Popup>
 </template>
 

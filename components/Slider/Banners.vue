@@ -144,7 +144,8 @@ export default {
   }),
   methods: {
     sliderImgToSlide (i) {
-      this.$refs.bannersImgSwiper.$swiper.slideTo(i)
+      this.$refs.bannersImgSwiper?.$swiper.slideTo(i)
+      this.$refs.bannersTextSwiper?.$swiper.slideTo(i)
       this.startVideoByIndex(i)
     },
     sliderTextChanged () {

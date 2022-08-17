@@ -156,15 +156,30 @@
     filter: grayscale(1)
     margin: 0 15px 0 0
 
+    &.Instagram
+      opacity: .8
+
+    &.Live,
+    &.Ozon
+      opacity: .85
+
+    &.Yandex
+      opacity: .65
+
+    &.YouTube
+      opacity: .8
+
     img
       display: block
       width: 25px
+      border-radius: 7px
 
     &:last-child
       margin-right: 0
 
     &:hover
       filter: grayscale(0)
+      opacity: 1
 
 .footer-nav-menu
   flex-direction: row

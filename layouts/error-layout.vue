@@ -3,7 +3,6 @@
     <LayoutsHeader
       :logo="false"
       :positionAbsolute="true"
-      :light="true"
     />
 
     <LayoutsHeader
@@ -12,7 +11,7 @@
 
     <Nuxt/>
 
-    <LayoutsFooter :light="true"/>
+    <LayoutsFooter/>
 
     <PopupError />
 
