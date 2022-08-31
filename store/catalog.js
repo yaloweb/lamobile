@@ -29,6 +29,12 @@ export const state = () => ({
     code: 'default',
     title: 'По умолчанию'
   },
+  meta: {
+    title: null,
+    keywords: null,
+    description: null,
+    h1: null
+  },
   selectedSubcategory: null,
   brandsSubcategories: []
 })
@@ -75,6 +81,9 @@ export const mutations = {
       })
     }
   },
+  setCatalogMeta (state, meta) {
+    state.meta = meta
+  },
   setCatalog (state, array) {
     state.catalog = array
   },
@@ -112,14 +121,14 @@ export const actions = {
     let newRes = []
     let popularRes = []
     let recommendedRes = []
-    const newResPromise = this.$axios.get('/catalog/product?new=y').then(resp => {
-      newRes = resp.data
+    const newResPromise = this.$axios.$get('/catalog/product?new=y').then(resp => {
+      newRes = resp.list
     })
-    const popularResPromise = this.$axios.get('/catalog/product?popular=y').then(resp => {
-      popularRes = resp.data
+    const popularResPromise = this.$axios.$get('/catalog/product?popular=y').then(resp => {
+      popularRes = resp.list
     })
-    const recommendedResPromise = this.$axios.get('/catalog/product?recommended=y').then(resp => {
-      recommendedRes = resp.data
+    const recommendedResPromise = this.$axios.$get('/catalog/product?recommended=y').then(resp => {
+      recommendedRes = resp.list
     })
     await Promise.all([
       newResPromise,
@@ -136,8 +145,8 @@ export const actions = {
     const res = await this.$axios.$get('/catalog/product', {
       params
     })
-    // const res = await this.$axios.$get('/catalog')
-    commit('setCatalog', res)
+    commit('setCatalog', res.list)
+    commit('setCatalogMeta', res.meta)
   },
   async getBrandsMainInfo ({ commit }, symbol) {
     const res = await this.$axios.$get(`/catalog/brand/${symbol}`)
@@ -149,7 +158,8 @@ export const actions = {
         category
       }
     })
-    commit('setCatalog', res)
+    commit('setCatalogMeta', res.meta)
+    commit('setCatalog', res.list)
   },
   async getBrandsCategories ({ commit }, brandCode) {
     const res = await this.$axios.$get('/catalog/category',

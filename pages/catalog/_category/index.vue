@@ -82,6 +82,13 @@ import breadcrumbs from '@/mixins/breadcrumbs'
 export default {
   name: 'CatalogPage',
   mixins: [breadcrumbs],
+  head () {
+    return {
+      title: this.meta.title ?? 'Каталог',
+      description: this.meta.description,
+      keywords: this.meta.keywords
+    }
+  },
   data: () => ({
     sortType: '',
     selectedSubcategory: null,
@@ -95,7 +102,8 @@ export default {
   }),
   computed: {
     ...mapState({
-      categories: state => state.catalog.categories
+      categories: state => state.catalog.categories,
+      meta: state => state.catalog.meta
     }),
     categoriesFilter () {
       return this.$store.getters['catalog/categoriesFilter']

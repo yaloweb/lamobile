@@ -1,7 +1,11 @@
 <template>
   <div
     class="product-main-info"
-    :class="{'not-available': !inStock}">
+    :class="{
+      'not-available': !inStock,
+      'only-one-color': !hasMultipleColors
+    }"
+  >
 
     <div class="product-main-info-container">
 
@@ -49,7 +53,9 @@
 
       <div class="product-main-info-content">
 
-        <div class="product-main-id"><span>ID товара: {{ productMainInfo.productId }}</span></div>
+        <div class="product-main-id">
+          <span>ID товара: {{ productMainInfo.productId }}</span>
+        </div>
 
         <div class="product-title">
           <h1 v-html="title"/>
@@ -73,10 +79,6 @@
         <div
           v-if="inStock"
           class="product-main-price">{{ colors ? selectedColorObject.price : price | priceFilter }} ₽</div>
-
-        <div
-          v-if="!inStock"
-          class="product-main-not-avaliable">Данной модели нет в наличии</div>
 
         <div
           v-if="inStock"
@@ -170,6 +172,9 @@ export default {
     },
     inStock () {
       return this.selectedColorObject.inStock
+    },
+    hasMultipleColors () {
+      return this.colors && this.colors.length > 1
     }
   },
   data: () => ({

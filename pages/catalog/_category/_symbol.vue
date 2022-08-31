@@ -20,12 +20,13 @@
 
         <div class="product-main">
 
-          <ProductInfoImages :selectedColor="selectedColor"/>
+          <ProductInfoImages :selectedColor="selectedColor" />
 
           <ProductInfoMain
             :selectedColor="selectedColor"
             :class="{'loading': loading}"
-            @select-color="selectedColor = $event"/>
+            @select-color="selectedColor = $event"
+          />
 
         </div>
 
@@ -141,7 +142,8 @@ export default {
       this.$nuxt.error({ statusCode: 404 })
     })
     const promises = await Promise.all([
-      this.$store.dispatch('recommended/getRecommended', this.productId)
+      this.$store.dispatch('recommended/getRecommended', this.productId),
+      this.$store.dispatch('text/getProductText')
     ])
     this.loading = false
     this.setDefaultColor()

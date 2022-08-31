@@ -3,9 +3,12 @@
     class="find-about-admission-form"
     @submit.prevent="sendAdmissionForm">
 
-    <div class="form-descr">Оставьте свой e-mail, или номер телефона и имя, <br>а мы оповестим вас, когда товар
-      появится в наличии
-    </div>
+    <div class="form-title">{{ notAvailableText.title || 'Данной модели нет в наличии' }}</div>
+
+    <div
+      class="form-descr"
+      v-html="notAvailableText.text || 'Оставьте свой e-mail, или номер телефона и имя, <br>а мы оповестим вас, когда товар появится в наличии'"
+    />
 
     <FormSuccess
       :opened="success"
@@ -47,6 +50,7 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
+import { mapState } from 'vuex'
 
 export default {
   name: 'FormAdmission',
@@ -63,6 +67,11 @@ export default {
     privacyPolicy: true,
     success: false
   }),
+  computed: {
+    ...mapState({
+      notAvailableText: state => state.text.product.notAvailable
+    })
+  },
   methods: {
     sendAdmissionForm () {
       if (this.$v.$invalid) {
@@ -82,6 +91,11 @@ export default {
           this.$v.$reset()
         }, 3000)
       })
+    }
+  },
+  async fetch () {
+    if (!this.notAvailableText.title) {
+      return await this.$store.dispatch('text/getProductText')
     }
   }
 }
